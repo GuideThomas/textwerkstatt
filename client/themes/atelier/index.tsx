@@ -8,7 +8,6 @@
 import { useTranslation } from 'react-i18next';
 import type { Thema } from '../../src/thema/typ';
 import { einstellungen } from '../../src/einstellungen';
-import Skizzen from './Skizzen';
 
 const SCHWESTERN = [
   { name: 'Luminaire Inspirator', href: 'https://thomaswinkler.art/' },
@@ -97,7 +96,8 @@ const thema: Thema = {
 
   unterreiterAktiv: 'border-brass-500',
   Fuss,
-  Hintergrund: Skizzen,
+  // Ohne Skizzen-Hintergrund (TW-CD-Guide §6): Entscheid Thomas 13.11.2026, der Papiergrund bleibt
+  Hintergrund: null,
   kategorieFarbe: '#b88228',
 };
 

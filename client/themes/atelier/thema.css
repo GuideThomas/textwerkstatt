@@ -72,8 +72,8 @@
   --login-zweitknopf-rand:    1px solid #33302b;
   --login-zweitknopf-text:    #141311;
 
-  /* Seitengrund durchsichtig, damit die Skizzen dahinter sichtbar sind; das Papier trägt body */
-  --pal-main-bg:      transparent;
+  /* Papiergrund ohne Skizzen (Entscheid Thomas 13.11.2026: „Hintergrund farbig, Skizzen weg“) */
+  --pal-main-bg:      #fbf9f5;
   --pal-card-bg:      rgba(251, 249, 245, 0.95);
   --pal-card-border:  #dfd9cd;
   --pal-card-divider: #dfd9cd;
@@ -93,14 +93,6 @@ html h2, html h3, html .card-header-title { font-weight: 500; color: #1f1d1a; }
 
 /* Links: Messing 700 mit Abstand der Unterstreichung, Hover Tusche (§5) */
 html a { text-underline-offset: 3px; }
-
-/* Hintergrund-Skizzen (§6): hinter allem, ohne Zeiger, im Druck aus */
-.tw-skizzen {
-  position: fixed; inset: 0; z-index: -1;
-  pointer-events: none; user-select: none; overflow: hidden;
-  color: #47433d; opacity: 0.075;
-}
-.tw-skizzen svg { display: block; width: 100%; height: 100%; }
 
 /* --------------------------------------------------------------------------
    Anti-Liste (§1) auf die gemeinsamen Klassen
@@ -136,6 +128,5 @@ html .text-gray-300, html .disabled\:text-gray-300:disabled, html .input::placeh
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 @media print {
-  .tw-skizzen { display: none; }
   html, html body { background: #fff; color: #000; }
 }

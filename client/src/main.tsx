@@ -17,7 +17,7 @@ ladeEinstellungen().then(async () => {
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
       <ErrorBoundary context="App">
-        {/* Hintergrund und Footer des Themas (Atelier: Skizzen, Querverlinkung); ein Thema ohne setzt `null` */}
+        {/* Hintergrund und Footer des Themas (Atelier: nur der Footer mit Querverlinkung); ein Thema ohne setzt `null` */}
         {thema.Hintergrund && <thema.Hintergrund />}
         {/* Nur in der Demo sichtbar, über jeder Seite (PLAN-oeffentlich-und-demo.md Phase 2) */}
         <DemoHinweis />
