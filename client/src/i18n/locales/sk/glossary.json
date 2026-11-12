@@ -1,0 +1,453 @@
+{
+  "glossaries": {
+    "header": {
+      "title": "Glosáre",
+      "subtitle": "Správa terminológie a integrácia DeepL"
+    },
+    "list": {
+      "title": "Glosáre",
+      "empty": "Žiadne glosáre",
+      "entryCount_one": "{{count}} záznam",
+      "entryCount_few": "{{count}} záznamy",
+      "entryCount_many": "{{count}} záznamu",
+      "entryCount_other": "{{count}} záznamov",
+      "csvExportTitle": "Export CSV",
+      "notSynced": "Zmeny nie sú synchronizované",
+      "syncedAt": "Aktuálne v DeepL (v{{version}})",
+      "syncing": "Synchr...",
+      "sync": "Synchr.",
+      "houseTerms": "Firemný pravopis",
+      "houseTermsHint": "len nemčina · bez DeepL",
+      "zuPflegen_one": "{{count}} bez prekladu",
+      "zuPflegen_few": "{{count}} bez prekladu",
+      "zuPflegen_many": "{{count}} bez prekladu",
+      "zuPflegen_other": "{{count}} bez prekladu",
+      "zuPflegenTitle_one": "Riadky bez prekladu nemajú účinok: DeepL tam prekladá voľne, kým niekto nepotvrdí preklad.",
+      "zuPflegenTitle_few": "Riadky bez prekladu nemajú účinok: DeepL tam prekladá voľne, kým niekto nepotvrdí preklad.",
+      "zuPflegenTitle_many": "Riadky bez prekladu nemajú účinok: DeepL tam prekladá voľne, kým niekto nepotvrdí preklad.",
+      "zuPflegenTitle_other": "Riadky bez prekladu nemajú účinok: DeepL tam prekladá voľne, kým niekto nepotvrdí preklad.",
+      "hinweise_one": "{{count}} s poznámkou",
+      "hinweise_few": "{{count}} s poznámkou",
+      "hinweise_many": "{{count}} s poznámkou",
+      "hinweise_other": "{{count}} s poznámkou",
+      "hinweiseSchreibung_one": "{{count}} len pravopis",
+      "hinweiseSchreibung_few": "{{count}} len pravopis",
+      "hinweiseSchreibung_many": "{{count}} len pravopis",
+      "hinweiseSchreibung_other": "{{count}} len pravopis",
+      "hinweiseTitle": "Riadky s kontrolnou poznámkou. Poznámka nikdy nezačne platiť sama.",
+      "unnoetig_one": "{{count}} zbytočných",
+      "unnoetig_few": "{{count}} zbytočných",
+      "unnoetig_many": "{{count}} zbytočných",
+      "unnoetig_other": "{{count}} zbytočných",
+      "unnoetigTitle": "Riadky, ktoré oproti DeepL bez glosára nič nemenia. Postrádateľné vo všetkých jazykoch: {{ueberall}}."
+    },
+    "alerts": {
+      "syncError": "Chyba synchronizácie: {{error}}",
+      "syncFailed": "Synchronizácia zlyhala",
+      "bulkApproveConfirm_one": "Schváliť {{count}} záznam na tejto strane?",
+      "bulkApproveConfirm_few": "Schváliť {{count}} záznamy na tejto strane?",
+      "bulkApproveConfirm_many": "Schváliť {{count}} záznamu na tejto strane?",
+      "bulkApproveConfirm_other": "Schváliť {{count}} záznamov na tejto strane?",
+      "speichernFehler": "Uloženie zlyhalo: {{error}}"
+    },
+    "entries": {
+      "count_one": "({{count}} záznam)",
+      "count_few": "({{count}} záznamy)",
+      "count_many": "({{count}} záznamu)",
+      "count_other": "({{count}} záznamov)",
+      "searchPlaceholder": "Hľadať...",
+      "channelHint": "Štandardný stĺpec = {{org}}. Stĺpce kanálov nechajte prázdne → použije sa štandard."
+    },
+    "filter": {
+      "all": "Všetky",
+      "pending": "Otvorené",
+      "approved": "Schválené",
+      "zuPflegen": "Bez prekladu",
+      "vorschlaege": "Návrhy"
+    },
+    "bulk": {
+      "title": "Schváliť všetky otvorené záznamy viditeľné na tejto strane",
+      "busy": "Schvaľuje sa…",
+      "button": "✓ Schváliť stranu ({{count}})"
+    },
+    "form": {
+      "sourcePlaceholder": "Zdrojový výraz",
+      "targetPlaceholder": "Cieľový výraz (štandard)",
+      "quelleFehlt": "Zadajte, prosím, zdrojový výraz.",
+      "zielFehlt": "Zadajte, prosím, cieľový výraz alebo ho načítajte cez „Návrh DeepL“. Bez cieľového výrazu rozhoduje DeepL; na to netreba záznam.",
+      "angelegt": "„{{begriff}}“ vytvorené. Zoznam teraz ukazuje tento výraz; vymazaním vyhľadávania sa opäť zobrazí všetko."
+    },
+    "table": {
+      "approvedHeaderTitle": "Schválené?"
+    },
+    "entry": {
+      "approvedTitle": "Schválené ({{source}}). Kliknutím schválenie zrušíte.",
+      "pendingTitle": "Ešte otvorené ({{source}}). Kliknutím schválite.",
+      "editStandardTitle": "Upraviť štandard ({{org}}). Povinné pole — nesmie byť prázdne.",
+      "overrideTitle": "Vlastná hodnota pre {{channel}}: {{value}}\nKliknutím upravíte, vymazaním sa použije štandard",
+      "noOverrideTitle": "Žiadna vlastná hodnota pre {{channel}}. Kliknutím ju nastavíte.",
+      "historyTitle": "Zobraziť históriu zmien",
+      "deleteTitle": "Odstrániť záznam",
+      "zuPflegenTitle": "Zatiaľ bez prekladu: riadok nemá účinok.",
+      "editTermTitle": "Premenovať nemecký výraz. Platí len pre tento glosár."
+    },
+    "pagination": {
+      "prev": "Späť",
+      "next": "Ďalej",
+      "page": "Strana {{page}} z {{total}}"
+    },
+    "empty": {
+      "selectGlossary": "Vyberte glosár zo zoznamu"
+    },
+    "history": {
+      "title": "História zmien",
+      "loading": "Načítava sa...",
+      "empty": "Zatiaľ neboli zaznamenané žiadne zmeny.",
+      "fieldStandard": "Štandard ({{org}})",
+      "action": {
+        "created": "Vytvorené",
+        "updated": "Zmenené",
+        "deleted": "Odstránené",
+        "vorschlag": "Navrhnuté",
+        "freigabe": "Schválené",
+        "verworfen": "Zamietnuté"
+      },
+      "unknownUser": "Neznámy",
+      "fieldBegriff": "Výraz",
+      "feld": {
+        "freigabe": "Schválenie",
+        "an_deepl": "do DeepL",
+        "art": "Druh",
+        "wortart": "Slovný druh",
+        "genus": "Rod",
+        "formen": "Tvary",
+        "ziel_name": "v názve",
+        "kontext": "Kontext",
+        "kategorie": "Kategória",
+        "rueckfrage": "Otázka",
+        "merkmal": "Trieda vlastnosti",
+        "gruppe": "Skupina {{nr}}",
+        "vorschlag": "Návrh"
+      },
+      "wert": {
+        "offen": "otvorené",
+        "freigegeben": "schválené",
+        "ja": "áno",
+        "nein": "nie",
+        "wort": "Slovo",
+        "muster": "Vzor",
+        "wendung": "Slovné spojenie",
+        "fest": "Séria"
+      }
+    },
+    "pflege": {
+      "placeholder": "Zadať preklad",
+      "deepl": "Návrh DeepL",
+      "deeplBusy": "Dopytujem DeepL…",
+      "deeplTitle": "Získať návrh od DeepL. Uloží sa až po vašom potvrdení.",
+      "bestaetigen": "Potvrdiť",
+      "bestaetigenTitle": "Uložiť a schváliť preklad",
+      "istVorschlag": "Návrh od DeepL, ešte neuložený",
+      "wertVerloren": "DeepL stratil technickú hodnotu ({{werte}}). Zadajte ju ručne.",
+      "leer": "DeepL nič nenavrhol.",
+      "fehler": "Nepodarilo sa: {{error}}",
+      "abbrechen": "Zrušiť",
+      "offen": "Zadať preklad",
+      "offenTitle": "Zatiaľ bez prekladu, DeepL tu prekladá voľne. Kliknutím otvoríte pole."
+    },
+    "rueckfrage": {
+      "loeschenTitel": "Odstrániť „{{begriff}}“ z tohto glosára?",
+      "umbenennenTitel": "Premenovať „{{begriff}}“ na „{{neu}}“?",
+      "loeschenText": "Riadok sa odstráni len v tomto glosári spolu s prekladom a hodnotami kanálov. Ostatné glosáre zostanú bez zmeny.",
+      "umbenennenText": "Výraz sa premenuje len v tomto glosári. Preklad a hodnoty kanálov zostanú a budú platiť pre nový výraz.",
+      "konfliktText": "Nie je to možné: nový výraz už má v tomto glosári preklad. Najprv jeden z nich odstráňte.",
+      "spalteBegriff": "Výraz",
+      "spalteUebersetzung": "Preklad",
+      "spalteAlt": "Starý výraz",
+      "spalteNeu": "Nový výraz",
+      "leer": "zatiaľ bez prekladu",
+      "abbrechen": "Zrušiť",
+      "loeschen": "Odstrániť",
+      "umbenennen": "Premenovať",
+      "schliessen": "Zavrieť"
+    },
+    "hinweis": {
+      "nurMit": "Len s poznámkou",
+      "kategorieLabel": "Kategória",
+      "gewissheitLabel": "Istota",
+      "ohneSchreibung": "Všetky bez automatického pravopisu",
+      "alleKategorien": "Všetky kategórie",
+      "alleGewissheiten": "Ľubovoľná istota",
+      "spalteTitle": "Kontrolné poznámky. Kliknutím zobrazíte dôvod a návrh.",
+      "vorschlag": "Návrh",
+      "uebernehmen": "Prevziať",
+      "uebernehmenTitle": "Nahradiť preklad návrhom",
+      "verwerfen": "Zamietnuť",
+      "verwerfenTitle": "Záznam je správny. Poznámka sa odstráni, záznam zostane nezmenený.",
+      "kategorie": {
+        "falsch": "Nesprávne",
+        "sprachlich": "Jazykové",
+        "schreibung": "Pravopis",
+        "zeichen": "Znaky",
+        "satz": "Celá veta",
+        "wert": "Hodnota",
+        "mehrdeutig": "Viacznačné",
+        "dublette": "Duplicita",
+        "eigenname": "Vlastné meno",
+        "unuebersetzt": "Nepreložené",
+        "unnoetig_ueberall": "Zbytočné, všade",
+        "unnoetig_hier": "Zbytočné, len tu"
+      },
+      "gewissheit": {
+        "hoch": "Vysoká",
+        "mittel": "Stredná",
+        "niedrig": "Nízka"
+      },
+      "quelle": {
+        "mechanisch": "nájdené automaticky",
+        "fachlich": "odborne posúdené",
+        "satztest": "potvrdené vo vetách"
+      },
+      "nurUnnoetig": "Zbytočné riadky",
+      "nurUnnoetigTitle": "Zobrazí riadky, ktoré DeepL bez glosára poskytne rovnako. Nič sa tým nevymaže.",
+      "entfernen": "Odstrániť záznam",
+      "entfernenTitle": "Odstráni tento riadok: DeepL tu potom prekladá voľne. Ostatné glosáre zostanú bez zmeny."
+    },
+    "neu": {
+      "knopf": "Nový glosár",
+      "titel": "Vytvoriť nový glosár",
+      "text": "Zdrojovým jazykom je nemčina. Výrazy, ktoré sú aspoň v polovici glosárov, sa pridajú ako riadky bez prekladu.",
+      "laden": "Zisťujem jazyky od DeepL…",
+      "sprache": "Cieľový jazyk",
+      "spracheWaehlen": "Vyberte jazyk",
+      "name": "Názov",
+      "anlegen": "Vytvoriť",
+      "abbrechen": "Zrušiť",
+      "keineSprache": "Každý jazyk, ktorý tu DeepL ponúka, už má glosár.",
+      "angelegt": "Glosár vytvorený. Vopred vyplnené výrazy, zatiaľ bez prekladu: {{anzahl}}"
+    },
+    "wortliste": {
+      "aufklappenTitle": "Zoznam slov: druh, tvary, ciele podľa skupiny produktov",
+      "kennzeichen": {
+        "muster": "Vzor",
+        "wendung": "Slovné spojenie",
+        "fest": "Séria",
+        "nurName": "v názve inak",
+        "nichtDeepl": "nie do DeepL",
+        "rueckfrage": "Otázka"
+      },
+      "kennzeichenTitle": {
+        "muster": "Vzor s # pre čísla, platí len v názvoch položiek",
+        "wendung": "Spojenie viacerých slov, v názvoch má prednosť pred jednotlivými slovami",
+        "fest": "Séria alebo vlastné meno, zostáva tak, ako je napísané",
+        "nurName": "V názvoch položiek: {{wert}}",
+        "nichtDeepl": "Nejde do glosára DeepL, platí len v názvoch položiek",
+        "rueckfrage": "Otvorená otázka: {{text}}"
+      },
+      "art": "Druh",
+      "artWerte": {
+        "wort": "Slovo",
+        "muster": "Vzor",
+        "wendung": "Slovné spojenie",
+        "fest": "Séria"
+      },
+      "wortart": "Slovný druh",
+      "wortartWerte": {
+        "hauptwort": "Podstatné meno",
+        "adjektiv": "Prídavné meno",
+        "sonstiges": "Iné"
+      },
+      "genus": "Rod",
+      "genusWerte": {
+        "m": "mužský",
+        "f": "ženský",
+        "n": "stredný"
+      },
+      "leer": "–",
+      "formen": "Tvary (prídavné meno)",
+      "zielName": "V názve inak",
+      "zielNamePlaceholder": "prázdne = ako preklad",
+      "anDeepl": "do DeepL (súvislý text)",
+      "anDeeplTitle": "Vypnuté: riadok platí len v názvoch položiek, nie v preloženom texte",
+      "anDeeplMuster": "Vzor nikdy nejde do DeepL",
+      "speichern": "Uložiť",
+      "gespeichert": "Uložené",
+      "gruppen": "Cieľ podľa skupiny produktov (len názvy)",
+      "keineGruppen": "žiadne",
+      "gruppeNr": "Skupina {{nr}}",
+      "gruppeNrPlaceholder": "Skupina",
+      "gruppeZiel": "Cieľ",
+      "gruppeNeu": "Pridať",
+      "gruppeEntfernen": "Odstrániť cieľ skupiny",
+      "gruppeUngueltig": "Zadajte skupinu ako číslo a cieľ",
+      "quelle": {
+        "pruefung": "Kontrolná tabuľka",
+        "glossar": "Glosár",
+        "markt": "Trh",
+        "deepl": "DeepL"
+      },
+      "artikel": "{{anzahl}} položiek",
+      "beispiele": "Príklady",
+      "rueckfrage": "Otázka",
+      "rueckfragePlaceholder": "Čo nie je jasné?",
+      "rueckfrageStellen": "Položiť otázku",
+      "rueckfrageAendern": "Zmeniť otázku",
+      "rueckfrageLoesen": "Uzavrieť otázku",
+      "rueckfrageVon": "od {{von}}",
+      "ablehnen": "Zamietnuť",
+      "ablehnenConfirm": "Zamietnuť „{{begriff}}“? Riadok sa odstráni a už nebude navrhnutý.",
+      "anmerkungPlaceholder": "Poznámka k zamietnutiu (nepovinné)",
+      "fehler": "Chyba: {{error}}",
+      "filterRueckfrage": "Otázka",
+      "filterNurName": "len názvy",
+      "filterNurNameTitle": "Riadky, ktoré nejdú do DeepL alebo sú v názvoch inak",
+      "filterAlleArten": "všetky druhy"
+    },
+    "vorschlaege": {
+      "filterTitle": "Odoslali používatelia bez práv správcu. Platí až po schválení správcom.",
+      "leer": "Žiadne otvorené návrhy.",
+      "eingereicht": "Návrh odoslaný. Začne platiť, keď ho správca schváli; dovtedy platí doterajší záznam.",
+      "nurAdmin": "Schváliť a zamietnuť môžu iba správcovia.",
+      "freigeben": "Schváliť",
+      "verwerfen": "Zamietnuť",
+      "verwerfenConfirm": "Zamietnuť návrh pre „{{begriff}}“?",
+      "fehler": "Nie je možné: {{error}}",
+      "ja": "áno",
+      "nein": "nie",
+      "zeile": "Návrh ({{n}})",
+      "zeileTitle": "K tomuto riadku je otvorený návrh. Platí až po schválení.",
+      "spalte": {
+        "begriff": "Výraz",
+        "jetzt": "Teraz",
+        "neu": "Návrh",
+        "von": "Od"
+      },
+      "weg": {
+        "neu": "Nový výraz",
+        "eintrag": "Preklad a údaje",
+        "begriff": "Premenovať",
+        "channel": "Kanál {{code}}",
+        "wortliste": "Zoznam slov",
+        "gruppe": "Skupina produktov {{nr}}"
+      },
+      "feld": {
+        "target_term": "Preklad",
+        "source_term": "Výraz",
+        "context": "Kontext",
+        "category": "Kategória",
+        "channel_code": "Kanál",
+        "art": "Druh",
+        "wortart": "Slovný druh",
+        "genus": "Rod",
+        "formen": "Tvary",
+        "ziel_name": "v názvoch",
+        "an_deepl": "do DeepL"
+      },
+      "quelle": {
+        "glossar": "Stránka glosára",
+        "quickadd": "Rýchle pridanie",
+        "review": "Revízia",
+        "scan": "Terminologická kontrola"
+      },
+      "inArbeit": "Práve sa schvaľuje."
+    }
+  },
+  "houseTerms": {
+    "intro": "Výrazy, ktoré v nemčine <b>nepoužívame</b>, a čo platí namiesto nich. Pomocník pri písaní označí výskyty v nemeckom texte. Stĺpce kanálov nechajte prázdne → platí štandard ({{org}}). Ak je výraz pre {{org}} správny a len niektorý kanál ho má formulovať inak: pole „Namiesto toho ({{org}})“ nechajte prázdne a vyplňte len stĺpec kanála.",
+    "form": {
+      "avoidLabel": "Nepoužívať",
+      "preferredLabel": "Namiesto toho ({{org}})",
+      "noteLabel": "Poznámka (voliteľná)",
+      "example": "napr. {{term}}",
+      "notePlaceholder": "Zobrazí sa aj v pomocníkovi písania",
+      "saving": "Ukladá sa…",
+      "add": "Pridať",
+      "preferredPlaceholder": "prázdne = {{org}} si výraz ponechá"
+    },
+    "list": {
+      "count_one": "{{count}} záznam",
+      "count_few": "{{count}} záznamy",
+      "count_many": "{{count}} záznamu",
+      "count_other": "{{count}} záznamov",
+      "searchPlaceholder": "Hľadať…",
+      "loading": "Načítava sa…",
+      "empty": "Zatiaľ žiadne záznamy.",
+      "noMatches": "Žiadne výsledky."
+    },
+    "table": {
+      "avoid": "Nepoužívať",
+      "preferred": "Namiesto toho",
+      "note": "Poznámka"
+    },
+    "cell": {
+      "editAvoid": "Upraviť výraz, ktorému sa treba vyhnúť (povinné)",
+      "editPreferred": "Upraviť štandard ({{org}}) — prázdne = {{org}} si výraz ponechá",
+      "channelSet": "{{channel}}: {{value}}\nKliknutím upravíte, vymazaním platí štandard",
+      "channelEmpty": "Žiadny vlastný výraz pre {{channel}} — platí „{{term}}“. Kliknutím ho nastavíte.",
+      "editNote": "Upraviť poznámku",
+      "keeps": "nezmenené"
+    },
+    "row": {
+      "historyTitle": "História zmien",
+      "historyTitleLast": "História zmien — naposledy {{name}}",
+      "deleteTitle": "Odstrániť záznam"
+    },
+    "deleteConfirm": "Odstrániť „{{term}}“ z firemnej terminológie?",
+    "errors": {
+      "status": "Chyba {{status}}"
+    },
+    "history": {
+      "title": "História: {{term}}",
+      "empty": "Žiadna história.",
+      "entry": "{{field}}: {{action}}",
+      "field": {
+        "avoid": "Nepoužívať",
+        "standard": "Namiesto toho ({{org}})",
+        "note": "Poznámka",
+        "channel": "Kanál {{code}}"
+      },
+      "action": {
+        "created": "vytvorené",
+        "updated": "zmenené",
+        "deleted": "odstránené"
+      },
+      "unknownUser": "neznámy"
+    }
+  },
+  "topics": {
+    "title": "Témy",
+    "intro": "Témy pomáhajú zoskupovať dokumenty naprieč jazykovými pármi a typmi súborov (napr. „Návod na obsluhu“, „Séria Strip“, „Marketing“). Dokument môže mať viac tém.",
+    "form": {
+      "newLabel": "Nová téma",
+      "namePlaceholder": "napr. Návod na obsluhu",
+      "color": "Farba",
+      "create": "Vytvoriť"
+    },
+    "errors": {
+      "createFailed": "Chyba pri vytváraní",
+      "saveFailed": "Chyba pri ukladaní",
+      "unknown": "Neznáma chyba"
+    },
+    "list": {
+      "loading": "Načítava sa...",
+      "empty": "Zatiaľ neboli vytvorené žiadne témy."
+    },
+    "table": {
+      "name": "Názov",
+      "color": "Farba",
+      "documents": "Dokumenty",
+      "actions": "Akcie"
+    },
+    "actions": {
+      "save": "Uložiť",
+      "cancel": "Zrušiť",
+      "edit": "Upraviť",
+      "delete": "Odstrániť"
+    },
+    "deleteConfirm": "Odstrániť tému „{{name}}“?",
+    "deleteConfirmWithDocs_one": "Odstrániť tému „{{name}}“? Je priradená k {{count}} dokumentu — samotný dokument zostane, odstráni sa len priradenie.",
+    "deleteConfirmWithDocs_few": "Odstrániť tému „{{name}}“? Je priradená k {{count}} dokumentom — samotné dokumenty zostanú, odstráni sa len priradenie.",
+    "deleteConfirmWithDocs_many": "Odstrániť tému „{{name}}“? Je priradená k {{count}} dokumentom — samotné dokumenty zostanú, odstráni sa len priradenie.",
+    "deleteConfirmWithDocs_other": "Odstrániť tému „{{name}}“? Je priradená k {{count}} dokumentom — samotné dokumenty zostanú, odstráni sa len priradenie."
+  }
+}

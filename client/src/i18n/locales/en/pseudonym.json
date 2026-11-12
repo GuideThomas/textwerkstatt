@@ -1,0 +1,74 @@
+{
+  "klasse": {
+    "BANK": "Bank details",
+    "MAIL": "Email addresses",
+    "TELEFON": "Phone numbers",
+    "PERSON": "People",
+    "ANSCHRIFT": "Postal addresses",
+    "URL": "Web addresses",
+    "FIRMA": "Companies",
+    "PROJEKT": "Projects",
+    "PREIS": "Prices and terms",
+    "ARTIKELNR": "Item numbers",
+    "BELEGNR": "Document numbers",
+    "EIGEN": "Masked by you and protection list"
+  },
+  "art": {
+    "PERSON": "Person",
+    "FIRMA": "Company",
+    "PROJEKT": "Project",
+    "BEGRIFF": "Term"
+  },
+  "vorschau": {
+    "titel": "What the cloud model sees",
+    "erklaerung": "Exactly this text is sent. Coloured items are replaced by a placeholder. Click a placeholder to reveal it; select a word to mask it.",
+    "laeuft": "Creating preview …",
+    "gueltigBis": "valid until {{zeit}}",
+    "verdecken": "Mask “{{wort}}”",
+    "auswahlUngueltig": "To mask, select 2 to 100 characters without placeholders.",
+    "trefferAufdecken": "Click to reveal",
+    "trefferPflicht": "cannot be revealed (mandatory or protection list)",
+    "keineTreffer": "Nothing found: the text is sent unchanged.",
+    "verdeckt": "Masked by you",
+    "aufgedeckt": "Revealed",
+    "entfernen": "Undo",
+    "nichtAufdeckbar": "Bank details, email addresses, phone numbers and terms on the protection list always stay masked.",
+    "restOk": "Final check passed: no bank details, email address or phone number in the text.",
+    "restFehler": "The text still contains: {{funde}}. Nothing will be sent like this. Mask the passage or use the local AI.",
+    "netzFehler": "The server cannot be reached. Nothing was sent."
+  },
+  "hinweis": {
+    "rest": "Detection is rule-based and does not find everything. Paraphrases (“the hotel on Stephansplatz with 240 rooms”) and the content itself remain visible to the model. Use the local AI for confidential texts.",
+    "deepl": "The “Translate” step still sends the text to DeepL in plain text.",
+    "lokal": "The route to the local AI also runs through Cloudflare; the text leaves the building encrypted."
+  },
+  "fehler": {
+    "EINGABE": "The input is invalid.",
+    "VORSCHAU_UNBEKANNT": "This preview no longer exists. Please create a new one.",
+    "PFLICHT_UEBRIG": "The text still contains bank details, an email address or a phone number. Nothing was sent.",
+    "PROXY_GESCHWAERZT": "Redacted by the proxy: the egress filter replaced part of the text. The answer was discarded.",
+    "PLATZHALTER_UNBEKANNT": "The model invented placeholders. The answer was discarded.",
+    "ERKENNUNG": "The text cannot be pseudonymised safely. Nothing will be sent.",
+    "EINSTELLUNGEN": "The protection rules cannot be read right now. Without them there is no preview.",
+    "NICHT_FREIGESCHALTET": "This account is not enabled for the cloud AI."
+  },
+  "verwaltung": {
+    "titel": "Protection rules",
+    "hinweis": "What is masked before text is sent to a cloud model. Bank details, email and phone are mandatory and cannot be switched off. The local AI always sees the plain text.",
+    "klassen": "Classes",
+    "pflicht": "Mandatory",
+    "muster": "Pattern of an item number without keyword (regular expression; empty means: only after “Art.-Nr.”, “Artikel”, “EAN”)",
+    "speichern": "Save",
+    "gespeichert": "Saved.",
+    "liste": "Protection list",
+    "listeHinweis": "Terms that are always masked, in any spelling: customers, projects, people.",
+    "begriff": "Term",
+    "art": "Type",
+    "hinzufuegen": "Add",
+    "loeschen": "Delete",
+    "listeLeer": "No terms yet.",
+    "probe": "Try it",
+    "probeHinweis": "Paste a text and look at the preview. Nothing is sent to a model.",
+    "probeZeigen": "Show preview"
+  }
+}

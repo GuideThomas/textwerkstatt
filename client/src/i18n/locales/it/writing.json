@@ -1,0 +1,64 @@
+{
+  "tabs": {
+    "terms": "Gestisci stile aziendale"
+  },
+  "languages": {
+    "AUTO": "Automatico",
+    "DE": "Tedesco",
+    "EN": "Inglese",
+    "IT": "Italiano",
+    "FR": "Francese",
+    "ES": "Spagnolo",
+    "HU": "Ungherese",
+    "PL": "Polacco",
+    "CS": "Ceco",
+    "SK": "Slovacco",
+    "SL": "Sloveno"
+  },
+  "picky": "Modalità rigorosa (picky)",
+  "actions": {
+    "acceptSafe": "Applica correzioni sicure",
+    "acceptSafeTitle": "Applicare automaticamente refusi/tipografia/punteggiatura (suggerimenti univoci)",
+    "checking": "Verifica…",
+    "check": "Verifica"
+  },
+  "errors": {
+    "http": "Errore {{status}}",
+    "ltUnreachableHouseOnly": "LanguageTool non raggiungibile ({{error}}) — è stato verificato solo lo stile aziendale.",
+    "ltUnreachable": "LanguageTool non raggiungibile",
+    "fileTooLarge": "File troppo grande (max. 5 MB).",
+    "fileType": "Sono supportati solo .txt, .md, .markdown — convertire prima in testo gli altri formati."
+  },
+  "editor": {
+    "chars_one": "{{count}} carattere",
+    "chars_many": "{{count}} caratteri",
+    "chars_other": "{{count}} caratteri",
+    "loadFile": "Carica file",
+    "placeholder": "Incollare il testo o trascinare qui un file .txt/.md…",
+    "dropHere": "Rilasciare il file da importare",
+    "dragDropHint": "Il trascinamento supporta .txt, .md (max. 5 MB)",
+    "copy": "Copia"
+  },
+  "result": {
+    "title": "Evidenziato",
+    "hints_one": "{{count}} segnalazione",
+    "hints_many": "{{count}} segnalazioni",
+    "hints_other": "{{count}} segnalazioni",
+    "houseTermsCount_one": "di cui {{count}} stile aziendale",
+    "houseTermsCount_many": "di cui {{count}} stile aziendale",
+    "houseTermsCount_other": "di cui {{count}} stile aziendale",
+    "clickHint": "Fare clic sul testo evidenziato per i suggerimenti",
+    "empty": "Nessuna verifica eseguita…"
+  },
+  "match": {
+    "fallback": "Segnalazione",
+    "dismissTitle": "Scarta segnalazione",
+    "ignore": "Ignora",
+    "delete": "∅ (elimina)",
+    "noSuggestion": "Nessun suggerimento automatico disponibile."
+  },
+  "footer": {
+    "poweredBy": "Powered by LanguageTool self-hosted",
+    "legend": "<hl>turchese</hl> = stile aziendale (elenco nella scheda «Gestisci stile aziendale»)"
+  }
+}

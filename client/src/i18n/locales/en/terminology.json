@@ -1,0 +1,119 @@
+{
+  "page": {
+    "title": "Terminology scan",
+    "subtitle": "Extract glossary candidates from existing translations"
+  },
+  "languages": {
+    "DE": "German",
+    "EN": "English",
+    "IT": "Italian",
+    "FR": "French",
+    "ES": "Spanish",
+    "HU": "Hungarian",
+    "PL": "Polish",
+    "CS": "Czech",
+    "SK": "Slovak",
+    "SL": "Slovenian"
+  },
+  "scanStatus": {
+    "pending": "Waiting",
+    "aligning": "Alignment",
+    "translating": "DeepL reference",
+    "analyzing": "LLM analysis",
+    "completed": "Done",
+    "error": "Error"
+  },
+  "list": {
+    "title": "Previous scans",
+    "empty": "No terminology scans run yet.",
+    "segments_one": "{{count}} segment",
+    "segments_other": "{{count}} segments",
+    "candidates_one": "{{count}} candidate (differences: {{diffs}})",
+    "candidates_other": "{{count}} candidates (differences: {{diffs}})",
+    "review": "Review",
+    "delete": "Delete"
+  },
+  "confirm": {
+    "deleteScan": "Really delete this scan?",
+    "approveTerminology_one": "Approve {{count}} terminology candidate?",
+    "approveTerminology_other": "Approve {{count}} terminology candidates?"
+  },
+  "upload": {
+    "title": "Start terminology scan",
+    "sourceFile": "Original (source)",
+    "translationFile": "Existing translation",
+    "dropHint": "Click or drag a file here",
+    "sourceLang": "Source language",
+    "targetLang": "Target language",
+    "glossary": "Glossary",
+    "noGlossary": "None (standard)",
+    "uploading": "Uploading...",
+    "start": "Start scan",
+    "formats": "Formats: IDML, DOCX, XLSX, TXT. Both files must have the same format.",
+    "errors": {
+      "unsupported": "Not supported. Allowed: {{allowed}}",
+      "uploadFailed": "Upload failed"
+    }
+  },
+  "progress": {
+    "phase": {
+      "connected": "Connected",
+      "aligning": "Segment alignment",
+      "translating": "DeepL reference",
+      "analyzing": "LLM analysis",
+      "completed": "Completed",
+      "error": "Error"
+    },
+    "cacheHits_one": "{{count}} cache hit",
+    "cacheHits_other": "{{count}} cache hits",
+    "candidates_one": "{{count}} candidate",
+    "candidates_other": "{{count}} candidates"
+  },
+  "category": {
+    "TERMINOLOGY": "Terminology",
+    "STYLE": "Style",
+    "ERROR": "Error",
+    "CONTEXT": "Context"
+  },
+  "candidateStatus": {
+    "pending": "Open",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "vorgeschlagen": "Proposed"
+  },
+  "review": {
+    "back": "Back",
+    "stats": {
+      "total": "Total: {{n}}",
+      "terminology": "Terminology: {{n}}",
+      "style": "Style: {{n}}",
+      "error": "Errors: {{n}}",
+      "context": "Context: {{n}}",
+      "approved": "{{n}} approved",
+      "rejected": "{{n}} rejected",
+      "vorgeschlagen": "{{n}} proposed"
+    },
+    "filter": {
+      "allCategories": "All categories",
+      "allStatus": "All statuses"
+    },
+    "selectedCount_one": "{{count}} selected",
+    "selectedCount_other": "{{count}} selected",
+    "approve": "Approve",
+    "reject": "Reject",
+    "approveAllTerminology": "Approve all terminology",
+    "loading": "Loading...",
+    "empty": "No candidates for these filters.",
+    "table": {
+      "source": "Source",
+      "existing": "Existing",
+      "deeplRef": "DeepL ref.",
+      "term": "Term",
+      "category": "Category",
+      "confidence": "Conf.",
+      "action": "Action"
+    },
+    "insteadOf": "instead of: {{term}}",
+    "vorschlagMeldung": "{{n}} terms submitted as proposals. An admin approves them on the glossary page."
+  }
+}

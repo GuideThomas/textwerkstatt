@@ -1,0 +1,186 @@
+{
+  "access": {
+    "adminOnly": "Solo gli amministratori possono accedere alle impostazioni."
+  },
+  "page": {
+    "title": "Amministrazione",
+    "subtitle": "Gestione utenti e impostazioni di sistema"
+  },
+  "system": {
+    "title": "Configurazione di sistema",
+    "auth": "Autenticazione",
+    "llmPrimary": "LLM principale",
+    "llmFallback": "LLM di riserva",
+    "deeplValue": "API Pro (illimitata)",
+    "condensingThreshold": "Soglia di abbreviazione",
+    "condensingValue": "{{pct}}% della lunghezza di origine",
+    "pdfExtraction": "Estrazione PDF",
+    "maxFileSize": "Dimensione max. file",
+    "fileRetention": "Conservazione file",
+    "fileRetentionValue": "Manuale (nessuna eliminazione automatica)"
+  },
+  "formats": {
+    "title": "Formati supportati",
+    "viaDocling": "tramite Docling"
+  },
+  "prices": {
+    "title": "Prezzi token LLM (per 1M di token)",
+    "model": "Modello",
+    "input": "Input",
+    "output": "Output"
+  },
+  "errors": {
+    "generic": "Errore"
+  },
+  "common": {
+    "name": "Nome",
+    "email": "E-mail",
+    "status": "Stato",
+    "save": "Salva",
+    "saving": "Salvataggio...",
+    "cancel": "Annulla"
+  },
+  "roles": {
+    "admin": "Amministratore",
+    "user": "Utente",
+    "viewer": "Sola lettura"
+  },
+  "users": {
+    "loading": "Caricamento utenti...",
+    "title": "Gestione utenti",
+    "newButton": "+ Nuovo utente",
+    "colRole": "Ruolo",
+    "colAuth": "Autenticazione",
+    "colCreated": "Creato",
+    "colActions": "Azioni",
+    "active": "Attivo",
+    "deactivated": "Disattivato",
+    "authLocal": "Locale",
+    "edit": "Modifica",
+    "deactivate": "Disattiva",
+    "activate": "Attiva",
+    "confirmDeactivate": "Disattivare davvero {{email}}?",
+    "empty": "Nessun utente presente",
+    "formEditTitle": "Modifica utente",
+    "formNewTitle": "Nuovo utente",
+    "passwordLabelEdit": "Password (vuota = invariata)",
+    "passwordLabelNew": "Password (vuota = solo Microsoft)"
+  },
+  "speakers": {
+    "loading": "Caricamento madrelingua...",
+    "title": "Madrelingua",
+    "intro": "Madrelingua che possono essere invitati alla revisione di una traduzione.",
+    "addButton": "+ Madrelingua",
+    "empty": "Nessun madrelingua ancora inserito.",
+    "colLanguages": "Lingue",
+    "colAction": "Azione",
+    "active": "attivo",
+    "inactive": "inattivo",
+    "edit": "modifica",
+    "delete": "elimina",
+    "confirmDelete": "Eliminare davvero il madrelingua «{{name}}»?",
+    "formEditTitle": "Modifica madrelingua",
+    "formNewTitle": "Aggiungi nuovo madrelingua",
+    "namePlaceholder": "ad es. Marco Rossi",
+    "languagesLabel": "Lingue (madrelingua)",
+    "languagesHint": "Una persona può coprire più lingue (ad es. DE + EN).",
+    "activeCheckbox": "Attivo (compare nel menu a tendina della pagina di revisione)",
+    "saving": "Salvataggio...",
+    "create": "Crea"
+  },
+  "languages": {
+    "DE": "Tedesco",
+    "EN": "Inglese",
+    "IT": "Italiano",
+    "FR": "Francese",
+    "ES": "Spagnolo",
+    "HU": "Ungherese",
+    "PL": "Polacco",
+    "CS": "Ceco",
+    "SK": "Slovacco",
+    "SL": "Sloveno",
+    "NL": "Olandese",
+    "PT": "Portoghese"
+  },
+  "costs": {
+    "loading": "Caricamento dati della dashboard…",
+    "title": "Costi",
+    "subtitle": "Utilizzo LLM e fatturazione",
+    "overview": {
+      "documents": "Documenti",
+      "completed": "{{n}} completati",
+      "segmentsCache": "Segmenti (cache)",
+      "hitRate": "{{pct}}% di hit rate",
+      "glossaries": "Glossari",
+      "entries_one": "{{n}} voce",
+      "entries_many": "{{n}} voci",
+      "entries_other": "{{n}} voci",
+      "llmTotal": "Costi LLM totali",
+      "requests_one": "{{n}} richiesta",
+      "requests_many": "{{n}} richieste",
+      "requests_other": "{{n}} richieste"
+    },
+    "deeplDown": {
+      "title": "DeepL attualmente non raggiungibile",
+      "hint": "I nuovi job di traduzione probabilmente non andranno a buon fine. Lo stato viene aggiornato automaticamente al prossimo tentativo.",
+      "recheck": "Verifica di nuovo",
+      "healthFailed": "Health check non riuscito"
+    },
+    "deepl": {
+      "title": "Utilizzo API DeepL",
+      "charsUsed": "Caratteri utilizzati (mese)",
+      "plan": "Pay-as-you-go (4,99 € + 20 €/1 mln)",
+      "translatedSegments": "Segmenti tradotti",
+      "sourceChars": "{{n}} caratteri di origine",
+      "translatedChars": "Caratteri tradotti",
+      "estCost": "Costi DeepL (stima)",
+      "estCostHint": "4,99 € base + 20 €/1 mln di caratteri"
+    },
+    "llm": {
+      "title": "Utilizzo API LLM",
+      "inputTokens": "Token di input",
+      "outputTokens": "Token di output",
+      "modelsUsed": "Modelli utilizzati",
+      "model": "Modello",
+      "requests": "Richieste",
+      "cost": "Costi"
+    },
+    "purpose": {
+      "title": "Costi LLM per scopo",
+      "purpose": "Scopo"
+    },
+    "purposes": {
+      "condense": "Abbreviazione",
+      "terminology": "Terminologia",
+      "analyze": "Analisi",
+      "word-order": "Ordine delle parole",
+      "capitalization": "Maiuscole/minuscole"
+    },
+    "projects": {
+      "title": "Costi per documento",
+      "document": "Documento",
+      "languages": "Lingue",
+      "format": "Formato",
+      "llmCalls": "Chiamate LLM",
+      "inputTokens": "Token di input"
+    },
+    "cache": {
+      "title": "Cache dei segmenti",
+      "total": "Segmenti totali",
+      "withHits": "Con hit in cache",
+      "totalHits": "Hit totali",
+      "stale": "Segmenti obsoleti",
+      "top": "Segmenti più presenti in cache",
+      "segment": "Segmento",
+      "hits": "Hit",
+      "staleBadge": "Obsoleto",
+      "current": "Attuale"
+    },
+    "daily": {
+      "title": "Costi LLM giornalieri (ultimi 30 giorni)",
+      "day": "Giorno",
+      "inputTokens": "Token di input",
+      "outputTokens": "Token di output"
+    }
+  }
+}

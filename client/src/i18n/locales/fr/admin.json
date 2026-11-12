@@ -1,0 +1,186 @@
+{
+  "access": {
+    "adminOnly": "Seuls les administrateurs ont accès aux paramètres."
+  },
+  "page": {
+    "title": "Administration",
+    "subtitle": "Gestion des utilisateurs et paramètres système"
+  },
+  "system": {
+    "title": "Configuration système",
+    "auth": "Authentification",
+    "llmPrimary": "LLM principal",
+    "llmFallback": "LLM de secours",
+    "deeplValue": "API Pro (illimitée)",
+    "condensingThreshold": "Seuil de raccourcissement",
+    "condensingValue": "{{pct}} % de la longueur source",
+    "pdfExtraction": "Extraction PDF",
+    "maxFileSize": "Taille max. de fichier",
+    "fileRetention": "Conservation des fichiers",
+    "fileRetentionValue": "Manuelle (pas de suppression automatique)"
+  },
+  "formats": {
+    "title": "Formats pris en charge",
+    "viaDocling": "via Docling"
+  },
+  "prices": {
+    "title": "Prix des tokens LLM (par million de tokens)",
+    "model": "Modèle",
+    "input": "Entrée",
+    "output": "Sortie"
+  },
+  "errors": {
+    "generic": "Erreur"
+  },
+  "common": {
+    "name": "Nom",
+    "email": "E-mail",
+    "status": "Statut",
+    "save": "Enregistrer",
+    "saving": "Enregistrement...",
+    "cancel": "Annuler"
+  },
+  "roles": {
+    "admin": "Administrateur",
+    "user": "Utilisateur",
+    "viewer": "Lecture seule"
+  },
+  "users": {
+    "loading": "Chargement des utilisateurs...",
+    "title": "Gestion des utilisateurs",
+    "newButton": "+ Nouvel utilisateur",
+    "colRole": "Rôle",
+    "colAuth": "Authentification",
+    "colCreated": "Créé le",
+    "colActions": "Actions",
+    "active": "Actif",
+    "deactivated": "Désactivé",
+    "authLocal": "Local",
+    "edit": "Modifier",
+    "deactivate": "Désactiver",
+    "activate": "Activer",
+    "confirmDeactivate": "Voulez-vous vraiment désactiver {{email}} ?",
+    "empty": "Aucun utilisateur",
+    "formEditTitle": "Modifier l’utilisateur",
+    "formNewTitle": "Nouvel utilisateur",
+    "passwordLabelEdit": "Mot de passe (vide = inchangé)",
+    "passwordLabelNew": "Mot de passe (vide = Microsoft uniquement)"
+  },
+  "speakers": {
+    "loading": "Chargement des locuteurs natifs...",
+    "title": "Locuteurs natifs",
+    "intro": "Locuteurs natifs pouvant être invités à la relecture d’une traduction.",
+    "addButton": "+ Locuteur natif",
+    "empty": "Aucun locuteur natif enregistré pour le moment.",
+    "colLanguages": "Langues",
+    "colAction": "Action",
+    "active": "actif",
+    "inactive": "inactif",
+    "edit": "modifier",
+    "delete": "supprimer",
+    "confirmDelete": "Voulez-vous vraiment supprimer le locuteur natif « {{name}} » ?",
+    "formEditTitle": "Modifier le locuteur natif",
+    "formNewTitle": "Ajouter un locuteur natif",
+    "namePlaceholder": "p. ex. Marco Rossi",
+    "languagesLabel": "Langues (langue maternelle)",
+    "languagesHint": "Une personne peut couvrir plusieurs langues (p. ex. DE + EN).",
+    "activeCheckbox": "Actif (apparaît dans la liste déroulante de la page de relecture)",
+    "saving": "Enregistrement...",
+    "create": "Créer"
+  },
+  "languages": {
+    "DE": "Allemand",
+    "EN": "Anglais",
+    "IT": "Italien",
+    "FR": "Français",
+    "ES": "Espagnol",
+    "HU": "Hongrois",
+    "PL": "Polonais",
+    "CS": "Tchèque",
+    "SK": "Slovaque",
+    "SL": "Slovène",
+    "NL": "Néerlandais",
+    "PT": "Portugais"
+  },
+  "costs": {
+    "loading": "Chargement des données du tableau de bord…",
+    "title": "Coûts",
+    "subtitle": "Utilisation des LLM et facturation",
+    "overview": {
+      "documents": "Documents",
+      "completed": "{{n}} terminé(s)",
+      "segmentsCache": "Segments (cache)",
+      "hitRate": "{{pct}} % de taux de réussite",
+      "glossaries": "Glossaires",
+      "entries_one": "{{n}} entrée",
+      "entries_many": "{{n}} entrées",
+      "entries_other": "{{n}} entrées",
+      "llmTotal": "Coûts LLM totaux",
+      "requests_one": "{{n}} requête",
+      "requests_many": "{{n}} requêtes",
+      "requests_other": "{{n}} requêtes"
+    },
+    "deeplDown": {
+      "title": "DeepL actuellement inaccessible",
+      "hint": "Les nouvelles tâches de traduction risquent d’échouer. Le statut sera mis à jour automatiquement lors de la prochaine tentative.",
+      "recheck": "Vérifier à nouveau",
+      "healthFailed": "Échec du contrôle de disponibilité"
+    },
+    "deepl": {
+      "title": "Consommation de l’API DeepL",
+      "charsUsed": "Caractères consommés (mois)",
+      "plan": "Pay-as-you-go (4,99 € + 20 €/1 million)",
+      "translatedSegments": "Segments traduits",
+      "sourceChars": "{{n}} caractères source",
+      "translatedChars": "Caractères traduits",
+      "estCost": "Coûts DeepL (estimation)",
+      "estCostHint": "4,99 € de base + 20 €/1 million de caractères"
+    },
+    "llm": {
+      "title": "Consommation de l’API LLM",
+      "inputTokens": "Tokens d’entrée",
+      "outputTokens": "Tokens de sortie",
+      "modelsUsed": "Modèles utilisés",
+      "model": "Modèle",
+      "requests": "Requêtes",
+      "cost": "Coûts"
+    },
+    "purpose": {
+      "title": "Coûts LLM par usage",
+      "purpose": "Usage"
+    },
+    "purposes": {
+      "condense": "Raccourcissement",
+      "terminology": "Terminologie",
+      "analyze": "Analyse",
+      "word-order": "Ordre des mots",
+      "capitalization": "Majuscules/minuscules"
+    },
+    "projects": {
+      "title": "Coûts par document",
+      "document": "Document",
+      "languages": "Langues",
+      "format": "Format",
+      "llmCalls": "Appels LLM",
+      "inputTokens": "Tokens d’entrée"
+    },
+    "cache": {
+      "title": "Cache des segments",
+      "total": "Segments au total",
+      "withHits": "Avec accès au cache",
+      "totalHits": "Accès au total",
+      "stale": "Segments obsolètes",
+      "top": "Segments les plus mis en cache",
+      "segment": "Segment",
+      "hits": "Accès",
+      "staleBadge": "Obsolète",
+      "current": "À jour"
+    },
+    "daily": {
+      "title": "Coûts LLM quotidiens (30 derniers jours)",
+      "day": "Jour",
+      "inputTokens": "Tokens d’entrée",
+      "outputTokens": "Tokens de sortie"
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "lang": {
+    "target": "Cieľový jazyk",
+    "swap": "Zameniť jazyky"
+  },
+  "channel": {
+    "label": "Predajný kanál",
+    "tooltip": "Prepisy kanála nahrádzajú štandardný glosár pre vybrané pojmy",
+    "tooltipNeutral": "V neutrálnom režime vypnuté",
+    "default": "{{org}} (štandard)"
+  },
+  "glossary": {
+    "label": "Glosár",
+    "tooltip": "Ak je vypnutý, DeepL prekladá bez pojmov z glosára či kanála — úplne neutrálne.",
+    "use": "použiť",
+    "neutral": "neutrálne (bez)"
+  },
+  "mode": {
+    "label": "Režim:",
+    "text": "Text",
+    "textTitle": "Preklad čistého textu",
+    "xmlTitle": "XML: tagy a atribúty zostanú 1:1, prekladajú sa iba textové uzly",
+    "htmlTitle": "HTML: tagy + atribúty zostanú, script/style/code/pre sa ignorujú",
+    "codeTagsKept": "Tagy kódu zostanú nedotknuté"
+  },
+  "formality": {
+    "label": "Oslovenie:",
+    "default": "Štandard",
+    "more": "Formálne",
+    "less": "Neformálne",
+    "defaultTitle": "Ako doteraz — do DeepL sa neposiela žiadny parameter oslovenia",
+    "moreTitle": "DeepL prekladá s formálnym oslovením",
+    "lessTitle": "DeepL prekladá s neformálnym oslovením",
+    "unsupportedTitle": "Pre tento cieľový jazyk DeepL neponúka úroveň oslovenia",
+    "unsupportedFor": "Pre jazyk {{lang}} DeepL neponúka úroveň oslovenia",
+    "appliedMore": "použité formálne",
+    "appliedLess": "použité neformálne",
+    "notApplied": "nepoužité – pre tento cieľový jazyk DeepL neponúka úroveň oslovenia"
+  },
+  "input": {
+    "chars_few": "{{count}} znaky",
+    "chars_many": "{{count}} znakov",
+    "placeholderCode": "Vložte kód {{mode}} — tagy zostanú nezmenené, prekladá sa iba text"
+  },
+  "speech": {
+    "stop": "Zastaviť hlasový vstup",
+    "start": "Spustiť hlasový vstup",
+    "startWithLocale": "Spustiť hlasový vstup ({{locale}})",
+    "recording": "Nahrávanie…",
+    "speak": "Hovoriť"
+  },
+  "alt": {
+    "forSelectionTitle": "Alternatívne preklady pre „{{text}}“",
+    "forSelection": "Alternatívne preklady pre <b>„{{text}}“</b>",
+    "markHintTitle": "Pre cielené alternatívy najprv označte hore slovo alebo slovné spojenie — inak sa navrhnú vetné varianty celého textu.",
+    "markHint": "Označiť slovo/spojenie — navrhnúť alternatívny preklad"
+  },
+  "actions": {
+    "translating": "Prekladám...",
+    "translate": "Preložiť",
+    "rewrite": "Prepísať",
+    "rewriting": "Prepisujem…"
+  },
+  "result": {
+    "newGlossaryEntry": "Nový záznam glosára",
+    "newGlossaryEntryTitle": "Ručne vytvoriť nový záznam glosára",
+    "copied": "Skopírované!",
+    "copy": "Kopírovať",
+    "loading": "Prekladá sa...",
+    "placeholder": "Preklad sa zobrazí tu...",
+    "glossaryUsed": "Použitý glosár:",
+    "plusChannel": "+ kanál {{code}}",
+    "glossaryMarked": "Segmenty z glosára sú zodpovedajúco označené.",
+    "hits_one": "({{count}} zhoda)",
+    "hits_few": "({{count}} zhody)",
+    "hits_many": "({{count}} zhôd)",
+    "hits_other": "({{count}} zhôd)",
+    "hitsWithChannel_one": "({{count}} zhoda, z toho {{channel}} prepis kanála)",
+    "hitsWithChannel_few": "({{count}} zhody, z toho {{channel}} prepis kanála)",
+    "hitsWithChannel_many": "({{count}} zhôd, z toho {{channel}} prepis kanála)",
+    "hitsWithChannel_other": "({{count}} zhôd, z toho {{channel}} prepis kanála)"
+  },
+  "highlight": {
+    "channelTooltip": "Prepis kanála ({{channel}}): {{source}} → {{target}}\nKliknutím upravíte",
+    "glossaryTooltip": "Z glosára: {{source}} → {{target}}\nKliknutím upravíte",
+    "fassungTooltip": "Verzia kanála ({{channel}}): {{source}} → {{target}}"
+  },
+  "altModal": {
+    "title": "Alternatívy",
+    "close": "Zavrieť",
+    "forPhrase": "Pre označené spojenie:",
+    "wholeText": "Celý text — tip: pre alternatívy slov označte v zdrojovom texte spojenie ešte pred kliknutím na „Alternatívy“.",
+    "loading": "Načítavam alternatívy…",
+    "onlyOneVariant": "DeepL pre toto spojenie poskytuje iba jeden variant.",
+    "noVariants": "Žiadne ďalšie varianty – pri dlhých textoch DeepL väčšinou poskytuje rovnaké alternatívy.",
+    "noVariantsTip": "Tip: označte v zdrojovom texte jedno slovo alebo krátke spojenie a znova kliknite na „Alternatívy“.",
+    "spanHint": "Kliknutím na variant ho skopírujete do schránky. „📖+“ uloží variant ako záznam glosára.",
+    "fullHint": "Kliknutím sa variant prevezme ako nový výsledok. Rozdiely sú zvýraznené <hl>žltou</hl>.",
+    "saveAsGlossary": "Uložiť ako záznam glosára ({{source}} → {{target}}{{channel}})"
+  },
+  "wordOrder": {
+    "show": "Zobraziť varianty slovosledu (LLM)",
+    "showTitle": "Mení iba slovosled (rovnaké pojmy). Spotrebuje cca 80 tokenov (lacná úroveň).",
+    "loading": "Načítavam varianty slovosledu…",
+    "none": "Nenašli sa žiadne ďalšie slovosledy.",
+    "headingSpan": "Varianty slovosledu (LLM) — kliknutím skopírujete do schránky. „📖+“ uloží variant ako záznam glosára.",
+    "headingFull": "Varianty slovosledu (LLM) — kliknutím sa prevezme ako nový výsledok."
+  },
+  "editor": {
+    "title": "Upraviť záznam glosára",
+    "source": "Zdroj ({{lang}})",
+    "target": "Cieľ ({{lang}})",
+    "sourcePlaceholder": "napr. Schienen-Strahler",
+    "targetPlaceholder": "napr. koľajnicový reflektor",
+    "channelOverrideHint": "Uloží sa ako prepis kanála pre {{channel}} — štandardný záznam zostane nezmenený.",
+    "standardHint": "Uloží/aktualizuje štandardný záznam v glosári {{org}}.",
+    "cancel": "Zrušiť",
+    "saving": "Ukladám…",
+    "save": "Uložiť",
+    "created": "Nový záznam uložený",
+    "updated": "Záznam aktualizovaný",
+    "unchanged": "Bez zmeny",
+    "vorschlag": "Návrh odoslaný, správca ho schváli."
+  },
+  "errors": {
+    "phraseTooLong": "Spojenie je príliš dlhé (max. 200 znakov) — označte kratší úsek.",
+    "http": "Chyba {{status}}",
+    "wordOrderFailed": "Načítanie variantov slovosledu zlyhalo",
+    "alternativesFailed": "Načítanie alternatív zlyhalo",
+    "fillBoth": "Vyplňte zdroj aj cieľ",
+    "saveFailed": "Uloženie zlyhalo",
+    "translateFailed": "Preklad zlyhal"
+  },
+  "channelFassung": {
+    "hint": "Nemčina → nemčina: text sa prepíše do verzie zvoleného kanála (firemný pravopis).",
+    "needChannel": "Nemčina → nemčina: zvoľte kanál — text sa prepíše do jeho verzie.",
+    "summary_one": "Verzia kanála {{channel}}: {{count}} úsek prepísaný — {{model}} jazykovým modelom, {{rule}} podľa pravidla.",
+    "summary_few": "Verzia kanála {{channel}}: {{count}} úseky prepísané — {{model}} jazykovým modelom, {{rule}} podľa pravidla.",
+    "summary_many": "Verzia kanála {{channel}}: {{count}} úsekov prepísaných — {{model}} jazykovým modelom, {{rule}} podľa pravidla.",
+    "summary_other": "Verzia kanála {{channel}}: {{count}} úsekov prepísaných — {{model}} jazykovým modelom, {{rule}} podľa pravidla.",
+    "unchanged": "Verzia kanála {{channel}}: nenašiel sa žiadny výraz z firemného pravopisu — text zostáva nezmenený.",
+    "noOwnTerms": "Pre {{channel}} zatiaľ nie sú uložené vlastné výrazy — platí len firemný pravopis {{org}} (Glosáre → DE → DE)."
+  }
+}

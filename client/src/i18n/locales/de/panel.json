@@ -1,0 +1,43 @@
+{
+  "connect": {
+    "title": "Illustrator-Panel verbinden",
+    "intro": "Ein Illustrator-Panel möchte sich mit deinem Konto verbinden. Danach übersetzt es in deinem Namen, und die Aufträge stehen unter „Dokumente“.",
+    "codeLabel": "Code im Panel",
+    "device": "Gerät",
+    "deviceUnknown": "unbekanntes Gerät",
+    "expiresIn": "Gültig noch {{minutes}}:{{seconds}} min",
+    "warning": "Nur verbinden, wenn du gerade selbst in Illustrator auf „Mit Microsoft anmelden“ geklickt hast und dort genau dieser Code steht. Hat dir jemand diesen Link geschickt: Abbrechen.",
+    "confirm": "Verbinden",
+    "cancel": "Abbrechen",
+    "doneTitle": "Verbunden",
+    "doneText": "Du kannst zu Illustrator zurückkehren — das Panel meldet sich in wenigen Sekunden an.",
+    "cancelledTitle": "Abgebrochen",
+    "cancelledText": "Das Panel wurde nicht verbunden.",
+    "expiredTitle": "Anfrage abgelaufen",
+    "expiredText": "Bitte im Panel erneut auf „Mit Microsoft anmelden“ klicken.",
+    "usedTitle": "Bereits verwendet",
+    "usedText": "Diese Anfrage wurde schon von einem anderen Konto verwendet.",
+    "confirmedOtherTitle": "Bereits bestätigt",
+    "confirmedOtherText": "Diese Anfrage wurde schon von einem anderen Konto bestätigt.",
+    "continue": "Weiter"
+  },
+  "connections": {
+    "title": "Illustrator-Panel",
+    "subtitle": "Rechner, auf denen dein Panel angemeldet ist",
+    "adminTitle": "Panel-Verbindungen",
+    "menuTitle": "Illustrator-Panel verbinden",
+    "howto": "So verbindest du ein Panel: In Illustrator unter Fenster → Erweiterungen → {{org}} Translationtool auf „Mit Microsoft anmelden“ klicken und die Anfrage hier bestätigen. Eine Verbindung verfällt nach 180 Tagen ohne Nutzung.",
+    "empty": "Noch kein Panel verbunden.",
+    "colDevice": "Gerät",
+    "colUser": "Person",
+    "colCreated": "Verbunden am",
+    "colLastUsed": "Zuletzt benutzt",
+    "colExpires": "Verfällt ohne Nutzung am",
+    "never": "noch nie",
+    "expired": "verfallen",
+    "revoke": "Trennen",
+    "confirmRevoke": "Verbindung „{{label}}“ trennen? Das Panel muss sich danach neu anmelden.",
+    "loading": "Lade …",
+    "error": "Anfrage fehlgeschlagen"
+  }
+}

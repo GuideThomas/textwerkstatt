@@ -1,0 +1,67 @@
+{
+  "tabs": {
+    "terms": "Spravovať firemný štýl"
+  },
+  "languages": {
+    "AUTO": "Automaticky",
+    "DE": "Nemčina",
+    "EN": "Angličtina",
+    "IT": "Taliančina",
+    "FR": "Francúzština",
+    "ES": "Španielčina",
+    "HU": "Maďarčina",
+    "PL": "Poľština",
+    "CS": "Čeština",
+    "SK": "Slovenčina",
+    "SL": "Slovinčina"
+  },
+  "picky": "Prísny režim (picky)",
+  "actions": {
+    "acceptSafe": "Použiť bezpečné opravy",
+    "acceptSafeTitle": "Automaticky použiť opravy preklepov/typografie/interpunkcie (jednoznačné návrhy)",
+    "checking": "Kontrolujem…",
+    "check": "Skontrolovať"
+  },
+  "errors": {
+    "http": "Chyba {{status}}",
+    "ltUnreachableHouseOnly": "LanguageTool nie je dostupný ({{error}}) — skontroloval sa iba firemný štýl.",
+    "ltUnreachable": "LanguageTool nie je dostupný",
+    "fileTooLarge": "Súbor je príliš veľký (max. 5 MB).",
+    "fileType": "Podporované sú iba .txt, .md, .markdown — iné formáty najprv prekonvertujte na text."
+  },
+  "editor": {
+    "chars_one": "{{count}} znak",
+    "chars_few": "{{count}} znaky",
+    "chars_many": "{{count}} znakov",
+    "chars_other": "{{count}} znakov",
+    "loadFile": "Načítať súbor",
+    "placeholder": "Vložte text alebo sem pretiahnite súbor .txt/.md…",
+    "dropHere": "Pustite súbor na import",
+    "dragDropHint": "Drag & drop podporuje .txt, .md (max. 5 MB)",
+    "copy": "Kopírovať"
+  },
+  "result": {
+    "title": "Zvýraznené",
+    "hints_one": "{{count}} upozornenie",
+    "hints_few": "{{count}} upozornenia",
+    "hints_many": "{{count}} upozornení",
+    "hints_other": "{{count}} upozornení",
+    "houseTermsCount_one": "z toho {{count}} firemný štýl",
+    "houseTermsCount_few": "z toho {{count}} firemný štýl",
+    "houseTermsCount_many": "z toho {{count}} firemný štýl",
+    "houseTermsCount_other": "z toho {{count}} firemný štýl",
+    "clickHint": "Kliknutím na zvýraznený text zobrazíte návrhy",
+    "empty": "Zatiaľ nič neskontrolované…"
+  },
+  "match": {
+    "fallback": "Upozornenie",
+    "dismissTitle": "Zahodiť upozornenie",
+    "ignore": "Ignorovať",
+    "delete": "∅ (odstrániť)",
+    "noSuggestion": "Nie je k dispozícii žiadny automatický návrh."
+  },
+  "footer": {
+    "poweredBy": "Beží na vlastnom LanguageTool",
+    "legend": "<hl>tyrkysová</hl> = firemný štýl (zoznam na karte „Spravovať firemný štýl“)"
+  }
+}

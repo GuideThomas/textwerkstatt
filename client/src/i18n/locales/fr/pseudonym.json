@@ -1,0 +1,74 @@
+{
+  "klasse": {
+    "BANK": "Coordonnées bancaires",
+    "MAIL": "Adresses e-mail",
+    "TELEFON": "Numéros de téléphone",
+    "PERSON": "Personnes",
+    "ANSCHRIFT": "Adresses postales",
+    "URL": "Adresses web",
+    "FIRMA": "Entreprises",
+    "PROJEKT": "Projets",
+    "PREIS": "Prix et conditions",
+    "ARTIKELNR": "Références article",
+    "BELEGNR": "Numéros de document",
+    "EIGEN": "Masqués par vous et liste de protection"
+  },
+  "art": {
+    "PERSON": "Personne",
+    "FIRMA": "Entreprise",
+    "PROJEKT": "Projet",
+    "BEGRIFF": "Terme"
+  },
+  "vorschau": {
+    "titel": "Ce que voit le modèle cloud",
+    "erklaerung": "C’est exactement ce texte qui est envoyé. Les éléments en couleur sont remplacés par un espace réservé. Cliquez sur un espace réservé pour l’afficher ; sélectionnez un mot pour le masquer.",
+    "laeuft": "Création de l’aperçu …",
+    "gueltigBis": "valable jusqu’à {{zeit}}",
+    "verdecken": "Masquer « {{wort}} »",
+    "auswahlUngueltig": "Pour masquer, sélectionnez 2 à 100 caractères sans espace réservé.",
+    "trefferAufdecken": "Cliquer pour afficher",
+    "trefferPflicht": "ne peut pas être affiché (obligatoire ou liste de protection)",
+    "keineTreffer": "Rien trouvé : le texte est envoyé tel quel.",
+    "verdeckt": "Masqués par vous",
+    "aufgedeckt": "Affichés",
+    "entfernen": "Annuler",
+    "nichtAufdeckbar": "Les coordonnées bancaires, adresses e-mail, numéros de téléphone et termes de la liste de protection restent toujours masqués.",
+    "restOk": "Contrôle final réussi : aucune coordonnée bancaire, adresse e-mail ou numéro de téléphone dans le texte.",
+    "restFehler": "Le texte contient encore : {{funde}}. Rien ne sera envoyé ainsi. Masquez le passage ou utilisez l’IA locale.",
+    "netzFehler": "Le serveur est injoignable. Rien n’a été envoyé."
+  },
+  "hinweis": {
+    "rest": "La détection repose sur des règles et ne trouve pas tout. Les périphrases (« l’hôtel de la Stephansplatz aux 240 chambres ») et le contenu lui-même restent visibles pour le modèle. Pour les textes confidentiels, utilisez l’IA locale.",
+    "deepl": "L’étape « Traduire » envoie toujours le texte en clair à DeepL.",
+    "lokal": "Le chemin vers l’IA locale passe aussi par Cloudflare ; le texte quitte l’entreprise chiffré."
+  },
+  "fehler": {
+    "EINGABE": "La saisie n’est pas valide.",
+    "VORSCHAU_UNBEKANNT": "Cet aperçu n’existe plus. Veuillez en créer un nouveau.",
+    "PFLICHT_UEBRIG": "Le texte contient encore des coordonnées bancaires, une adresse e-mail ou un numéro de téléphone. Rien n’a été envoyé.",
+    "PROXY_GESCHWAERZT": "Caviardé par le proxy : le filtre de sortie a remplacé une partie du texte. La réponse a été rejetée.",
+    "PLATZHALTER_UNBEKANNT": "Le modèle a inventé des espaces réservés. La réponse a été rejetée.",
+    "ERKENNUNG": "Le texte ne peut pas être pseudonymisé de manière sûre. Rien n’est envoyé.",
+    "EINSTELLUNGEN": "Les règles de protection sont illisibles pour le moment. Sans elles, pas d’aperçu.",
+    "NICHT_FREIGESCHALTET": "Ce compte n’est pas autorisé pour l’IA cloud."
+  },
+  "verwaltung": {
+    "titel": "Règles de protection",
+    "hinweis": "Ce qui est masqué avant l’envoi à un modèle cloud. Coordonnées bancaires, e-mail et téléphone sont obligatoires et ne peuvent pas être désactivés. L’IA locale voit toujours le texte en clair.",
+    "klassen": "Classes",
+    "pflicht": "Obligatoire",
+    "muster": "Modèle d’une référence article sans mot-clé (expression régulière ; vide signifie : seulement après « Art.-Nr. », « Artikel », « EAN »)",
+    "speichern": "Enregistrer",
+    "gespeichert": "Enregistré.",
+    "liste": "Liste de protection",
+    "listeHinweis": "Termes toujours masqués, quelle que soit l’orthographe : clients, projets, personnes.",
+    "begriff": "Terme",
+    "art": "Type",
+    "hinzufuegen": "Ajouter",
+    "loeschen": "Supprimer",
+    "listeLeer": "Aucun terme pour l’instant.",
+    "probe": "Essayer",
+    "probeHinweis": "Collez un texte et regardez l’aperçu. Rien n’est envoyé à un modèle.",
+    "probeZeigen": "Afficher l’aperçu"
+  }
+}

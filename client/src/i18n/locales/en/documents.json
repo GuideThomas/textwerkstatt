@@ -1,0 +1,177 @@
+{
+  "page": {
+    "title": "Documents",
+    "subtitle": "Overview of all translation documents"
+  },
+  "languages": {
+    "AUTO": "Detect automatically",
+    "DE": "German",
+    "EN": "English",
+    "IT": "Italian",
+    "FR": "French",
+    "ES": "Spanish",
+    "HU": "Hungarian",
+    "PL": "Polish",
+    "CS": "Czech",
+    "SK": "Slovak",
+    "SL": "Slovenian"
+  },
+  "status": {
+    "pending": "Waiting",
+    "processing": "Processing",
+    "translating": "Translating",
+    "condensing": "Smart Condensing",
+    "completed": "Done",
+    "error": "Error"
+  },
+  "list": {
+    "title": "Documents",
+    "searchPlaceholder": "Search…",
+    "searchTitle": "Filters by document name or original file name",
+    "searchClear": "Clear search",
+    "allEditors": "All editors",
+    "mine": "Mine",
+    "users": "Users",
+    "storage_one": "{{count}} file · {{size}}",
+    "storage_other": "{{count}} files · {{size}}",
+    "loading": "Loading...",
+    "emptySearch": "No documents found for “{{query}}”.",
+    "empty": "No documents for this selection.",
+    "selectAll": "Select all",
+    "filteredCount": "({{shown}} of {{total}})",
+    "selectGroup": "Select all languages of this file"
+  },
+  "sort": {
+    "date": "Date",
+    "size": "Size",
+    "name": "Name"
+  },
+  "topics": {
+    "label": "Topics:",
+    "reset": "reset",
+    "assign": "Assign topics:",
+    "none": "No topics created yet — Admin → Topics."
+  },
+  "selection": {
+    "count_one": "{{count}} selected",
+    "count_other": "{{count}} selected",
+    "clear": "Clear selection",
+    "delete_one": "Delete {{count}}",
+    "delete_other": "Delete {{count}}"
+  },
+  "confirm": {
+    "deleteOne": "Really delete this document? The original file and segments will be removed.",
+    "deleteMany_one": "Really delete {{count}} document? The original file and segments will be removed.",
+    "deleteMany_other": "Really delete {{count}} documents? The original files and segments will be removed."
+  },
+  "project": {
+    "segments_one": "{{count}} segment",
+    "segments_other": "{{count}} segments",
+    "sizeTitle_one": "Current version: {{own}} · {{count}} version in total: {{chain}}",
+    "sizeTitle_other": "Current version: {{own}} · All {{count}} versions in total: {{chain}}",
+    "sizeTotal": "total {{size}}",
+    "editTopics": "edit",
+    "addTopic": "+ Topic"
+  },
+  "placeholder": {
+    "badge": "Placeholder",
+    "tooltipLorem": "{{count}} of {{total}} segments contain classic Lorem Ipsum. Check the source file before export — the typesetter may have forgotten to replace the placeholder text.",
+    "tooltipIndesign": "{{count}} of {{total}} segments contain InDesign placeholder text (Adobe Latin). Check the source file before export — the typesetter may have forgotten to replace the placeholder text."
+  },
+  "actions": {
+    "review": "Review",
+    "versions": "Versions",
+    "versionsTitle": "Show version history",
+    "newVersion": "+ Version",
+    "newVersionTitle": "Upload a new version as a successor of this document",
+    "delete": "Delete"
+  },
+  "upload": {
+    "title": "New translation",
+    "titleNewVersion": "Upload new version",
+    "parentInfo": "Will be created as a new version of “{{name}}”.",
+    "parentHint": "Language pair {{source}} → {{target}} is kept; unchanged segments come from the cache.",
+    "cancel": "Cancel",
+    "sourceLang": "Source language",
+    "targetLangs": "Target languages",
+    "parallelCount_one": "{{count}} translation",
+    "parallelCount_other": "{{count}} parallel translations",
+    "channel": {
+      "label": "Sales channel",
+      "neutralDisabled": "Disabled in neutral mode",
+      "specific": "Channel-specific terms are used, otherwise standard",
+      "standard": "Standard ({{org}})",
+      "defaultOption": "{{org}} (standard)"
+    },
+    "formality": {
+      "label": "Form of address",
+      "default": "Standard",
+      "more": "Formal",
+      "less": "Informal",
+      "titleDefault": "As before — no formality parameter is sent to DeepL",
+      "titleActive": "DeepL translates using the selected form of address",
+      "titleUnsupported": "DeepL offers no formality setting for the selected target languages",
+      "partialNoEffect": "No effect for {{langs}} — DeepL offers no formality setting there. The other target languages will get it.",
+      "noneSupported": "DeepL offers no formality setting for {{langs}}.",
+      "channelWarning": "Channel projects (product data) should stay neutral — consistency across runs matters more there than freedom per run."
+    },
+    "neutral": {
+      "label": "Translate neutrally (no glossary)",
+      "title": "Translates purely via DeepL without glossary or channel terms — e.g. for comparison runs or free texts."
+    },
+    "formatProfile": {
+      "label": "Format profile",
+      "autoDetect": "Auto-detection based on header",
+      "manual": "Selected manually",
+      "title": "The profile determines which columns/fields are translated and which remain untouched (header, technical values, Magento constants)",
+      "optAuto": "Auto (detect from header)",
+      "optCmsPage": "Magento CMS page export",
+      "optCmsBlock": "Magento CMS block export",
+      "optProduct": "Magento product export",
+      "optGeneric": "Generic (all columns except header)",
+      "help": "Magento profiles protect columns such as <c>page_layout</c>, <c>identifier</c>, and constants such as <c>1column</c> and <c>inner</c> from translation. HTML columns such as <c>content</c> run in DeepL HTML mode."
+    },
+    "storeView": {
+      "info": "Internal links are automatically set to the store view of the target language.",
+      "detail": "— image, media and resource paths (<c>src</c>, <c>srcset</c>, CSS/JS, PDFs, downloads) remain unchanged, as do external links and <c>{{directive}}</c> directives."
+    },
+    "optimize": {
+      "label": "Optimise source text before translation",
+      "title": "Checks every source text section with LanguageTool and automatically applies safe corrections (typos, typography, punctuation). Style suggestions are NOT applied."
+    },
+    "drop": {
+      "prompt": "Drag a file here or <b>browse</b>",
+      "formats": "IDML, DOCX, XLSX, PDF, XML, HTML, TXT, CSV, MD (max. 100 MB)",
+      "remove": "Remove file"
+    },
+    "topics": "Topics (optional)",
+    "uploading": "Uploading...",
+    "start": "Start translation",
+    "errors": {
+      "unsupportedFormat": "Unsupported format: {{ext}}. Allowed: {{allowed}}",
+      "noTarget": "Select at least one target language",
+      "targetIsSource": "Target languages must not include the source language",
+      "uploadFailed": "Upload failed",
+      "unknown": "Unknown error",
+      "channelFassungNeedsChannel": "Select a channel for German → German (not in neutral mode)"
+    },
+    "channelFassungChip": "German (channel version)",
+    "channelFassungHint": "German → German rewrites the document into the selected channel’s version (house style) — DeepL is not used for this."
+  },
+  "consistency": {
+    "title": "Consistency check",
+    "subtitle": "Find identical source texts with differing translations",
+    "sourceLang": "Source language",
+    "targetLang": "Target language",
+    "checking": "Checking...",
+    "run": "Check consistency",
+    "help": "Groups by normalised source texts (tolerant of whitespace and quotes). Shows only entries where one and the same source text has more than one translation in the cache — an indicator of inconsistent reviews or unclear glossary rules.",
+    "none": "No inconsistencies found for {{source}} → {{target}}. 👍",
+    "found_one": "{{count}} inconsistency found",
+    "found_other": "{{count}} inconsistencies found",
+    "variants_one": "{{count}} variant",
+    "variants_other": "{{count}} variants",
+    "cacheHits_one": "{{count}} cache hit",
+    "cacheHits_other": "{{count}} cache hits"
+  }
+}

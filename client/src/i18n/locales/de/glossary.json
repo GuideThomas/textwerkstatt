@@ -1,0 +1,453 @@
+{
+  "glossaries": {
+    "header": {
+      "title": "Glossare",
+      "subtitle": "Terminologie-Verwaltung und DeepL-Integration"
+    },
+    "list": {
+      "title": "Glossare",
+      "empty": "Keine Glossare vorhanden",
+      "entryCount_one": "{{count}} Eintrag",
+      "entryCount_few": "{{count}} Einträge",
+      "entryCount_many": "{{count}} Einträge",
+      "entryCount_other": "{{count}} Einträge",
+      "csvExportTitle": "CSV-Export",
+      "notSynced": "Änderungen nicht synchronisiert",
+      "syncedAt": "Bei DeepL aktuell (v{{version}})",
+      "syncing": "Sync...",
+      "sync": "Sync",
+      "houseTerms": "Hausschreibweise",
+      "houseTermsHint": "nur Deutsch · ohne DeepL",
+      "zuPflegen_one": "{{count}} ohne Übersetzung",
+      "zuPflegen_few": "{{count}} ohne Übersetzung",
+      "zuPflegen_many": "{{count}} ohne Übersetzung",
+      "zuPflegen_other": "{{count}} ohne Übersetzung",
+      "zuPflegenTitle_one": "Zeilen ohne Übersetzung wirken nicht: Dort übersetzt DeepL frei, bis jemand eine Übersetzung bestätigt.",
+      "zuPflegenTitle_few": "Zeilen ohne Übersetzung wirken nicht: Dort übersetzt DeepL frei, bis jemand eine Übersetzung bestätigt.",
+      "zuPflegenTitle_many": "Zeilen ohne Übersetzung wirken nicht: Dort übersetzt DeepL frei, bis jemand eine Übersetzung bestätigt.",
+      "zuPflegenTitle_other": "Zeilen ohne Übersetzung wirken nicht: Dort übersetzt DeepL frei, bis jemand eine Übersetzung bestätigt.",
+      "hinweise_one": "{{count}} mit Hinweis",
+      "hinweise_few": "{{count}} mit Hinweis",
+      "hinweise_many": "{{count}} mit Hinweis",
+      "hinweise_other": "{{count}} mit Hinweis",
+      "hinweiseSchreibung_one": "{{count}} nur Schreibung",
+      "hinweiseSchreibung_few": "{{count}} nur Schreibung",
+      "hinweiseSchreibung_many": "{{count}} nur Schreibung",
+      "hinweiseSchreibung_other": "{{count}} nur Schreibung",
+      "hinweiseTitle": "Zeilen mit Prüfhinweis. Ein Hinweis wirkt nie von selbst.",
+      "unnoetig_one": "{{count}} unnötig",
+      "unnoetig_few": "{{count}} unnötig",
+      "unnoetig_many": "{{count}} unnötig",
+      "unnoetig_other": "{{count}} unnötig",
+      "unnoetigTitle": "Zeilen, die gegenüber DeepL ohne Glossar nichts ändern. Davon in allen Sprachen entbehrlich: {{ueberall}}."
+    },
+    "alerts": {
+      "syncError": "Sync-Fehler: {{error}}",
+      "syncFailed": "Sync fehlgeschlagen",
+      "bulkApproveConfirm_one": "{{count}} Eintrag auf dieser Seite freigeben?",
+      "bulkApproveConfirm_few": "{{count}} Einträge auf dieser Seite freigeben?",
+      "bulkApproveConfirm_many": "{{count}} Einträge auf dieser Seite freigeben?",
+      "bulkApproveConfirm_other": "{{count}} Einträge auf dieser Seite freigeben?",
+      "speichernFehler": "Speichern fehlgeschlagen: {{error}}"
+    },
+    "entries": {
+      "count_one": "({{count}} Eintrag)",
+      "count_few": "({{count}} Einträge)",
+      "count_many": "({{count}} Einträge)",
+      "count_other": "({{count}} Einträge)",
+      "searchPlaceholder": "Suchen...",
+      "channelHint": "Standard-Spalte = {{org}}. Channel-Spalten leer lassen → Fallback auf Standard."
+    },
+    "filter": {
+      "all": "Alle",
+      "pending": "Offen",
+      "approved": "Freigegeben",
+      "zuPflegen": "Ohne Übersetzung",
+      "vorschlaege": "Vorschläge"
+    },
+    "bulk": {
+      "title": "Alle auf dieser Seite sichtbaren offenen Einträge freigeben",
+      "busy": "Freigeben…",
+      "button": "✓ Seite freigeben ({{count}})"
+    },
+    "form": {
+      "sourcePlaceholder": "Quellbegriff",
+      "targetPlaceholder": "Zielbegriff (Standard)",
+      "quelleFehlt": "Bitte einen Quellbegriff eingeben.",
+      "zielFehlt": "Bitte einen Zielbegriff eingeben oder mit „DeepL-Vorschlag“ holen. Ohne Zielbegriff entscheidet DeepL, dafür braucht es keinen Eintrag.",
+      "angelegt": "„{{begriff}}“ angelegt. Die Liste zeigt jetzt diesen Begriff; die Suche leeren zeigt wieder alle."
+    },
+    "table": {
+      "approvedHeaderTitle": "Freigegeben?"
+    },
+    "entry": {
+      "approvedTitle": "Freigegeben ({{source}}). Klick zum Zurückziehen.",
+      "pendingTitle": "Noch offen ({{source}}). Klick zum Freigeben.",
+      "editStandardTitle": "Standard ({{org}}) bearbeiten. Pflichtfeld — darf nicht leer sein.",
+      "overrideTitle": "Override für {{channel}}: {{value}}\nKlick zum Bearbeiten, leeren = Fallback auf Standard",
+      "noOverrideTitle": "Kein Override für {{channel}}. Klick zum Setzen.",
+      "historyTitle": "Änderungsverlauf anzeigen",
+      "deleteTitle": "Eintrag löschen",
+      "zuPflegenTitle": "Noch keine Übersetzung: Die Zeile wirkt nicht.",
+      "editTermTitle": "Deutschen Begriff umbenennen. Gilt nur in diesem Glossar."
+    },
+    "pagination": {
+      "prev": "Zurück",
+      "next": "Weiter",
+      "page": "Seite {{page}} von {{total}}"
+    },
+    "empty": {
+      "selectGlossary": "Wähle ein Glossar aus der Liste"
+    },
+    "history": {
+      "title": "Änderungsverlauf",
+      "loading": "Wird geladen...",
+      "empty": "Noch keine Änderungen erfasst.",
+      "fieldStandard": "Standard ({{org}})",
+      "action": {
+        "created": "Angelegt",
+        "updated": "Geändert",
+        "deleted": "Gelöscht",
+        "vorschlag": "Vorgeschlagen",
+        "freigabe": "Freigegeben",
+        "verworfen": "Verworfen"
+      },
+      "unknownUser": "Unbekannt",
+      "fieldBegriff": "Begriff",
+      "feld": {
+        "freigabe": "Freigabe",
+        "an_deepl": "an DeepL",
+        "art": "Art",
+        "wortart": "Wortart",
+        "genus": "Genus",
+        "formen": "Formen",
+        "ziel_name": "im Namen",
+        "kontext": "Kontext",
+        "kategorie": "Kategorie",
+        "rueckfrage": "Rückfrage",
+        "merkmal": "Merkmalsklasse",
+        "gruppe": "Gruppe {{nr}}",
+        "vorschlag": "Vorschlag"
+      },
+      "wert": {
+        "offen": "offen",
+        "freigegeben": "freigegeben",
+        "ja": "ja",
+        "nein": "nein",
+        "wort": "Wort",
+        "muster": "Muster",
+        "wendung": "Wendung",
+        "fest": "Serie"
+      }
+    },
+    "pflege": {
+      "placeholder": "Übersetzung eintragen",
+      "deepl": "DeepL-Vorschlag",
+      "deeplBusy": "Frage DeepL…",
+      "deeplTitle": "Vorschlag von DeepL holen. Er wird erst gespeichert, wenn du ihn bestätigst.",
+      "bestaetigen": "Bestätigen",
+      "bestaetigenTitle": "Übersetzung speichern und freigeben",
+      "istVorschlag": "Vorschlag von DeepL, noch nicht gespeichert",
+      "wertVerloren": "DeepL hat einen technischen Wert verloren ({{werte}}). Bitte von Hand eintragen.",
+      "leer": "DeepL hat nichts vorgeschlagen.",
+      "fehler": "Das hat nicht geklappt: {{error}}",
+      "abbrechen": "Abbrechen",
+      "offen": "Übersetzung eintragen",
+      "offenTitle": "Noch keine Übersetzung, hier übersetzt DeepL frei. Ein Klick öffnet das Feld."
+    },
+    "rueckfrage": {
+      "loeschenTitel": "„{{begriff}}“ aus diesem Glossar löschen?",
+      "umbenennenTitel": "„{{begriff}}“ in „{{neu}}“ umbenennen?",
+      "loeschenText": "Die Zeile wird nur in diesem Glossar gelöscht, samt Übersetzung und Channel-Werten. Die anderen Glossare bleiben unverändert.",
+      "umbenennenText": "Der Begriff wird nur in diesem Glossar umbenannt. Übersetzung und Channel-Werte bleiben stehen und gelten dann für den neuen Begriff.",
+      "konfliktText": "Das geht nicht: Den neuen Begriff gibt es in diesem Glossar schon mit einer Übersetzung. Zuerst eine davon löschen.",
+      "spalteBegriff": "Begriff",
+      "spalteUebersetzung": "Übersetzung",
+      "spalteAlt": "Alter Begriff",
+      "spalteNeu": "Neuer Begriff",
+      "leer": "noch ohne Übersetzung",
+      "abbrechen": "Abbrechen",
+      "loeschen": "Löschen",
+      "umbenennen": "Umbenennen",
+      "schliessen": "Schließen"
+    },
+    "hinweis": {
+      "nurMit": "Nur mit Hinweis",
+      "kategorieLabel": "Kategorie",
+      "gewissheitLabel": "Gewissheit",
+      "ohneSchreibung": "Alle ohne maschinelle Schreibung",
+      "alleKategorien": "Alle Kategorien",
+      "alleGewissheiten": "Jede Gewissheit",
+      "spalteTitle": "Prüfhinweise. Ein Klick zeigt Grund und Vorschlag.",
+      "vorschlag": "Vorschlag",
+      "uebernehmen": "Übernehmen",
+      "uebernehmenTitle": "Übersetzung durch den Vorschlag ersetzen",
+      "verwerfen": "Verwerfen",
+      "verwerfenTitle": "Der Eintrag ist richtig so. Der Hinweis fällt weg, der Eintrag bleibt unverändert.",
+      "kategorie": {
+        "falsch": "Falsch",
+        "sprachlich": "Sprachlich",
+        "schreibung": "Schreibung",
+        "zeichen": "Zeichen",
+        "satz": "Ganzer Satz",
+        "wert": "Wert",
+        "mehrdeutig": "Mehrdeutig",
+        "dublette": "Dublette",
+        "eigenname": "Eigenname",
+        "unuebersetzt": "Unübersetzt",
+        "unnoetig_ueberall": "Unnötig, überall",
+        "unnoetig_hier": "Unnötig, nur hier"
+      },
+      "gewissheit": {
+        "hoch": "Hoch",
+        "mittel": "Mittel",
+        "niedrig": "Niedrig"
+      },
+      "quelle": {
+        "mechanisch": "maschinell gefunden",
+        "fachlich": "fachlich beurteilt",
+        "satztest": "im Satz bestätigt"
+      },
+      "nurUnnoetig": "Unnötige Zeilen",
+      "nurUnnoetigTitle": "Zeigt Zeilen, die DeepL ohne Glossar genauso liefert. Gelöscht wird dadurch nichts.",
+      "entfernen": "Eintrag entfernen",
+      "entfernenTitle": "Löscht diese Zeile: Hier übersetzt dann DeepL frei. Die anderen Glossare bleiben unverändert."
+    },
+    "neu": {
+      "knopf": "Neues Glossar",
+      "titel": "Neues Glossar anlegen",
+      "text": "Quelle ist Deutsch. Begriffe, die in mindestens der Hälfte der Glossare stehen, kommen als Zeilen ohne Übersetzung mit.",
+      "laden": "Frage DeepL nach den Sprachen…",
+      "sprache": "Zielsprache",
+      "spracheWaehlen": "Sprache wählen",
+      "name": "Name",
+      "anlegen": "Anlegen",
+      "abbrechen": "Abbrechen",
+      "keineSprache": "Für jede Sprache, die DeepL hier anbietet, gibt es schon ein Glossar.",
+      "angelegt": "Glossar angelegt. Vorbefüllte Begriffe, noch ohne Übersetzung: {{anzahl}}"
+    },
+    "wortliste": {
+      "aufklappenTitle": "Wortliste: Art, Formen, Ziele je Produktgruppe",
+      "kennzeichen": {
+        "muster": "Muster",
+        "wendung": "Wendung",
+        "fest": "Serie",
+        "nurName": "im Namen anders",
+        "nichtDeepl": "nicht an DeepL",
+        "rueckfrage": "Rückfrage"
+      },
+      "kennzeichenTitle": {
+        "muster": "Muster mit # für Zahlen, wirkt nur in Artikelnamen",
+        "wendung": "Wendung aus mehreren Wörtern, geht im Namen vor den einzelnen Wörtern",
+        "fest": "Serie oder Eigenname, bleibt wie geschrieben",
+        "nurName": "Im Artikelnamen gilt: {{wert}}",
+        "nichtDeepl": "Geht nicht ins DeepL-Glossar, wirkt nur in Artikelnamen",
+        "rueckfrage": "Offene Rückfrage: {{text}}"
+      },
+      "art": "Art",
+      "artWerte": {
+        "wort": "Wort",
+        "muster": "Muster",
+        "wendung": "Wendung",
+        "fest": "Serie"
+      },
+      "wortart": "Wortart",
+      "wortartWerte": {
+        "hauptwort": "Hauptwort",
+        "adjektiv": "Adjektiv",
+        "sonstiges": "Sonstiges"
+      },
+      "genus": "Genus",
+      "genusWerte": {
+        "m": "männlich",
+        "f": "weiblich",
+        "n": "sächlich"
+      },
+      "leer": "–",
+      "formen": "Formen (Adjektiv)",
+      "zielName": "Im Namen anders",
+      "zielNamePlaceholder": "leer = wie die Übersetzung",
+      "anDeepl": "an DeepL (Fließtext)",
+      "anDeeplTitle": "Aus: Die Zeile wirkt nur in Artikelnamen, nicht im übersetzten Text",
+      "anDeeplMuster": "Ein Muster geht nie an DeepL",
+      "speichern": "Speichern",
+      "gespeichert": "Gespeichert",
+      "gruppen": "Ziel je Produktgruppe (nur in Namen)",
+      "keineGruppen": "keine",
+      "gruppeNr": "Gruppe {{nr}}",
+      "gruppeNrPlaceholder": "Gruppe",
+      "gruppeZiel": "Ziel",
+      "gruppeNeu": "Hinzufügen",
+      "gruppeEntfernen": "Gruppenziel entfernen",
+      "gruppeUngueltig": "Gruppe als Zahl und ein Ziel angeben",
+      "quelle": {
+        "pruefung": "Prüftabelle",
+        "glossar": "Glossar",
+        "markt": "Markt",
+        "deepl": "DeepL"
+      },
+      "artikel": "{{anzahl}} Artikel",
+      "beispiele": "Beispiele",
+      "rueckfrage": "Rückfrage",
+      "rueckfragePlaceholder": "Was ist unklar?",
+      "rueckfrageStellen": "Rückfrage stellen",
+      "rueckfrageAendern": "Rückfrage ändern",
+      "rueckfrageLoesen": "Rückfrage lösen",
+      "rueckfrageVon": "von {{von}}",
+      "ablehnen": "Ablehnen",
+      "ablehnenConfirm": "„{{begriff}}“ ablehnen? Die Zeile wird entfernt und nicht wieder vorgeschlagen.",
+      "anmerkungPlaceholder": "Anmerkung zum Ablehnen (optional)",
+      "fehler": "Fehler: {{error}}",
+      "filterRueckfrage": "Rückfrage",
+      "filterNurName": "nur in Namen",
+      "filterNurNameTitle": "Zeilen, die nicht an DeepL gehen oder im Namen anders lauten",
+      "filterAlleArten": "alle Arten"
+    },
+    "vorschlaege": {
+      "filterTitle": "Was Nicht-Admins eingereicht haben. Es wirkt erst nach der Freigabe durch einen Admin.",
+      "leer": "Keine offenen Vorschläge.",
+      "eingereicht": "Vorschlag eingereicht. Er wirkt, sobald ein Admin ihn freigibt; bis dahin gilt der bisherige Stand.",
+      "nurAdmin": "Freigeben und Verwerfen dürfen nur Admins.",
+      "freigeben": "Freigeben",
+      "verwerfen": "Verwerfen",
+      "verwerfenConfirm": "Vorschlag zu „{{begriff}}“ verwerfen?",
+      "fehler": "Nicht möglich: {{error}}",
+      "ja": "ja",
+      "nein": "nein",
+      "zeile": "Vorschlag ({{n}})",
+      "zeileTitle": "Zu dieser Zeile liegt ein offener Vorschlag. Er wirkt erst nach der Freigabe.",
+      "spalte": {
+        "begriff": "Begriff",
+        "jetzt": "Jetzt",
+        "neu": "Vorschlag",
+        "von": "Von"
+      },
+      "weg": {
+        "neu": "Neuer Begriff",
+        "eintrag": "Übersetzung und Angaben",
+        "begriff": "Umbenennen",
+        "channel": "Channel {{code}}",
+        "wortliste": "Wortliste",
+        "gruppe": "Produktgruppe {{nr}}"
+      },
+      "feld": {
+        "target_term": "Übersetzung",
+        "source_term": "Begriff",
+        "context": "Kontext",
+        "category": "Kategorie",
+        "channel_code": "Channel",
+        "art": "Art",
+        "wortart": "Wortart",
+        "genus": "Genus",
+        "formen": "Formen",
+        "ziel_name": "im Namen",
+        "an_deepl": "an DeepL"
+      },
+      "quelle": {
+        "glossar": "Glossarseite",
+        "quickadd": "Schnelleintrag",
+        "review": "Review",
+        "scan": "Terminologie-Scan"
+      },
+      "inArbeit": "Wird gerade freigegeben."
+    }
+  },
+  "houseTerms": {
+    "intro": "Begriffe, die wir im Deutschen <b>nicht</b> verwenden, und was stattdessen gilt. Die Schreibhilfe markiert Treffer bei deutschem Text. Channel-Spalten leer lassen → es gilt der Standard ({{org}}). Ist der Begriff bei {{org}} richtig und soll nur ein Channel anders formulieren: „Stattdessen ({{org}})“ leer lassen und nur die Channel-Spalte füllen.",
+    "form": {
+      "avoidLabel": "Nicht verwenden",
+      "preferredLabel": "Stattdessen ({{org}})",
+      "noteLabel": "Hinweis (optional)",
+      "example": "z. B. {{term}}",
+      "notePlaceholder": "Wird in der Schreibhilfe mit angezeigt",
+      "saving": "Speichere…",
+      "add": "Hinzufügen",
+      "preferredPlaceholder": "leer = bleibt bei {{org}}"
+    },
+    "list": {
+      "count_one": "{{count}} Eintrag",
+      "count_few": "{{count}} Einträge",
+      "count_many": "{{count}} Einträge",
+      "count_other": "{{count}} Einträge",
+      "searchPlaceholder": "Suchen…",
+      "loading": "Lade…",
+      "empty": "Noch keine Einträge.",
+      "noMatches": "Keine Treffer."
+    },
+    "table": {
+      "avoid": "Nicht verwenden",
+      "preferred": "Stattdessen",
+      "note": "Hinweis"
+    },
+    "cell": {
+      "editAvoid": "Zu vermeidenden Begriff bearbeiten (Pflichtfeld)",
+      "editPreferred": "Standard ({{org}}) bearbeiten — leer = der Begriff bleibt bei {{org}}",
+      "channelSet": "{{channel}}: {{value}}\nKlick zum Bearbeiten, leeren = Standard gilt",
+      "channelEmpty": "Kein eigener Begriff für {{channel}} — es gilt „{{term}}“. Klick zum Setzen.",
+      "editNote": "Hinweis bearbeiten",
+      "keeps": "bleibt"
+    },
+    "row": {
+      "historyTitle": "Änderungsverlauf",
+      "historyTitleLast": "Änderungsverlauf — zuletzt {{name}}",
+      "deleteTitle": "Eintrag löschen"
+    },
+    "deleteConfirm": "„{{term}}“ aus der Hausschreibweise löschen?",
+    "errors": {
+      "status": "Fehler {{status}}"
+    },
+    "history": {
+      "title": "Verlauf: {{term}}",
+      "empty": "Kein Verlauf.",
+      "entry": "{{field}} {{action}}",
+      "field": {
+        "avoid": "Nicht verwenden",
+        "standard": "Stattdessen ({{org}})",
+        "note": "Hinweis",
+        "channel": "Channel {{code}}"
+      },
+      "action": {
+        "created": "angelegt",
+        "updated": "geändert",
+        "deleted": "gelöscht"
+      },
+      "unknownUser": "unbekannt"
+    }
+  },
+  "topics": {
+    "title": "Themen",
+    "intro": "Themen helfen dabei, Dokumente über Sprachpaare und Dateitypen hinweg zu gruppieren (z. B. „Bedienungsanleitung“, „Strip-Serie“, „Marketing“). Ein Dokument kann mehrere Themen tragen.",
+    "form": {
+      "newLabel": "Neues Thema",
+      "namePlaceholder": "z. B. Bedienungsanleitung",
+      "color": "Farbe",
+      "create": "Anlegen"
+    },
+    "errors": {
+      "createFailed": "Fehler beim Anlegen",
+      "saveFailed": "Fehler beim Speichern",
+      "unknown": "Unbekannter Fehler"
+    },
+    "list": {
+      "loading": "Laden...",
+      "empty": "Noch keine Themen angelegt."
+    },
+    "table": {
+      "name": "Name",
+      "color": "Farbe",
+      "documents": "Dokumente",
+      "actions": "Aktionen"
+    },
+    "actions": {
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen"
+    },
+    "deleteConfirm": "Thema „{{name}}“ löschen?",
+    "deleteConfirmWithDocs_one": "Thema „{{name}}“ löschen? Es ist {{count}} Dokument zugewiesen — das Dokument selbst bleibt erhalten, nur die Verknüpfung wird entfernt.",
+    "deleteConfirmWithDocs_few": "Thema „{{name}}“ löschen? Es sind {{count}} Dokumente zugewiesen — die Dokumente selbst bleiben erhalten, nur die Verknüpfung wird entfernt.",
+    "deleteConfirmWithDocs_many": "Thema „{{name}}“ löschen? Es sind {{count}} Dokumente zugewiesen — die Dokumente selbst bleiben erhalten, nur die Verknüpfung wird entfernt.",
+    "deleteConfirmWithDocs_other": "Thema „{{name}}“ löschen? Es sind {{count}} Dokumente zugewiesen — die Dokumente selbst bleiben erhalten, nur die Verknüpfung wird entfernt."
+  }
+}

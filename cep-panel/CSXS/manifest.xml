@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Textwerkstatt — CEP-Panel für Adobe Illustrator
+  Host: Illustrator (ILST). CEP 11 → Illustrator 25 (2021) und neuer.
+  Das Panel ruft die ExtendScript-Logik (host/index.jsx) via evalScript auf
+  und spricht die CEP-API des Translationtools (/api/cep/*) per fetch an.
+-->
+<ExtensionManifest Version="11.0" ExtensionBundleId="art.thomaswinkler.textwerkstatt"
+    ExtensionBundleVersion="1.1.0" ExtensionBundleName="Textwerkstatt"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ExtensionList>
+    <Extension Id="art.thomaswinkler.textwerkstatt.panel" Version="1.1.0" />
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+      <!-- Illustrator 25 (2021) bis 99 — breite Range, damit es nicht pro Update bricht -->
+      <Host Name="ILST" Version="[25.0,99.9]" />
+    </HostList>
+    <LocaleList>
+      <Locale Code="All" />
+    </LocaleList>
+    <RequiredRuntimeList>
+      <RequiredRuntime Name="CSXS" Version="11.0" />
+    </RequiredRuntimeList>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="art.thomaswinkler.textwerkstatt.panel">
+      <DispatchInfo>
+        <Resources>
+          <MainPath>./client/index.html</MainPath>
+          <ScriptPath>./host/index.jsx</ScriptPath>
+          <CEFCommandLine>
+            <!-- Erlaubt der Extension Cross-Origin-fetch zur Translationtool-API.
+                 Gilt NUR für diese CEF-Instanz, nicht für den Browser des Nutzers. -->
+            <Parameter>--disable-web-security</Parameter>
+            <Parameter>--allow-file-access-from-files</Parameter>
+          </CEFCommandLine>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>Panel</Type>
+          <Menu>Textwerkstatt</Menu>
+          <Geometry>
+            <Size>
+              <Height>520</Height>
+              <Width>340</Width>
+            </Size>
+            <MinSize>
+              <Height>360</Height>
+              <Width>300</Width>
+            </MinSize>
+          </Geometry>
+        </UI>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
+</ExtensionManifest>

@@ -1,0 +1,61 @@
+{
+  "tabs": {
+    "terms": "Manage house style"
+  },
+  "languages": {
+    "AUTO": "Automatic",
+    "DE": "German",
+    "EN": "English",
+    "IT": "Italian",
+    "FR": "French",
+    "ES": "Spanish",
+    "HU": "Hungarian",
+    "PL": "Polish",
+    "CS": "Czech",
+    "SK": "Slovak",
+    "SL": "Slovenian"
+  },
+  "picky": "Strict mode (picky)",
+  "actions": {
+    "acceptSafe": "Apply safe corrections",
+    "acceptSafeTitle": "Automatically apply typos/typography/punctuation fixes (unambiguous suggestions)",
+    "checking": "Checking…",
+    "check": "Check"
+  },
+  "errors": {
+    "http": "Error {{status}}",
+    "ltUnreachableHouseOnly": "LanguageTool unreachable ({{error}}) — only the house style was checked.",
+    "ltUnreachable": "LanguageTool unreachable",
+    "fileTooLarge": "File too large (max. 5 MB).",
+    "fileType": "Only .txt, .md, .markdown are supported — please convert other formats to text first."
+  },
+  "editor": {
+    "chars_one": "{{count}} character",
+    "chars_other": "{{count}} characters",
+    "loadFile": "Load file",
+    "placeholder": "Paste text or drop a .txt/.md file here…",
+    "dropHere": "Drop file to import",
+    "dragDropHint": "Drag & drop supports .txt, .md (max. 5 MB)",
+    "copy": "Copy"
+  },
+  "result": {
+    "title": "Highlighted",
+    "hints_one": "{{count}} issue",
+    "hints_other": "{{count}} issues",
+    "houseTermsCount_one": "of which {{count}} house style",
+    "houseTermsCount_other": "of which {{count}} house style",
+    "clickHint": "Click highlighted text to see suggestions",
+    "empty": "Nothing checked yet…"
+  },
+  "match": {
+    "fallback": "Issue",
+    "dismissTitle": "Dismiss issue",
+    "ignore": "Ignore",
+    "delete": "∅ (delete)",
+    "noSuggestion": "No automatic suggestion available."
+  },
+  "footer": {
+    "poweredBy": "Powered by self-hosted LanguageTool",
+    "legend": "<hl>turquoise</hl> = house style (list in the \"Manage house style\" tab)"
+  }
+}

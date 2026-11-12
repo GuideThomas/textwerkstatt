@@ -1,0 +1,137 @@
+{
+  "language": {
+    "label": "Nyelv"
+  },
+  "app": {
+    "loading": "Betöltés...",
+    "subtitle": "Elrendezéshű dokumentumfordítás",
+    "logout": "Kijelentkezés"
+  },
+  "tabs": {
+    "textwerkstatt": "Szövegműhely",
+    "documents": "Dokumentumok",
+    "glossaries": "Glosszáriumok",
+    "nameModules": "Névelemek",
+    "terminologyScan": "Terminológiai vizsgálat",
+    "consistency": "Konzisztencia",
+    "costs": "Költségek",
+    "admin": "Admin",
+    "manage": "Kezelés"
+  },
+  "login": {
+    "microsoft": "Bejelentkezés Microsoft-fiókkal",
+    "alternative": "Egyéb bejelentkezési módok",
+    "email": "E-mail",
+    "password": "Jelszó",
+    "submit": "Bejelentkezés",
+    "submitting": "Bejelentkezés...",
+    "errorUnknown": "Hiba: {{code}}",
+    "errors": {
+      "microsoftDenied": "A Microsoft-bejelentkezést elutasították.",
+      "invalidState": "A biztonsági ellenőrzés sikertelen. Kérjük, próbálja újra.",
+      "noCode": "Nem érkezett engedélyezés.",
+      "tokenExchange": "A tokencsere sikertelen.",
+      "noIdToken": "Nem érkezett azonosító token.",
+      "missingClaims": "Hiányzó felhasználói adatok a Microsofttól.",
+      "accountInactive": "Az Ön fiókja le van tiltva. Forduljon a rendszergazdához.",
+      "internalError": "Belső hiba. Kérjük, próbálja újra később."
+    }
+  },
+  "auth": {
+    "requestFailed": "A kérés sikertelen",
+    "loginFailed": "Sikertelen bejelentkezés"
+  },
+  "errorBoundary": {
+    "title": "Ez a nézet összeomlott",
+    "titleWithContext": "Ez a nézet összeomlott ({{context}})",
+    "description": "Az oldal megjelenítése közben váratlan hiba történt, amelyet a rendszer elfogott. Az alkalmazás többi része továbbra is használható — válasszon másik lapot, vagy töltse újra az oldalt.",
+    "errorMessage": "Hibaüzenet",
+    "showStack": "Veremkivonat megjelenítése",
+    "showComponentStack": "Komponensverem megjelenítése",
+    "retry": "Újrapróbálás",
+    "reload": "Oldal újratöltése"
+  },
+  "progress": {
+    "phases": {
+      "connected": "Csatlakozva",
+      "parsing": "Fájl feldolgozása",
+      "translating": "Fordítás folyamatban",
+      "finalizing": "Befejezés",
+      "completed": "Kész",
+      "error": "Hiba"
+    },
+    "fromCache": "/ {{total}} gyorsítótárból"
+  },
+  "segments": {
+    "loading": "Szegmensek betöltése...",
+    "avgLength": "~{{value}} karakter/szegmens",
+    "statusTranslated": "Lefordítva",
+    "statusPending": "Függőben",
+    "showingOf": "{{total}} szegmensből {{shown}} látható",
+    "count_one": "{{count}} szegmens",
+    "count_few": "{{count}} szegmens",
+    "count_many": "{{count}} szegmens",
+    "count_other": "{{count}} szegmens",
+    "translated_one": "{{count}} lefordítva",
+    "translated_few": "{{count}} lefordítva",
+    "translated_many": "{{count}} lefordítva",
+    "translated_other": "{{count}} lefordítva",
+    "condensed_one": "{{count}} rövidítve",
+    "condensed_few": "{{count}} rövidítve",
+    "condensed_many": "{{count}} rövidítve",
+    "condensed_other": "{{count}} rövidítve",
+    "cacheHits_one": "{{count}} gyorsítótár-találat",
+    "cacheHits_few": "{{count}} gyorsítótár-találat",
+    "cacheHits_many": "{{count}} gyorsítótár-találat",
+    "cacheHits_other": "{{count}} gyorsítótár-találat",
+    "maxChars_one": "max. {{count}} karakter",
+    "maxChars_few": "max. {{count}} karakter",
+    "maxChars_many": "max. {{count}} karakter",
+    "maxChars_other": "max. {{count}} karakter"
+  },
+  "versions": {
+    "loading": "Verziók betöltése...",
+    "back": "← Vissza",
+    "title": "Verzióelőzmények",
+    "subtitle": "Eltérések a dokumentumgenerációk között",
+    "chain": "Verziólánc",
+    "empty": "Nincsenek elérhető verzióadatok.",
+    "compare": "összevetés",
+    "computing": "Számítás...",
+    "showDiff": "Eltérések megjelenítése",
+    "compareHint": "Az aktuális verzió összevetése a kiválasztott verzióval",
+    "result": "Az összevetés eredménye",
+    "stats": {
+      "unchanged": "Változatlan",
+      "changed": "Módosult",
+      "added": "Új",
+      "removed": "Eltávolítva"
+    },
+    "sections": {
+      "changed": "Módosult szegmensek ({{count}})",
+      "added": "Új ({{count}})",
+      "removed": "Eltávolítva ({{count}})"
+    },
+    "position": "{{position}}. pozíció",
+    "moreHidden": "…további {{count}} elrejtve",
+    "current": "Ez a verzió",
+    "selected": "Kiválasztva",
+    "onlyOne": "Ennek a dokumentumnak még nincs másik verziója. Tölts fel egy újat a dokumentumlistában a „+ Verzió” gombbal – utána itt összevetheted."
+  },
+  "demo": {
+    "titel": "Demó",
+    "vertraulich": "Kérjük, ne adjon meg bizalmas szövegeket",
+    "dienste": "A szövegek fordításra a DeepL-hez, optimalizálásra egy MI-modellhez kerülnek",
+    "reset": "Minden bevitt adat törlődik ekkor: {{datum}}",
+    "resetOhneDatum": "Minden bevitt adat rendszeresen törlődik",
+    "torText": "Ez a demó jelszóval védett. Az Ön neve megjelenik a változási előzményekben, és üresen is hagyható.",
+    "name": "Név (nem kötelező)",
+    "passwort": "Jelszó",
+    "hinein": "Demó megnyitása"
+  },
+  "fuss": {
+    "navigation": "Thomas Winkler további oldalai",
+    "impressum": "Impresszum",
+    "datenschutz": "Adatvédelem"
+  }
+}

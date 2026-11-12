@@ -1,0 +1,188 @@
+{
+  "access": {
+    "adminOnly": "K nastaveniam majú prístup iba administrátori."
+  },
+  "page": {
+    "title": "Administrácia",
+    "subtitle": "Správa používateľov a systémové nastavenia"
+  },
+  "system": {
+    "title": "Konfigurácia systému",
+    "auth": "Overenie",
+    "llmPrimary": "Primárny LLM",
+    "llmFallback": "Záložný LLM",
+    "deeplValue": "API Pro (neobmedzené)",
+    "condensingThreshold": "Prah skracovania",
+    "condensingValue": "{{pct}} % dĺžky zdrojového textu",
+    "pdfExtraction": "Extrakcia PDF",
+    "maxFileSize": "Max. veľkosť súboru",
+    "fileRetention": "Uchovávanie súborov",
+    "fileRetentionValue": "Manuálne (bez automatického mazania)"
+  },
+  "formats": {
+    "title": "Podporované formáty",
+    "viaDocling": "cez Docling"
+  },
+  "prices": {
+    "title": "Ceny tokenov LLM (za 1 mil. tokenov)",
+    "model": "Model",
+    "input": "Vstup",
+    "output": "Výstup"
+  },
+  "errors": {
+    "generic": "Chyba"
+  },
+  "common": {
+    "name": "Meno",
+    "email": "E-mail",
+    "status": "Stav",
+    "save": "Uložiť",
+    "saving": "Ukladá sa...",
+    "cancel": "Zrušiť"
+  },
+  "roles": {
+    "admin": "Administrátor",
+    "user": "Používateľ",
+    "viewer": "Iba na čítanie"
+  },
+  "users": {
+    "loading": "Načítavajú sa používatelia...",
+    "title": "Správa používateľov",
+    "newButton": "+ Nový používateľ",
+    "colRole": "Rola",
+    "colAuth": "Overenie",
+    "colCreated": "Vytvorené",
+    "colActions": "Akcie",
+    "active": "Aktívny",
+    "deactivated": "Deaktivovaný",
+    "authLocal": "Lokálne",
+    "edit": "Upraviť",
+    "deactivate": "Deaktivovať",
+    "activate": "Aktivovať",
+    "confirmDeactivate": "Naozaj deaktivovať {{email}}?",
+    "empty": "Žiadni používatelia",
+    "formEditTitle": "Upraviť používateľa",
+    "formNewTitle": "Nový používateľ",
+    "passwordLabelEdit": "Heslo (prázdne = bez zmeny)",
+    "passwordLabelNew": "Heslo (prázdne = iba Microsoft)"
+  },
+  "speakers": {
+    "loading": "Načítavajú sa rodení hovorcovia...",
+    "title": "Rodení hovorcovia",
+    "intro": "Rodení hovorcovia, ktorých možno pozvať na kontrolu prekladu.",
+    "addButton": "+ Rodený hovorca",
+    "empty": "Zatiaľ nie sú zadaní žiadni rodení hovorcovia.",
+    "colLanguages": "Jazyky",
+    "colAction": "Akcia",
+    "active": "aktívny",
+    "inactive": "neaktívny",
+    "edit": "upraviť",
+    "delete": "odstrániť",
+    "confirmDelete": "Naozaj odstrániť rodeného hovorcu „{{name}}“?",
+    "formEditTitle": "Upraviť rodeného hovorcu",
+    "formNewTitle": "Pridať nového rodeného hovorcu",
+    "namePlaceholder": "napr. Marco Rossi",
+    "languagesLabel": "Jazyky (materinský jazyk)",
+    "languagesHint": "Jedna osoba môže pokrývať viac jazykov (napr. DE + EN).",
+    "activeCheckbox": "Aktívny (zobrazí sa v rozbaľovacom zozname na stránke kontroly)",
+    "saving": "Ukladá sa...",
+    "create": "Vytvoriť"
+  },
+  "languages": {
+    "DE": "Nemčina",
+    "EN": "Angličtina",
+    "IT": "Taliančina",
+    "FR": "Francúzština",
+    "ES": "Španielčina",
+    "HU": "Maďarčina",
+    "PL": "Poľština",
+    "CS": "Čeština",
+    "SK": "Slovenčina",
+    "SL": "Slovinčina",
+    "NL": "Holandčina",
+    "PT": "Portugalčina"
+  },
+  "costs": {
+    "loading": "Načítavajú sa údaje prehľadu…",
+    "title": "Náklady",
+    "subtitle": "Využitie LLM a vyúčtovanie",
+    "overview": {
+      "documents": "Dokumenty",
+      "completed": "Dokončené: {{n}}",
+      "segmentsCache": "Segmenty (cache)",
+      "hitRate": "Miera zásahov {{pct}} %",
+      "glossaries": "Glosáre",
+      "entries_one": "{{n}} záznam",
+      "entries_few": "{{n}} záznamy",
+      "entries_many": "{{n}} záznamu",
+      "entries_other": "{{n}} záznamov",
+      "llmTotal": "Celkové náklady LLM",
+      "requests_one": "{{n}} požiadavka",
+      "requests_few": "{{n}} požiadavky",
+      "requests_many": "{{n}} požiadavky",
+      "requests_other": "{{n}} požiadaviek"
+    },
+    "deeplDown": {
+      "title": "DeepL je momentálne nedostupný",
+      "hint": "Nové prekladové úlohy pravdepodobne zlyhajú. Stav sa automaticky aktualizuje pri ďalšom pokuse.",
+      "recheck": "Skontrolovať znova",
+      "healthFailed": "Kontrola dostupnosti zlyhala"
+    },
+    "deepl": {
+      "title": "Spotreba DeepL API",
+      "charsUsed": "Spotrebované znaky (mesiac)",
+      "plan": "Pay-as-you-go (4,99 € + 20 €/1 mil.)",
+      "translatedSegments": "Preložené segmenty",
+      "sourceChars": "Zdrojové znaky: {{n}}",
+      "translatedChars": "Preložené znaky",
+      "estCost": "Náklady DeepL (odhad)",
+      "estCostHint": "4,99 € základ + 20 €/1 mil. znakov"
+    },
+    "llm": {
+      "title": "Spotreba LLM API",
+      "inputTokens": "Vstupné tokeny",
+      "outputTokens": "Výstupné tokeny",
+      "modelsUsed": "Použité modely",
+      "model": "Model",
+      "requests": "Požiadavky",
+      "cost": "Náklady"
+    },
+    "purpose": {
+      "title": "Náklady LLM podľa účelu",
+      "purpose": "Účel"
+    },
+    "purposes": {
+      "condense": "Skracovanie",
+      "terminology": "Terminológia",
+      "analyze": "Analýza",
+      "word-order": "Slovosled",
+      "capitalization": "Veľké/malé písmená"
+    },
+    "projects": {
+      "title": "Náklady na dokument",
+      "document": "Dokument",
+      "languages": "Jazyky",
+      "format": "Formát",
+      "llmCalls": "Volania LLM",
+      "inputTokens": "Vstupné tokeny"
+    },
+    "cache": {
+      "title": "Cache segmentov",
+      "total": "Segmenty celkom",
+      "withHits": "So zásahmi v cache",
+      "totalHits": "Zásahy celkom",
+      "stale": "Zastarané segmenty",
+      "top": "Najčastejšie cachované segmenty",
+      "segment": "Segment",
+      "hits": "Zásahy",
+      "staleBadge": "Zastarané",
+      "current": "Aktuálne"
+    },
+    "daily": {
+      "title": "Denné náklady LLM (posledných 30 dní)",
+      "day": "Deň",
+      "inputTokens": "Vstupné tokeny",
+      "outputTokens": "Výstupné tokeny"
+    }
+  }
+}

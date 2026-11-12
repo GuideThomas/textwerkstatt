@@ -1,0 +1,137 @@
+{
+  "language": {
+    "label": "Lingua"
+  },
+  "app": {
+    "loading": "Caricamento...",
+    "subtitle": "Traduzione di documenti con layout invariato",
+    "logout": "Esci"
+  },
+  "tabs": {
+    "textwerkstatt": "Laboratorio testi",
+    "documents": "Documenti",
+    "glossaries": "Glossari",
+    "nameModules": "Elementi dei nomi",
+    "terminologyScan": "Scansione terminologica",
+    "consistency": "Coerenza",
+    "costs": "Costi",
+    "admin": "Admin",
+    "manage": "Gestione"
+  },
+  "login": {
+    "microsoft": "Accesso con Microsoft",
+    "alternative": "Altri metodi di accesso",
+    "email": "E-mail",
+    "password": "Password",
+    "submit": "Accedere",
+    "submitting": "Accesso in corso...",
+    "errorUnknown": "Errore: {{code}}",
+    "errors": {
+      "microsoftDenied": "L'accesso con Microsoft è stato rifiutato.",
+      "invalidState": "Controllo di sicurezza non riuscito. Riprovare.",
+      "noCode": "Nessuna autorizzazione ricevuta.",
+      "tokenExchange": "Scambio del token non riuscito.",
+      "noIdToken": "Nessun token ID ricevuto.",
+      "missingClaims": "Informazioni utente mancanti da Microsoft.",
+      "accountInactive": "L'account è disattivato. Contattare l'amministratore.",
+      "internalError": "Errore interno. Riprovare più tardi."
+    }
+  },
+  "auth": {
+    "requestFailed": "Richiesta non riuscita",
+    "loginFailed": "Accesso non riuscito"
+  },
+  "errorBoundary": {
+    "title": "Questa vista si è bloccata",
+    "titleWithContext": "Questa vista si è bloccata ({{context}})",
+    "description": "È stato intercettato un errore imprevisto durante la visualizzazione della pagina. Il resto dell'applicazione rimane utilizzabile: è possibile scegliere un'altra scheda o ricaricare.",
+    "errorMessage": "Messaggio di errore",
+    "showStack": "Mostrare lo stack trace",
+    "showComponentStack": "Mostrare lo stack dei componenti",
+    "retry": "Riprovare",
+    "reload": "Ricaricare la pagina"
+  },
+  "progress": {
+    "phases": {
+      "connected": "Connesso",
+      "parsing": "Analisi del file",
+      "translating": "Traduzione in corso",
+      "finalizing": "Completamento in corso",
+      "completed": "Completato",
+      "error": "Errore"
+    },
+    "fromCache": "/ {{total}} dalla cache"
+  },
+  "segments": {
+    "loading": "Caricamento segmenti...",
+    "avgLength": "~{{value}} caratteri/segmento",
+    "statusTranslated": "Tradotto",
+    "statusPending": "In attesa",
+    "showingOf": "Visualizzati {{shown}} di {{total}} segmenti",
+    "count_one": "{{count}} segmento",
+    "count_few": "{{count}} segmenti",
+    "count_many": "{{count}} segmenti",
+    "count_other": "{{count}} segmenti",
+    "translated_one": "{{count}} tradotto",
+    "translated_few": "{{count}} tradotti",
+    "translated_many": "{{count}} tradotti",
+    "translated_other": "{{count}} tradotti",
+    "condensed_one": "{{count}} abbreviato",
+    "condensed_few": "{{count}} abbreviati",
+    "condensed_many": "{{count}} abbreviati",
+    "condensed_other": "{{count}} abbreviati",
+    "cacheHits_one": "{{count}} risultato dalla cache",
+    "cacheHits_few": "{{count}} risultati dalla cache",
+    "cacheHits_many": "{{count}} risultati dalla cache",
+    "cacheHits_other": "{{count}} risultati dalla cache",
+    "maxChars_one": "max {{count}} carattere",
+    "maxChars_few": "max {{count}} caratteri",
+    "maxChars_many": "max {{count}} caratteri",
+    "maxChars_other": "max {{count}} caratteri"
+  },
+  "versions": {
+    "loading": "Caricamento versioni...",
+    "back": "← Indietro",
+    "title": "Cronologia versioni",
+    "subtitle": "Differenze tra generazioni del documento",
+    "chain": "Catena delle versioni",
+    "empty": "Nessun dato di versione disponibile.",
+    "compare": "confrontare",
+    "computing": "Calcolo in corso...",
+    "showDiff": "Mostrare differenze",
+    "compareHint": "Confronto tra la versione attuale e la versione selezionata",
+    "result": "Risultato del confronto",
+    "stats": {
+      "unchanged": "Invariati",
+      "changed": "Modificati",
+      "added": "Aggiunti",
+      "removed": "Rimossi"
+    },
+    "sections": {
+      "changed": "Segmenti modificati ({{count}})",
+      "added": "Aggiunti ({{count}})",
+      "removed": "Rimossi ({{count}})"
+    },
+    "position": "Posizione n. {{position}}",
+    "moreHidden": "…altri {{count}} nascosti",
+    "current": "Questa versione",
+    "selected": "Selezionata",
+    "onlyOne": "Di questo documento non esiste ancora un’altra versione. Caricane una nuova con “+ Versione” nell’elenco dei documenti: potrai poi confrontarla qui."
+  },
+  "demo": {
+    "titel": "Demo",
+    "vertraulich": "Si prega di non inserire testi riservati",
+    "dienste": "I testi vengono inviati a DeepL per la traduzione e a un modello di IA per l'ottimizzazione",
+    "reset": "Tutti i dati inseriti saranno cancellati il {{datum}}",
+    "resetOhneDatum": "Tutti i dati inseriti vengono cancellati regolarmente",
+    "torText": "Questa demo è protetta da password. Il Suo nome compare nella cronologia e può essere lasciato vuoto.",
+    "name": "Nome (facoltativo)",
+    "passwort": "Password",
+    "hinein": "Apri la demo"
+  },
+  "fuss": {
+    "navigation": "Altre pagine di Thomas Winkler",
+    "impressum": "Note legali",
+    "datenschutz": "Privacy"
+  }
+}

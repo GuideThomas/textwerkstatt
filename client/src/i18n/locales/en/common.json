@@ -1,0 +1,137 @@
+{
+  "language": {
+    "label": "Language"
+  },
+  "app": {
+    "loading": "Loading...",
+    "subtitle": "Layout-preserving document translation",
+    "logout": "Sign out"
+  },
+  "tabs": {
+    "textwerkstatt": "Text workshop",
+    "documents": "Documents",
+    "glossaries": "Glossaries",
+    "nameModules": "Name building blocks",
+    "terminologyScan": "Terminology scan",
+    "consistency": "Consistency",
+    "costs": "Costs",
+    "admin": "Admin",
+    "manage": "Management"
+  },
+  "login": {
+    "microsoft": "Sign in with Microsoft",
+    "alternative": "Other sign-in methods",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "submitting": "Signing in...",
+    "errorUnknown": "Error: {{code}}",
+    "errors": {
+      "microsoftDenied": "Microsoft sign-in was denied.",
+      "invalidState": "Security check failed. Please try again.",
+      "noCode": "No authorization received.",
+      "tokenExchange": "Token exchange failed.",
+      "noIdToken": "No ID token received.",
+      "missingClaims": "Missing user information from Microsoft.",
+      "accountInactive": "Your account is deactivated. Please contact the administrator.",
+      "internalError": "Internal error. Please try again later."
+    }
+  },
+  "auth": {
+    "requestFailed": "Request failed",
+    "loginFailed": "Sign-in failed"
+  },
+  "errorBoundary": {
+    "title": "This view has crashed",
+    "titleWithContext": "This view has crashed ({{context}})",
+    "description": "An unexpected error while rendering the page was caught. The rest of the application remains usable — you can choose another tab or reload.",
+    "errorMessage": "Error message",
+    "showStack": "Show stack trace",
+    "showComponentStack": "Show component stack",
+    "retry": "Try again",
+    "reload": "Reload page"
+  },
+  "progress": {
+    "phases": {
+      "connected": "Connected",
+      "parsing": "Parsing file",
+      "translating": "Translating",
+      "finalizing": "Finalizing",
+      "completed": "Done",
+      "error": "Error"
+    },
+    "fromCache": "/ {{total}} from cache"
+  },
+  "segments": {
+    "loading": "Loading segments...",
+    "avgLength": "~{{value}} characters/segment",
+    "statusTranslated": "Translated",
+    "statusPending": "Pending",
+    "showingOf": "Showing {{shown}} of {{total}} segments",
+    "count_one": "{{count}} segment",
+    "count_few": "{{count}} segments",
+    "count_many": "{{count}} segments",
+    "count_other": "{{count}} segments",
+    "translated_one": "{{count}} translated",
+    "translated_few": "{{count}} translated",
+    "translated_many": "{{count}} translated",
+    "translated_other": "{{count}} translated",
+    "condensed_one": "{{count}} shortened",
+    "condensed_few": "{{count}} shortened",
+    "condensed_many": "{{count}} shortened",
+    "condensed_other": "{{count}} shortened",
+    "cacheHits_one": "{{count}} cache hit",
+    "cacheHits_few": "{{count}} cache hits",
+    "cacheHits_many": "{{count}} cache hits",
+    "cacheHits_other": "{{count}} cache hits",
+    "maxChars_one": "max {{count}} character",
+    "maxChars_few": "max {{count}} characters",
+    "maxChars_many": "max {{count}} characters",
+    "maxChars_other": "max {{count}} characters"
+  },
+  "versions": {
+    "loading": "Loading versions...",
+    "back": "← Back",
+    "title": "Version history",
+    "subtitle": "Differences between the versions of a document",
+    "chain": "Version chain",
+    "empty": "No version data available.",
+    "compare": "Compare",
+    "computing": "Calculating...",
+    "showDiff": "Show comparison",
+    "compareHint": "Comparing the current version with the selected version",
+    "result": "Comparison result",
+    "stats": {
+      "unchanged": "Unchanged",
+      "changed": "Changed",
+      "added": "Added",
+      "removed": "Removed"
+    },
+    "sections": {
+      "changed": "Changed segments ({{count}})",
+      "added": "Added ({{count}})",
+      "removed": "Removed ({{count}})"
+    },
+    "position": "Position #{{position}}",
+    "moreHidden": "…{{count}} more hidden",
+    "current": "This version",
+    "selected": "Selected",
+    "onlyOne": "There is no other version of this document yet. Upload a new one with “+ Version” in the document list – you can then compare it here."
+  },
+  "demo": {
+    "titel": "Demo",
+    "vertraulich": "Please do not enter confidential texts",
+    "dienste": "Texts are sent to DeepL for translation and to an AI model for optimising",
+    "reset": "All entries will be deleted on {{datum}}",
+    "resetOhneDatum": "All entries are deleted regularly",
+    "torText": "This demo is password protected. Your name appears in the change history and may be left empty.",
+    "name": "Name (optional)",
+    "passwort": "Password",
+    "hinein": "Open demo"
+  },
+  "fuss": {
+    "navigation": "More by Thomas Winkler",
+    "impressum": "Legal notice",
+    "datenschutz": "Privacy"
+  }
+}

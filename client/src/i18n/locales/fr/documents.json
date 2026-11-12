@@ -1,0 +1,177 @@
+{
+  "page": {
+    "title": "Documents",
+    "subtitle": "Vue d'ensemble de tous les documents de traduction"
+  },
+  "languages": {
+    "AUTO": "Détection automatique",
+    "DE": "Allemand",
+    "EN": "Anglais",
+    "IT": "Italien",
+    "FR": "Français",
+    "ES": "Espagnol",
+    "HU": "Hongrois",
+    "PL": "Polonais",
+    "CS": "Tchèque",
+    "SK": "Slovaque",
+    "SL": "Slovène"
+  },
+  "status": {
+    "pending": "En attente",
+    "processing": "En cours de traitement",
+    "translating": "Traduction",
+    "condensing": "Smart Condensing",
+    "completed": "Terminé",
+    "error": "Erreur"
+  },
+  "list": {
+    "title": "Documents",
+    "searchPlaceholder": "Rechercher…",
+    "searchTitle": "Filtre par nom de document ou nom du fichier d'origine",
+    "searchClear": "Effacer la recherche",
+    "allEditors": "Tous les utilisateurs",
+    "mine": "Les miens",
+    "users": "Utilisateurs",
+    "storage_one": "{{count}} fichier · {{size}}",
+    "storage_other": "{{count}} fichiers · {{size}}",
+    "loading": "Chargement...",
+    "emptySearch": "Aucun document trouvé pour « {{query}} ».",
+    "empty": "Aucun document pour cette sélection.",
+    "selectAll": "Tout sélectionner",
+    "filteredCount": "({{shown}} sur {{total}})",
+    "selectGroup": "Sélectionner toutes les langues de ce fichier"
+  },
+  "sort": {
+    "date": "Date",
+    "size": "Taille",
+    "name": "Nom"
+  },
+  "topics": {
+    "label": "Thèmes :",
+    "reset": "réinitialiser",
+    "assign": "Attribuer des thèmes :",
+    "none": "Aucun thème créé pour l'instant — Admin → Thèmes."
+  },
+  "selection": {
+    "count_one": "{{count}} sélectionné",
+    "count_other": "{{count}} sélectionnés",
+    "clear": "Annuler la sélection",
+    "delete_one": "Supprimer {{count}}",
+    "delete_other": "Supprimer {{count}}"
+  },
+  "confirm": {
+    "deleteOne": "Voulez-vous vraiment supprimer ce document ? Le fichier d'origine et les segments seront supprimés.",
+    "deleteMany_one": "Voulez-vous vraiment supprimer {{count}} document ? Le fichier d'origine et les segments seront supprimés.",
+    "deleteMany_other": "Voulez-vous vraiment supprimer {{count}} documents ? Les fichiers d'origine et les segments seront supprimés."
+  },
+  "project": {
+    "segments_one": "{{count}} segment",
+    "segments_other": "{{count}} segments",
+    "sizeTitle_one": "Version actuelle : {{own}} · {{count}} version au total : {{chain}}",
+    "sizeTitle_other": "Version actuelle : {{own}} · Les {{count}} versions au total : {{chain}}",
+    "sizeTotal": "total {{size}}",
+    "editTopics": "modifier",
+    "addTopic": "+ Thème"
+  },
+  "placeholder": {
+    "badge": "Texte factice",
+    "tooltipLorem": "{{count}} segments sur {{total}} contiennent du Lorem Ipsum classique. Vérifiez le fichier source avant l'export — le metteur en page a peut-être oublié de remplacer le texte factice.",
+    "tooltipIndesign": "{{count}} segments sur {{total}} contiennent du texte factice InDesign (latin Adobe). Vérifiez le fichier source avant l'export — le metteur en page a peut-être oublié de remplacer le texte factice."
+  },
+  "actions": {
+    "review": "Relire",
+    "versions": "Versions",
+    "versionsTitle": "Afficher l'historique des versions",
+    "newVersion": "+ Version",
+    "newVersionTitle": "Téléverser une nouvelle version comme suite de ce document",
+    "delete": "Supprimer"
+  },
+  "upload": {
+    "title": "Nouvelle traduction",
+    "titleNewVersion": "Téléverser une nouvelle version",
+    "parentInfo": "Sera créé comme nouvelle version de « {{name}} ».",
+    "parentHint": "La paire de langues {{source}} → {{target}} est reprise ; les segments inchangés proviennent du cache.",
+    "cancel": "Annuler",
+    "sourceLang": "Langue source",
+    "targetLangs": "Langues cibles",
+    "parallelCount_one": "{{count}} traduction",
+    "parallelCount_other": "{{count}} traductions parallèles",
+    "channel": {
+      "label": "Canal de vente",
+      "neutralDisabled": "Désactivé en mode neutre",
+      "specific": "Les termes propres au canal sont utilisés, sinon le standard",
+      "standard": "Standard ({{org}})",
+      "defaultOption": "{{org}} (standard)"
+    },
+    "formality": {
+      "label": "Forme d'adresse",
+      "default": "Standard",
+      "more": "Formel",
+      "less": "Informel",
+      "titleDefault": "Comme avant — aucun paramètre de formalité n'est envoyé à DeepL",
+      "titleActive": "DeepL traduit avec la forme d'adresse choisie",
+      "titleUnsupported": "DeepL ne propose pas de niveau de formalité pour les langues cibles choisies",
+      "partialNoEffect": "Sans effet pour {{langs}} — DeepL n'y propose pas de niveau de formalité. Les autres langues cibles en bénéficient.",
+      "noneSupported": "DeepL ne propose pas de niveau de formalité pour {{langs}}.",
+      "channelWarning": "Les projets de canal (données produit) doivent rester neutres — la cohérence entre les exécutions y compte davantage que la liberté de chaque exécution."
+    },
+    "neutral": {
+      "label": "Traduire en mode neutre (sans glossaire)",
+      "title": "Traduit uniquement via DeepL, sans termes de glossaire ni de canal — p. ex. pour des exécutions de comparaison ou des textes libres."
+    },
+    "formatProfile": {
+      "label": "Profil de format",
+      "autoDetect": "Détection automatique via l'en-tête",
+      "manual": "Choisi manuellement",
+      "title": "Le profil détermine quelles colonnes/champs sont traduits et lesquels restent intacts (en-tête, valeurs techniques, constantes Magento)",
+      "optAuto": "Auto (détecter via l'en-tête)",
+      "optCmsPage": "Export Magento CMS Page",
+      "optCmsBlock": "Export Magento CMS Block",
+      "optProduct": "Export Magento Product",
+      "optGeneric": "Générique (toutes les colonnes sauf l'en-tête)",
+      "help": "Les profils Magento protègent de la traduction des colonnes comme <c>page_layout</c>, <c>identifier</c> ainsi que des constantes comme <c>1column</c> et <c>inner</c>. Les colonnes HTML comme <c>content</c> sont traitées en mode HTML de DeepL."
+    },
+    "storeView": {
+      "info": "Les liens internes sont automatiquement redirigés vers la store view de la langue cible.",
+      "detail": "— les chemins d'images, de médias et de ressources (<c>src</c>, <c>srcset</c>, CSS/JS, PDF, téléchargements) restent inchangés, de même que les liens externes et les directives <c>{{directive}}</c>."
+    },
+    "optimize": {
+      "label": "Optimiser le texte source avant la traduction",
+      "title": "Vérifie chaque section du texte source avec LanguageTool et applique automatiquement les corrections sûres (fautes de frappe, typographie, ponctuation). Les suggestions de style ne sont PAS appliquées."
+    },
+    "drop": {
+      "prompt": "Déposez un fichier ici ou <b>parcourez</b>",
+      "formats": "IDML, DOCX, XLSX, PDF, XML, HTML, TXT, CSV, MD (max. 100 Mo)",
+      "remove": "Retirer le fichier"
+    },
+    "topics": "Thèmes (facultatif)",
+    "uploading": "Téléversement en cours...",
+    "start": "Lancer la traduction",
+    "errors": {
+      "unsupportedFormat": "Format non pris en charge : {{ext}}. Autorisés : {{allowed}}",
+      "noTarget": "Choisissez au moins une langue cible",
+      "targetIsSource": "Les langues cibles ne doivent pas inclure la langue source",
+      "uploadFailed": "Échec du téléversement",
+      "unknown": "Erreur inconnue",
+      "channelFassungNeedsChannel": "Pour allemand → allemand, choisissez un canal (pas en mode neutre)"
+    },
+    "channelFassungChip": "Allemand (version du canal)",
+    "channelFassungHint": "Allemand → allemand réécrit le document dans la version du canal sélectionné (orthographe maison) — DeepL n’est pas utilisé."
+  },
+  "consistency": {
+    "title": "Contrôle de cohérence",
+    "subtitle": "Trouver des textes sources identiques aux traductions divergentes",
+    "sourceLang": "Langue source",
+    "targetLang": "Langue cible",
+    "checking": "Vérification...",
+    "run": "Vérifier la cohérence",
+    "help": "Regroupe par textes sources normalisés (tolérant aux espaces et guillemets). N'affiche que les entrées pour lesquelles un même texte source a plus d'une traduction dans le cache — signe de relectures incohérentes ou de règles de glossaire peu claires.",
+    "none": "Aucune incohérence trouvée pour {{source}} → {{target}}. 👍",
+    "found_one": "{{count}} incohérence trouvée",
+    "found_other": "{{count}} incohérences trouvées",
+    "variants_one": "{{count}} variante",
+    "variants_other": "{{count}} variantes",
+    "cacheHits_one": "{{count}} occurrence en cache",
+    "cacheHits_other": "{{count}} occurrences en cache"
+  }
+}

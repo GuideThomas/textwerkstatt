@@ -1,0 +1,453 @@
+{
+  "glossaries": {
+    "header": {
+      "title": "Glosszáriumok",
+      "subtitle": "Terminológiakezelés és DeepL-integráció"
+    },
+    "list": {
+      "title": "Glosszáriumok",
+      "empty": "Nincs elérhető glosszárium",
+      "entryCount_one": "{{count}} bejegyzés",
+      "entryCount_few": "{{count}} bejegyzés",
+      "entryCount_many": "{{count}} bejegyzés",
+      "entryCount_other": "{{count}} bejegyzés",
+      "csvExportTitle": "CSV-export",
+      "notSynced": "A módosítások nincsenek szinkronizálva",
+      "syncedAt": "A DeepL-nél naprakész (v{{version}})",
+      "syncing": "Szinkron...",
+      "sync": "Szinkron",
+      "houseTerms": "Vállalati írásmód",
+      "houseTermsHint": "csak német · DeepL nélkül",
+      "zuPflegen_one": "{{count}} fordítás nélkül",
+      "zuPflegen_few": "{{count}} fordítás nélkül",
+      "zuPflegen_many": "{{count}} fordítás nélkül",
+      "zuPflegen_other": "{{count}} fordítás nélkül",
+      "zuPflegenTitle_one": "A fordítás nélküli sorok nem fejtenek ki hatást: ott a DeepL szabadon fordít, amíg valaki meg nem erősít egy fordítást.",
+      "zuPflegenTitle_few": "A fordítás nélküli sorok nem fejtenek ki hatást: ott a DeepL szabadon fordít, amíg valaki meg nem erősít egy fordítást.",
+      "zuPflegenTitle_many": "A fordítás nélküli sorok nem fejtenek ki hatást: ott a DeepL szabadon fordít, amíg valaki meg nem erősít egy fordítást.",
+      "zuPflegenTitle_other": "A fordítás nélküli sorok nem fejtenek ki hatást: ott a DeepL szabadon fordít, amíg valaki meg nem erősít egy fordítást.",
+      "hinweise_one": "{{count}} megjegyzéssel",
+      "hinweise_few": "{{count}} megjegyzéssel",
+      "hinweise_many": "{{count}} megjegyzéssel",
+      "hinweise_other": "{{count}} megjegyzéssel",
+      "hinweiseSchreibung_one": "{{count}} csak írásmód",
+      "hinweiseSchreibung_few": "{{count}} csak írásmód",
+      "hinweiseSchreibung_many": "{{count}} csak írásmód",
+      "hinweiseSchreibung_other": "{{count}} csak írásmód",
+      "hinweiseTitle": "Ellenőrzési megjegyzéssel ellátott sorok. A megjegyzés soha nem lép érvénybe magától.",
+      "unnoetig_one": "{{count}} felesleges",
+      "unnoetig_few": "{{count}} felesleges",
+      "unnoetig_many": "{{count}} felesleges",
+      "unnoetig_other": "{{count}} felesleges",
+      "unnoetigTitle": "Azok a sorok, amelyek semmit sem változtatnak a szójegyzék nélküli DeepL-hez képest. Minden nyelven nélkülözhető: {{ueberall}}."
+    },
+    "alerts": {
+      "syncError": "Szinkronizálási hiba: {{error}}",
+      "syncFailed": "A szinkronizálás sikertelen",
+      "bulkApproveConfirm_one": "Jóváhagyja az oldalon lévő {{count}} bejegyzést?",
+      "bulkApproveConfirm_few": "Jóváhagyja az oldalon lévő {{count}} bejegyzést?",
+      "bulkApproveConfirm_many": "Jóváhagyja az oldalon lévő {{count}} bejegyzést?",
+      "bulkApproveConfirm_other": "Jóváhagyja az oldalon lévő {{count}} bejegyzést?",
+      "speichernFehler": "A mentés nem sikerült: {{error}}"
+    },
+    "entries": {
+      "count_one": "({{count}} bejegyzés)",
+      "count_few": "({{count}} bejegyzés)",
+      "count_many": "({{count}} bejegyzés)",
+      "count_other": "({{count}} bejegyzés)",
+      "searchPlaceholder": "Keresés...",
+      "channelHint": "Alapértelmezett oszlop = {{org}}. Ha a csatornaoszlop üres, az alapértelmezett érték érvényes."
+    },
+    "filter": {
+      "all": "Összes",
+      "pending": "Függőben",
+      "approved": "Jóváhagyva",
+      "zuPflegen": "Fordítás nélkül",
+      "vorschlaege": "Javaslatok"
+    },
+    "bulk": {
+      "title": "Az oldalon látható összes függő bejegyzés jóváhagyása",
+      "busy": "Jóváhagyás…",
+      "button": "✓ Oldal jóváhagyása ({{count}})"
+    },
+    "form": {
+      "sourcePlaceholder": "Forrásnyelvi kifejezés",
+      "targetPlaceholder": "Célnyelvi kifejezés (alapértelmezett)",
+      "quelleFehlt": "Kérjük, adjon meg egy forráskifejezést.",
+      "zielFehlt": "Kérjük, adjon meg egy célkifejezést, vagy kérje le a „DeepL-javaslat” gombbal. Célkifejezés nélkül a DeepL dönt; ehhez nem kell bejegyzés.",
+      "angelegt": "„{{begriff}}” létrehozva. A lista most ezt a kifejezést mutatja; a keresés törlésével újra minden látható."
+    },
+    "table": {
+      "approvedHeaderTitle": "Jóváhagyva?"
+    },
+    "entry": {
+      "approvedTitle": "Jóváhagyva ({{source}}). Kattintson a visszavonáshoz.",
+      "pendingTitle": "Még függőben ({{source}}). Kattintson a jóváhagyáshoz.",
+      "editStandardTitle": "Alapértelmezett érték ({{org}}) szerkesztése. Kötelező mező — nem lehet üres.",
+      "overrideTitle": "Egyedi érték – {{channel}}: {{value}}\nKattintson a szerkesztéshez; ha üres, az alapértelmezett érvényes",
+      "noOverrideTitle": "Nincs egyedi érték – {{channel}}. Kattintson a megadáshoz.",
+      "historyTitle": "Módosítási előzmények megjelenítése",
+      "deleteTitle": "Bejegyzés törlése",
+      "zuPflegenTitle": "Még nincs fordítás: a sor nem fejt ki hatást.",
+      "editTermTitle": "A német kifejezés átnevezése. Csak erre a glosszáriumra érvényes."
+    },
+    "pagination": {
+      "prev": "Vissza",
+      "next": "Tovább",
+      "page": "{{page}}. oldal / {{total}}"
+    },
+    "empty": {
+      "selectGlossary": "Válasszon glosszáriumot a listából"
+    },
+    "history": {
+      "title": "Módosítási előzmények",
+      "loading": "Betöltés...",
+      "empty": "Még nincs rögzített módosítás.",
+      "fieldStandard": "Alapértelmezett ({{org}})",
+      "action": {
+        "created": "Létrehozva",
+        "updated": "Módosítva",
+        "deleted": "Törölve",
+        "vorschlag": "Javasolva",
+        "freigabe": "Jóváhagyva",
+        "verworfen": "Elutasítva"
+      },
+      "unknownUser": "Ismeretlen",
+      "fieldBegriff": "Kifejezés",
+      "feld": {
+        "freigabe": "Jóváhagyás",
+        "an_deepl": "DeepL-be",
+        "art": "Típus",
+        "wortart": "Szófaj",
+        "genus": "Nem",
+        "formen": "Alakok",
+        "ziel_name": "névben",
+        "kontext": "Kontextus",
+        "kategorie": "Kategória",
+        "rueckfrage": "Kérdés",
+        "merkmal": "Jellemzőosztály",
+        "gruppe": "{{nr}}. csoport",
+        "vorschlag": "Javaslat"
+      },
+      "wert": {
+        "offen": "nyitott",
+        "freigegeben": "jóváhagyva",
+        "ja": "igen",
+        "nein": "nem",
+        "wort": "Szó",
+        "muster": "Minta",
+        "wendung": "Kifejezés",
+        "fest": "Sorozat"
+      }
+    },
+    "pflege": {
+      "placeholder": "Fordítás megadása",
+      "deepl": "DeepL-javaslat",
+      "deeplBusy": "A DeepL lekérdezése…",
+      "deeplTitle": "Javaslat kérése a DeepL-től. Csak az Ön megerősítése után kerül mentésre.",
+      "bestaetigen": "Megerősítés",
+      "bestaetigenTitle": "A fordítás mentése és jóváhagyása",
+      "istVorschlag": "A DeepL javaslata, még nincs mentve",
+      "wertVerloren": "A DeepL elvesztett egy műszaki értéket ({{werte}}). Kérjük, adja meg kézzel.",
+      "leer": "A DeepL nem adott javaslatot.",
+      "fehler": "Nem sikerült: {{error}}",
+      "abbrechen": "Mégse",
+      "offen": "Fordítás megadása",
+      "offenTitle": "Még nincs fordítás, itt a DeepL szabadon fordít. Egy kattintás megnyitja a mezőt."
+    },
+    "rueckfrage": {
+      "loeschenTitel": "Törli ezt ebből a glosszáriumból: „{{begriff}}”?",
+      "umbenennenTitel": "Átnevezi: „{{begriff}}” → „{{neu}}”?",
+      "loeschenText": "A sor csak ebből a glosszáriumból törlődik, a fordítással és a csatornaértékekkel együtt. A többi glosszárium nem változik.",
+      "umbenennenText": "A kifejezés csak ebben a glosszáriumban lesz átnevezve. A fordítás és a csatornaértékek megmaradnak, és az új kifejezésre vonatkoznak.",
+      "konfliktText": "Ez nem lehetséges: az új kifejezésnek már van fordítása ebben a glosszáriumban. Előbb töröljön egyet közülük.",
+      "spalteBegriff": "Kifejezés",
+      "spalteUebersetzung": "Fordítás",
+      "spalteAlt": "Régi kifejezés",
+      "spalteNeu": "Új kifejezés",
+      "leer": "még nincs fordítás",
+      "abbrechen": "Mégse",
+      "loeschen": "Törlés",
+      "umbenennen": "Átnevezés",
+      "schliessen": "Bezárás"
+    },
+    "hinweis": {
+      "nurMit": "Csak megjegyzéssel",
+      "kategorieLabel": "Kategória",
+      "gewissheitLabel": "Bizonyosság",
+      "ohneSchreibung": "Mind, automatikus írásmód nélkül",
+      "alleKategorien": "Minden kategória",
+      "alleGewissheiten": "Bármely bizonyosság",
+      "spalteTitle": "Ellenőrzési megjegyzések. Kattintásra megjelenik az indok és a javaslat.",
+      "vorschlag": "Javaslat",
+      "uebernehmen": "Átvétel",
+      "uebernehmenTitle": "A fordítás cseréje a javaslatra",
+      "verwerfen": "Elvetés",
+      "verwerfenTitle": "A bejegyzés így helyes. A megjegyzés törlődik, a bejegyzés változatlan marad.",
+      "kategorie": {
+        "falsch": "Hibás",
+        "sprachlich": "Nyelvi",
+        "schreibung": "Írásmód",
+        "zeichen": "Karakterek",
+        "satz": "Teljes mondat",
+        "wert": "Érték",
+        "mehrdeutig": "Többértelmű",
+        "dublette": "Ismétlődés",
+        "eigenname": "Tulajdonnév",
+        "unuebersetzt": "Lefordítatlan",
+        "unnoetig_ueberall": "Felesleges, mindenhol",
+        "unnoetig_hier": "Felesleges, csak itt"
+      },
+      "gewissheit": {
+        "hoch": "Magas",
+        "mittel": "Közepes",
+        "niedrig": "Alacsony"
+      },
+      "quelle": {
+        "mechanisch": "automatikusan találva",
+        "fachlich": "szakmailag értékelve",
+        "satztest": "mondatban megerősítve"
+      },
+      "nurUnnoetig": "Felesleges sorok",
+      "nurUnnoetigTitle": "Azokat a sorokat mutatja, amelyeket a DeepL szójegyzék nélkül is ugyanúgy ad. Ettől semmi sem törlődik.",
+      "entfernen": "Bejegyzés eltávolítása",
+      "entfernenTitle": "Törli ezt a sort: itt ezután a DeepL szabadon fordít. A többi glosszárium nem változik."
+    },
+    "neu": {
+      "knopf": "Új glosszárium",
+      "titel": "Új glosszárium létrehozása",
+      "text": "A forrásnyelv a német. A glosszáriumok legalább felében szereplő kifejezések fordítás nélküli sorokként kerülnek be.",
+      "laden": "Nyelvek lekérése a DeepL-től…",
+      "sprache": "Célnyelv",
+      "spracheWaehlen": "Válasszon nyelvet",
+      "name": "Név",
+      "anlegen": "Létrehozás",
+      "abbrechen": "Mégse",
+      "keineSprache": "A DeepL által itt kínált minden nyelvhez van már glosszárium.",
+      "angelegt": "A glosszárium létrejött. Előre kitöltött, még fordítás nélküli kifejezések: {{anzahl}}"
+    },
+    "wortliste": {
+      "aufklappenTitle": "Szólista: típus, alakok, célok termékcsoportonként",
+      "kennzeichen": {
+        "muster": "Minta",
+        "wendung": "Kifejezés",
+        "fest": "Sorozat",
+        "nurName": "névben más",
+        "nichtDeepl": "nem megy a DeepL-be",
+        "rueckfrage": "Kérdés"
+      },
+      "kennzeichenTitle": {
+        "muster": "Minta # jellel a számokhoz, csak cikknevekben érvényes",
+        "wendung": "Több szóból álló kifejezés, a nevekben megelőzi az egyes szavakat",
+        "fest": "Sorozat vagy tulajdonnév, változatlan marad",
+        "nurName": "Cikknevekben: {{wert}}",
+        "nichtDeepl": "Nem kerül a DeepL-glosszáriumba, csak cikknevekben érvényes",
+        "rueckfrage": "Nyitott kérdés: {{text}}"
+      },
+      "art": "Típus",
+      "artWerte": {
+        "wort": "Szó",
+        "muster": "Minta",
+        "wendung": "Kifejezés",
+        "fest": "Sorozat"
+      },
+      "wortart": "Szófaj",
+      "wortartWerte": {
+        "hauptwort": "Főnév",
+        "adjektiv": "Melléknév",
+        "sonstiges": "Egyéb"
+      },
+      "genus": "Nem",
+      "genusWerte": {
+        "m": "hímnem",
+        "f": "nőnem",
+        "n": "semlegesnem"
+      },
+      "leer": "–",
+      "formen": "Alakok (melléknév)",
+      "zielName": "Névben más",
+      "zielNamePlaceholder": "üres = mint a fordítás",
+      "anDeepl": "DeepL-be (folyószöveg)",
+      "anDeeplTitle": "Ki: a sor csak cikknevekben érvényes, a lefordított szövegben nem",
+      "anDeeplMuster": "Minta soha nem kerül a DeepL-be",
+      "speichern": "Mentés",
+      "gespeichert": "Mentve",
+      "gruppen": "Cél termékcsoportonként (csak nevek)",
+      "keineGruppen": "nincs",
+      "gruppeNr": "{{nr}}. csoport",
+      "gruppeNrPlaceholder": "Csoport",
+      "gruppeZiel": "Cél",
+      "gruppeNeu": "Hozzáadás",
+      "gruppeEntfernen": "Csoportcél törlése",
+      "gruppeUngueltig": "Adja meg a csoportot számként és egy célt",
+      "quelle": {
+        "pruefung": "Ellenőrző táblázat",
+        "glossar": "Glosszárium",
+        "markt": "Piac",
+        "deepl": "DeepL"
+      },
+      "artikel": "{{anzahl}} cikk",
+      "beispiele": "Példák",
+      "rueckfrage": "Kérdés",
+      "rueckfragePlaceholder": "Mi nem világos?",
+      "rueckfrageStellen": "Kérdés feltevése",
+      "rueckfrageAendern": "Kérdés módosítása",
+      "rueckfrageLoesen": "Kérdés lezárása",
+      "rueckfrageVon": "feltette: {{von}}",
+      "ablehnen": "Elutasítás",
+      "ablehnenConfirm": "Elutasítja: „{{begriff}}”? A sor törlődik, és többé nem lesz javasolva.",
+      "anmerkungPlaceholder": "Megjegyzés az elutasításhoz (nem kötelező)",
+      "fehler": "Hiba: {{error}}",
+      "filterRueckfrage": "Kérdés",
+      "filterNurName": "csak nevek",
+      "filterNurNameTitle": "Sorok, amelyek nem mennek a DeepL-be, vagy a nevekben másként szerepelnek",
+      "filterAlleArten": "minden típus"
+    },
+    "vorschlaege": {
+      "filterTitle": "Nem adminisztrátorok küldték be. Csak az adminisztrátor jóváhagyása után lép életbe.",
+      "leer": "Nincs nyitott javaslat.",
+      "eingereicht": "Javaslat elküldve. Akkor lép életbe, amikor egy adminisztrátor jóváhagyja; addig a jelenlegi bejegyzés érvényes.",
+      "nurAdmin": "Jóváhagyni és elutasítani csak adminisztrátor tud.",
+      "freigeben": "Jóváhagyás",
+      "verwerfen": "Elutasítás",
+      "verwerfenConfirm": "Elutasítja a(z) „{{begriff}}” javaslatot?",
+      "fehler": "Nem lehetséges: {{error}}",
+      "ja": "igen",
+      "nein": "nem",
+      "zeile": "Javaslat ({{n}})",
+      "zeileTitle": "Ehhez a sorhoz nyitott javaslat tartozik. Csak jóváhagyás után lép életbe.",
+      "spalte": {
+        "begriff": "Kifejezés",
+        "jetzt": "Jelenlegi",
+        "neu": "Javaslat",
+        "von": "Beküldte"
+      },
+      "weg": {
+        "neu": "Új kifejezés",
+        "eintrag": "Fordítás és adatok",
+        "begriff": "Átnevezés",
+        "channel": "Csatorna {{code}}",
+        "wortliste": "Szólista",
+        "gruppe": "Termékcsoport {{nr}}"
+      },
+      "feld": {
+        "target_term": "Fordítás",
+        "source_term": "Kifejezés",
+        "context": "Kontextus",
+        "category": "Kategória",
+        "channel_code": "Csatorna",
+        "art": "Típus",
+        "wortart": "Szófaj",
+        "genus": "Nem",
+        "formen": "Alakok",
+        "ziel_name": "a nevekben",
+        "an_deepl": "DeepL-nek"
+      },
+      "quelle": {
+        "glossar": "Glosszárium oldal",
+        "quickadd": "Gyors felvétel",
+        "review": "Lektorálás",
+        "scan": "Terminológiai vizsgálat"
+      },
+      "inArbeit": "Jóváhagyás folyamatban."
+    }
+  },
+  "houseTerms": {
+    "intro": "Kifejezések, amelyeket a német szövegekben <b>nem</b> használunk, és ami helyettük érvényes. Az Írássegéd a német szövegekben megjelöli a találatokat. Ha a csatornaoszlop üres, az alapértelmezett ({{org}}) érvényes. Ha a kifejezés az {{org}}-nél helyes, és csak egy csatornánál kell másképp fogalmazni: hagyja üresen a „Helyette ({{org}})” mezőt, és csak a csatornaoszlopot töltse ki.",
+    "form": {
+      "avoidLabel": "Nem használandó",
+      "preferredLabel": "Helyette ({{org}})",
+      "noteLabel": "Megjegyzés (nem kötelező)",
+      "example": "pl. {{term}}",
+      "notePlaceholder": "Az Írássegédben is megjelenik",
+      "saving": "Mentés…",
+      "add": "Hozzáadás",
+      "preferredPlaceholder": "üres = az {{org}} megtartja a kifejezést"
+    },
+    "list": {
+      "count_one": "{{count}} bejegyzés",
+      "count_few": "{{count}} bejegyzés",
+      "count_many": "{{count}} bejegyzés",
+      "count_other": "{{count}} bejegyzés",
+      "searchPlaceholder": "Keresés…",
+      "loading": "Betöltés…",
+      "empty": "Még nincsenek bejegyzések.",
+      "noMatches": "Nincs találat."
+    },
+    "table": {
+      "avoid": "Nem használandó",
+      "preferred": "Helyette",
+      "note": "Megjegyzés"
+    },
+    "cell": {
+      "editAvoid": "Kerülendő kifejezés szerkesztése (kötelező)",
+      "editPreferred": "Alapértelmezett ({{org}}) szerkesztése – üres = az {{org}} megtartja a kifejezést",
+      "channelSet": "{{channel}}: {{value}}\nKattintson a szerkesztéshez; ha üres, az alapértelmezett érvényes",
+      "channelEmpty": "Nincs saját kifejezés – {{channel}}; a(z) „{{term}}” érvényes. Kattintson a megadáshoz.",
+      "editNote": "Megjegyzés szerkesztése",
+      "keeps": "változatlan"
+    },
+    "row": {
+      "historyTitle": "Módosítási előzmények",
+      "historyTitleLast": "Módosítási előzmények — utoljára: {{name}}",
+      "deleteTitle": "Bejegyzés törlése"
+    },
+    "deleteConfirm": "Törli a(z) „{{term}}” bejegyzést a házi írásmódból?",
+    "errors": {
+      "status": "Hiba: {{status}}"
+    },
+    "history": {
+      "title": "Előzmények: {{term}}",
+      "empty": "Nincsenek előzmények.",
+      "entry": "{{field}}: {{action}}",
+      "field": {
+        "avoid": "Nem használandó",
+        "standard": "Helyette ({{org}})",
+        "note": "Megjegyzés",
+        "channel": "Csatorna: {{code}}"
+      },
+      "action": {
+        "created": "létrehozva",
+        "updated": "módosítva",
+        "deleted": "törölve"
+      },
+      "unknownUser": "ismeretlen"
+    }
+  },
+  "topics": {
+    "title": "Témák",
+    "intro": "A témákkal nyelvpároktól és fájltípusoktól függetlenül csoportosíthatók a dokumentumok (pl. „Használati útmutató”, „Strip sorozat”, „Marketing”). Egy dokumentumhoz több téma is tartozhat.",
+    "form": {
+      "newLabel": "Új téma",
+      "namePlaceholder": "pl. Használati útmutató",
+      "color": "Szín",
+      "create": "Létrehozás"
+    },
+    "errors": {
+      "createFailed": "Hiba a létrehozáskor",
+      "saveFailed": "Hiba a mentéskor",
+      "unknown": "Ismeretlen hiba"
+    },
+    "list": {
+      "loading": "Betöltés...",
+      "empty": "Még nincsenek témák."
+    },
+    "table": {
+      "name": "Név",
+      "color": "Szín",
+      "documents": "Dokumentumok",
+      "actions": "Műveletek"
+    },
+    "actions": {
+      "save": "Mentés",
+      "cancel": "Mégse",
+      "edit": "Szerkesztés",
+      "delete": "Törlés"
+    },
+    "deleteConfirm": "Törli a(z) „{{name}}” témát?",
+    "deleteConfirmWithDocs_one": "Törli a(z) „{{name}}” témát? {{count}} dokumentumhoz van hozzárendelve — maga a dokumentum megmarad, csak a hozzárendelés törlődik.",
+    "deleteConfirmWithDocs_few": "Törli a(z) „{{name}}” témát? {{count}} dokumentumhoz van hozzárendelve — maguk a dokumentumok megmaradnak, csak a hozzárendelés törlődik.",
+    "deleteConfirmWithDocs_many": "Törli a(z) „{{name}}” témát? {{count}} dokumentumhoz van hozzárendelve — maguk a dokumentumok megmaradnak, csak a hozzárendelés törlődik.",
+    "deleteConfirmWithDocs_other": "Törli a(z) „{{name}}” témát? {{count}} dokumentumhoz van hozzárendelve — maguk a dokumentumok megmaradnak, csak a hozzárendelés törlődik."
+  }
+}

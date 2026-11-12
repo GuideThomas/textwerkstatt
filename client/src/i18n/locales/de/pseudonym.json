@@ -1,0 +1,74 @@
+{
+  "klasse": {
+    "BANK": "Bankverbindung",
+    "MAIL": "Mailadressen",
+    "TELEFON": "Telefonnummern",
+    "PERSON": "Personen",
+    "ANSCHRIFT": "Anschriften",
+    "URL": "Web-Adressen",
+    "FIRMA": "Firmen",
+    "PROJEKT": "Projekte",
+    "PREIS": "Preise und Konditionen",
+    "ARTIKELNR": "Artikelnummern",
+    "BELEGNR": "Belegnummern",
+    "EIGEN": "Selbst verdeckt und Schutzliste"
+  },
+  "art": {
+    "PERSON": "Person",
+    "FIRMA": "Firma",
+    "PROJEKT": "Projekt",
+    "BEGRIFF": "Begriff"
+  },
+  "vorschau": {
+    "titel": "So sieht es das Cloud-Modell",
+    "erklaerung": "Genau dieser Text geht hinaus. Farbig markiert ist, was durch einen Platzhalter ersetzt wird. Ein Klick auf einen Platzhalter deckt ihn auf; ein markiertes Wort lässt sich verdecken.",
+    "laeuft": "Vorschau wird erstellt …",
+    "gueltigBis": "gültig bis {{zeit}} Uhr",
+    "verdecken": "„{{wort}}“ verdecken",
+    "auswahlUngueltig": "Zum Verdecken 2 bis 100 Zeichen markieren, ohne Platzhalter.",
+    "trefferAufdecken": "Klicken zum Aufdecken",
+    "trefferPflicht": "lässt sich nicht aufdecken (Pflicht oder Schutzliste)",
+    "keineTreffer": "Nichts gefunden: Der Text geht unverändert hinaus.",
+    "verdeckt": "Selbst verdeckt",
+    "aufgedeckt": "Aufgedeckt",
+    "entfernen": "Zurücknehmen",
+    "nichtAufdeckbar": "Bankverbindungen, Mailadressen, Telefonnummern und Begriffe der Schutzliste bleiben immer verdeckt.",
+    "restOk": "Restprüfung bestanden: keine Bankverbindung, Mailadresse oder Telefonnummer im Text.",
+    "restFehler": "Im Text steht noch: {{funde}}. So geht nichts hinaus. Bitte die Stelle verdecken oder die lokale KI nehmen.",
+    "netzFehler": "Der Server ist nicht erreichbar. Es wurde nichts gesendet."
+  },
+  "hinweis": {
+    "rest": "Die Erkennung arbeitet mit Regeln und findet nicht alles. Umschreibungen („das Hotel am Stephansplatz mit 240 Zimmern“) und der Inhalt selbst bleiben für das Modell sichtbar. Für Vertrauliches die lokale KI nehmen.",
+    "deepl": "Der Schritt „Übersetzen“ schickt den Text weiterhin im Klartext an DeepL.",
+    "lokal": "Auch der Weg zur lokalen KI führt über Cloudflare; der Text verlässt das Haus verschlüsselt."
+  },
+  "fehler": {
+    "EINGABE": "Die Eingabe ist ungültig.",
+    "VORSCHAU_UNBEKANNT": "Diese Vorschau gibt es nicht mehr. Bitte neu erstellen.",
+    "PFLICHT_UEBRIG": "Im Text steht noch eine Bankverbindung, Mailadresse oder Telefonnummer. Es wurde nichts gesendet.",
+    "PROXY_GESCHWAERZT": "Vom Proxy geschwärzt: Der Egress-Filter hat einen Teil des Textes ersetzt. Die Antwort wurde verworfen.",
+    "PLATZHALTER_UNBEKANNT": "Das Modell hat Platzhalter erfunden. Die Antwort wurde verworfen.",
+    "ERKENNUNG": "Der Text lässt sich nicht sicher pseudonymisieren. Es wird nichts gesendet.",
+    "EINSTELLUNGEN": "Die Schutzregeln sind gerade nicht lesbar. Ohne sie gibt es keine Vorschau.",
+    "NICHT_FREIGESCHALTET": "Für die Cloud-KI ist dieser Zugang nicht freigeschaltet."
+  },
+  "verwaltung": {
+    "titel": "Schutzregeln",
+    "hinweis": "Was vor dem Senden an ein Cloud-Modell verdeckt wird. Bankverbindung, Mail und Telefon sind Pflicht und lassen sich nicht abschalten. Die lokale KI sieht den Text immer im Klartext.",
+    "klassen": "Klassen",
+    "pflicht": "Pflicht",
+    "muster": "Muster einer Artikelnummer ohne Kennwort (regulärer Ausdruck; leer heißt: nur hinter „Art.-Nr.“, „Artikel“, „EAN“)",
+    "speichern": "Speichern",
+    "gespeichert": "Gespeichert.",
+    "liste": "Schutzliste",
+    "listeHinweis": "Begriffe, die immer verdeckt werden, in jeder Schreibweise: Kunden, Projekte, Personen.",
+    "begriff": "Begriff",
+    "art": "Art",
+    "hinzufuegen": "Hinzufügen",
+    "loeschen": "Löschen",
+    "listeLeer": "Noch keine Begriffe.",
+    "probe": "Ausprobieren",
+    "probeHinweis": "Einen Text einfügen und die Vorschau ansehen. Es wird nichts an ein Modell gesendet.",
+    "probeZeigen": "Vorschau zeigen"
+  }
+}

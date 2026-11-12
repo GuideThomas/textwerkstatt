@@ -1,0 +1,74 @@
+{
+  "klasse": {
+    "BANK": "Bankové spojenie",
+    "MAIL": "E-mailové adresy",
+    "TELEFON": "Telefónne čísla",
+    "PERSON": "Osoby",
+    "ANSCHRIFT": "Poštové adresy",
+    "URL": "Webové adresy",
+    "FIRMA": "Firmy",
+    "PROJEKT": "Projekty",
+    "PREIS": "Ceny a podmienky",
+    "ARTIKELNR": "Čísla artiklov",
+    "BELEGNR": "Čísla dokladov",
+    "EIGEN": "Zakryté vami a ochranný zoznam"
+  },
+  "art": {
+    "PERSON": "Osoba",
+    "FIRMA": "Firma",
+    "PROJEKT": "Projekt",
+    "BEGRIFF": "Výraz"
+  },
+  "vorschau": {
+    "titel": "Toto vidí cloudový model",
+    "erklaerung": "Odošle sa presne tento text. Farebne označené časti nahradí zástupný symbol. Kliknutím na zástupný symbol ho odkryjete; označené slovo môžete zakryť.",
+    "laeuft": "Vytvára sa náhľad …",
+    "gueltigBis": "platný do {{zeit}}",
+    "verdecken": "Zakryť „{{wort}}“",
+    "auswahlUngueltig": "Na zakrytie označte 2 až 100 znakov bez zástupných symbolov.",
+    "trefferAufdecken": "Kliknutím odkryť",
+    "trefferPflicht": "nedá sa odkryť (povinné alebo ochranný zoznam)",
+    "keineTreffer": "Nič sa nenašlo: text sa odošle nezmenený.",
+    "verdeckt": "Zakryté vami",
+    "aufgedeckt": "Odkryté",
+    "entfernen": "Vrátiť späť",
+    "nichtAufdeckbar": "Bankové spojenie, e-mailové adresy, telefónne čísla a výrazy z ochranného zoznamu zostávajú vždy zakryté.",
+    "restOk": "Záverečná kontrola úspešná: v texte nie je bankové spojenie, e-mailová adresa ani telefónne číslo.",
+    "restFehler": "V texte ešte je: {{funde}}. Takto sa nič neodošle. Zakryte to miesto alebo použite lokálnu AI.",
+    "netzFehler": "Server nie je dostupný. Nič sa neodoslalo."
+  },
+  "hinweis": {
+    "rest": "Rozpoznávanie funguje podľa pravidiel a nenájde všetko. Opisy („hotel na Stephansplatz s 240 izbami“) a samotný obsah zostávajú pre model viditeľné. Na dôverné texty použite lokálnu AI.",
+    "deepl": "Krok „Preložiť“ naďalej posiela text do DeepL ako čistý text.",
+    "lokal": "Aj cesta k lokálnej AI vedie cez Cloudflare; text opúšťa firmu zašifrovaný."
+  },
+  "fehler": {
+    "EINGABE": "Zadanie je neplatné.",
+    "VORSCHAU_UNBEKANNT": "Tento náhľad už neexistuje. Vytvorte, prosím, nový.",
+    "PFLICHT_UEBRIG": "V texte je ešte bankové spojenie, e-mailová adresa alebo telefónne číslo. Nič sa neodoslalo.",
+    "PROXY_GESCHWAERZT": "Začiernené proxy serverom: výstupný filter nahradil časť textu. Odpoveď bola zahodená.",
+    "PLATZHALTER_UNBEKANNT": "Model si vymyslel zástupné symboly. Odpoveď bola zahodená.",
+    "ERKENNUNG": "Text sa nedá bezpečne pseudonymizovať. Nič sa neodošle.",
+    "EINSTELLUNGEN": "Ochranné pravidlá sa momentálne nedajú prečítať. Bez nich nie je náhľad.",
+    "NICHT_FREIGESCHALTET": "Tento účet nemá povolenú cloudovú AI."
+  },
+  "verwaltung": {
+    "titel": "Ochranné pravidlá",
+    "hinweis": "Čo sa zakryje pred odoslaním do cloudového modelu. Bankové spojenie, e-mail a telefón sú povinné a nedajú sa vypnúť. Lokálna AI vždy vidí čistý text.",
+    "klassen": "Triedy",
+    "pflicht": "Povinné",
+    "muster": "Vzor čísla artikla bez kľúčového slova (regulárny výraz; prázdne znamená: len za „Art.-Nr.“, „Artikel“, „EAN“)",
+    "speichern": "Uložiť",
+    "gespeichert": "Uložené.",
+    "liste": "Ochranný zoznam",
+    "listeHinweis": "Výrazy, ktoré sa vždy zakryjú, v akomkoľvek písaní: zákazníci, projekty, osoby.",
+    "begriff": "Výraz",
+    "art": "Typ",
+    "hinzufuegen": "Pridať",
+    "loeschen": "Vymazať",
+    "listeLeer": "Zatiaľ žiadne výrazy.",
+    "probe": "Vyskúšať",
+    "probeHinweis": "Vložte text a pozrite si náhľad. Nič sa neodošle do modelu.",
+    "probeZeigen": "Zobraziť náhľad"
+  }
+}

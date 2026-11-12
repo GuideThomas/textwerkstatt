@@ -1,0 +1,144 @@
+/* ==========================================================================
+   Textwerkstatt — gemeinsame Bausteine
+   Farben, Schriften und die Abweichungen eines Themas stehen in themes/<name>/thema.css
+   (PLAN-oeffentlich-und-demo.md Phase 3). Hier nur, was beide Themen teilen, über Variablen.
+   Jede `var(--pal-*)` muss in jedem Thema stehen: scripts/oeffentlich/thema.test.mjs prüft das.
+   ========================================================================== */
+
+/* Das Thema zuerst: Schrift-Imports müssen am Anfang der Datei stehen. */
+@import '@thema/thema.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --------------------------------------------------------------------------
+   Basis
+   -------------------------------------------------------------------------- */
+@layer base {
+  html, body {
+    font-family: var(--schrift-text);
+    background-color: var(--pal-main-bg);
+    color: var(--pal-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Sichtbarer Tastaturfokus — nur bei Tastaturbedienung, nicht beim Mausklick.
+     Textfelder behalten ihren eigenen Fokusrahmen. */
+  button:focus-visible,
+  a:focus-visible,
+  summary:focus-visible,
+  [role='button']:focus-visible,
+  [tabindex]:focus-visible,
+  input[type='checkbox']:focus-visible,
+  input[type='radio']:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--pal-primary);
+    outline-offset: 2px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Komponenten
+   -------------------------------------------------------------------------- */
+@layer components {
+  /* ---- Knöpfe ---- */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-[5px] text-sm font-semibold text-white transition-colors;
+    background-color: var(--pal-primary-btn);
+  }
+  .btn-primary:hover { background-color: var(--pal-primary-btn-hover); }
+  .btn-primary:disabled { @apply opacity-50 cursor-not-allowed; }
+
+  .btn-primary-sm {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-[5px] text-xs font-bold text-white transition-colors;
+    background-color: var(--pal-primary-btn);
+  }
+  .btn-primary-sm:hover { background-color: var(--pal-primary-btn-hover); }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-[5px] text-sm font-semibold transition-colors;
+    background-color: var(--pal-btn2-grund);
+    color: var(--pal-btn2-text);
+    border: 1px solid var(--pal-btn2-rand);
+  }
+  .btn-secondary:hover { background-color: var(--pal-btn2-grund-hover); }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-[5px] text-sm font-semibold text-red-500 transition-colors;
+    border: 1px solid var(--pal-gefahr-rand);
+    background-color: transparent;
+  }
+  .btn-danger:hover { @apply bg-red-50; }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 p-2 rounded-xl text-gray-500 transition-colors;
+  }
+  .btn-ghost:hover { @apply bg-gray-100 text-gray-800; }
+
+  /* ---- Karten ---- */
+  .card {
+    @apply rounded-[5px] shadow-sm overflow-hidden;
+    background-color: var(--pal-card-bg);
+    border: 1px solid var(--pal-card-border);
+  }
+  /* Am Handy scrollt eine breite Tabelle in ihrer Karte, statt abgeschnitten zu werden: Gemessen 11.11.2026 bei 390 px war die
+     Benutzertabelle der Verwaltung 875 px breit, Spalten und Knöpfe rechts waren nicht erreichbar. */
+  @media (max-width: 767px) {
+    .card { overflow-x: auto; }
+  }
+
+  .card-header {
+    @apply px-5 pt-4 pb-3;
+    border-bottom: 1px solid var(--pal-card-divider);
+  }
+  .card-header-title {
+    @apply text-sm font-semibold text-gray-800;
+  }
+
+  .card-content { @apply p-5; }
+
+  /* ---- Eingabefelder ---- */
+  .input {
+    @apply w-full px-3 py-2 rounded-[5px] text-sm bg-gray-100 text-gray-900 transition-colors;
+    border: 1px solid var(--pal-feld-rand);
+    outline: none;
+  }
+  .input::placeholder { @apply text-gray-400; }
+  .input:focus { border-color: var(--pal-primary); background-color: var(--pal-feld-fokus-grund); }
+  .input:disabled { @apply opacity-50 cursor-not-allowed; }
+
+  .label {
+    @apply block text-sm font-medium mb-1;
+    color: var(--pal-text-label);
+  }
+
+  /* ---- Etiketten ---- */
+  .badge {
+    @apply inline-flex items-center gap-1 rounded px-2 py-0.5 font-semibold uppercase tracking-wide;
+    font-size: 10px;
+  }
+  .badge-primary   { background-color: var(--pal-badge-primaer-grund); color: var(--pal-badge-primaer-text); }
+  .badge-secondary { @apply bg-gray-100 text-gray-600; }
+  .badge-success   { @apply bg-emerald-100 text-emerald-700; }
+  .badge-warning   { @apply bg-amber-100 text-amber-700; }
+  .badge-error     { @apply bg-red-100 text-red-700; }
+  .badge-magenta   { background-color: var(--pal-badge-magenta-grund); color: var(--pal-badge-magenta-text); }
+
+  .spinner {
+    @apply inline-block h-5 w-5 rounded-full border-2 border-gray-300 animate-spin;
+    border-top-color: var(--pal-primary);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Scrollbar
+   -------------------------------------------------------------------------- */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--pal-scroll); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--pal-scroll-hover); }
+
+.scrollbar-hide { scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }

@@ -1,0 +1,79 @@
+{
+  "art": {
+    "lokal": "local",
+    "cloud": "Cloud"
+  },
+  "budget": {
+    "eigen": "Daily budget of ${{grenze}} reached, available again from {{zeit}}.",
+    "eigenOhneBetrag": "Daily budget reached, available again from {{zeit}}.",
+    "global": "The overall budget of all AI applications is used up for today, cloud AI available again from {{zeit}}.",
+    "lokalLaeuft": "The local AI keeps working."
+  },
+  "fehler": {
+    "WEG_UNBEKANNT": "This AI route does not exist.",
+    "WEG_INAKTIV": "This AI route is switched off.",
+    "NICHT_FREIGESCHALTET": "This account is not enabled for the cloud AI. An admin can enable it in user management.",
+    "KONFIGURATION": "This AI route is misconfigured (name of an environment variable).",
+    "SCHLUESSEL_FEHLT": "No key is set for this AI route.",
+    "ENDPUNKT_FEHLT": "No endpoint is set for this AI route.",
+    "BUDGET_EIGEN": "The daily budget of this AI route is used up.",
+    "BUDGET_GLOBAL": "The overall budget of all AI applications is used up for today.",
+    "SCHLUESSEL_ABGELEHNT": "The key was rejected or may not use this model.",
+    "ZEITLIMIT": "The model did not answer in time. No other model was used instead.",
+    "NICHT_ERREICHBAR": "The model cannot be reached. No other model was used instead.",
+    "ANBIETER_FEHLER": "The provider reported an error. No other model was used instead.",
+    "LEERE_ANTWORT": "The model returned an empty answer."
+  },
+  "verwaltung": {
+    "titel": "AI connection",
+    "neu": "+ New AI route",
+    "hinweis": "Each AI route calls exactly one model and never falls back to another one on error. Keys live only in the server environment (.env); only the variable name is shown here. The test sends a fixed sentence, never user text.",
+    "spalteWeg": "Route",
+    "spalteModell": "Model",
+    "spalteZeitlimit": "Time limit",
+    "spalteSchluessel": "Key / endpoint",
+    "spalteBudget": "Budget today",
+    "spalteAktionen": "Actions",
+    "aus": "switched off",
+    "sekunden": "{{s}} s",
+    "gesetzt": "set",
+    "fehlt": "missing",
+    "budgetWert": "${{verbraucht}} of ${{grenze}}, reset at {{zeit}}",
+    "budgetAus": "not read",
+    "sperreEigen": "blocked (own budget) until {{zeit}}",
+    "sperreGlobal": "blocked (overall budget) until {{zeit}}",
+    "bearbeiten": "Edit",
+    "probe": "Test",
+    "probeLaeuft": "running …",
+    "probeOk": "{{ms}} ms · {{ein}}/{{aus}} tokens · reasoning tokens {{denk}} · cost {{kosten}}",
+    "leer": "No AI route yet."
+  },
+  "formular": {
+    "titelNeu": "New AI route",
+    "titel": "Edit AI route “{{name}}”",
+    "kennung": "Identifier (a–z, 0–9, -)",
+    "name": "Name",
+    "art": "Type",
+    "modell": "Model at the endpoint",
+    "endpunkt": "Endpoint variable (LLM_BASE_URL or KI_WEG_…_URL)",
+    "schluessel": "Key variable (KI_WEG_…_KEY)",
+    "zeitlimit": "Time limit in seconds",
+    "reihenfolge": "Order",
+    "zusatz": "Extra parameters (JSON, added to the request body as is)",
+    "zusatzHinweis": "model, messages and stream are always set by the server.",
+    "zusatzKeinJson": "Extra parameters are not a valid JSON object.",
+    "aktiv": "active",
+    "budgetLesen": "Read budget via /key/info (LiteLLM)",
+    "speichern": "Save",
+    "abbrechen": "Cancel",
+    "hinweisNeu": "A local route needs a key variable KI_WEG_LOKAL…_KEY, a cloud route a different one. Type and variables cannot be changed after creation.",
+    "hinweisFest": "Type, key and endpoint variable are fixed. For a different key, switch the route off and create a new one."
+  },
+  "freischaltung": {
+    "spalte": "Cloud AI",
+    "vermerk": "last changed by {{von}} on {{am}}",
+    "nie": "never enabled",
+    "an": "enabled",
+    "aus": "blocked"
+  }
+}

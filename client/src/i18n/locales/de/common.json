@@ -1,0 +1,137 @@
+{
+  "language": {
+    "label": "Sprache"
+  },
+  "app": {
+    "loading": "Laden...",
+    "subtitle": "Layout-treue Dokumentenübersetzung",
+    "logout": "Abmelden"
+  },
+  "tabs": {
+    "textwerkstatt": "Textwerkstatt",
+    "documents": "Dokumente",
+    "glossaries": "Glossare",
+    "nameModules": "Namensbausteine",
+    "terminologyScan": "Terminologie-Scan",
+    "consistency": "Konsistenz",
+    "costs": "Kosten",
+    "admin": "Admin",
+    "manage": "Verwaltung"
+  },
+  "login": {
+    "microsoft": "Mit Microsoft anmelden",
+    "alternative": "Alternative Anmeldemethoden",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "submit": "Anmelden",
+    "submitting": "Anmelden...",
+    "errorUnknown": "Fehler: {{code}}",
+    "errors": {
+      "microsoftDenied": "Microsoft-Anmeldung wurde abgelehnt.",
+      "invalidState": "Sicherheitsprüfung fehlgeschlagen. Bitte erneut versuchen.",
+      "noCode": "Keine Autorisierung erhalten.",
+      "tokenExchange": "Token-Austausch fehlgeschlagen.",
+      "noIdToken": "Kein ID-Token erhalten.",
+      "missingClaims": "Fehlende Benutzerinformationen von Microsoft.",
+      "accountInactive": "Ihr Konto ist deaktiviert. Kontaktieren Sie den Administrator.",
+      "internalError": "Interner Fehler. Bitte später erneut versuchen."
+    }
+  },
+  "auth": {
+    "requestFailed": "Anfrage fehlgeschlagen",
+    "loginFailed": "Anmeldung fehlgeschlagen"
+  },
+  "errorBoundary": {
+    "title": "Diese Ansicht ist abgestürzt",
+    "titleWithContext": "Diese Ansicht ist abgestürzt ({{context}})",
+    "description": "Ein unerwarteter Fehler beim Darstellen der Seite wurde abgefangen. Die übrige Anwendung bleibt nutzbar — du kannst einen anderen Tab wählen oder neu laden.",
+    "errorMessage": "Fehlermeldung",
+    "showStack": "Stacktrace anzeigen",
+    "showComponentStack": "Komponenten-Stack anzeigen",
+    "retry": "Erneut versuchen",
+    "reload": "Seite neu laden"
+  },
+  "progress": {
+    "phases": {
+      "connected": "Verbunden",
+      "parsing": "Datei wird geparst",
+      "translating": "Übersetzung läuft",
+      "finalizing": "Wird abgeschlossen",
+      "completed": "Fertig",
+      "error": "Fehler"
+    },
+    "fromCache": "/ {{total}} aus Cache"
+  },
+  "segments": {
+    "loading": "Segmente laden...",
+    "avgLength": "~{{value}} Zeichen/Segment",
+    "statusTranslated": "Übersetzt",
+    "statusPending": "Ausstehend",
+    "showingOf": "Zeige {{shown}} von {{total}} Segmenten",
+    "count_one": "{{count}} Segment",
+    "count_few": "{{count}} Segmente",
+    "count_many": "{{count}} Segmente",
+    "count_other": "{{count}} Segmente",
+    "translated_one": "{{count}} übersetzt",
+    "translated_few": "{{count}} übersetzt",
+    "translated_many": "{{count}} übersetzt",
+    "translated_other": "{{count}} übersetzt",
+    "condensed_one": "{{count}} gekürzt",
+    "condensed_few": "{{count}} gekürzt",
+    "condensed_many": "{{count}} gekürzt",
+    "condensed_other": "{{count}} gekürzt",
+    "cacheHits_one": "{{count}} Cache-Hit",
+    "cacheHits_few": "{{count}} Cache-Hits",
+    "cacheHits_many": "{{count}} Cache-Hits",
+    "cacheHits_other": "{{count}} Cache-Hits",
+    "maxChars_one": "max {{count}} Zeichen",
+    "maxChars_few": "max {{count}} Zeichen",
+    "maxChars_many": "max {{count}} Zeichen",
+    "maxChars_other": "max {{count}} Zeichen"
+  },
+  "versions": {
+    "loading": "Lade Versionen...",
+    "back": "← Zurück",
+    "title": "Versionsverlauf",
+    "subtitle": "Unterschiede zwischen den Versionen eines Dokuments",
+    "chain": "Versionskette",
+    "empty": "Keine Versionsdaten verfügbar.",
+    "compare": "Vergleichen",
+    "computing": "Berechne...",
+    "showDiff": "Vergleich anzeigen",
+    "compareHint": "Vergleich aktuelle Version mit ausgewählter Version",
+    "result": "Ergebnis des Vergleichs",
+    "stats": {
+      "unchanged": "Unverändert",
+      "changed": "Geändert",
+      "added": "Hinzugekommen",
+      "removed": "Entfernt"
+    },
+    "sections": {
+      "changed": "Geänderte Segmente ({{count}})",
+      "added": "Hinzugekommen ({{count}})",
+      "removed": "Entfernt ({{count}})"
+    },
+    "position": "Position #{{position}}",
+    "moreHidden": "…weitere {{count}} ausgeblendet",
+    "current": "Diese Version",
+    "selected": "Ausgewählt",
+    "onlyOne": "Von diesem Dokument gibt es noch keine weitere Version. Über „+ Version“ in der Dokumentenliste lädst du eine neue hoch – danach lässt sie sich hier vergleichen."
+  },
+  "demo": {
+    "titel": "Demo",
+    "vertraulich": "Bitte keine vertraulichen Texte eingeben",
+    "dienste": "Texte gehen zum Übersetzen an DeepL und zum Optimieren an ein KI-Modell",
+    "reset": "Alle Eingaben werden am {{datum}} gelöscht",
+    "resetOhneDatum": "Alle Eingaben werden regelmäßig gelöscht",
+    "torText": "Diese Demo ist mit einem Passwort geschützt. Ihr Name erscheint im Verlauf und darf leer bleiben.",
+    "name": "Name (freiwillig)",
+    "passwort": "Passwort",
+    "hinein": "Demo öffnen"
+  },
+  "fuss": {
+    "navigation": "Weitere Seiten von Thomas Winkler",
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutz"
+  }
+}

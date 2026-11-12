@@ -1,0 +1,119 @@
+{
+  "page": {
+    "title": "Scansione terminologica",
+    "subtitle": "Estrarre candidati per il glossario da traduzioni esistenti"
+  },
+  "languages": {
+    "DE": "Tedesco",
+    "EN": "Inglese",
+    "IT": "Italiano",
+    "FR": "Francese",
+    "ES": "Spagnolo",
+    "HU": "Ungherese",
+    "PL": "Polacco",
+    "CS": "Ceco",
+    "SK": "Slovacco",
+    "SL": "Sloveno"
+  },
+  "scanStatus": {
+    "pending": "In attesa",
+    "aligning": "Allineamento",
+    "translating": "Riferimento DeepL",
+    "analyzing": "Analisi LLM",
+    "completed": "Completato",
+    "error": "Errore"
+  },
+  "list": {
+    "title": "Scansioni precedenti",
+    "empty": "Nessuna scansione terminologica ancora eseguita.",
+    "segments_one": "{{count}} segmento",
+    "segments_other": "{{count}} segmenti",
+    "candidates_one": "{{count}} candidato (differenze: {{diffs}})",
+    "candidates_other": "{{count}} candidati (differenze: {{diffs}})",
+    "review": "Rivedi",
+    "delete": "Elimina"
+  },
+  "confirm": {
+    "deleteScan": "Eliminare davvero la scansione?",
+    "approveTerminology_one": "Approvare {{count}} candidato terminologico?",
+    "approveTerminology_other": "Approvare {{count}} candidati terminologici?"
+  },
+  "upload": {
+    "title": "Avvia scansione terminologica",
+    "sourceFile": "Originale (sorgente)",
+    "translationFile": "Traduzione esistente",
+    "dropHint": "Fare clic o trascinare qui un file",
+    "sourceLang": "Lingua di partenza",
+    "targetLang": "Lingua di arrivo",
+    "glossary": "Glossario",
+    "noGlossary": "Nessuno (standard)",
+    "uploading": "Caricamento in corso...",
+    "start": "Avvia scansione",
+    "formats": "Formati: IDML, DOCX, XLSX, TXT. Entrambi i file devono avere lo stesso formato.",
+    "errors": {
+      "unsupported": "Non supportato. Consentiti: {{allowed}}",
+      "uploadFailed": "Caricamento non riuscito"
+    }
+  },
+  "progress": {
+    "phase": {
+      "connected": "Connesso",
+      "aligning": "Allineamento dei segmenti",
+      "translating": "Riferimento DeepL",
+      "analyzing": "Analisi LLM",
+      "completed": "Completato",
+      "error": "Errore"
+    },
+    "cacheHits_one": "{{count}} riscontro in cache",
+    "cacheHits_other": "{{count}} riscontri in cache",
+    "candidates_one": "{{count}} candidato",
+    "candidates_other": "{{count}} candidati"
+  },
+  "category": {
+    "TERMINOLOGY": "Terminologia",
+    "STYLE": "Stile",
+    "ERROR": "Errore",
+    "CONTEXT": "Contesto"
+  },
+  "candidateStatus": {
+    "pending": "Aperto",
+    "approved": "Approvato",
+    "rejected": "Rifiutato",
+    "vorgeschlagen": "Proposto"
+  },
+  "review": {
+    "back": "Indietro",
+    "stats": {
+      "total": "Totale: {{n}}",
+      "terminology": "Terminologia: {{n}}",
+      "style": "Stile: {{n}}",
+      "error": "Errori: {{n}}",
+      "context": "Contesto: {{n}}",
+      "approved": "Approvati: {{n}}",
+      "rejected": "Rifiutati: {{n}}",
+      "vorgeschlagen": "{{n}} proposti"
+    },
+    "filter": {
+      "allCategories": "Tutte le categorie",
+      "allStatus": "Tutti gli stati"
+    },
+    "selectedCount_one": "{{count}} selezionato",
+    "selectedCount_other": "{{count}} selezionati",
+    "approve": "Approva",
+    "reject": "Rifiuta",
+    "approveAllTerminology": "Approva tutta la terminologia",
+    "loading": "Caricamento...",
+    "empty": "Nessun candidato per questi filtri.",
+    "table": {
+      "source": "Sorgente",
+      "existing": "Esistente",
+      "deeplRef": "Rif. DeepL",
+      "term": "Termine",
+      "category": "Categoria",
+      "confidence": "Affid.",
+      "action": "Azione"
+    },
+    "insteadOf": "anziché: {{term}}",
+    "vorschlagMeldung": "{{n}} termini inviati come proposte. Un amministratore li approva nella pagina del glossario."
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "page": {
+    "title": "Dokumentumok",
+    "subtitle": "Az összes fordítási dokumentum áttekintése"
+  },
+  "languages": {
+    "AUTO": "Automatikus felismerés",
+    "DE": "Német",
+    "EN": "Angol",
+    "IT": "Olasz",
+    "FR": "Francia",
+    "ES": "Spanyol",
+    "HU": "Magyar",
+    "PL": "Lengyel",
+    "CS": "Cseh",
+    "SK": "Szlovák",
+    "SL": "Szlovén"
+  },
+  "status": {
+    "pending": "Várakozik",
+    "processing": "Feldolgozás alatt",
+    "translating": "Fordítás",
+    "condensing": "Smart Condensing",
+    "completed": "Kész",
+    "error": "Hiba"
+  },
+  "list": {
+    "title": "Dokumentumok",
+    "searchPlaceholder": "Keresés…",
+    "searchTitle": "Szűrés dokumentumnév vagy eredeti fájlnév szerint",
+    "searchClear": "Keresés törlése",
+    "allEditors": "Minden felhasználó",
+    "mine": "Saját",
+    "users": "Felhasználók",
+    "storage_one": "{{count}} fájl · {{size}}",
+    "storage_other": "{{count}} fájl · {{size}}",
+    "loading": "Betöltés...",
+    "emptySearch": "Nincs találat erre: „{{query}}”.",
+    "empty": "Ehhez a kiválasztáshoz nincs dokumentum.",
+    "selectAll": "Összes kijelölése",
+    "filteredCount": "({{shown}} / {{total}})",
+    "selectGroup": "A fájl összes nyelvének kijelölése"
+  },
+  "sort": {
+    "date": "Dátum",
+    "size": "Méret",
+    "name": "Név"
+  },
+  "topics": {
+    "label": "Témák:",
+    "reset": "visszaállítás",
+    "assign": "Témák hozzárendelése:",
+    "none": "Még nincs téma létrehozva — Admin → Témák."
+  },
+  "selection": {
+    "count_one": "{{count}} kijelölve",
+    "count_other": "{{count}} kijelölve",
+    "clear": "Kijelölés megszüntetése",
+    "delete_one": "{{count}} törlése",
+    "delete_other": "{{count}} törlése"
+  },
+  "confirm": {
+    "deleteOne": "Biztosan törli a dokumentumot? Az eredeti fájl és a szegmensek törlődnek.",
+    "deleteMany_one": "Biztosan törli a(z) {{count}} dokumentumot? Az eredeti fájl és a szegmensek törlődnek.",
+    "deleteMany_other": "Biztosan törli a(z) {{count}} dokumentumot? Az eredeti fájlok és a szegmensek törlődnek."
+  },
+  "project": {
+    "segments_one": "{{count}} szegmens",
+    "segments_other": "{{count}} szegmens",
+    "sizeTitle_one": "Aktuális verzió: {{own}} · {{count}} verzió összesen: {{chain}}",
+    "sizeTitle_other": "Aktuális verzió: {{own}} · Mind a(z) {{count}} verzió összesen: {{chain}}",
+    "sizeTotal": "összesen {{size}}",
+    "editTopics": "szerkesztés",
+    "addTopic": "+ Téma"
+  },
+  "placeholder": {
+    "badge": "Helykitöltő",
+    "tooltipLorem": "{{total}} szegmensből {{count}} klasszikus Lorem Ipsum szöveget tartalmaz. Exportálás előtt ellenőrizze a forrásfájlt — lehet, hogy a tördelő elfelejtette lecserélni a helykitöltő szöveget.",
+    "tooltipIndesign": "{{total}} szegmensből {{count}} InDesign helykitöltő szöveget (Adobe-latin) tartalmaz. Exportálás előtt ellenőrizze a forrásfájlt — lehet, hogy a tördelő elfelejtette lecserélni a helykitöltő szöveget."
+  },
+  "actions": {
+    "review": "Ellenőrzés",
+    "versions": "Verziók",
+    "versionsTitle": "Verzióelőzmények megjelenítése",
+    "newVersion": "+ Verzió",
+    "newVersionTitle": "Új verzió feltöltése ennek a dokumentumnak a folytatásaként",
+    "delete": "Törlés"
+  },
+  "upload": {
+    "title": "Új fordítás",
+    "titleNewVersion": "Új verzió feltöltése",
+    "parentInfo": "A(z) „{{name}}” új verziójaként jön létre.",
+    "parentHint": "A(z) {{source}} → {{target}} nyelvpár megmarad, a változatlan szegmensek a gyorsítótárból származnak.",
+    "cancel": "Mégse",
+    "sourceLang": "Forrásnyelv",
+    "targetLangs": "Célnyelvek",
+    "parallelCount_one": "{{count}} fordítás",
+    "parallelCount_other": "{{count}} párhuzamos fordítás",
+    "channel": {
+      "label": "Értékesítési csatorna",
+      "neutralDisabled": "Semleges módban kikapcsolva",
+      "specific": "Csatornaspecifikus kifejezések, egyébként a standard",
+      "standard": "Standard ({{org}})",
+      "defaultOption": "{{org}} (standard)"
+    },
+    "formality": {
+      "label": "Megszólítás",
+      "default": "Standard",
+      "more": "Formális",
+      "less": "Közvetlen",
+      "titleDefault": "Mint eddig — a DeepL nem kap megszólítási paramétert",
+      "titleActive": "A DeepL a kiválasztott megszólítással fordít",
+      "titleUnsupported": "A kiválasztott célnyelvekhez a DeepL nem kínál megszólítási szintet",
+      "partialNoEffect": "Nincs hatása ezekre: {{langs}} — ott a DeepL nem kínál megszólítási szintet. A többi célnyelv megkapja.",
+      "noneSupported": "Ezekhez a DeepL nem kínál megszólítási szintet: {{langs}}.",
+      "channelWarning": "A csatornaprojekteknek (termékadatok) semlegesnek kell maradniuk — ott a futások közötti következetesség fontosabb, mint az egyes futások szabadsága."
+    },
+    "neutral": {
+      "label": "Semleges fordítás (glosszárium nélkül)",
+      "title": "Kizárólag DeepL-lel fordít, glosszárium- vagy csatornakifejezések nélkül — pl. összehasonlító futásokhoz vagy szabad szövegekhez."
+    },
+    "formatProfile": {
+      "label": "Formátumprofil",
+      "autoDetect": "Automatikus felismerés a fejléc alapján",
+      "manual": "Kézzel kiválasztva",
+      "title": "A profil határozza meg, mely oszlopok/mezők kerülnek fordításra, és melyek maradnak érintetlenek (fejléc, technikai értékek, Magento-konstansok)",
+      "optAuto": "Auto (felismerés a fejléc alapján)",
+      "optCmsPage": "Magento CMS Page export",
+      "optCmsBlock": "Magento CMS Block export",
+      "optProduct": "Magento Product export",
+      "optGeneric": "Általános (minden oszlop a fejléc kivételével)",
+      "help": "A Magento-profilok megvédik a fordítástól az olyan oszlopokat, mint a <c>page_layout</c>, <c>identifier</c>, valamint az olyan konstansokat, mint az <c>1column</c> és az <c>inner</c>. Az olyan HTML-oszlopok, mint a <c>content</c>, DeepL HTML-módban futnak."
+    },
+    "storeView": {
+      "info": "A belső hivatkozások automatikusan a célnyelv store view-jára állnak.",
+      "detail": "— a kép-, média- és erőforrás-útvonalak (<c>src</c>, <c>srcset</c>, CSS/JS, PDF-ek, letöltések) változatlanok maradnak, ahogy a külső hivatkozások és a <c>{{directive}}</c> direktívák is."
+    },
+    "optimize": {
+      "label": "Forrásszöveg optimalizálása fordítás előtt",
+      "title": "A forrásszöveg minden szakaszát ellenőrzi a LanguageTool segítségével, és automatikusan alkalmazza a biztonságos javításokat (elírások, tipográfia, írásjelek). Stílusjavaslatokat NEM alkalmaz."
+    },
+    "drop": {
+      "prompt": "Húzza ide a fájlt, vagy <b>tallózzon</b>",
+      "formats": "IDML, DOCX, XLSX, PDF, XML, HTML, TXT, CSV, MD (max. 100 MB)",
+      "remove": "Fájl eltávolítása"
+    },
+    "topics": "Témák (nem kötelező)",
+    "uploading": "Feltöltés...",
+    "start": "Fordítás indítása",
+    "errors": {
+      "unsupportedFormat": "Nem támogatott formátum: {{ext}}. Engedélyezett: {{allowed}}",
+      "noTarget": "Válasszon legalább egy célnyelvet",
+      "targetIsSource": "A célnyelvek nem tartalmazhatják a forrásnyelvet",
+      "uploadFailed": "A feltöltés nem sikerült",
+      "unknown": "Ismeretlen hiba",
+      "channelFassungNeedsChannel": "Német → német esetén válasszon csatornát (nem semleges módban)"
+    },
+    "channelFassungChip": "Német (csatornaváltozat)",
+    "channelFassungHint": "A német → német a dokumentumot a kiválasztott csatorna változatára írja át (vállalati írásmód) – ehhez nem használjuk a DeepL-t."
+  },
+  "consistency": {
+    "title": "Konzisztencia-ellenőrzés",
+    "subtitle": "Azonos forrásszövegek keresése eltérő fordításokkal",
+    "sourceLang": "Forrásnyelv",
+    "targetLang": "Célnyelv",
+    "checking": "Ellenőrzés...",
+    "run": "Konzisztencia ellenőrzése",
+    "help": "Normalizált forrásszövegek szerint csoportosít (szóközök és idézőjelek iránt toleráns). Csak azokat a bejegyzéseket mutatja, ahol ugyanahhoz a forrásszöveghez több fordítás is van a gyorsítótárban — ez következetlen lektorálásra vagy tisztázatlan glosszáriumszabályokra utal.",
+    "none": "Nem található következetlenség: {{source}} → {{target}}. 👍",
+    "found_one": "{{count}} következetlenség található",
+    "found_other": "{{count}} következetlenség található",
+    "variants_one": "{{count}} változat",
+    "variants_other": "{{count}} változat",
+    "cacheHits_one": "{{count}} gyorsítótár-találat",
+    "cacheHits_other": "{{count}} gyorsítótár-találat"
+  }
+}

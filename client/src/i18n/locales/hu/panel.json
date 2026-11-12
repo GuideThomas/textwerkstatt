@@ -1,0 +1,43 @@
+{
+  "connect": {
+    "title": "Illustrator-panel csatlakoztatása",
+    "intro": "Egy Illustrator-panel csatlakozni szeretne a fiókodhoz. Ezután a nevedben fordít, és a feladatai a „Dokumentumok” alatt jelennek meg.",
+    "codeLabel": "Kód a panelen",
+    "device": "Eszköz",
+    "deviceUnknown": "ismeretlen eszköz",
+    "expiresIn": "Még {{minutes}}:{{seconds}} percig érvényes",
+    "warning": "Csak akkor csatlakoztasd, ha az imént te magad kattintottál az Illustratorban a „Mit Microsoft anmelden” gombra, és ott pontosan ez a kód látható. Ha valaki küldte neked ezt a linket: Mégse.",
+    "confirm": "Csatlakoztatás",
+    "cancel": "Mégse",
+    "doneTitle": "Csatlakoztatva",
+    "doneText": "Visszatérhetsz az Illustratorba — a panel néhány másodpercen belül bejelentkezik.",
+    "cancelledTitle": "Megszakítva",
+    "cancelledText": "A panel nem lett csatlakoztatva.",
+    "expiredTitle": "A kérés lejárt",
+    "expiredText": "Kattints újra a panelen a „Mit Microsoft anmelden” gombra.",
+    "usedTitle": "Már felhasználva",
+    "usedText": "Ezt a kérést már egy másik fiók felhasználta.",
+    "confirmedOtherTitle": "Már megerősítve",
+    "confirmedOtherText": "Ezt a kérést már egy másik fiók megerősítette.",
+    "continue": "Tovább"
+  },
+  "connections": {
+    "title": "Illustrator-panel",
+    "subtitle": "Gépek, amelyeken a paneled be van jelentkezve",
+    "adminTitle": "Panel-kapcsolatok",
+    "menuTitle": "Illustrator-panel csatlakoztatása",
+    "howto": "Panel csatlakoztatása: az Illustratorban nyisd meg az Ablak → Bővítmények → {{org}} Translationtool menüt, kattints a „Mit Microsoft anmelden” gombra, és itt erősítsd meg a kérést. A kapcsolat 180 nap használaton kívüliség után lejár.",
+    "empty": "Még nincs csatlakoztatott panel.",
+    "colDevice": "Eszköz",
+    "colUser": "Személy",
+    "colCreated": "Csatlakoztatva",
+    "colLastUsed": "Utoljára használva",
+    "colExpires": "Használat nélkül lejár",
+    "never": "még soha",
+    "expired": "lejárt",
+    "revoke": "Leválasztás",
+    "confirmRevoke": "Leválasztod: „{{label}}”? A panelnek ezután újra be kell jelentkeznie.",
+    "loading": "Betöltés …",
+    "error": "A kérés sikertelen"
+  }
+}

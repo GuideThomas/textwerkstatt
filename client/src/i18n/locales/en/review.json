@@ -1,0 +1,209 @@
+{
+  "you": "you",
+  "loading": "Loading segments...",
+  "actions": {
+    "cancel": "Cancel",
+    "back": "Back"
+  },
+  "welcome": {
+    "title": "Welcome — thank you for reviewing this translation!",
+    "howTo": "How it works: on the right you see the machine translation, on the left the original text. Go through the segments and <b>tick the checkbox</b> when the translation is correct — or click into the text to correct it directly. Use the filters at the top to focus on shortened segments or segments that need review. When everything is correct, click <b>“Approve translation”</b> at the top — only then is the review complete.",
+    "glossaryHint": "Words with a dotted cyan line are <b>company terminology from the glossary</b> — please leave them unchanged if possible.",
+    "shortcuts": "<b>Keyboard tips:</b> <k>J</k>/<k>K</k> next/previous segment · <k>Space</k> mark as checked + next · <k>E</k> edit · <k>?</k> ask a question",
+    "dismiss": "Got it"
+  },
+  "placeholder": {
+    "title": "Placeholder text detected — {{found}} of {{total}} segments",
+    "bodyLorem": "The source file contains classic Lorem Ipsum. The typesetter may have forgotten to replace the placeholder with real text. Translations of these segments are unusable — check the source file before export.",
+    "bodyIndesign": "The source file contains InDesign placeholder text (Adobe Latin). The typesetter may have forgotten to replace the placeholder with real text. Translations of these segments are unusable — check the source file before export.",
+    "showSamples": "Show example segments ({{count}})",
+    "dismiss": "Hide notice"
+  },
+  "progress": {
+    "label": "Progress: {{done}} of {{total}} checked"
+  },
+  "segment": {
+    "maxChars": "max {{max}}",
+    "edited": "edited",
+    "condensed": "shortened",
+    "clarification": "Question",
+    "noTranslation": "No translation",
+    "channelRewrite": "Channel version",
+    "channelRewriteCheck": "Check channel version"
+  },
+  "tooltip": {
+    "checkedByAt": "Checked by {{name}} on {{date}} — click to undo",
+    "checkedBy": "Checked by {{name}} — click to undo",
+    "checkedAt": "Checked on {{date}} — click to undo",
+    "checked": "Checked — click to undo",
+    "markChecked": "Mark as checked · Shift+click for a range",
+    "noTranslation": "No translation available",
+    "showDiff": "Show changes compared to the original translation",
+    "edited": "Edited",
+    "condensed": "Shortened automatically to fit the layout frame",
+    "glossaryTerms": "Contains terms from the company glossary",
+    "clarificationBy": "Question from {{name}} on {{date}}",
+    "clarificationEdit": "Show / edit question",
+    "clarificationAsk": "Ask a question — if something is unclear",
+    "quickadd": "Add selected text to the glossary"
+  },
+  "editor": {
+    "charCount": "{{len}}/{{max}} characters"
+  },
+  "clarificationNote": {
+    "header": "Question",
+    "headerBy": "Question from {{name}}"
+  },
+  "clarificationDialog": {
+    "title": "Ask a question",
+    "intro": "Segment #{{num}} will be marked with “❓ Question”. Your note helps the requester clarify the translation precisely — instead of guessing.",
+    "sourceText": "Source text",
+    "noteLabel": "Your question / comment",
+    "notePlaceholder": "e.g. Does “strip” mean an LED light strip here, or just a stripe?",
+    "remove": "Remove question",
+    "save": "Save question"
+  },
+  "downloadWarning": {
+    "title": "Translation not approved",
+    "body": "No native speaker has confirmed this translation — or an earlier approval was cancelled by a later change. The file may contain errors.",
+    "ack": "I understand that this translation is not approved.",
+    "confirm": "Download anyway"
+  },
+  "quickadd": {
+    "title": "Add term to glossary",
+    "syncHint": "will be synchronised with DeepL automatically on the next run",
+    "sourceLabel": "Source term ({{lang}})",
+    "targetLabel": "Target translation ({{lang}})",
+    "sourcePlaceholder": "e.g. LED strip",
+    "saving": "Saving...",
+    "submit": "Add to glossary",
+    "errorGeneric": "Error",
+    "errorUnknown": "unknown",
+    "error": "Error: {{message}}",
+    "result": {
+      "created": "Term added to the glossary.",
+      "updated": "Existing glossary entry updated.",
+      "unchanged": "The term was already in the glossary unchanged.",
+      "done": "Done.",
+      "vorschlag": "Proposal submitted, an admin will approve it."
+    }
+  },
+  "toast": {
+    "approvedRange_one": "{{count}} segment marked as checked (range)",
+    "approvedRange_few": "{{count}} segments marked as checked (range)",
+    "approvedRange_many": "{{count}} segments marked as checked (range)",
+    "approvedRange_other": "{{count}} segments marked as checked (range)",
+    "approved_one": "{{count}} segment marked as checked",
+    "approved_few": "{{count}} segments marked as checked",
+    "approved_many": "{{count}} segments marked as checked",
+    "approved_other": "{{count}} segments marked as checked",
+    "bulkApproveFailed": "Could not mark the segments as checked"
+  },
+  "confirm": {
+    "approveVisible_one": "Mark {{count}} visible segment as checked?",
+    "approveVisible_few": "Mark {{count}} visible segments as checked?",
+    "approveVisible_many": "Mark {{count}} visible segments as checked?",
+    "approveVisible_other": "Mark {{count}} visible segments as checked?"
+  },
+  "release": {
+    "failed": "Approval failed",
+    "mailFailures": "Approved, but the notification to {{names}} could not be sent.",
+    "blockerOpen_one": "{{count}} segment not yet checked",
+    "blockerOpen_few": "{{count}} segments not yet checked",
+    "blockerOpen_many": "{{count}} segments not yet checked",
+    "blockerOpen_other": "{{count}} segments not yet checked",
+    "blockerClarification_one": "{{count}} open question",
+    "blockerClarification_few": "{{count}} open questions",
+    "blockerClarification_many": "{{count}} open questions",
+    "blockerClarification_other": "{{count}} open questions",
+    "releasedBy": "<b>✓ Approved</b> by {{name}} on {{date}}",
+    "notReleased": "Not approved yet",
+    "revoked": "Approval by {{name}} cancelled on {{date}}",
+    "revokedReason": "({{reason}})",
+    "revokedReasonBy": "({{reason}}, {{by}})",
+    "revokeReason": {
+      "textChanged": "text changed after approval",
+      "unapproved": "check mark removed from a segment",
+      "clarification": "question asked about a segment"
+    },
+    "requested": "Requested: {{names}}",
+    "buttonTitle": "Confirm that the translation is correct",
+    "buttonTitleBlocked": "First check all segments and resolve all questions",
+    "button": "Approve translation",
+    "confirmText_one": "You confirm that the segment is correct.",
+    "confirmText_few": "You confirm that all {{count}} segments are correct.",
+    "confirmText_many": "You confirm that all {{count}} segments are correct.",
+    "confirmText_other": "You confirm that all {{count}} segments are correct.",
+    "releasing": "Approving…",
+    "confirmYes": "Yes, approve"
+  },
+  "stats": {
+    "checked": "<n>{{done}}/{{total}}</n> checked",
+    "condensed": "<n>{{count}}</n> shortened",
+    "needsReview": "<n>{{count}}</n> to review",
+    "cacheHits": "Cache: <n>{{count}}</n> hits"
+  },
+  "shortcuts": {
+    "buttonTitle": "Show keyboard shortcuts",
+    "button": "Shortcuts",
+    "title": "Keyboard shortcuts",
+    "next": "Next segment",
+    "previous": "Previous segment",
+    "spaceKey": "Space",
+    "approveNext": "Mark as checked + next (flow mode)",
+    "edit": "Edit segment",
+    "clarification": "Ask a question about the active segment",
+    "nextReview": "Jump to the next segment that needs review",
+    "cancelEdit": "Cancel editing",
+    "bonus": "<b>Tip:</b> Shift+click on a checkbox marks the whole range since the last checkbox you clicked."
+  },
+  "request": {
+    "title": "Ask native speakers for a review",
+    "button": "Request review",
+    "intro": "Each selected person receives an email with a link to the review page and signs in with their Microsoft account. One approval is enough — the others are then informed that it is done.",
+    "speakersLabel": "Native speakers (language {{lang}}) — one or more people",
+    "messageLabel": "Personal message (optional)",
+    "messagePlaceholder": "e.g. “I need it by Friday, thanks!”",
+    "sending": "Sending...",
+    "sendToMany": "Send request to {{count}}",
+    "send": "Send request",
+    "failed": "Sending failed",
+    "sent": "Request sent to {{names}}.",
+    "notDelivered": "Not delivered: {{names}}."
+  },
+  "download": {
+    "button": "Download {{format}}",
+    "fileFallback": "file"
+  },
+  "filter": {
+    "all": "All",
+    "condensed": "Shortened",
+    "review": "Needs review",
+    "clarification": "Unclear",
+    "edited": "Edited",
+    "approved": "Done",
+    "bulkApproveTitle_one": "Mark the {{count}} currently visible segment as checked",
+    "bulkApproveTitle_few": "Mark all {{count}} currently visible segments as checked",
+    "bulkApproveTitle_many": "Mark all {{count}} currently visible segments as checked",
+    "bulkApproveTitle_other": "Mark all {{count}} currently visible segments as checked",
+    "bulkApprove_one": "Check {{count}} visible",
+    "bulkApprove_few": "Check all {{count}} visible",
+    "bulkApprove_many": "Check all {{count}} visible",
+    "bulkApprove_other": "Check all {{count}} visible",
+    "saving": "Saving..."
+  },
+  "diff": {
+    "title": "Correction compared to original"
+  },
+  "highlight": {
+    "styleMarker": "Format change (internal marker, not part of the text)",
+    "glossarySource": "Glossary term: \"{{source}}\" → \"{{target}}\"",
+    "glossaryTarget": "Glossary term (company terminology): \"{{source}}\" → \"{{target}}\""
+  },
+  "terminology": {
+    "title": "Glossary suggestion",
+    "insteadOf": "instead of: {{term}}",
+    "accept": "Save as glossary entry",
+    "dismiss": "Discard"
+  }
+}

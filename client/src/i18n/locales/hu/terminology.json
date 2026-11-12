@@ -1,0 +1,119 @@
+{
+  "page": {
+    "title": "Terminológiai vizsgálat",
+    "subtitle": "Glosszárium-jelöltek kinyerése meglévő fordításokból"
+  },
+  "languages": {
+    "DE": "Német",
+    "EN": "Angol",
+    "IT": "Olasz",
+    "FR": "Francia",
+    "ES": "Spanyol",
+    "HU": "Magyar",
+    "PL": "Lengyel",
+    "CS": "Cseh",
+    "SK": "Szlovák",
+    "SL": "Szlovén"
+  },
+  "scanStatus": {
+    "pending": "Várakozik",
+    "aligning": "Illesztés",
+    "translating": "DeepL-referencia",
+    "analyzing": "LLM-elemzés",
+    "completed": "Kész",
+    "error": "Hiba"
+  },
+  "list": {
+    "title": "Korábbi vizsgálatok",
+    "empty": "Még nem futott terminológiai vizsgálat.",
+    "segments_one": "{{count}} szegmens",
+    "segments_other": "{{count}} szegmens",
+    "candidates_one": "{{count}} jelölt ({{diffs}} eltérés)",
+    "candidates_other": "{{count}} jelölt ({{diffs}} eltérés)",
+    "review": "Ellenőrzés",
+    "delete": "Törlés"
+  },
+  "confirm": {
+    "deleteScan": "Biztosan törli a vizsgálatot?",
+    "approveTerminology_one": "Jóváhagyja a(z) {{count}} terminológiai jelöltet?",
+    "approveTerminology_other": "Jóváhagyja a(z) {{count}} terminológiai jelöltet?"
+  },
+  "upload": {
+    "title": "Terminológiai vizsgálat indítása",
+    "sourceFile": "Eredeti (forrás)",
+    "translationFile": "Meglévő fordítás",
+    "dropHint": "Kattintson, vagy húzza ide a fájlt",
+    "sourceLang": "Forrásnyelv",
+    "targetLang": "Célnyelv",
+    "glossary": "Glosszárium",
+    "noGlossary": "Nincs (standard)",
+    "uploading": "Feltöltés...",
+    "start": "Vizsgálat indítása",
+    "formats": "Formátumok: IDML, DOCX, XLSX, TXT. Mindkét fájlnak azonos formátumúnak kell lennie.",
+    "errors": {
+      "unsupported": "Nem támogatott. Engedélyezett: {{allowed}}",
+      "uploadFailed": "A feltöltés nem sikerült"
+    }
+  },
+  "progress": {
+    "phase": {
+      "connected": "Csatlakozva",
+      "aligning": "Szegmensillesztés",
+      "translating": "DeepL-referencia",
+      "analyzing": "LLM-elemzés",
+      "completed": "Befejezve",
+      "error": "Hiba"
+    },
+    "cacheHits_one": "{{count}} gyorsítótár-találat",
+    "cacheHits_other": "{{count}} gyorsítótár-találat",
+    "candidates_one": "{{count}} jelölt",
+    "candidates_other": "{{count}} jelölt"
+  },
+  "category": {
+    "TERMINOLOGY": "Terminológia",
+    "STYLE": "Stílus",
+    "ERROR": "Hiba",
+    "CONTEXT": "Kontextus"
+  },
+  "candidateStatus": {
+    "pending": "Nyitott",
+    "approved": "Jóváhagyva",
+    "rejected": "Elutasítva",
+    "vorgeschlagen": "Javasolva"
+  },
+  "review": {
+    "back": "Vissza",
+    "stats": {
+      "total": "Összesen: {{n}}",
+      "terminology": "Terminológia: {{n}}",
+      "style": "Stílus: {{n}}",
+      "error": "Hiba: {{n}}",
+      "context": "Kontextus: {{n}}",
+      "approved": "{{n}} jóváhagyva",
+      "rejected": "{{n}} elutasítva",
+      "vorgeschlagen": "{{n}} javasolva"
+    },
+    "filter": {
+      "allCategories": "Minden kategória",
+      "allStatus": "Minden állapot"
+    },
+    "selectedCount_one": "{{count}} kijelölve",
+    "selectedCount_other": "{{count}} kijelölve",
+    "approve": "Jóváhagyás",
+    "reject": "Elutasítás",
+    "approveAllTerminology": "Összes terminológia jóváhagyása",
+    "loading": "Betöltés...",
+    "empty": "Ezekhez a szűrőkhöz nincs jelölt.",
+    "table": {
+      "source": "Forrás",
+      "existing": "Meglévő",
+      "deeplRef": "DeepL-ref.",
+      "term": "Terminus",
+      "category": "Kategória",
+      "confidence": "Megb.",
+      "action": "Művelet"
+    },
+    "insteadOf": "helyette: {{term}}",
+    "vorschlagMeldung": "{{n}} kifejezés javaslatként elküldve. Egy adminisztrátor a glosszárium oldalán hagyja jóvá."
+  }
+}

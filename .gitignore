@@ -1,0 +1,11 @@
+node_modules/
+dist/
+client/dist/
+uploads/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Merkdatei von scripts/oeffentlich/export.mjs
+.export-stand

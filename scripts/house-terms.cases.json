@@ -1,0 +1,42 @@
+{
+  "_zweck": "Suchfälle der Hausschreibweise — EINE Quelle für zwei Umsetzungen: findHouseTermMatches() hier (scripts/house-terms.test.mjs) und der Python-Port im Chat-Werkzeug der KI-Stationen (KI-Server ki-stack/openwebui-tools/tests/test_hausschreibweise.py liest diese Datei). Wer eine Regel ändert, ändert sie hier und lässt BEIDE Tests laufen (Cockpit #1247).",
+  "terms": [
+    { "avoidTerm": "LED-Treiber", "preferredTerm": "LED-Trafo", "note": null },
+    { "avoidTerm": "Trafo", "preferredTerm": "LED-Trafo", "note": null },
+    { "avoidTerm": "Lichtband", "preferredTerm": "LED-Streifen", "note": "Laut Marketing 2026." }
+  ],
+  "cases": [
+    { "name": "Grundfall", "text": "Der LED-Treiber wird angeschlossen.", "expected": [["LED-Treiber", "LED-Trafo"]] },
+    { "name": "Gross-/Kleinschreibung egal", "text": "der led-treiber", "expected": [["led-treiber", "LED-Trafo"]] },
+    { "name": "Endung bleibt stehen (Genitiv)", "text": "des LED-Treibers", "expected": [["LED-Treiber", "LED-Trafo"]] },
+    { "name": "Kompositum rechts", "text": "Die LED-Treiberleistung", "expected": [["LED-Treiber", "LED-Trafo"]] },
+    { "name": "Kompositum links mit Bindestrich", "text": "Konstantstrom-LED-Treiber", "expected": [["LED-Treiber", "LED-Trafo"]] },
+    { "name": "Negativ: Buchstabe links ist keine Wortgrenze", "text": "XLED-Treiber", "expected": [] },
+    { "name": "Negativ: bevorzugter Begriff steht schon da", "text": "Der LED-Trafo passt.", "expected": [] },
+    { "name": "Kürzerer Begriff allein wird gefunden", "text": "Der Trafo passt.", "expected": [["Trafo", "LED-Trafo"]] },
+    {
+      "name": "Negativ: Überlappung — längerer Begriff gewinnt",
+      "_warum": "Bis 17.09.2026 lief dieser Fall mit der Standardliste; dort steckt kein Begriff in einem anderen, die Überlappungsregel blieb ungeprüft (Mutation ohne Befund). „Treiber\" liegt jetzt in „LED-Treiber\", der Bindestrich davor ist eine Wortgrenze.",
+      "terms": [{ "avoidTerm": "Treiber", "preferredTerm": "Netzteil", "note": null }, { "avoidTerm": "LED-Treiber", "preferredTerm": "LED-Trafo", "note": null }],
+      "text": "Der LED-Treiber und ein Treiber",
+      "expected": [["LED-Treiber", "LED-Trafo"], ["Treiber", "Netzteil"]]
+    },
+    { "name": "Mehrere Treffer in Textreihenfolge", "text": "Lichtband und LED-Treiber", "expected": [["Lichtband", "LED-Streifen"], ["LED-Treiber", "LED-Trafo"]] },
+    { "name": "Negativ: Text ohne Begriffe", "text": "Das Profil wird montiert.", "expected": [] },
+    { "name": "Umlaut-Wortgrenze links", "text": "ÄLED-Treiber", "expected": [] },
+    { "name": "Ziffer links ist keine Wortgrenze", "text": "2Trafo", "expected": [] },
+    { "name": "Derselbe Begriff zweimal", "text": "Trafo, noch ein Trafo", "expected": [["Trafo", "LED-Trafo"], ["Trafo", "LED-Trafo"]] },
+    {
+      "name": "Channel-Begriff wird als Ersatz vorgeschlagen",
+      "terms": [{ "avoidTerm": "LED-Treiber", "preferredTerm": "LED-Netzteil", "note": null }],
+      "text": "LED-Treiber",
+      "expected": [["LED-Treiber", "LED-Netzteil"]]
+    },
+    {
+      "name": "Negativ: leere Einträge werden übergangen",
+      "terms": [{ "avoidTerm": "  ", "preferredTerm": "LED-Trafo", "note": null }, { "avoidTerm": "Trafo", "preferredTerm": " ", "note": null }],
+      "text": "Trafo",
+      "expected": []
+    }
+  ]
+}

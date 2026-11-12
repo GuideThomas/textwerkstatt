@@ -1,0 +1,141 @@
+{
+  "lang": {
+    "target": "Lingua di arrivo",
+    "swap": "Inverti lingue"
+  },
+  "channel": {
+    "label": "Canale di vendita",
+    "tooltip": "Gli override di canale sostituiscono il glossario standard per i termini selezionati",
+    "tooltipNeutral": "Disattivato in modalità neutra",
+    "default": "{{org}} (standard)"
+  },
+  "glossary": {
+    "label": "Glossario",
+    "tooltip": "Se disattivato, DeepL traduce senza termini di glossario o di canale — in modo del tutto neutro.",
+    "use": "usa",
+    "neutral": "neutro (senza)"
+  },
+  "mode": {
+    "label": "Modalità:",
+    "text": "Testo",
+    "textTitle": "Traduzione di testo semplice",
+    "xmlTitle": "XML: tag e attributi restano 1:1, vengono tradotti solo i nodi di testo",
+    "htmlTitle": "HTML: tag e attributi restano, script/style/code/pre vengono ignorati",
+    "codeTagsKept": "I tag del codice restano invariati"
+  },
+  "formality": {
+    "label": "Registro:",
+    "default": "Standard",
+    "more": "Formale",
+    "less": "Informale",
+    "defaultTitle": "Come finora — a DeepL non viene inviato alcun parametro di registro",
+    "moreTitle": "DeepL traduce con il registro formale",
+    "lessTitle": "DeepL traduce con il registro informale",
+    "unsupportedTitle": "Per questa lingua di arrivo DeepL non offre un livello di registro",
+    "unsupportedFor": "Per {{lang}} DeepL non offre un livello di registro",
+    "appliedMore": "formale applicato",
+    "appliedLess": "informale applicato",
+    "notApplied": "non applicato – per questa lingua di arrivo DeepL non offre un livello di registro"
+  },
+  "input": {
+    "chars_many": "{{count}} caratteri",
+    "placeholderCode": "Incollare il codice {{mode}} — i tag restano invariati, viene tradotto solo il testo"
+  },
+  "speech": {
+    "stop": "Interrompi dettatura",
+    "start": "Avvia dettatura",
+    "startWithLocale": "Avvia dettatura ({{locale}})",
+    "recording": "Registrazione…",
+    "speak": "Parla"
+  },
+  "alt": {
+    "forSelectionTitle": "Traduzioni alternative per «{{text}}»",
+    "forSelection": "Traduzioni alternative per <b>«{{text}}»</b>",
+    "markHintTitle": "Selezionare prima una parola o una sequenza di parole qui sopra per alternative mirate — altrimenti vengono proposte varianti di frase dell'intero testo.",
+    "markHint": "Selezionare parola/frase — proporre traduzioni alternative"
+  },
+  "actions": {
+    "translating": "Traduzione in corso...",
+    "translate": "Traduci",
+    "rewrite": "Riscrivi",
+    "rewriting": "Riscrittura…"
+  },
+  "result": {
+    "newGlossaryEntry": "Nuova voce di glossario",
+    "newGlossaryEntryTitle": "Creare manualmente una nuova voce di glossario",
+    "copied": "Copiato!",
+    "copy": "Copia",
+    "loading": "Traduzione in corso...",
+    "placeholder": "La traduzione apparirà qui...",
+    "glossaryUsed": "Glossario applicato:",
+    "plusChannel": "+ canale {{code}}",
+    "glossaryMarked": "I segmenti del glossario sono evidenziati di conseguenza.",
+    "hits_one": "({{count}} corrispondenza)",
+    "hits_many": "({{count}} corrispondenze)",
+    "hits_other": "({{count}} corrispondenze)",
+    "hitsWithChannel_one": "({{count}} corrispondenza, di cui {{channel}} override di canale)",
+    "hitsWithChannel_many": "({{count}} corrispondenze, di cui {{channel}} override di canale)",
+    "hitsWithChannel_other": "({{count}} corrispondenze, di cui {{channel}} override di canale)"
+  },
+  "highlight": {
+    "channelTooltip": "Override di canale ({{channel}}): {{source}} → {{target}}\nFare clic per modificare",
+    "glossaryTooltip": "Dal glossario: {{source}} → {{target}}\nFare clic per modificare",
+    "fassungTooltip": "Versione del canale ({{channel}}): {{source}} → {{target}}"
+  },
+  "altModal": {
+    "title": "Alternative",
+    "close": "Chiudi",
+    "forPhrase": "Per la frase selezionata:",
+    "wholeText": "Testo intero — suggerimento: per alternative di singole parole, selezionare una frase nel testo di partenza prima di fare clic su «Alternative».",
+    "loading": "Caricamento alternative…",
+    "onlyOneVariant": "Per questa frase DeepL fornisce una sola variante.",
+    "noVariants": "Nessuna variante aggiuntiva – con testi lunghi DeepL fornisce di solito alternative identiche.",
+    "noVariantsTip": "Suggerimento: selezionare una singola parola o una breve frase nel testo di partenza e fare di nuovo clic su «Alternative».",
+    "spanHint": "Un clic sulla variante la copia negli appunti. «📖+» salva la variante come voce di glossario.",
+    "fullHint": "Un clic adotta la variante come nuovo risultato. Le differenze sono evidenziate in <hl>giallo</hl>.",
+    "saveAsGlossary": "Salva come voce di glossario ({{source}} → {{target}}{{channel}})"
+  },
+  "wordOrder": {
+    "show": "Mostra varianti di ordine delle parole (LLM)",
+    "showTitle": "Varia solo l'ordine delle parole (stessi termini). Consuma circa 80 token (tier economico).",
+    "loading": "Caricamento varianti di ordine delle parole…",
+    "none": "Nessun ordine delle parole aggiuntivo trovato.",
+    "headingSpan": "Varianti di ordine delle parole (LLM) — un clic copia negli appunti. «📖+» salva la variante come voce di glossario.",
+    "headingFull": "Varianti di ordine delle parole (LLM) — un clic la adotta come nuovo risultato."
+  },
+  "editor": {
+    "title": "Modifica voce di glossario",
+    "source": "Origine ({{lang}})",
+    "target": "Destinazione ({{lang}})",
+    "sourcePlaceholder": "ad es. Schienen-Strahler",
+    "targetPlaceholder": "ad es. koľajnicový reflektor",
+    "channelOverrideHint": "Salva come override di canale per {{channel}} — la voce standard resta invariata.",
+    "standardHint": "Salva/aggiorna la voce standard nel glossario {{org}}.",
+    "cancel": "Annulla",
+    "saving": "Salvataggio…",
+    "save": "Salva",
+    "created": "Nuova voce salvata",
+    "updated": "Voce aggiornata",
+    "unchanged": "Nessuna modifica",
+    "vorschlag": "Proposta inviata, un amministratore la approverà."
+  },
+  "errors": {
+    "phraseTooLong": "Frase troppo lunga (max. 200 caratteri) — selezionare un tratto più breve.",
+    "http": "Errore {{status}}",
+    "wordOrderFailed": "Recupero delle varianti di ordine delle parole non riuscito",
+    "alternativesFailed": "Recupero delle alternative non riuscito",
+    "fillBoth": "Compilare origine e destinazione",
+    "saveFailed": "Salvataggio non riuscito",
+    "translateFailed": "Traduzione non riuscita"
+  },
+  "channelFassung": {
+    "hint": "Tedesco → tedesco: il testo viene riscritto nella versione del canale selezionato (grafia aziendale).",
+    "needChannel": "Tedesco → tedesco: selezionare un canale — il testo verrà riscritto nella sua versione.",
+    "summary_one": "Versione del canale {{channel}}: {{count}} sezione riscritta — {{model}} dal modello linguistico, {{rule}} secondo regola.",
+    "summary_few": "Versione del canale {{channel}}: {{count}} sezioni riscritte — {{model}} dal modello linguistico, {{rule}} secondo regola.",
+    "summary_many": "Versione del canale {{channel}}: {{count}} sezioni riscritte — {{model}} dal modello linguistico, {{rule}} secondo regola.",
+    "summary_other": "Versione del canale {{channel}}: {{count}} sezioni riscritte — {{model}} dal modello linguistico, {{rule}} secondo regola.",
+    "unchanged": "Versione del canale {{channel}}: nessun termine della grafia aziendale trovato — il testo resta invariato.",
+    "noOwnTerms": "Per {{channel}} non sono ancora stati inseriti termini propri — vale solo la grafia aziendale {{org}} (Glossari → DE → DE)."
+  }
+}

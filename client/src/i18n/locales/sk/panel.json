@@ -1,0 +1,43 @@
+{
+  "connect": {
+    "title": "Prepojiť panel Illustratora",
+    "intro": "Panel Illustratora sa chce prepojiť s vaším účtom. Potom bude prekladať vo vašom mene a jeho úlohy sa zobrazia v časti „Dokumenty“.",
+    "codeLabel": "Kód v paneli",
+    "device": "Zariadenie",
+    "deviceUnknown": "neznáme zariadenie",
+    "expiresIn": "Platné ešte {{minutes}}:{{seconds}} min",
+    "warning": "Prepojte len vtedy, ak ste práve sami klikli v Illustratore na „Mit Microsoft anmelden“ a zobrazuje sa tam presne tento kód. Ak vám tento odkaz niekto poslal: Zrušiť.",
+    "confirm": "Prepojiť",
+    "cancel": "Zrušiť",
+    "doneTitle": "Prepojené",
+    "doneText": "Môžete sa vrátiť do Illustratora — panel sa prihlási o niekoľko sekúnd.",
+    "cancelledTitle": "Zrušené",
+    "cancelledText": "Panel nebol prepojený.",
+    "expiredTitle": "Žiadosť vypršala",
+    "expiredText": "V paneli znova kliknite na „Mit Microsoft anmelden“.",
+    "usedTitle": "Už použité",
+    "usedText": "Túto žiadosť už použil iný účet.",
+    "confirmedOtherTitle": "Už potvrdené",
+    "confirmedOtherText": "Túto žiadosť už potvrdil iný účet.",
+    "continue": "Pokračovať"
+  },
+  "connections": {
+    "title": "Panel Illustratora",
+    "subtitle": "Počítače, na ktorých je váš panel prihlásený",
+    "adminTitle": "Prepojenia panela",
+    "menuTitle": "Prepojiť panel Illustratora",
+    "howto": "Ako prepojiť panel: v Illustratore otvorte Okno → Rozšírenia → {{org}} Translationtool, kliknite na „Mit Microsoft anmelden“ a žiadosť potvrďte tu. Prepojenie vyprší po 180 dňoch nepoužívania.",
+    "empty": "Zatiaľ nie je prepojený žiadny panel.",
+    "colDevice": "Zariadenie",
+    "colUser": "Osoba",
+    "colCreated": "Prepojené dňa",
+    "colLastUsed": "Naposledy použité",
+    "colExpires": "Bez používania vyprší dňa",
+    "never": "ešte nikdy",
+    "expired": "vypršané",
+    "revoke": "Odpojiť",
+    "confirmRevoke": "Odpojiť „{{label}}“? Panel sa bude musieť znova prihlásiť.",
+    "loading": "Načítava sa …",
+    "error": "Žiadosť zlyhala"
+  }
+}

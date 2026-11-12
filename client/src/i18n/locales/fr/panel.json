@@ -1,0 +1,43 @@
+{
+  "connect": {
+    "title": "Connecter le panneau Illustrator",
+    "intro": "Un panneau Illustrator souhaite se connecter à votre compte. Il traduira ensuite en votre nom, et ses travaux apparaîtront sous « Documents ».",
+    "codeLabel": "Code dans le panneau",
+    "device": "Appareil",
+    "deviceUnknown": "appareil inconnu",
+    "expiresIn": "Encore valable {{minutes}}:{{seconds}} min",
+    "warning": "Ne connectez que si vous venez vous-même de cliquer sur « Mit Microsoft anmelden » dans Illustrator et que exactement ce code y est affiché. Si quelqu’un vous a envoyé ce lien : annulez.",
+    "confirm": "Connecter",
+    "cancel": "Annuler",
+    "doneTitle": "Connecté",
+    "doneText": "Vous pouvez revenir à Illustrator — le panneau se connectera dans quelques secondes.",
+    "cancelledTitle": "Annulé",
+    "cancelledText": "Le panneau n’a pas été connecté.",
+    "expiredTitle": "Demande expirée",
+    "expiredText": "Veuillez cliquer à nouveau sur « Mit Microsoft anmelden » dans le panneau.",
+    "usedTitle": "Déjà utilisée",
+    "usedText": "Cette demande a déjà été utilisée par un autre compte.",
+    "confirmedOtherTitle": "Déjà confirmée",
+    "confirmedOtherText": "Cette demande a déjà été confirmée par un autre compte.",
+    "continue": "Continuer"
+  },
+  "connections": {
+    "title": "Panneau Illustrator",
+    "subtitle": "Ordinateurs sur lesquels votre panneau est connecté",
+    "adminTitle": "Connexions du panneau",
+    "menuTitle": "Connecter le panneau Illustrator",
+    "howto": "Pour connecter un panneau : dans Illustrator, ouvrez Fenêtre → Extensions → {{org}} Translationtool, cliquez sur « Mit Microsoft anmelden » et confirmez la demande ici. Une connexion expire après 180 jours sans utilisation.",
+    "empty": "Aucun panneau connecté pour l’instant.",
+    "colDevice": "Appareil",
+    "colUser": "Personne",
+    "colCreated": "Connecté le",
+    "colLastUsed": "Dernière utilisation",
+    "colExpires": "Expire sans utilisation le",
+    "never": "jamais",
+    "expired": "expirée",
+    "revoke": "Déconnecter",
+    "confirmRevoke": "Déconnecter « {{label}} » ? Le panneau devra se reconnecter.",
+    "loading": "Chargement …",
+    "error": "La demande a échoué"
+  }
+}

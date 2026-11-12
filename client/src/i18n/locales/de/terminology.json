@@ -1,0 +1,119 @@
+{
+  "page": {
+    "title": "Terminologie-Scan",
+    "subtitle": "Glossar-Kandidaten aus bestehenden Übersetzungen extrahieren"
+  },
+  "languages": {
+    "DE": "Deutsch",
+    "EN": "Englisch",
+    "IT": "Italienisch",
+    "FR": "Französisch",
+    "ES": "Spanisch",
+    "HU": "Ungarisch",
+    "PL": "Polnisch",
+    "CS": "Tschechisch",
+    "SK": "Slowakisch",
+    "SL": "Slowenisch"
+  },
+  "scanStatus": {
+    "pending": "Wartend",
+    "aligning": "Alignment",
+    "translating": "DeepL-Referenz",
+    "analyzing": "LLM-Analyse",
+    "completed": "Fertig",
+    "error": "Fehler"
+  },
+  "list": {
+    "title": "Bisherige Scans",
+    "empty": "Noch keine Terminologie-Scans durchgeführt.",
+    "segments_one": "{{count}} Segment",
+    "segments_other": "{{count}} Segmente",
+    "candidates_one": "{{count}} Kandidat ({{diffs}} Abweichungen)",
+    "candidates_other": "{{count}} Kandidaten ({{diffs}} Abweichungen)",
+    "review": "Prüfen",
+    "delete": "Löschen"
+  },
+  "confirm": {
+    "deleteScan": "Scan wirklich löschen?",
+    "approveTerminology_one": "{{count}} Terminologie-Kandidaten genehmigen?",
+    "approveTerminology_other": "{{count}} Terminologie-Kandidaten genehmigen?"
+  },
+  "upload": {
+    "title": "Terminologie-Scan starten",
+    "sourceFile": "Original (Quelle)",
+    "translationFile": "Bestehende Übersetzung",
+    "dropHint": "Klicken oder Datei hierher ziehen",
+    "sourceLang": "Quellsprache",
+    "targetLang": "Zielsprache",
+    "glossary": "Glossar",
+    "noGlossary": "Keins (Standard)",
+    "uploading": "Wird hochgeladen...",
+    "start": "Scan starten",
+    "formats": "Formate: IDML, DOCX, XLSX, TXT. Beide Dateien müssen das gleiche Format haben.",
+    "errors": {
+      "unsupported": "Nicht unterstützt. Erlaubt: {{allowed}}",
+      "uploadFailed": "Upload fehlgeschlagen"
+    }
+  },
+  "progress": {
+    "phase": {
+      "connected": "Verbunden",
+      "aligning": "Segment-Alignment",
+      "translating": "DeepL-Referenz",
+      "analyzing": "LLM-Analyse",
+      "completed": "Abgeschlossen",
+      "error": "Fehler"
+    },
+    "cacheHits_one": "{{count}} Cache-Hit",
+    "cacheHits_other": "{{count}} Cache-Hits",
+    "candidates_one": "{{count}} Kandidat",
+    "candidates_other": "{{count}} Kandidaten"
+  },
+  "category": {
+    "TERMINOLOGY": "Terminologie",
+    "STYLE": "Stil",
+    "ERROR": "Fehler",
+    "CONTEXT": "Kontext"
+  },
+  "candidateStatus": {
+    "pending": "Offen",
+    "approved": "Genehmigt",
+    "rejected": "Abgelehnt",
+    "vorgeschlagen": "Vorgeschlagen"
+  },
+  "review": {
+    "back": "Zurück",
+    "stats": {
+      "total": "Gesamt: {{n}}",
+      "terminology": "Terminologie: {{n}}",
+      "style": "Stil: {{n}}",
+      "error": "Fehler: {{n}}",
+      "context": "Kontext: {{n}}",
+      "approved": "{{n}} genehmigt",
+      "rejected": "{{n}} abgelehnt",
+      "vorgeschlagen": "{{n}} vorgeschlagen"
+    },
+    "filter": {
+      "allCategories": "Alle Kategorien",
+      "allStatus": "Alle Status"
+    },
+    "selectedCount_one": "{{count}} ausgewählt",
+    "selectedCount_other": "{{count}} ausgewählt",
+    "approve": "Genehmigen",
+    "reject": "Ablehnen",
+    "approveAllTerminology": "Alle Terminologie genehmigen",
+    "loading": "Wird geladen...",
+    "empty": "Keine Kandidaten für diese Filter.",
+    "table": {
+      "source": "Quelle",
+      "existing": "Bestehend",
+      "deeplRef": "DeepL-Ref",
+      "term": "Term",
+      "category": "Kategorie",
+      "confidence": "Konf.",
+      "action": "Aktion"
+    },
+    "insteadOf": "statt: {{term}}",
+    "vorschlagMeldung": "{{n}} Begriffe als Vorschlag eingereicht. Ein Admin gibt sie auf der Glossarseite frei."
+  }
+}

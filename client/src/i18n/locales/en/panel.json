@@ -1,0 +1,43 @@
+{
+  "connect": {
+    "title": "Connect Illustrator panel",
+    "intro": "An Illustrator panel wants to connect to your account. It will then translate on your behalf, and its jobs will appear under “Documents”.",
+    "codeLabel": "Code in the panel",
+    "device": "Device",
+    "deviceUnknown": "unknown device",
+    "expiresIn": "Valid for {{minutes}}:{{seconds}} min",
+    "warning": "Only connect if you just clicked “Mit Microsoft anmelden” in Illustrator yourself and exactly this code is shown there. If someone sent you this link: cancel.",
+    "confirm": "Connect",
+    "cancel": "Cancel",
+    "doneTitle": "Connected",
+    "doneText": "You can go back to Illustrator — the panel will sign in within a few seconds.",
+    "cancelledTitle": "Cancelled",
+    "cancelledText": "The panel was not connected.",
+    "expiredTitle": "Request expired",
+    "expiredText": "Please click “Mit Microsoft anmelden” in the panel again.",
+    "usedTitle": "Already used",
+    "usedText": "This request has already been used by another account.",
+    "confirmedOtherTitle": "Already confirmed",
+    "confirmedOtherText": "This request has already been confirmed by another account.",
+    "continue": "Continue"
+  },
+  "connections": {
+    "title": "Illustrator panel",
+    "subtitle": "Computers on which your panel is signed in",
+    "adminTitle": "Panel connections",
+    "menuTitle": "Connect Illustrator panel",
+    "howto": "To connect a panel: in Illustrator, open Window → Extensions → {{org}} Translationtool, click “Mit Microsoft anmelden” and confirm the request here. A connection expires after 180 days without use.",
+    "empty": "No panel connected yet.",
+    "colDevice": "Device",
+    "colUser": "Person",
+    "colCreated": "Connected on",
+    "colLastUsed": "Last used",
+    "colExpires": "Expires if unused on",
+    "never": "never",
+    "expired": "expired",
+    "revoke": "Disconnect",
+    "confirmRevoke": "Disconnect “{{label}}”? The panel will have to sign in again.",
+    "loading": "Loading …",
+    "error": "Request failed"
+  }
+}

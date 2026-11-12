@@ -1,0 +1,74 @@
+{
+  "klasse": {
+    "BANK": "Coordinate bancarie",
+    "MAIL": "Indirizzi e-mail",
+    "TELEFON": "Numeri di telefono",
+    "PERSON": "Persone",
+    "ANSCHRIFT": "Indirizzi postali",
+    "URL": "Indirizzi web",
+    "FIRMA": "Aziende",
+    "PROJEKT": "Progetti",
+    "PREIS": "Prezzi e condizioni",
+    "ARTIKELNR": "Codici articolo",
+    "BELEGNR": "Numeri di documento",
+    "EIGEN": "Oscurati da te e lista di protezione"
+  },
+  "art": {
+    "PERSON": "Persona",
+    "FIRMA": "Azienda",
+    "PROJEKT": "Progetto",
+    "BEGRIFF": "Termine"
+  },
+  "vorschau": {
+    "titel": "Ciò che vede il modello cloud",
+    "erklaerung": "Viene inviato esattamente questo testo. Le parti colorate sono sostituite da un segnaposto. Fai clic su un segnaposto per mostrarlo; seleziona una parola per oscurarla.",
+    "laeuft": "Creazione dell’anteprima …",
+    "gueltigBis": "valida fino alle {{zeit}}",
+    "verdecken": "Oscura «{{wort}}»",
+    "auswahlUngueltig": "Per oscurare, seleziona da 2 a 100 caratteri senza segnaposto.",
+    "trefferAufdecken": "Fai clic per mostrare",
+    "trefferPflicht": "non può essere mostrato (obbligatorio o lista di protezione)",
+    "keineTreffer": "Nessun riscontro: il testo viene inviato invariato.",
+    "verdeckt": "Oscurati da te",
+    "aufgedeckt": "Mostrati",
+    "entfernen": "Annulla",
+    "nichtAufdeckbar": "Coordinate bancarie, indirizzi e-mail, numeri di telefono e termini della lista di protezione restano sempre oscurati.",
+    "restOk": "Controllo finale superato: nel testo non ci sono coordinate bancarie, indirizzi e-mail o numeri di telefono.",
+    "restFehler": "Nel testo è ancora presente: {{funde}}. Così non viene inviato nulla. Oscura il passaggio o usa l’IA locale.",
+    "netzFehler": "Il server non è raggiungibile. Non è stato inviato nulla."
+  },
+  "hinweis": {
+    "rest": "Il riconoscimento si basa su regole e non trova tutto. Le perifrasi («l’hotel in Stephansplatz con 240 camere») e il contenuto stesso restano visibili al modello. Per i testi riservati usa l’IA locale.",
+    "deepl": "Il passaggio «Traduci» invia ancora il testo in chiaro a DeepL.",
+    "lokal": "Anche il percorso verso l’IA locale passa da Cloudflare; il testo lascia l’azienda cifrato."
+  },
+  "fehler": {
+    "EINGABE": "L’input non è valido.",
+    "VORSCHAU_UNBEKANNT": "Questa anteprima non esiste più. Creane una nuova.",
+    "PFLICHT_UEBRIG": "Nel testo ci sono ancora coordinate bancarie, un indirizzo e-mail o un numero di telefono. Non è stato inviato nulla.",
+    "PROXY_GESCHWAERZT": "Oscurato dal proxy: il filtro in uscita ha sostituito una parte del testo. La risposta è stata scartata.",
+    "PLATZHALTER_UNBEKANNT": "Il modello ha inventato dei segnaposto. La risposta è stata scartata.",
+    "ERKENNUNG": "Il testo non può essere pseudonimizzato in modo sicuro. Non viene inviato nulla.",
+    "EINSTELLUNGEN": "Le regole di protezione non sono leggibili al momento. Senza di esse non c’è anteprima.",
+    "NICHT_FREIGESCHALTET": "Questo account non è abilitato all’IA cloud."
+  },
+  "verwaltung": {
+    "titel": "Regole di protezione",
+    "hinweis": "Cosa viene oscurato prima dell’invio a un modello cloud. Coordinate bancarie, e-mail e telefono sono obbligatori e non si possono disattivare. L’IA locale vede sempre il testo in chiaro.",
+    "klassen": "Classi",
+    "pflicht": "Obbligatoria",
+    "muster": "Schema di un codice articolo senza parola chiave (espressione regolare; vuoto significa: solo dopo «Art.-Nr.», «Artikel», «EAN»)",
+    "speichern": "Salva",
+    "gespeichert": "Salvato.",
+    "liste": "Lista di protezione",
+    "listeHinweis": "Termini che vengono sempre oscurati, in qualsiasi grafia: clienti, progetti, persone.",
+    "begriff": "Termine",
+    "art": "Tipo",
+    "hinzufuegen": "Aggiungi",
+    "loeschen": "Elimina",
+    "listeLeer": "Ancora nessun termine.",
+    "probe": "Prova",
+    "probeHinweis": "Incolla un testo e guarda l’anteprima. Non viene inviato nulla a un modello.",
+    "probeZeigen": "Mostra anteprima"
+  }
+}

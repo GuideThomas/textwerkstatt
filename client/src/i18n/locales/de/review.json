@@ -1,0 +1,209 @@
+{
+  "you": "Du",
+  "loading": "Segmente werden geladen...",
+  "actions": {
+    "cancel": "Abbrechen",
+    "back": "Zurück"
+  },
+  "welcome": {
+    "title": "Willkommen — danke, dass du diese Übersetzung gegenliest!",
+    "howTo": "So funktioniert's: Auf der rechten Seite siehst du die maschinelle Übersetzung, links den Originaltext. Geh die Segmente durch und <b>setze einen Haken in die Checkbox</b>, wenn die Übersetzung passt — oder klick in den Text, um direkt zu korrigieren. Mit den Filtern oben kannst du dich auf gekürzte Segmente oder solche mit Review-Bedarf konzentrieren. Passt alles, klick oben auf <b>„Übersetzung freigeben“</b> — erst damit ist die Prüfung abgeschlossen.",
+    "glossaryHint": "Worte mit gepunkteter Cyan-Linie sind <b>Firmen-Terminologie aus dem Glossar</b> — besser unverändert lassen, wenn möglich.",
+    "shortcuts": "<b>Tastatur-Tipps:</b> <k>J</k>/<k>K</k> nächstes/voriges Segment · <k>Leertaste</k> abnicken + weiter · <k>E</k> bearbeiten · <k>?</k> Rückfrage stellen",
+    "dismiss": "Verstanden"
+  },
+  "placeholder": {
+    "title": "Platzhaltertext erkannt — {{found}} von {{total}} Segmenten",
+    "bodyLorem": "Die Quelldatei enthält klassisches Lorem-Ipsum. Der Setzer hat eventuell vergessen, den Platzhalter durch echten Text zu ersetzen. Übersetzungen dieser Segmente sind unbrauchbar — Quelldatei vor dem Export prüfen.",
+    "bodyIndesign": "Die Quelldatei enthält InDesign-Platzhaltertext (Adobe-Latein). Der Setzer hat eventuell vergessen, den Platzhalter durch echten Text zu ersetzen. Übersetzungen dieser Segmente sind unbrauchbar — Quelldatei vor dem Export prüfen.",
+    "showSamples": "Beispielsegmente anzeigen ({{count}})",
+    "dismiss": "Hinweis ausblenden"
+  },
+  "progress": {
+    "label": "Fortschritt: {{done}} von {{total}} geprüft"
+  },
+  "segment": {
+    "maxChars": "max {{max}}",
+    "edited": "bearbeitet",
+    "condensed": "gekürzt",
+    "clarification": "Rückfrage",
+    "noTranslation": "Keine Übersetzung",
+    "channelRewrite": "Channel-Fassung",
+    "channelRewriteCheck": "Channel-Fassung prüfen"
+  },
+  "tooltip": {
+    "checkedByAt": "Geprüft von {{name}} am {{date}} — Klick zum Zurücksetzen",
+    "checkedBy": "Geprüft von {{name}} — Klick zum Zurücksetzen",
+    "checkedAt": "Geprüft am {{date}} — Klick zum Zurücksetzen",
+    "checked": "Geprüft — Klick zum Zurücksetzen",
+    "markChecked": "Als geprüft markieren · Shift+Click für Bereich",
+    "noTranslation": "Keine Übersetzung vorhanden",
+    "showDiff": "Diff zur Original-Übersetzung anzeigen",
+    "edited": "Bearbeitet",
+    "condensed": "Wurde automatisch gekürzt, um in den Layout-Rahmen zu passen",
+    "glossaryTerms": "Enthält Begriffe aus dem Firmen-Glossar",
+    "clarificationBy": "Rückfrage von {{name}} am {{date}}",
+    "clarificationEdit": "Rückfrage anzeigen / bearbeiten",
+    "clarificationAsk": "Rückfrage stellen — wenn dir etwas unklar ist",
+    "quickadd": "Markierten Text ins Glossar übernehmen"
+  },
+  "editor": {
+    "charCount": "{{len}}/{{max}} Zeichen"
+  },
+  "clarificationNote": {
+    "header": "Rückfrage",
+    "headerBy": "Rückfrage von {{name}}"
+  },
+  "clarificationDialog": {
+    "title": "Rückfrage stellen",
+    "intro": "Segment #{{num}} wird mit „❓ Rückfrage“ markiert. Deine Notiz hilft dem Anforderer, die Übersetzung gezielt zu klären — statt zu raten.",
+    "sourceText": "Quelltext",
+    "noteLabel": "Deine Frage / Anmerkung",
+    "notePlaceholder": "z.B. „Strip“ hier eine Lichtleiste oder ein Streifen?",
+    "remove": "Rückfrage entfernen",
+    "save": "Rückfrage speichern"
+  },
+  "downloadWarning": {
+    "title": "Übersetzung nicht freigegeben",
+    "body": "Kein Native Speaker hat diese Übersetzung bestätigt — oder eine frühere Freigabe ist durch eine spätere Änderung weggefallen. Die Datei kann Fehler enthalten.",
+    "ack": "Mir ist bewusst, dass diese Übersetzung nicht freigegeben ist.",
+    "confirm": "Trotzdem herunterladen"
+  },
+  "quickadd": {
+    "title": "Term ins Glossar",
+    "syncHint": "wird beim nächsten Lauf automatisch bei DeepL synchronisiert",
+    "sourceLabel": "Quellbegriff ({{lang}})",
+    "targetLabel": "Zielübersetzung ({{lang}})",
+    "sourcePlaceholder": "z. B. LED-Strip",
+    "saving": "Speichern...",
+    "submit": "Ins Glossar",
+    "errorGeneric": "Fehler",
+    "errorUnknown": "unbekannt",
+    "error": "Fehler: {{message}}",
+    "result": {
+      "created": "Term ins Glossar aufgenommen.",
+      "updated": "Bestehender Glossar-Eintrag aktualisiert.",
+      "unchanged": "Term war bereits identisch im Glossar.",
+      "done": "Erledigt.",
+      "vorschlag": "Vorschlag eingereicht, ein Admin gibt ihn frei."
+    }
+  },
+  "toast": {
+    "approvedRange_one": "{{count}} Segment genehmigt (Range-Select)",
+    "approvedRange_few": "{{count}} Segmente genehmigt (Range-Select)",
+    "approvedRange_many": "{{count}} Segmente genehmigt (Range-Select)",
+    "approvedRange_other": "{{count}} Segmente genehmigt (Range-Select)",
+    "approved_one": "{{count}} Segment genehmigt",
+    "approved_few": "{{count}} Segmente genehmigt",
+    "approved_many": "{{count}} Segmente genehmigt",
+    "approved_other": "{{count}} Segmente genehmigt",
+    "bulkApproveFailed": "Bulk-Genehmigung fehlgeschlagen"
+  },
+  "confirm": {
+    "approveVisible_one": "{{count}} sichtbares Segment als geprüft markieren?",
+    "approveVisible_few": "{{count}} sichtbare Segmente als geprüft markieren?",
+    "approveVisible_many": "{{count}} sichtbare Segmente als geprüft markieren?",
+    "approveVisible_other": "{{count}} sichtbare Segmente als geprüft markieren?"
+  },
+  "release": {
+    "failed": "Freigabe fehlgeschlagen",
+    "mailFailures": "Freigegeben, aber die Benachrichtigung an {{names}} ging nicht raus.",
+    "blockerOpen_one": "{{count}} Segment noch nicht abgehakt",
+    "blockerOpen_few": "{{count}} Segmente noch nicht abgehakt",
+    "blockerOpen_many": "{{count}} Segmente noch nicht abgehakt",
+    "blockerOpen_other": "{{count}} Segmente noch nicht abgehakt",
+    "blockerClarification_one": "{{count}} Rückfrage offen",
+    "blockerClarification_few": "{{count}} Rückfragen offen",
+    "blockerClarification_many": "{{count}} Rückfragen offen",
+    "blockerClarification_other": "{{count}} Rückfragen offen",
+    "releasedBy": "<b>✓ Freigegeben</b> von {{name}} am {{date}}",
+    "notReleased": "Noch nicht freigegeben",
+    "revoked": "Freigabe von {{name}} aufgehoben am {{date}}",
+    "revokedReason": "({{reason}})",
+    "revokedReasonBy": "({{reason}}, {{by}})",
+    "revokeReason": {
+      "textChanged": "Text nach der Freigabe geändert",
+      "unapproved": "Haken bei einem Segment entfernt",
+      "clarification": "Rückfrage zu einem Segment gestellt"
+    },
+    "requested": "Angefragt: {{names}}",
+    "buttonTitle": "Bestätigen, dass die Übersetzung passt",
+    "buttonTitleBlocked": "Erst alle Segmente abhaken und Rückfragen klären",
+    "button": "Übersetzung freigeben",
+    "confirmText_one": "Du bestätigst, dass das Segment passt.",
+    "confirmText_few": "Du bestätigst, dass alle {{count}} Segmente passen.",
+    "confirmText_many": "Du bestätigst, dass alle {{count}} Segmente passen.",
+    "confirmText_other": "Du bestätigst, dass alle {{count}} Segmente passen.",
+    "releasing": "Wird freigegeben…",
+    "confirmYes": "Ja, freigeben"
+  },
+  "stats": {
+    "checked": "<n>{{done}}/{{total}}</n> geprüft",
+    "condensed": "<n>{{count}}</n> gekürzt",
+    "needsReview": "<n>{{count}}</n> Review",
+    "cacheHits": "Cache: <n>{{count}}</n> Hits"
+  },
+  "shortcuts": {
+    "buttonTitle": "Tastatur-Kürzel anzeigen",
+    "button": "Kürzel",
+    "title": "Tastatur-Kürzel",
+    "next": "Nächstes Segment",
+    "previous": "Voriges Segment",
+    "spaceKey": "Leertaste",
+    "approveNext": "Abnicken + weiter (Flow-Modus)",
+    "edit": "Segment bearbeiten",
+    "clarification": "Rückfrage zum aktiven Segment",
+    "nextReview": "Zum nächsten Review-Segment springen",
+    "cancelEdit": "Bearbeitung abbrechen",
+    "bonus": "<b>Bonus:</b> Shift-Click auf eine Checkbox markiert den ganzen Bereich seit der letzten geklickten Checkbox."
+  },
+  "request": {
+    "title": "Native-Speaker um Review bitten",
+    "button": "Review anfordern",
+    "intro": "Jede ausgewählte Person bekommt eine E-Mail mit Link zur Prüfen-Seite und meldet sich mit ihrem Microsoft-Konto an. Eine Freigabe genügt — die anderen erfahren dann, dass es erledigt ist.",
+    "speakersLabel": "Native-Speaker (Sprache {{lang}}) — eine oder mehrere Personen",
+    "messageLabel": "Persönliche Nachricht (optional)",
+    "messagePlaceholder": "z.B. „Brauche es bis Freitag, danke!“",
+    "sending": "Wird versendet...",
+    "sendToMany": "Anfrage an {{count}} senden",
+    "send": "Anfrage senden",
+    "failed": "Versand fehlgeschlagen",
+    "sent": "Anfrage an {{names}} versendet.",
+    "notDelivered": "Nicht zugestellt: {{names}}."
+  },
+  "download": {
+    "button": "Download {{format}}",
+    "fileFallback": "Datei"
+  },
+  "filter": {
+    "all": "Alle",
+    "condensed": "Gekürzt",
+    "review": "Review nötig",
+    "clarification": "Unklar",
+    "edited": "Bearbeitet",
+    "approved": "Fertig",
+    "bulkApproveTitle_one": "Das {{count}} aktuell sichtbare Segment genehmigen",
+    "bulkApproveTitle_few": "Alle {{count}} aktuell sichtbaren Segmente genehmigen",
+    "bulkApproveTitle_many": "Alle {{count}} aktuell sichtbaren Segmente genehmigen",
+    "bulkApproveTitle_other": "Alle {{count}} aktuell sichtbaren Segmente genehmigen",
+    "bulkApprove_one": "{{count}} sichtbares genehmigen",
+    "bulkApprove_few": "Alle {{count}} sichtbaren genehmigen",
+    "bulkApprove_many": "Alle {{count}} sichtbaren genehmigen",
+    "bulkApprove_other": "Alle {{count}} sichtbaren genehmigen",
+    "saving": "Wird gespeichert..."
+  },
+  "diff": {
+    "title": "Korrektur gegenüber Original"
+  },
+  "highlight": {
+    "styleMarker": "Formatwechsel (interner Marker, kein Textinhalt)",
+    "glossarySource": "Glossar-Begriff: \"{{source}}\" → \"{{target}}\"",
+    "glossaryTarget": "Glossar-Begriff (Firmen-Terminologie): \"{{source}}\" → \"{{target}}\""
+  },
+  "terminology": {
+    "title": "Glossar-Vorschlag",
+    "insteadOf": "statt: {{term}}",
+    "accept": "Als Glossar-Eintrag speichern",
+    "dismiss": "Verwerfen"
+  }
+}

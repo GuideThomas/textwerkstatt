@@ -1,0 +1,79 @@
+{
+  "art": {
+    "lokal": "helyi",
+    "cloud": "Felhő"
+  },
+  "budget": {
+    "eigen": "A {{grenze}} $ napi keret elfogyott, {{zeit}}-tól ismét elérhető.",
+    "eigenOhneBetrag": "A napi keret elfogyott, {{zeit}}-tól ismét elérhető.",
+    "global": "Az összes MI-alkalmazás közös kerete mára elfogyott, a felhős MI {{zeit}}-tól ismét elérhető.",
+    "lokalLaeuft": "A helyi MI tovább működik."
+  },
+  "fehler": {
+    "WEG_UNBEKANNT": "Ez az MI-útvonal nem létezik.",
+    "WEG_INAKTIV": "Ez az MI-útvonal ki van kapcsolva.",
+    "NICHT_FREIGESCHALTET": "Ez a fiók nincs engedélyezve a felhős MI-hez. Egy adminisztrátor a felhasználókezelésben engedélyezheti.",
+    "KONFIGURATION": "Az MI-útvonal hibásan van beállítva (egy környezeti változó neve).",
+    "SCHLUESSEL_FEHLT": "Ehhez az MI-útvonalhoz nincs kulcs megadva.",
+    "ENDPUNKT_FEHLT": "Ehhez az MI-útvonalhoz nincs végpont megadva.",
+    "BUDGET_EIGEN": "Ennek az MI-útvonalnak a napi kerete elfogyott.",
+    "BUDGET_GLOBAL": "Az összes MI-alkalmazás közös kerete mára elfogyott.",
+    "SCHLUESSEL_ABGELEHNT": "A kulcsot elutasították, vagy nem használhatja ezt a modellt.",
+    "ZEITLIMIT": "A modell nem válaszolt időben. Más modellt nem használtunk helyette.",
+    "NICHT_ERREICHBAR": "A modell nem érhető el. Más modellt nem használtunk helyette.",
+    "ANBIETER_FEHLER": "A szolgáltató hibát jelez. Más modellt nem használtunk helyette.",
+    "LEERE_ANTWORT": "A modell üres választ adott."
+  },
+  "verwaltung": {
+    "titel": "MI-kapcsolat",
+    "neu": "+ Új MI-útvonal",
+    "hinweis": "Minden MI-útvonal pontosan egy modellt hív, és hiba esetén soha nem vált másikra. A kulcsok csak a szerver környezetében (.env) vannak; itt csak a változó neve látható. A próba egy rögzített mondatot küld, soha nem felhasználói szöveget.",
+    "spalteWeg": "Útvonal",
+    "spalteModell": "Modell",
+    "spalteZeitlimit": "Időkorlát",
+    "spalteSchluessel": "Kulcs / végpont",
+    "spalteBudget": "Mai keret",
+    "spalteAktionen": "Műveletek",
+    "aus": "kikapcsolva",
+    "sekunden": "{{s}} mp",
+    "gesetzt": "megadva",
+    "fehlt": "hiányzik",
+    "budgetWert": "{{verbraucht}} $ / {{grenze}} $, nullázás {{zeit}}-kor",
+    "budgetAus": "nincs lekérve",
+    "sperreEigen": "zárolva (saját keret) {{zeit}}-ig",
+    "sperreGlobal": "zárolva (közös keret) {{zeit}}-ig",
+    "bearbeiten": "Szerkesztés",
+    "probe": "Próba",
+    "probeLaeuft": "fut …",
+    "probeOk": "{{ms}} ms · {{ein}}/{{aus}} token · gondolkodási token {{denk}} · költség {{kosten}}",
+    "leer": "Még nincs MI-útvonal."
+  },
+  "formular": {
+    "titelNeu": "Új MI-útvonal",
+    "titel": "„{{name}}” MI-útvonal szerkesztése",
+    "kennung": "Azonosító (a–z, 0–9, -)",
+    "name": "Név",
+    "art": "Típus",
+    "modell": "Modell a végponton",
+    "endpunkt": "Végpont-változó (LLM_BASE_URL vagy KI_WEG_…_URL)",
+    "schluessel": "Kulcsváltozó (KI_WEG_…_KEY)",
+    "zeitlimit": "Időkorlát másodpercben",
+    "reihenfolge": "Sorrend",
+    "zusatz": "További paraméterek (JSON, változatlanul a kérés törzsébe)",
+    "zusatzHinweis": "A model, messages és stream mezőt mindig a szerver állítja be.",
+    "zusatzKeinJson": "A további paraméterek nem érvényes JSON-objektum.",
+    "aktiv": "aktív",
+    "budgetLesen": "Keret lekérése a /key/info útján (LiteLLM)",
+    "speichern": "Mentés",
+    "abbrechen": "Mégse",
+    "hinweisNeu": "A helyi útvonalhoz KI_WEG_LOKAL…_KEY kulcsváltozó kell, a felhős útvonalhoz más. A típus és a változók létrehozás után nem módosíthatók.",
+    "hinweisFest": "A típus, a kulcs- és a végpont-változó rögzített. Más kulcshoz kapcsolja ki az útvonalat, és hozzon létre újat."
+  },
+  "freischaltung": {
+    "spalte": "Felhős MI",
+    "vermerk": "utoljára módosította: {{von}}, {{am}}",
+    "nie": "soha nem engedélyezve",
+    "an": "engedélyezve",
+    "aus": "tiltva"
+  }
+}

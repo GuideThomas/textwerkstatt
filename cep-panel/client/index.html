@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Textwerkstatt</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="panel">
+    <header class="hdr">
+      <span class="logo">Textwerkstatt</span>
+      <span class="hdr-sub">Übersetzen</span>
+    </header>
+
+    <main class="body">
+      <!-- Konto: Anmeldung mit Microsoft über den Browser (seit 1.1.0) -->
+      <section class="account">
+        <div id="accountIn" class="account-row hidden">
+          <span class="muted">Angemeldet als</span>
+          <strong id="accountName"></strong>
+          <button id="logoutBtn" class="link">Abmelden</button>
+        </div>
+        <div id="accountOut" class="hidden">
+          <button id="loginBtn" class="btn-secondary">Mit Microsoft anmelden</button>
+          <p class="hint">Einmal je Rechner: Der Browser öffnet sich, dort bestätigst du mit deinem Konto.</p>
+          <p id="legacyHint" class="hint hidden">Übergangsweise ist noch der alte Schlüssel eingetragen — bitte trotzdem anmelden, damit deine Aufträge unter „Dokumente“ erscheinen.</p>
+        </div>
+        <div id="pairBox" class="pair-box hidden">
+          <p class="hint">Im Browser bestätigen — dort muss genau dieser Code stehen:</p>
+          <div id="pairCode" class="pair-code"></div>
+          <p class="hint">Browser nicht aufgegangen? Diesen Link öffnen:</p>
+          <input type="text" id="pairUrl" readonly />
+          <button id="pairCancel" class="link">Abbrechen</button>
+        </div>
+      </section>
+
+      <!-- Sprachen -->
+      <div class="field">
+        <label for="sourceLang">Quellsprache</label>
+        <select id="sourceLang">
+          <option value="AUTO">Automatisch erkennen</option>
+          <option value="DE" selected>Deutsch</option>
+          <option value="EN">English</option>
+          <option value="IT">Italiano</option>
+          <option value="FR">Français</option>
+          <option value="ES">Español</option>
+          <option value="NL">Nederlands</option>
+          <option value="PL">Polski</option>
+          <option value="CS">Čeština</option>
+          <option value="HU">Magyar</option>
+          <option value="SK">Slovenčina</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="targetLang">Zielsprache</label>
+        <select id="targetLang">
+          <option value="EN" selected>English</option>
+          <option value="IT">Italiano</option>
+          <option value="FR">Français</option>
+          <option value="ES">Español</option>
+          <option value="NL">Nederlands</option>
+          <option value="PL">Polski</option>
+          <option value="CS">Čeština</option>
+          <option value="HU">Magyar</option>
+          <option value="SK">Slovenčina</option>
+          <option value="DE">Deutsch</option>
+        </select>
+        <p class="hint">Mehrere Sprachen auf einmal: über die Web-App. Das Panel legt je Durchgang eine Sprachkopie an.</p>
+      </div>
+
+      <details class="opts">
+        <summary>Optionen</summary>
+        <label class="check"><input type="checkbox" id="glossaryDisabled" /> Neutral-Modus (kein Glossar/Channel)</label>
+        <label class="check"><input type="checkbox" id="optimizeSource" /> Quelle vorab optimieren (LanguageTool)</label>
+        <div class="field">
+          <label for="channelCode">Channel-Code (optional)</label>
+          <input type="text" id="channelCode" placeholder="z.B. leer = Standard" />
+        </div>
+      </details>
+
+      <button id="translateBtn" class="btn-primary">Übersetzen</button>
+
+      <div id="status" class="status hidden"></div>
+
+      <div id="importBox" class="import-box hidden">
+        <p class="hint">Die Übersetzung kommt in eine Kopie neben dem Original (z.B. <code>Layout_FR.ai</code>). Das Original bleibt unverändert.</p>
+        <button id="importBtn" class="btn-secondary">Sprachkopie anlegen und Übersetzung einsetzen</button>
+      </div>
+    </main>
+
+    <footer class="ftr">
+      <div class="ftr-row">
+        <button id="settingsToggle" class="link">⚙ Erweitert</button>
+        <span id="version" class="muted"></span>
+      </div>
+      <div id="settings" class="settings hidden">
+        <div class="field">
+          <label for="apiBase">Server-URL</label>
+          <input type="text" id="apiBase" placeholder="https://textwerkstatt.example.com" />
+        </div>
+        <div class="field">
+          <label for="serviceKey">Alter Schlüssel (nur Übergang)</label>
+          <input type="password" id="serviceKey" placeholder="CEP_SERVICE_KEY" />
+          <p class="hint">Wird nur noch gebraucht, solange du nicht mit Microsoft angemeldet bist.</p>
+        </div>
+        <button id="saveSettings" class="btn-secondary">Speichern</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="CSInterface.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

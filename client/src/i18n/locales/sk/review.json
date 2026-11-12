@@ -1,0 +1,209 @@
+{
+  "you": "Vy",
+  "loading": "Načítavajú sa segmenty...",
+  "actions": {
+    "cancel": "Zrušiť",
+    "back": "Späť"
+  },
+  "welcome": {
+    "title": "Vitajte — ďakujeme, že kontrolujete tento preklad!",
+    "howTo": "Ako to funguje: vpravo vidíte strojový preklad, vľavo pôvodný text. Prejdite si segmenty a <b>začiarknite políčko</b>, ak je preklad správny — alebo kliknite do textu a opravte ho priamo. Pomocou filtrov hore sa môžete zamerať na skrátené segmenty alebo segmenty na kontrolu. Keď je všetko v poriadku, kliknite hore na <b>„Schváliť preklad“</b> — až tým je kontrola ukončená.",
+    "glossaryHint": "Slová s bodkovanou tyrkysovou čiarou sú <b>firemná terminológia z glosára</b> — ak je to možné, nemeňte ich.",
+    "shortcuts": "<b>Klávesové skratky:</b> <k>J</k>/<k>K</k> ďalší/predchádzajúci segment · <k>Medzerník</k> označiť ako skontrolované + ďalej · <k>E</k> upraviť · <k>?</k> položiť otázku",
+    "dismiss": "Rozumiem"
+  },
+  "placeholder": {
+    "title": "Zistený zástupný text — {{found}} z {{total}} segmentov",
+    "bodyLorem": "Zdrojový súbor obsahuje klasický text Lorem Ipsum. Sadzač možno zabudol nahradiť zástupný text skutočným textom. Preklady týchto segmentov sú nepoužiteľné — pred exportom skontrolujte zdrojový súbor.",
+    "bodyIndesign": "Zdrojový súbor obsahuje zástupný text z InDesignu (Adobe latinčina). Sadzač možno zabudol nahradiť zástupný text skutočným textom. Preklady týchto segmentov sú nepoužiteľné — pred exportom skontrolujte zdrojový súbor.",
+    "showSamples": "Zobraziť ukážkové segmenty ({{count}})",
+    "dismiss": "Skryť upozornenie"
+  },
+  "progress": {
+    "label": "Priebeh: skontrolované {{done}} z {{total}}"
+  },
+  "segment": {
+    "maxChars": "max. {{max}}",
+    "edited": "upravené",
+    "condensed": "skrátené",
+    "clarification": "Otázka",
+    "noTranslation": "Bez prekladu",
+    "channelRewrite": "Verzia kanála",
+    "channelRewriteCheck": "Skontrolovať verziu kanála"
+  },
+  "tooltip": {
+    "checkedByAt": "Skontrolované: {{name}}, {{date}} — kliknutím zrušíte",
+    "checkedBy": "Skontrolované: {{name}} — kliknutím zrušíte",
+    "checkedAt": "Skontrolované: {{date}} — kliknutím zrušíte",
+    "checked": "Skontrolované — kliknutím zrušíte",
+    "markChecked": "Označiť ako skontrolované · Shift+klik pre rozsah",
+    "noTranslation": "Preklad nie je k dispozícii",
+    "showDiff": "Zobraziť zmeny oproti pôvodnému prekladu",
+    "edited": "Upravené",
+    "condensed": "Automaticky skrátené, aby sa zmestilo do rámca layoutu",
+    "glossaryTerms": "Obsahuje výrazy z firemného glosára",
+    "clarificationBy": "Otázka – {{name}}, {{date}}",
+    "clarificationEdit": "Zobraziť / upraviť otázku",
+    "clarificationAsk": "Položiť otázku — ak vám niečo nie je jasné",
+    "quickadd": "Prevziať označený text do glosára"
+  },
+  "editor": {
+    "charCount": "{{len}}/{{max}} znakov"
+  },
+  "clarificationNote": {
+    "header": "Otázka",
+    "headerBy": "Otázka – {{name}}"
+  },
+  "clarificationDialog": {
+    "title": "Položiť otázku",
+    "intro": "Segment č. {{num}} bude označený ako „❓ Otázka“. Vaša poznámka pomôže zadávateľovi cielene objasniť preklad — namiesto hádania.",
+    "sourceText": "Zdrojový text",
+    "noteLabel": "Vaša otázka / poznámka",
+    "notePlaceholder": "napr. Znamená tu „strip“ LED pás, alebo len pruh?",
+    "remove": "Odstrániť otázku",
+    "save": "Uložiť otázku"
+  },
+  "downloadWarning": {
+    "title": "Preklad nie je schválený",
+    "body": "Žiadny rodený hovorca tento preklad nepotvrdil — alebo predchádzajúce schválenie zaniklo neskoršou zmenou. Súbor môže obsahovať chyby.",
+    "ack": "Som si vedomý/-á, že tento preklad nie je schválený.",
+    "confirm": "Napriek tomu stiahnuť"
+  },
+  "quickadd": {
+    "title": "Pridať výraz do glosára",
+    "syncHint": "pri ďalšom behu sa automaticky zosynchronizuje s DeepL",
+    "sourceLabel": "Zdrojový výraz ({{lang}})",
+    "targetLabel": "Cieľový preklad ({{lang}})",
+    "sourcePlaceholder": "napr. LED pás",
+    "saving": "Ukladá sa...",
+    "submit": "Pridať do glosára",
+    "errorGeneric": "Chyba",
+    "errorUnknown": "neznáma",
+    "error": "Chyba: {{message}}",
+    "result": {
+      "created": "Výraz bol pridaný do glosára.",
+      "updated": "Existujúca položka glosára bola aktualizovaná.",
+      "unchanged": "Výraz už bol v glosári v rovnakom znení.",
+      "done": "Hotovo.",
+      "vorschlag": "Návrh odoslaný, správca ho schváli."
+    }
+  },
+  "toast": {
+    "approvedRange_one": "{{count}} segment označený ako skontrolovaný (rozsah)",
+    "approvedRange_few": "{{count}} segmenty označené ako skontrolované (rozsah)",
+    "approvedRange_many": "{{count}} segmentov označených ako skontrolované (rozsah)",
+    "approvedRange_other": "{{count}} segmentov označených ako skontrolované (rozsah)",
+    "approved_one": "{{count}} segment označený ako skontrolovaný",
+    "approved_few": "{{count}} segmenty označené ako skontrolované",
+    "approved_many": "{{count}} segmentov označených ako skontrolované",
+    "approved_other": "{{count}} segmentov označených ako skontrolované",
+    "bulkApproveFailed": "Segmenty sa nepodarilo označiť ako skontrolované"
+  },
+  "confirm": {
+    "approveVisible_one": "Označiť {{count}} viditeľný segment ako skontrolovaný?",
+    "approveVisible_few": "Označiť {{count}} viditeľné segmenty ako skontrolované?",
+    "approveVisible_many": "Označiť {{count}} viditeľných segmentov ako skontrolované?",
+    "approveVisible_other": "Označiť {{count}} viditeľných segmentov ako skontrolované?"
+  },
+  "release": {
+    "failed": "Schválenie zlyhalo",
+    "mailFailures": "Schválené, ale oznámenie pre {{names}} sa nepodarilo odoslať.",
+    "blockerOpen_one": "{{count}} segment ešte nie je skontrolovaný",
+    "blockerOpen_few": "{{count}} segmenty ešte nie sú skontrolované",
+    "blockerOpen_many": "{{count}} segmentov ešte nie je skontrolovaných",
+    "blockerOpen_other": "{{count}} segmentov ešte nie je skontrolovaných",
+    "blockerClarification_one": "{{count}} otvorená otázka",
+    "blockerClarification_few": "{{count}} otvorené otázky",
+    "blockerClarification_many": "{{count}} otvorených otázok",
+    "blockerClarification_other": "{{count}} otvorených otázok",
+    "releasedBy": "<b>✓ Schválené</b> – {{name}}, {{date}}",
+    "notReleased": "Zatiaľ neschválené",
+    "revoked": "Schválenie ({{name}}) zrušené dňa {{date}}",
+    "revokedReason": "({{reason}})",
+    "revokedReasonBy": "({{reason}}, {{by}})",
+    "revokeReason": {
+      "textChanged": "text sa po schválení zmenil",
+      "unapproved": "pri segmente bola odstránená značka",
+      "clarification": "k segmentu bola položená otázka"
+    },
+    "requested": "Požiadaní: {{names}}",
+    "buttonTitle": "Potvrdiť, že preklad je správny",
+    "buttonTitleBlocked": "Najprv skontrolujte všetky segmenty a vyjasnite otázky",
+    "button": "Schváliť preklad",
+    "confirmText_one": "Potvrdzujete, že segment je správny.",
+    "confirmText_few": "Potvrdzujete, že všetky {{count}} segmenty sú správne.",
+    "confirmText_many": "Potvrdzujete, že všetkých {{count}} segmentov je správnych.",
+    "confirmText_other": "Potvrdzujete, že všetkých {{count}} segmentov je správnych.",
+    "releasing": "Schvaľuje sa…",
+    "confirmYes": "Áno, schváliť"
+  },
+  "stats": {
+    "checked": "Skontrolované: <n>{{done}}/{{total}}</n>",
+    "condensed": "Skrátené: <n>{{count}}</n>",
+    "needsReview": "Na kontrolu: <n>{{count}}</n>",
+    "cacheHits": "Zásahy cache: <n>{{count}}</n>"
+  },
+  "shortcuts": {
+    "buttonTitle": "Zobraziť klávesové skratky",
+    "button": "Skratky",
+    "title": "Klávesové skratky",
+    "next": "Ďalší segment",
+    "previous": "Predchádzajúci segment",
+    "spaceKey": "Medzerník",
+    "approveNext": "Označiť ako skontrolované + ďalej (plynulý režim)",
+    "edit": "Upraviť segment",
+    "clarification": "Otázka k aktívnemu segmentu",
+    "nextReview": "Prejsť na ďalší segment na kontrolu",
+    "cancelEdit": "Zrušiť úpravu",
+    "bonus": "<b>Tip:</b> Shift+klik na políčko označí celý rozsah od naposledy kliknutého políčka."
+  },
+  "request": {
+    "title": "Požiadať rodených hovorcov o kontrolu",
+    "button": "Požiadať o kontrolu",
+    "intro": "Každá vybraná osoba dostane e-mail s odkazom na stránku kontroly a prihlási sa svojím kontom Microsoft. Stačí jedno schválenie — ostatní sa potom dozvedia, že je hotovo.",
+    "speakersLabel": "Rodení hovorcovia (jazyk {{lang}}) — jedna alebo viac osôb",
+    "messageLabel": "Osobná správa (voliteľné)",
+    "messagePlaceholder": "napr. „Potrebujem to do piatka, ďakujem!“",
+    "sending": "Odosiela sa...",
+    "sendToMany": "Odoslať žiadosť {{count}} osobám",
+    "send": "Odoslať žiadosť",
+    "failed": "Odoslanie zlyhalo",
+    "sent": "Žiadosť odoslaná: {{names}}.",
+    "notDelivered": "Nedoručené: {{names}}."
+  },
+  "download": {
+    "button": "Stiahnuť {{format}}",
+    "fileFallback": "súbor"
+  },
+  "filter": {
+    "all": "Všetky",
+    "condensed": "Skrátené",
+    "review": "Na kontrolu",
+    "clarification": "Nejasné",
+    "edited": "Upravené",
+    "approved": "Hotové",
+    "bulkApproveTitle_one": "Označiť {{count}} aktuálne viditeľný segment ako skontrolovaný",
+    "bulkApproveTitle_few": "Označiť všetky {{count}} aktuálne viditeľné segmenty ako skontrolované",
+    "bulkApproveTitle_many": "Označiť všetkých {{count}} aktuálne viditeľných segmentov ako skontrolované",
+    "bulkApproveTitle_other": "Označiť všetkých {{count}} aktuálne viditeľných segmentov ako skontrolované",
+    "bulkApprove_one": "Skontrolovať {{count}} viditeľný",
+    "bulkApprove_few": "Skontrolovať všetky {{count}} viditeľné",
+    "bulkApprove_many": "Skontrolovať všetkých {{count}} viditeľných",
+    "bulkApprove_other": "Skontrolovať všetkých {{count}} viditeľných",
+    "saving": "Ukladá sa..."
+  },
+  "diff": {
+    "title": "Oprava oproti originálu"
+  },
+  "highlight": {
+    "styleMarker": "Zmena formátu (interná značka, nie je súčasťou textu)",
+    "glossarySource": "Výraz z glosára: \"{{source}}\" → \"{{target}}\"",
+    "glossaryTarget": "Výraz z glosára (firemná terminológia): \"{{source}}\" → \"{{target}}\""
+  },
+  "terminology": {
+    "title": "Návrh do glosára",
+    "insteadOf": "namiesto: {{term}}",
+    "accept": "Uložiť ako položku glosára",
+    "dismiss": "Zahodiť"
+  }
+}

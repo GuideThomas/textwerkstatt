@@ -1,0 +1,177 @@
+{
+  "page": {
+    "title": "Dokumente",
+    "subtitle": "Übersicht aller Übersetzungsdokumente"
+  },
+  "languages": {
+    "AUTO": "Automatisch erkennen",
+    "DE": "Deutsch",
+    "EN": "Englisch",
+    "IT": "Italienisch",
+    "FR": "Französisch",
+    "ES": "Spanisch",
+    "HU": "Ungarisch",
+    "PL": "Polnisch",
+    "CS": "Tschechisch",
+    "SK": "Slowakisch",
+    "SL": "Slowenisch"
+  },
+  "status": {
+    "pending": "Wartend",
+    "processing": "Wird verarbeitet",
+    "translating": "Übersetzung",
+    "condensing": "Smart Condensing",
+    "completed": "Fertig",
+    "error": "Fehler"
+  },
+  "list": {
+    "title": "Dokumente",
+    "searchPlaceholder": "Suche…",
+    "searchTitle": "Filtert nach Dokumentname oder Originaldateiname",
+    "searchClear": "Suche zurücksetzen",
+    "allEditors": "Alle Bearbeiter",
+    "mine": "Meine",
+    "users": "Benutzer",
+    "storage_one": "{{count}} Datei · {{size}}",
+    "storage_other": "{{count}} Dateien · {{size}}",
+    "loading": "Laden...",
+    "emptySearch": "Keine Dokumente gefunden für „{{query}}“.",
+    "empty": "Keine Dokumente für diese Auswahl.",
+    "selectAll": "Alle auswählen",
+    "filteredCount": "({{shown}} von {{total}})",
+    "selectGroup": "Alle Sprachen dieser Datei auswählen"
+  },
+  "sort": {
+    "date": "Datum",
+    "size": "Größe",
+    "name": "Name"
+  },
+  "topics": {
+    "label": "Themen:",
+    "reset": "zurücksetzen",
+    "assign": "Themen zuweisen:",
+    "none": "Noch keine Themen angelegt — Admin → Themen."
+  },
+  "selection": {
+    "count_one": "{{count}} ausgewählt",
+    "count_other": "{{count}} ausgewählt",
+    "clear": "Auswahl aufheben",
+    "delete_one": "{{count}} löschen",
+    "delete_other": "{{count}} löschen"
+  },
+  "confirm": {
+    "deleteOne": "Dokument wirklich löschen? Originaldatei und Segmente werden entfernt.",
+    "deleteMany_one": "{{count}} Dokument wirklich löschen? Originaldatei und Segmente werden entfernt.",
+    "deleteMany_other": "{{count}} Dokumente wirklich löschen? Originaldateien und Segmente werden entfernt."
+  },
+  "project": {
+    "segments_one": "{{count}} Segment",
+    "segments_other": "{{count}} Segmente",
+    "sizeTitle_one": "Aktuelle Version: {{own}} · {{count}} Version zusammen: {{chain}}",
+    "sizeTitle_other": "Aktuelle Version: {{own}} · Alle {{count}} Versionen zusammen: {{chain}}",
+    "sizeTotal": "gesamt {{size}}",
+    "editTopics": "bearbeiten",
+    "addTopic": "+ Thema"
+  },
+  "placeholder": {
+    "badge": "Platzhalter",
+    "tooltipLorem": "{{count}} von {{total}} Segmenten enthalten klassisches Lorem-Ipsum. Quelldatei vor dem Export prüfen — der Setzer hat eventuell vergessen, den Platzhaltertext zu ersetzen.",
+    "tooltipIndesign": "{{count}} von {{total}} Segmenten enthalten InDesign-Platzhaltertext (Adobe-Latein). Quelldatei vor dem Export prüfen — der Setzer hat eventuell vergessen, den Platzhaltertext zu ersetzen."
+  },
+  "actions": {
+    "review": "Prüfen",
+    "versions": "Versionen",
+    "versionsTitle": "Versionsverlauf anzeigen",
+    "newVersion": "+ Version",
+    "newVersionTitle": "Neue Version als Folge dieses Dokuments hochladen",
+    "delete": "Löschen"
+  },
+  "upload": {
+    "title": "Neue Übersetzung",
+    "titleNewVersion": "Neue Version hochladen",
+    "parentInfo": "Wird als neue Version von „{{name}}“ angelegt.",
+    "parentHint": "Sprachpaar {{source}} → {{target}} wird übernommen, ungeänderte Segmente kommen aus dem Cache.",
+    "cancel": "Abbrechen",
+    "sourceLang": "Quellsprache",
+    "targetLangs": "Zielsprachen",
+    "parallelCount_one": "{{count}} Übersetzung",
+    "parallelCount_other": "{{count}} parallele Übersetzungen",
+    "channel": {
+      "label": "Verkaufschannel",
+      "neutralDisabled": "Im Neutral-Modus deaktiviert",
+      "specific": "Channel-spezifische Begriffe werden verwendet, sonst Standard",
+      "standard": "Standard ({{org}})",
+      "defaultOption": "{{org}} (Standard)"
+    },
+    "formality": {
+      "label": "Anrede",
+      "default": "Standard",
+      "more": "Formell",
+      "less": "Informell",
+      "titleDefault": "Wie bisher — es geht kein Anrede-Parameter an DeepL",
+      "titleActive": "DeepL übersetzt in der gewählten Anrede",
+      "titleUnsupported": "Für die gewählten Zielsprachen bietet DeepL keine Anredestufe",
+      "partialNoEffect": "Ohne Wirkung für {{langs}} — DeepL bietet dort keine Anredestufe. Die übrigen Zielsprachen bekommen sie.",
+      "noneSupported": "Für {{langs}} bietet DeepL keine Anredestufe.",
+      "channelWarning": "Kanal-Projekte (Produktdaten) sollen neutral bleiben — Konsistenz über Läufe hinweg wiegt dort schwerer als Freiheit pro Lauf."
+    },
+    "neutral": {
+      "label": "Neutral übersetzen (ohne Glossar)",
+      "title": "Übersetzt rein über DeepL ohne Glossar- oder Channel-Begriffe — z. B. für Vergleichs-Runs oder freie Texte."
+    },
+    "formatProfile": {
+      "label": "Format-Profil",
+      "autoDetect": "Auto-Erkennung anhand Header",
+      "manual": "Manuell gewählt",
+      "title": "Profil bestimmt, welche Spalten/Felder übersetzt werden und welche unangetastet bleiben (Header, technische Werte, Magento-Konstanten)",
+      "optAuto": "Auto (anhand Header erkennen)",
+      "optCmsPage": "Magento CMS-Page Export",
+      "optCmsBlock": "Magento CMS-Block Export",
+      "optProduct": "Magento Product Export",
+      "optGeneric": "Generisch (alle Spalten außer Header)",
+      "help": "Magento-Profile schützen Spalten wie <c>page_layout</c>, <c>identifier</c>, sowie Konstanten wie <c>1column</c> und <c>inner</c> vor Übersetzung. HTML-Spalten wie <c>content</c> laufen im DeepL-HTML-Modus."
+    },
+    "storeView": {
+      "info": "Interne Links werden automatisch auf die Store-View der Zielsprache gesetzt.",
+      "detail": "— Bild-, Medien- und Ressourcenpfade (<c>src</c>, <c>srcset</c>, CSS/JS, PDFs, Downloads) bleiben unverändert, ebenso externe Links und <c>{{directive}}</c>-Direktiven."
+    },
+    "optimize": {
+      "label": "Quelltext vor Übersetzung optimieren",
+      "title": "Prüft jeden Quelltext-Abschnitt mit LanguageTool und wendet sichere Korrekturen (Tippfehler, Typografie, Interpunktion) automatisch an. Stil-Hinweise werden NICHT angewandt."
+    },
+    "drop": {
+      "prompt": "Datei hierher ziehen oder <b>auswählen</b>",
+      "formats": "IDML, DOCX, XLSX, PDF, XML, HTML, TXT, CSV, MD (max. 100 MB)",
+      "remove": "Datei entfernen"
+    },
+    "topics": "Themen (optional)",
+    "uploading": "Wird hochgeladen...",
+    "start": "Übersetzen starten",
+    "errors": {
+      "unsupportedFormat": "Nicht unterstütztes Format: {{ext}}. Erlaubt: {{allowed}}",
+      "noTarget": "Mindestens eine Zielsprache wählen",
+      "targetIsSource": "Zielsprachen dürfen nicht die Quellsprache enthalten",
+      "uploadFailed": "Upload fehlgeschlagen",
+      "unknown": "Unbekannter Fehler",
+      "channelFassungNeedsChannel": "Für Deutsch → Deutsch einen Channel wählen (nicht im Neutral-Modus)"
+    },
+    "channelFassungChip": "Deutsch (Channel-Fassung)",
+    "channelFassungHint": "Deutsch → Deutsch schreibt das Dokument in die Fassung des gewählten Channels um (Hausschreibweise) — DeepL wird dafür nicht verwendet."
+  },
+  "consistency": {
+    "title": "Konsistenz-Check",
+    "subtitle": "Identische Quelltexte mit abweichenden Übersetzungen finden",
+    "sourceLang": "Quellsprache",
+    "targetLang": "Zielsprache",
+    "checking": "Prüfe...",
+    "run": "Konsistenz prüfen",
+    "help": "Gruppiert über normalisierte Quelltexte (Whitespace/Quote-tolerant). Zeigt nur Einträge, bei denen ein und derselbe Quelltext mehr als eine Übersetzung im Cache hat — Indikator für inkonsistente Reviews oder unklare Glossarregeln.",
+    "none": "Keine Inkonsistenzen für {{source}} → {{target}} gefunden. 👍",
+    "found_one": "{{count}} Inkonsistenz gefunden",
+    "found_other": "{{count}} Inkonsistenzen gefunden",
+    "variants_one": "{{count}} Variante",
+    "variants_other": "{{count}} Varianten",
+    "cacheHits_one": "{{count}} Cache-Treffer",
+    "cacheHits_other": "{{count}} Cache-Treffer"
+  }
+}

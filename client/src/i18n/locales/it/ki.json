@@ -1,0 +1,79 @@
+{
+  "art": {
+    "lokal": "locale",
+    "cloud": "Cloud"
+  },
+  "budget": {
+    "eigen": "Budget giornaliero di {{grenze}} $ raggiunto, di nuovo disponibile dalle {{zeit}}.",
+    "eigenOhneBetrag": "Budget giornaliero raggiunto, di nuovo disponibile dalle {{zeit}}.",
+    "global": "Il budget complessivo di tutte le applicazioni IA è esaurito per oggi, IA cloud di nuovo disponibile dalle {{zeit}}.",
+    "lokalLaeuft": "L'IA locale continua a funzionare."
+  },
+  "fehler": {
+    "WEG_UNBEKANNT": "Questo percorso IA non esiste.",
+    "WEG_INAKTIV": "Questo percorso IA è disattivato.",
+    "NICHT_FREIGESCHALTET": "Questo account non è abilitato all'IA cloud. Un amministratore può abilitarlo nella gestione utenti.",
+    "KONFIGURATION": "Il percorso IA è configurato in modo errato (nome di una variabile d’ambiente).",
+    "SCHLUESSEL_FEHLT": "Per questo percorso IA non è impostata alcuna chiave.",
+    "ENDPUNKT_FEHLT": "Per questo percorso IA non è impostato alcun endpoint.",
+    "BUDGET_EIGEN": "Il budget giornaliero di questo percorso IA è esaurito.",
+    "BUDGET_GLOBAL": "Il budget complessivo di tutte le applicazioni IA è esaurito per oggi.",
+    "SCHLUESSEL_ABGELEHNT": "La chiave è stata rifiutata o non può usare questo modello.",
+    "ZEITLIMIT": "Il modello non ha risposto in tempo. Non è stato usato un altro modello.",
+    "NICHT_ERREICHBAR": "Il modello non è raggiungibile. Non è stato usato un altro modello.",
+    "ANBIETER_FEHLER": "Il fornitore segnala un errore. Non è stato usato un altro modello.",
+    "LEERE_ANTWORT": "Il modello ha restituito una risposta vuota."
+  },
+  "verwaltung": {
+    "titel": "Connessione IA",
+    "neu": "+ Nuovo percorso IA",
+    "hinweis": "Ogni percorso IA chiama esattamente un modello e in caso di errore non passa mai a un altro. Le chiavi si trovano solo nell'ambiente del server (.env); qui è indicato solo il nome della variabile. La prova invia una frase fissa, mai testo degli utenti.",
+    "spalteWeg": "Percorso",
+    "spalteModell": "Modello",
+    "spalteZeitlimit": "Limite di tempo",
+    "spalteSchluessel": "Chiave / endpoint",
+    "spalteBudget": "Budget oggi",
+    "spalteAktionen": "Azioni",
+    "aus": "disattivato",
+    "sekunden": "{{s}} s",
+    "gesetzt": "impostata",
+    "fehlt": "mancante",
+    "budgetWert": "{{verbraucht}} $ di {{grenze}} $, reset alle {{zeit}}",
+    "budgetAus": "non letto",
+    "sperreEigen": "bloccato (budget proprio) fino alle {{zeit}}",
+    "sperreGlobal": "bloccato (budget complessivo) fino alle {{zeit}}",
+    "bearbeiten": "Modifica",
+    "probe": "Prova",
+    "probeLaeuft": "in corso …",
+    "probeOk": "{{ms}} ms · {{ein}}/{{aus}} token · token di ragionamento {{denk}} · costo {{kosten}}",
+    "leer": "Nessun percorso IA ancora."
+  },
+  "formular": {
+    "titelNeu": "Nuovo percorso IA",
+    "titel": "Modifica percorso IA «{{name}}»",
+    "kennung": "Identificativo (a–z, 0–9, -)",
+    "name": "Nome",
+    "art": "Tipo",
+    "modell": "Modello all'endpoint",
+    "endpunkt": "Variabile endpoint (LLM_BASE_URL o KI_WEG_…_URL)",
+    "schluessel": "Variabile chiave (KI_WEG_…_KEY)",
+    "zeitlimit": "Limite di tempo in secondi",
+    "reihenfolge": "Ordine",
+    "zusatz": "Parametri aggiuntivi (JSON, inseriti così nel corpo della richiesta)",
+    "zusatzHinweis": "model, messages e stream li imposta sempre il server.",
+    "zusatzKeinJson": "I parametri aggiuntivi non sono un oggetto JSON valido.",
+    "aktiv": "attivo",
+    "budgetLesen": "Leggi il budget tramite /key/info (LiteLLM)",
+    "speichern": "Salva",
+    "abbrechen": "Annulla",
+    "hinweisNeu": "Un percorso locale richiede una variabile chiave KI_WEG_LOKAL…_KEY, un percorso cloud un’altra. Tipo e variabili non si possono più modificare dopo la creazione.",
+    "hinweisFest": "Tipo, variabile chiave e variabile endpoint sono fissi. Per un’altra chiave disattivare il percorso e crearne uno nuovo."
+  },
+  "freischaltung": {
+    "spalte": "IA cloud",
+    "vermerk": "ultima modifica di {{von}} il {{am}}",
+    "nie": "mai abilitato",
+    "an": "abilitato",
+    "aus": "bloccato"
+  }
+}

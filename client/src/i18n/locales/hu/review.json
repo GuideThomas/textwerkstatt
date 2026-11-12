@@ -1,0 +1,209 @@
+{
+  "you": "Ön",
+  "loading": "Szegmensek betöltése...",
+  "actions": {
+    "cancel": "Mégse",
+    "back": "Vissza"
+  },
+  "welcome": {
+    "title": "Üdvözöljük — köszönjük, hogy átnézi ezt a fordítást!",
+    "howTo": "Így működik: jobb oldalon a gépi fordítás, bal oldalon az eredeti szöveg látható. Nézze át a szegmenseket, és <b>jelölje be a jelölőnégyzetet</b>, ha a fordítás megfelelő — vagy kattintson a szövegbe, és javítsa közvetlenül. A fenti szűrőkkel a rövidített vagy az ellenőrzendő szegmensekre koncentrálhat. Ha minden rendben van, kattintson fent a <b>„Fordítás jóváhagyása”</b> gombra — az ellenőrzés csak ezzel zárul le.",
+    "glossaryHint": "A pontozott türkiz vonallal jelölt szavak <b>a glosszárium céges terminológiájába</b> tartoznak — lehetőleg ne változtasson rajtuk.",
+    "shortcuts": "<b>Billentyűparancsok:</b> <k>J</k>/<k>K</k> következő/előző szegmens · <k>Szóköz</k> ellenőrzöttnek jelölés + tovább · <k>E</k> szerkesztés · <k>?</k> kérdés feltevése",
+    "dismiss": "Értem"
+  },
+  "placeholder": {
+    "title": "Helykitöltő szöveg észlelve — {{total}} szegmensből {{found}}",
+    "bodyLorem": "A forrásfájl klasszikus Lorem Ipsum szöveget tartalmaz. Lehet, hogy a tördelő elfelejtette a helykitöltőt valódi szövegre cserélni. Ezeknek a szegmenseknek a fordítása használhatatlan — exportálás előtt ellenőrizze a forrásfájlt.",
+    "bodyIndesign": "A forrásfájl InDesign helykitöltő szöveget (Adobe-latin) tartalmaz. Lehet, hogy a tördelő elfelejtette a helykitöltőt valódi szövegre cserélni. Ezeknek a szegmenseknek a fordítása használhatatlan — exportálás előtt ellenőrizze a forrásfájlt.",
+    "showSamples": "Példaszegmensek megjelenítése ({{count}})",
+    "dismiss": "Figyelmeztetés elrejtése"
+  },
+  "progress": {
+    "label": "Előrehaladás: {{total}} szegmensből {{done}} ellenőrizve"
+  },
+  "segment": {
+    "maxChars": "max. {{max}}",
+    "edited": "szerkesztve",
+    "condensed": "rövidített",
+    "clarification": "Kérdés",
+    "noTranslation": "Nincs fordítás",
+    "channelRewrite": "Csatornaváltozat",
+    "channelRewriteCheck": "Csatornaváltozat ellenőrzése"
+  },
+  "tooltip": {
+    "checkedByAt": "Ellenőrizte: {{name}}, {{date}} — kattintson a visszavonáshoz",
+    "checkedBy": "Ellenőrizte: {{name}} — kattintson a visszavonáshoz",
+    "checkedAt": "Ellenőrizve: {{date}} — kattintson a visszavonáshoz",
+    "checked": "Ellenőrizve — kattintson a visszavonáshoz",
+    "markChecked": "Megjelölés ellenőrzöttként · Shift+kattintás: tartomány",
+    "noTranslation": "Nincs elérhető fordítás",
+    "showDiff": "Változások megjelenítése az eredeti fordításhoz képest",
+    "edited": "Szerkesztve",
+    "condensed": "Automatikusan rövidítve, hogy beférjen a tördelési keretbe",
+    "glossaryTerms": "A céges glosszárium kifejezéseit tartalmazza",
+    "clarificationBy": "Kérdés – {{name}}, {{date}}",
+    "clarificationEdit": "Kérdés megtekintése / szerkesztése",
+    "clarificationAsk": "Kérdés feltevése — ha valami nem egyértelmű",
+    "quickadd": "A kijelölt szöveg felvétele a glosszáriumba"
+  },
+  "editor": {
+    "charCount": "{{len}}/{{max}} karakter"
+  },
+  "clarificationNote": {
+    "header": "Kérdés",
+    "headerBy": "Kérdés – {{name}}"
+  },
+  "clarificationDialog": {
+    "title": "Kérdés feltevése",
+    "intro": "A(z) {{num}}. szegmens „❓ Kérdés” jelölést kap. A megjegyzése segít a megrendelőnek célzottan tisztázni a fordítást — találgatás helyett.",
+    "sourceText": "Forrásszöveg",
+    "noteLabel": "Kérdése / megjegyzése",
+    "notePlaceholder": "pl. A „strip” itt LED-szalagot jelent, vagy csak csíkot?",
+    "remove": "Kérdés törlése",
+    "save": "Kérdés mentése"
+  },
+  "downloadWarning": {
+    "title": "A fordítás nincs jóváhagyva",
+    "body": "Egyetlen anyanyelvi lektor sem erősítette meg ezt a fordítást — vagy egy korábbi jóváhagyás egy későbbi módosítás miatt megszűnt. A fájl hibákat tartalmazhat.",
+    "ack": "Tudomásul veszem, hogy ez a fordítás nincs jóváhagyva.",
+    "confirm": "Letöltés mégis"
+  },
+  "quickadd": {
+    "title": "Kifejezés felvétele a glosszáriumba",
+    "syncHint": "a következő futáskor automatikusan szinkronizálódik a DeepL-lel",
+    "sourceLabel": "Forráskifejezés ({{lang}})",
+    "targetLabel": "Célnyelvi fordítás ({{lang}})",
+    "sourcePlaceholder": "pl. LED-szalag",
+    "saving": "Mentés...",
+    "submit": "Felvétel a glosszáriumba",
+    "errorGeneric": "Hiba",
+    "errorUnknown": "ismeretlen",
+    "error": "Hiba: {{message}}",
+    "result": {
+      "created": "A kifejezés bekerült a glosszáriumba.",
+      "updated": "A meglévő glosszárium-bejegyzés frissítve.",
+      "unchanged": "A kifejezés már azonos formában szerepelt a glosszáriumban.",
+      "done": "Kész.",
+      "vorschlag": "Javaslat elküldve, egy adminisztrátor jóváhagyja."
+    }
+  },
+  "toast": {
+    "approvedRange_one": "{{count}} szegmens ellenőrzöttnek jelölve (tartomány)",
+    "approvedRange_few": "{{count}} szegmens ellenőrzöttnek jelölve (tartomány)",
+    "approvedRange_many": "{{count}} szegmens ellenőrzöttnek jelölve (tartomány)",
+    "approvedRange_other": "{{count}} szegmens ellenőrzöttnek jelölve (tartomány)",
+    "approved_one": "{{count}} szegmens ellenőrzöttnek jelölve",
+    "approved_few": "{{count}} szegmens ellenőrzöttnek jelölve",
+    "approved_many": "{{count}} szegmens ellenőrzöttnek jelölve",
+    "approved_other": "{{count}} szegmens ellenőrzöttnek jelölve",
+    "bulkApproveFailed": "Nem sikerült a szegmenseket ellenőrzöttnek jelölni"
+  },
+  "confirm": {
+    "approveVisible_one": "Megjelöli ellenőrzöttként a(z) {{count}} látható szegmenst?",
+    "approveVisible_few": "Megjelöli ellenőrzöttként a(z) {{count}} látható szegmenst?",
+    "approveVisible_many": "Megjelöli ellenőrzöttként a(z) {{count}} látható szegmenst?",
+    "approveVisible_other": "Megjelöli ellenőrzöttként a(z) {{count}} látható szegmenst?"
+  },
+  "release": {
+    "failed": "A jóváhagyás nem sikerült",
+    "mailFailures": "Jóváhagyva, de az értesítést nem sikerült elküldeni neki/nekik: {{names}}.",
+    "blockerOpen_one": "{{count}} szegmens még nincs ellenőrizve",
+    "blockerOpen_few": "{{count}} szegmens még nincs ellenőrizve",
+    "blockerOpen_many": "{{count}} szegmens még nincs ellenőrizve",
+    "blockerOpen_other": "{{count}} szegmens még nincs ellenőrizve",
+    "blockerClarification_one": "{{count}} nyitott kérdés",
+    "blockerClarification_few": "{{count}} nyitott kérdés",
+    "blockerClarification_many": "{{count}} nyitott kérdés",
+    "blockerClarification_other": "{{count}} nyitott kérdés",
+    "releasedBy": "<b>✓ Jóváhagyva</b> – {{name}}, {{date}}",
+    "notReleased": "Még nincs jóváhagyva",
+    "revoked": "{{name}} jóváhagyása visszavonva: {{date}}",
+    "revokedReason": "({{reason}})",
+    "revokedReasonBy": "({{reason}}, {{by}})",
+    "revokeReason": {
+      "textChanged": "a szöveg a jóváhagyás után módosult",
+      "unapproved": "egy szegmensről eltávolították a jelölést",
+      "clarification": "kérdés érkezett egy szegmenshez"
+    },
+    "requested": "Felkérve: {{names}}",
+    "buttonTitle": "Annak megerősítése, hogy a fordítás megfelelő",
+    "buttonTitleBlocked": "Előbb jelölje be az összes szegmenst, és tisztázza a kérdéseket",
+    "button": "Fordítás jóváhagyása",
+    "confirmText_one": "Ön megerősíti, hogy a szegmens megfelelő.",
+    "confirmText_few": "Ön megerősíti, hogy mind a(z) {{count}} szegmens megfelelő.",
+    "confirmText_many": "Ön megerősíti, hogy mind a(z) {{count}} szegmens megfelelő.",
+    "confirmText_other": "Ön megerősíti, hogy mind a(z) {{count}} szegmens megfelelő.",
+    "releasing": "Jóváhagyás folyamatban…",
+    "confirmYes": "Igen, jóváhagyom"
+  },
+  "stats": {
+    "checked": "<n>{{done}}/{{total}}</n> ellenőrizve",
+    "condensed": "<n>{{count}}</n> rövidített",
+    "needsReview": "<n>{{count}}</n> ellenőrzendő",
+    "cacheHits": "Cache: <n>{{count}}</n> találat"
+  },
+  "shortcuts": {
+    "buttonTitle": "Billentyűparancsok megjelenítése",
+    "button": "Billentyűk",
+    "title": "Billentyűparancsok",
+    "next": "Következő szegmens",
+    "previous": "Előző szegmens",
+    "spaceKey": "Szóköz",
+    "approveNext": "Ellenőrzöttnek jelölés + tovább (folyamatos mód)",
+    "edit": "Szegmens szerkesztése",
+    "clarification": "Kérdés az aktív szegmenshez",
+    "nextReview": "Ugrás a következő ellenőrzendő szegmensre",
+    "cancelEdit": "Szerkesztés megszakítása",
+    "bonus": "<b>Tipp:</b> Shift+kattintás egy jelölőnégyzeten a teljes tartományt megjelöli az utoljára kattintott jelölőnégyzettől."
+  },
+  "request": {
+    "title": "Ellenőrzés kérése anyanyelvi lektoroktól",
+    "button": "Ellenőrzés kérése",
+    "intro": "Minden kiválasztott személy e-mailt kap az ellenőrző oldal linkjével, és Microsoft-fiókjával jelentkezik be. Egy jóváhagyás elegendő — a többiek ezután értesítést kapnak, hogy a feladat elkészült.",
+    "speakersLabel": "Anyanyelvi lektorok ({{lang}} nyelv) — egy vagy több személy",
+    "messageLabel": "Személyes üzenet (nem kötelező)",
+    "messagePlaceholder": "pl. „Péntekig kellene, köszönöm!”",
+    "sending": "Küldés...",
+    "sendToMany": "Kérés küldése {{count}} személynek",
+    "send": "Kérés küldése",
+    "failed": "A küldés nem sikerült",
+    "sent": "Kérés elküldve: {{names}}.",
+    "notDelivered": "Nem kézbesítve: {{names}}."
+  },
+  "download": {
+    "button": "{{format}} letöltése",
+    "fileFallback": "Fájl"
+  },
+  "filter": {
+    "all": "Összes",
+    "condensed": "Rövidített",
+    "review": "Ellenőrzendő",
+    "clarification": "Nem egyértelmű",
+    "edited": "Szerkesztett",
+    "approved": "Kész",
+    "bulkApproveTitle_one": "A(z) {{count}} jelenleg látható szegmens megjelölése ellenőrzöttként",
+    "bulkApproveTitle_few": "Mind a(z) {{count}} jelenleg látható szegmens megjelölése ellenőrzöttként",
+    "bulkApproveTitle_many": "Mind a(z) {{count}} jelenleg látható szegmens megjelölése ellenőrzöttként",
+    "bulkApproveTitle_other": "Mind a(z) {{count}} jelenleg látható szegmens megjelölése ellenőrzöttként",
+    "bulkApprove_one": "{{count}} látható megjelölése",
+    "bulkApprove_few": "Mind a(z) {{count}} látható megjelölése",
+    "bulkApprove_many": "Mind a(z) {{count}} látható megjelölése",
+    "bulkApprove_other": "Mind a(z) {{count}} látható megjelölése",
+    "saving": "Mentés..."
+  },
+  "diff": {
+    "title": "Javítás az eredetihez képest"
+  },
+  "highlight": {
+    "styleMarker": "Formátumváltás (belső jelölő, nem része a szövegnek)",
+    "glossarySource": "Glosszárium-kifejezés: \"{{source}}\" → \"{{target}}\"",
+    "glossaryTarget": "Glosszárium-kifejezés (céges terminológia): \"{{source}}\" → \"{{target}}\""
+  },
+  "terminology": {
+    "title": "Glosszárium-javaslat",
+    "insteadOf": "ehelyett: {{term}}",
+    "accept": "Mentés glosszárium-bejegyzésként",
+    "dismiss": "Elvetés"
+  }
+}

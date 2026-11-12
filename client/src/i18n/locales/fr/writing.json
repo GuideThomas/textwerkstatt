@@ -1,0 +1,64 @@
+{
+  "tabs": {
+    "terms": "Gérer la charte rédactionnelle"
+  },
+  "languages": {
+    "AUTO": "Automatique",
+    "DE": "Allemand",
+    "EN": "Anglais",
+    "IT": "Italien",
+    "FR": "Français",
+    "ES": "Espagnol",
+    "HU": "Hongrois",
+    "PL": "Polonais",
+    "CS": "Tchèque",
+    "SK": "Slovaque",
+    "SL": "Slovène"
+  },
+  "picky": "Mode strict (picky)",
+  "actions": {
+    "acceptSafe": "Appliquer les corrections sûres",
+    "acceptSafeTitle": "Appliquer automatiquement fautes de frappe/typographie/ponctuation (suggestions univoques)",
+    "checking": "Vérification…",
+    "check": "Vérifier"
+  },
+  "errors": {
+    "http": "Erreur {{status}}",
+    "ltUnreachableHouseOnly": "LanguageTool inaccessible ({{error}}) — seule la charte rédactionnelle a été vérifiée.",
+    "ltUnreachable": "LanguageTool inaccessible",
+    "fileTooLarge": "Fichier trop volumineux (max. 5 Mo).",
+    "fileType": "Seuls .txt, .md, .markdown sont pris en charge — veuillez d'abord convertir les autres formats en texte."
+  },
+  "editor": {
+    "chars_one": "{{count}} caractère",
+    "chars_many": "{{count}} caractères",
+    "chars_other": "{{count}} caractères",
+    "loadFile": "Charger un fichier",
+    "placeholder": "Collez le texte ou déposez un fichier .txt/.md ici…",
+    "dropHere": "Déposez le fichier à importer",
+    "dragDropHint": "Le glisser-déposer accepte .txt, .md (max. 5 Mo)",
+    "copy": "Copier"
+  },
+  "result": {
+    "title": "Surligné",
+    "hints_one": "{{count}} remarque",
+    "hints_many": "{{count}} remarques",
+    "hints_other": "{{count}} remarques",
+    "houseTermsCount_one": "dont {{count}} charte rédactionnelle",
+    "houseTermsCount_many": "dont {{count}} charte rédactionnelle",
+    "houseTermsCount_other": "dont {{count}} charte rédactionnelle",
+    "clickHint": "Cliquez sur le texte surligné pour voir les suggestions",
+    "empty": "Rien vérifié pour l'instant…"
+  },
+  "match": {
+    "fallback": "Remarque",
+    "dismissTitle": "Écarter la remarque",
+    "ignore": "Ignorer",
+    "delete": "∅ (supprimer)",
+    "noSuggestion": "Aucune suggestion automatique disponible."
+  },
+  "footer": {
+    "poweredBy": "Propulsé par LanguageTool auto-hébergé",
+    "legend": "<hl>turquoise</hl> = charte rédactionnelle (liste dans l'onglet « Gérer la charte rédactionnelle »)"
+  }
+}

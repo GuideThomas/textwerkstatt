@@ -1,0 +1,453 @@
+{
+  "glossaries": {
+    "header": {
+      "title": "Glossaries",
+      "subtitle": "Terminology management and DeepL integration"
+    },
+    "list": {
+      "title": "Glossaries",
+      "empty": "No glossaries available",
+      "entryCount_one": "{{count}} entry",
+      "entryCount_few": "{{count}} entries",
+      "entryCount_many": "{{count}} entries",
+      "entryCount_other": "{{count}} entries",
+      "csvExportTitle": "CSV export",
+      "notSynced": "Changes not synced",
+      "syncedAt": "Up to date at DeepL (v{{version}})",
+      "syncing": "Syncing...",
+      "sync": "Sync",
+      "houseTerms": "House style",
+      "houseTermsHint": "German only · not synced to DeepL",
+      "zuPflegen_one": "{{count}} without translation",
+      "zuPflegen_few": "{{count}} without translation",
+      "zuPflegen_many": "{{count}} without translation",
+      "zuPflegen_other": "{{count}} without translation",
+      "zuPflegenTitle_one": "Rows without a translation have no effect: DeepL translates freely there until someone confirms a translation.",
+      "zuPflegenTitle_few": "Rows without a translation have no effect: DeepL translates freely there until someone confirms a translation.",
+      "zuPflegenTitle_many": "Rows without a translation have no effect: DeepL translates freely there until someone confirms a translation.",
+      "zuPflegenTitle_other": "Rows without a translation have no effect: DeepL translates freely there until someone confirms a translation.",
+      "hinweise_one": "{{count}} with note",
+      "hinweise_few": "{{count}} with note",
+      "hinweise_many": "{{count}} with note",
+      "hinweise_other": "{{count}} with note",
+      "hinweiseSchreibung_one": "{{count}} spelling only",
+      "hinweiseSchreibung_few": "{{count}} spelling only",
+      "hinweiseSchreibung_many": "{{count}} spelling only",
+      "hinweiseSchreibung_other": "{{count}} spelling only",
+      "hinweiseTitle": "Rows with a review note. A note never takes effect on its own.",
+      "unnoetig_one": "{{count}} unnecessary",
+      "unnoetig_few": "{{count}} unnecessary",
+      "unnoetig_many": "{{count}} unnecessary",
+      "unnoetig_other": "{{count}} unnecessary",
+      "unnoetigTitle": "Rows that change nothing compared with DeepL without a glossary. Dispensable in all languages: {{ueberall}}."
+    },
+    "alerts": {
+      "syncError": "Sync error: {{error}}",
+      "syncFailed": "Sync failed",
+      "bulkApproveConfirm_one": "Approve {{count}} entry on this page?",
+      "bulkApproveConfirm_few": "Approve {{count}} entries on this page?",
+      "bulkApproveConfirm_many": "Approve {{count}} entries on this page?",
+      "bulkApproveConfirm_other": "Approve {{count}} entries on this page?",
+      "speichernFehler": "Could not save: {{error}}"
+    },
+    "entries": {
+      "count_one": "({{count}} entry)",
+      "count_few": "({{count}} entries)",
+      "count_many": "({{count}} entries)",
+      "count_other": "({{count}} entries)",
+      "searchPlaceholder": "Search...",
+      "channelHint": "Default column = {{org}}. Leave channel columns empty → falls back to default."
+    },
+    "filter": {
+      "all": "All",
+      "pending": "Pending",
+      "approved": "Approved",
+      "zuPflegen": "No translation",
+      "vorschlaege": "Proposals"
+    },
+    "bulk": {
+      "title": "Approve all pending entries visible on this page",
+      "busy": "Approving…",
+      "button": "✓ Approve page ({{count}})"
+    },
+    "form": {
+      "sourcePlaceholder": "Source term",
+      "targetPlaceholder": "Target term (default)",
+      "quelleFehlt": "Please enter a source term.",
+      "zielFehlt": "Please enter a target term or fetch one with “DeepL suggestion”. Without a target term DeepL decides; that needs no entry.",
+      "angelegt": "“{{begriff}}” created. The list now shows this term; clear the search to see all again."
+    },
+    "table": {
+      "approvedHeaderTitle": "Approved?"
+    },
+    "entry": {
+      "approvedTitle": "Approved ({{source}}). Click to revoke.",
+      "pendingTitle": "Still pending ({{source}}). Click to approve.",
+      "editStandardTitle": "Edit default ({{org}}). Required — must not be empty.",
+      "overrideTitle": "Override for {{channel}}: {{value}}\nClick to edit, clear = fall back to default",
+      "noOverrideTitle": "No override for {{channel}}. Click to set one.",
+      "historyTitle": "Show change history",
+      "deleteTitle": "Delete entry",
+      "zuPflegenTitle": "No translation yet: this row has no effect.",
+      "editTermTitle": "Rename the German term. Applies to this glossary only."
+    },
+    "pagination": {
+      "prev": "Back",
+      "next": "Next",
+      "page": "Page {{page}} of {{total}}"
+    },
+    "empty": {
+      "selectGlossary": "Select a glossary from the list"
+    },
+    "history": {
+      "title": "Change history",
+      "loading": "Loading...",
+      "empty": "No changes recorded yet.",
+      "fieldStandard": "Default ({{org}})",
+      "action": {
+        "created": "Created",
+        "updated": "Changed",
+        "deleted": "Deleted",
+        "vorschlag": "Proposed",
+        "freigabe": "Approved",
+        "verworfen": "Rejected"
+      },
+      "unknownUser": "Unknown",
+      "fieldBegriff": "Term",
+      "feld": {
+        "freigabe": "Approval",
+        "an_deepl": "to DeepL",
+        "art": "Type",
+        "wortart": "Part of speech",
+        "genus": "Gender",
+        "formen": "Forms",
+        "ziel_name": "in names",
+        "kontext": "Context",
+        "kategorie": "Category",
+        "rueckfrage": "Query",
+        "merkmal": "Feature class",
+        "gruppe": "Group {{nr}}",
+        "vorschlag": "Proposal"
+      },
+      "wert": {
+        "offen": "open",
+        "freigegeben": "approved",
+        "ja": "yes",
+        "nein": "no",
+        "wort": "Word",
+        "muster": "Pattern",
+        "wendung": "Phrase",
+        "fest": "Series"
+      }
+    },
+    "pflege": {
+      "placeholder": "Enter translation",
+      "deepl": "DeepL suggestion",
+      "deeplBusy": "Asking DeepL…",
+      "deeplTitle": "Get a suggestion from DeepL. It is only saved once you confirm it.",
+      "bestaetigen": "Confirm",
+      "bestaetigenTitle": "Save and approve the translation",
+      "istVorschlag": "Suggestion from DeepL, not saved yet",
+      "wertVerloren": "DeepL lost a technical value ({{werte}}). Please enter it by hand.",
+      "leer": "DeepL returned no suggestion.",
+      "fehler": "That did not work: {{error}}",
+      "abbrechen": "Cancel",
+      "offen": "Enter translation",
+      "offenTitle": "No translation yet, DeepL translates freely here. Click to open the field."
+    },
+    "rueckfrage": {
+      "loeschenTitel": "Delete “{{begriff}}” from this glossary?",
+      "umbenennenTitel": "Rename “{{begriff}}” to “{{neu}}”?",
+      "loeschenText": "The row will be deleted in this glossary only, with its translation and channel values. The other glossaries stay unchanged.",
+      "umbenennenText": "The term will be renamed in this glossary only. The translation and channel values remain and then apply to the new term.",
+      "konfliktText": "This is not possible: the new term already has a translation in this glossary. Delete one of them first.",
+      "spalteBegriff": "Term",
+      "spalteUebersetzung": "Translation",
+      "spalteAlt": "Old term",
+      "spalteNeu": "New term",
+      "leer": "no translation yet",
+      "abbrechen": "Cancel",
+      "loeschen": "Delete",
+      "umbenennen": "Rename",
+      "schliessen": "Close"
+    },
+    "hinweis": {
+      "nurMit": "Only with note",
+      "kategorieLabel": "Category",
+      "gewissheitLabel": "Certainty",
+      "ohneSchreibung": "All without automatic spelling",
+      "alleKategorien": "All categories",
+      "alleGewissheiten": "Any certainty",
+      "spalteTitle": "Review notes. Click to see the reason and suggestion.",
+      "vorschlag": "Suggestion",
+      "uebernehmen": "Apply",
+      "uebernehmenTitle": "Replace the translation with the suggestion",
+      "verwerfen": "Dismiss",
+      "verwerfenTitle": "The entry is correct as it is. The note is removed, the entry stays unchanged.",
+      "kategorie": {
+        "falsch": "Wrong",
+        "sprachlich": "Language",
+        "schreibung": "Spelling",
+        "zeichen": "Characters",
+        "satz": "Full sentence",
+        "wert": "Value",
+        "mehrdeutig": "Ambiguous",
+        "dublette": "Duplicate",
+        "eigenname": "Proper name",
+        "unuebersetzt": "Untranslated",
+        "unnoetig_ueberall": "Unnecessary, everywhere",
+        "unnoetig_hier": "Unnecessary, here only"
+      },
+      "gewissheit": {
+        "hoch": "High",
+        "mittel": "Medium",
+        "niedrig": "Low"
+      },
+      "quelle": {
+        "mechanisch": "found automatically",
+        "fachlich": "assessed by expert",
+        "satztest": "confirmed in sentences"
+      },
+      "nurUnnoetig": "Unnecessary rows",
+      "nurUnnoetigTitle": "Shows rows that DeepL delivers the same way without a glossary. Nothing is deleted by this.",
+      "entfernen": "Remove entry",
+      "entfernenTitle": "Deletes this row: DeepL then translates freely here. The other glossaries stay unchanged."
+    },
+    "neu": {
+      "knopf": "New glossary",
+      "titel": "Create a new glossary",
+      "text": "The source is German. Terms found in at least half of the glossaries are added as rows without a translation.",
+      "laden": "Asking DeepL for the languages…",
+      "sprache": "Target language",
+      "spracheWaehlen": "Choose a language",
+      "name": "Name",
+      "anlegen": "Create",
+      "abbrechen": "Cancel",
+      "keineSprache": "Every language DeepL offers here already has a glossary.",
+      "angelegt": "Glossary created. Prefilled terms, still without a translation: {{anzahl}}"
+    },
+    "wortliste": {
+      "aufklappenTitle": "Word list: type, forms, targets per product group",
+      "kennzeichen": {
+        "muster": "Pattern",
+        "wendung": "Phrase",
+        "fest": "Series",
+        "nurName": "differs in names",
+        "nichtDeepl": "not to DeepL",
+        "rueckfrage": "Query"
+      },
+      "kennzeichenTitle": {
+        "muster": "Pattern with # for numbers, applies to item names only",
+        "wendung": "Phrase of several words, takes precedence over single words in names",
+        "fest": "Series or proper name, stays as written",
+        "nurName": "In item names: {{wert}}",
+        "nichtDeepl": "Not sent to the DeepL glossary, applies to item names only",
+        "rueckfrage": "Open query: {{text}}"
+      },
+      "art": "Type",
+      "artWerte": {
+        "wort": "Word",
+        "muster": "Pattern",
+        "wendung": "Phrase",
+        "fest": "Series"
+      },
+      "wortart": "Part of speech",
+      "wortartWerte": {
+        "hauptwort": "Noun",
+        "adjektiv": "Adjective",
+        "sonstiges": "Other"
+      },
+      "genus": "Gender",
+      "genusWerte": {
+        "m": "masculine",
+        "f": "feminine",
+        "n": "neuter"
+      },
+      "leer": "–",
+      "formen": "Forms (adjective)",
+      "zielName": "Different in names",
+      "zielNamePlaceholder": "empty = same as translation",
+      "anDeepl": "to DeepL (running text)",
+      "anDeeplTitle": "Off: the row applies to item names only, not to translated text",
+      "anDeeplMuster": "A pattern is never sent to DeepL",
+      "speichern": "Save",
+      "gespeichert": "Saved",
+      "gruppen": "Target per product group (names only)",
+      "keineGruppen": "none",
+      "gruppeNr": "Group {{nr}}",
+      "gruppeNrPlaceholder": "Group",
+      "gruppeZiel": "Target",
+      "gruppeNeu": "Add",
+      "gruppeEntfernen": "Remove group target",
+      "gruppeUngueltig": "Enter the group as a number and a target",
+      "quelle": {
+        "pruefung": "Review table",
+        "glossar": "Glossary",
+        "markt": "Market",
+        "deepl": "DeepL"
+      },
+      "artikel": "{{anzahl}} items",
+      "beispiele": "Examples",
+      "rueckfrage": "Query",
+      "rueckfragePlaceholder": "What is unclear?",
+      "rueckfrageStellen": "Raise query",
+      "rueckfrageAendern": "Change query",
+      "rueckfrageLoesen": "Resolve query",
+      "rueckfrageVon": "by {{von}}",
+      "ablehnen": "Reject",
+      "ablehnenConfirm": "Reject “{{begriff}}”? The row is removed and will not be suggested again.",
+      "anmerkungPlaceholder": "Note on rejecting (optional)",
+      "fehler": "Error: {{error}}",
+      "filterRueckfrage": "Query",
+      "filterNurName": "names only",
+      "filterNurNameTitle": "Rows that are not sent to DeepL or read differently in names",
+      "filterAlleArten": "all types"
+    },
+    "vorschlaege": {
+      "filterTitle": "Submitted by non-admins. Takes effect only after an admin approves it.",
+      "leer": "No open proposals.",
+      "eingereicht": "Proposal submitted. It takes effect once an admin approves it; until then the current entry applies.",
+      "nurAdmin": "Only admins can approve or reject.",
+      "freigeben": "Approve",
+      "verwerfen": "Reject",
+      "verwerfenConfirm": "Reject the proposal for “{{begriff}}”?",
+      "fehler": "Not possible: {{error}}",
+      "ja": "yes",
+      "nein": "no",
+      "zeile": "Proposal ({{n}})",
+      "zeileTitle": "There is an open proposal for this row. It takes effect only after approval.",
+      "spalte": {
+        "begriff": "Term",
+        "jetzt": "Current",
+        "neu": "Proposal",
+        "von": "By"
+      },
+      "weg": {
+        "neu": "New term",
+        "eintrag": "Translation and details",
+        "begriff": "Rename",
+        "channel": "Channel {{code}}",
+        "wortliste": "Word list",
+        "gruppe": "Product group {{nr}}"
+      },
+      "feld": {
+        "target_term": "Translation",
+        "source_term": "Term",
+        "context": "Context",
+        "category": "Category",
+        "channel_code": "Channel",
+        "art": "Type",
+        "wortart": "Part of speech",
+        "genus": "Gender",
+        "formen": "Forms",
+        "ziel_name": "in names",
+        "an_deepl": "to DeepL"
+      },
+      "quelle": {
+        "glossar": "Glossary page",
+        "quickadd": "Quick add",
+        "review": "Review",
+        "scan": "Terminology scan"
+      },
+      "inArbeit": "Being approved right now."
+    }
+  },
+  "houseTerms": {
+    "intro": "Terms we do <b>not</b> use in German, and what to use instead. The writing assistant highlights matches in German text. Leave channel columns empty → the default ({{org}}) applies. If the term is correct for {{org}} and only a channel should word it differently: leave “Use instead ({{org}})” empty and fill in only the channel column.",
+    "form": {
+      "avoidLabel": "Do not use",
+      "preferredLabel": "Use instead ({{org}})",
+      "noteLabel": "Note (optional)",
+      "example": "e.g. {{term}}",
+      "notePlaceholder": "Also shown in the writing assistant",
+      "saving": "Saving…",
+      "add": "Add",
+      "preferredPlaceholder": "empty = {{org}} keeps the term"
+    },
+    "list": {
+      "count_one": "{{count}} entry",
+      "count_few": "{{count}} entries",
+      "count_many": "{{count}} entries",
+      "count_other": "{{count}} entries",
+      "searchPlaceholder": "Search…",
+      "loading": "Loading…",
+      "empty": "No entries yet.",
+      "noMatches": "No matches."
+    },
+    "table": {
+      "avoid": "Do not use",
+      "preferred": "Use instead",
+      "note": "Note"
+    },
+    "cell": {
+      "editAvoid": "Edit term to avoid (required)",
+      "editPreferred": "Edit default ({{org}}) — empty = {{org}} keeps the term",
+      "channelSet": "{{channel}}: {{value}}\nClick to edit, clear = default applies",
+      "channelEmpty": "No separate term for {{channel}} — “{{term}}” applies. Click to set one.",
+      "editNote": "Edit note",
+      "keeps": "unchanged"
+    },
+    "row": {
+      "historyTitle": "Change history",
+      "historyTitleLast": "Change history — last changed by {{name}}",
+      "deleteTitle": "Delete entry"
+    },
+    "deleteConfirm": "Delete “{{term}}” from the house style?",
+    "errors": {
+      "status": "Error {{status}}"
+    },
+    "history": {
+      "title": "History: {{term}}",
+      "empty": "No history.",
+      "entry": "{{field}} {{action}}",
+      "field": {
+        "avoid": "Do not use",
+        "standard": "Use instead ({{org}})",
+        "note": "Note",
+        "channel": "Channel {{code}}"
+      },
+      "action": {
+        "created": "created",
+        "updated": "changed",
+        "deleted": "deleted"
+      },
+      "unknownUser": "unknown"
+    }
+  },
+  "topics": {
+    "title": "Topics",
+    "intro": "Topics help group documents across language pairs and file types (e.g. “Operating manual”, “Strip series”, “Marketing”). A document can have several topics.",
+    "form": {
+      "newLabel": "New topic",
+      "namePlaceholder": "e.g. Operating manual",
+      "color": "Colour",
+      "create": "Create"
+    },
+    "errors": {
+      "createFailed": "Could not create",
+      "saveFailed": "Could not save",
+      "unknown": "Unknown error"
+    },
+    "list": {
+      "loading": "Loading...",
+      "empty": "No topics created yet."
+    },
+    "table": {
+      "name": "Name",
+      "color": "Colour",
+      "documents": "Documents",
+      "actions": "Actions"
+    },
+    "actions": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "deleteConfirm": "Delete topic “{{name}}”?",
+    "deleteConfirmWithDocs_one": "Delete topic “{{name}}”? It is assigned to {{count}} document — the document itself is kept, only the link is removed.",
+    "deleteConfirmWithDocs_few": "Delete topic “{{name}}”? It is assigned to {{count}} documents — the documents themselves are kept, only the link is removed.",
+    "deleteConfirmWithDocs_many": "Delete topic “{{name}}”? It is assigned to {{count}} documents — the documents themselves are kept, only the link is removed.",
+    "deleteConfirmWithDocs_other": "Delete topic “{{name}}”? It is assigned to {{count}} documents — the documents themselves are kept, only the link is removed."
+  }
+}

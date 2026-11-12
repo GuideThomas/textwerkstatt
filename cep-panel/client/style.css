@@ -1,0 +1,103 @@
+/* Textwerkstatt — CEP Panel */
+:root {
+  --cyan: #00B9F1;
+  --cyan-dark: #0098c7;
+  --charcoal: #2b2b2b;
+  --charcoal-2: #353535;
+  --line: #474747;
+  --text: #e8e8e8;
+  --muted: #9aa0a6;
+  --ok: #3fb950;
+  --err: #f85149;
+  --warn: #d29922;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--charcoal);
+  color: var(--text);
+  font-family: 'Barlow', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 13px;
+}
+
+.panel { display: flex; flex-direction: column; min-height: 100vh; }
+
+.hdr {
+  display: flex; align-items: baseline; gap: 8px;
+  padding: 12px 14px; border-bottom: 1px solid var(--line);
+  background: var(--charcoal-2);
+}
+.logo { font-weight: 700; letter-spacing: 1px; color: #fff; }
+.hdr-sub { color: var(--cyan); font-weight: 600; }
+
+.body { flex: 1; padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field label { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+
+select, input[type="text"], input[type="password"] {
+  background: var(--charcoal-2); color: var(--text);
+  border: 1px solid var(--line); border-radius: 6px;
+  padding: 7px 9px; font-size: 13px; width: 100%;
+}
+select:focus, input:focus { outline: none; border-color: var(--cyan); }
+
+.hint { margin: 2px 0 0; font-size: 11px; color: var(--muted); line-height: 1.35; }
+
+.opts summary { cursor: pointer; color: var(--muted); font-size: 12px; padding: 2px 0; }
+.opts[open] summary { color: var(--text); margin-bottom: 6px; }
+.check { display: flex; align-items: center; gap: 7px; font-size: 12px; margin: 5px 0; color: var(--text); }
+.check input { width: auto; }
+
+.btn-primary {
+  background: var(--cyan); color: #04222c; border: none; border-radius: 6px;
+  padding: 11px; font-size: 14px; font-weight: 700; cursor: pointer; width: 100%;
+  transition: background .15s;
+}
+.btn-primary:hover { background: var(--cyan-dark); }
+.btn-primary:disabled { background: var(--line); color: var(--muted); cursor: default; }
+
+.btn-secondary {
+  background: transparent; color: var(--cyan); border: 1px solid var(--cyan);
+  border-radius: 6px; padding: 9px; font-size: 13px; font-weight: 600; cursor: pointer; width: 100%;
+}
+.btn-secondary:hover { background: rgba(0,185,241,.1); }
+.btn-secondary:disabled { color: var(--muted); border-color: var(--line); cursor: default; }
+
+.status {
+  border-radius: 6px; padding: 9px 11px; font-size: 12px; line-height: 1.4;
+  background: var(--charcoal-2); border: 1px solid var(--line);
+}
+.status.ok { border-color: var(--ok); color: #b9f6c5; }
+.status.err { border-color: var(--err); color: #ffb4ae; }
+
+.import-box { display: flex; flex-direction: column; gap: 8px; }
+.warn { font-size: 11px; color: var(--warn); line-height: 1.4; margin: 0; }
+.warn code { background: rgba(0,0,0,.3); padding: 1px 4px; border-radius: 3px; }
+
+.ftr { padding: 10px 14px; border-top: 1px solid var(--line); background: var(--charcoal-2); }
+.link { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 12px; padding: 0; }
+.link:hover { color: var(--cyan); }
+.settings { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+
+/* Konto und Anmeldung (1.1.0) */
+.account { display: flex; flex-direction: column; gap: 6px; }
+.account-row { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; font-size: 12px; }
+.account-row strong { color: #fff; }
+.account-row .link { margin-left: auto; }
+.muted { color: var(--muted); }
+.pair-box {
+  border: 1px solid var(--cyan); border-radius: 6px; padding: 10px;
+  display: flex; flex-direction: column; gap: 6px; background: rgba(0,185,241,.06);
+}
+.pair-code {
+  font-family: Consolas, 'Courier New', monospace; font-size: 26px; font-weight: 700;
+  letter-spacing: .18em; color: var(--cyan); text-align: center; padding: 4px 0;
+}
+.pair-box input { font-size: 11px; }
+.import-box code { background: rgba(0,0,0,.3); padding: 1px 4px; border-radius: 3px; }
+.ftr-row { display: flex; justify-content: space-between; align-items: center; font-size: 11px; }
+
+.hidden { display: none !important; }

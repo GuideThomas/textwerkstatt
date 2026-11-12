@@ -1,0 +1,61 @@
+{
+  "tabs": {
+    "terms": "Hausschreibweise pflegen"
+  },
+  "languages": {
+    "AUTO": "Automatisch",
+    "DE": "Deutsch",
+    "EN": "Englisch",
+    "IT": "Italienisch",
+    "FR": "Französisch",
+    "ES": "Spanisch",
+    "HU": "Ungarisch",
+    "PL": "Polnisch",
+    "CS": "Tschechisch",
+    "SK": "Slowakisch",
+    "SL": "Slowenisch"
+  },
+  "picky": "Strenger Modus (Picky)",
+  "actions": {
+    "acceptSafe": "Sichere Korrekturen anwenden",
+    "acceptSafeTitle": "Tippfehler/Typografie/Interpunktion automatisch anwenden (eindeutige Vorschläge)",
+    "checking": "Prüfe…",
+    "check": "Prüfen"
+  },
+  "errors": {
+    "http": "Fehler {{status}}",
+    "ltUnreachableHouseOnly": "LanguageTool nicht erreichbar ({{error}}) — nur die Hausschreibweise wurde geprüft.",
+    "ltUnreachable": "LanguageTool nicht erreichbar",
+    "fileTooLarge": "Datei zu groß (max. 5 MB).",
+    "fileType": "Nur .txt, .md, .markdown unterstützt — andere Formate bitte vorher in Text konvertieren."
+  },
+  "editor": {
+    "chars_one": "{{count}} Zeichen",
+    "chars_other": "{{count}} Zeichen",
+    "loadFile": "Datei laden",
+    "placeholder": "Text einfügen oder .txt/.md hier ablegen…",
+    "dropHere": "Datei zum Importieren ablegen",
+    "dragDropHint": "Drag&Drop unterstützt .txt, .md (max. 5 MB)",
+    "copy": "Kopieren"
+  },
+  "result": {
+    "title": "Hervorgehoben",
+    "hints_one": "{{count}} Hinweis",
+    "hints_other": "{{count}} Hinweise",
+    "houseTermsCount_one": "davon {{count}} Hausschreibweise",
+    "houseTermsCount_other": "davon {{count}} Hausschreibweise",
+    "clickHint": "Klick auf markierten Text zeigt Vorschläge",
+    "empty": "Noch nichts geprüft…"
+  },
+  "match": {
+    "fallback": "Hinweis",
+    "dismissTitle": "Hinweis verwerfen",
+    "ignore": "Ignorieren",
+    "delete": "∅ (Löschen)",
+    "noSuggestion": "Kein automatischer Vorschlag verfügbar."
+  },
+  "footer": {
+    "poweredBy": "Powered by self-hosted LanguageTool",
+    "legend": "<hl>türkis</hl> = Hausschreibweise (Liste im Reiter „Hausschreibweise pflegen\")"
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "page": {
+    "title": "Dokumenty",
+    "subtitle": "Prehľad všetkých prekladových dokumentov"
+  },
+  "languages": {
+    "AUTO": "Rozpoznať automaticky",
+    "DE": "Nemčina",
+    "EN": "Angličtina",
+    "IT": "Taliančina",
+    "FR": "Francúzština",
+    "ES": "Španielčina",
+    "HU": "Maďarčina",
+    "PL": "Poľština",
+    "CS": "Čeština",
+    "SK": "Slovenčina",
+    "SL": "Slovinčina"
+  },
+  "status": {
+    "pending": "Čaká",
+    "processing": "Spracúva sa",
+    "translating": "Preklad",
+    "condensing": "Smart Condensing",
+    "completed": "Hotovo",
+    "error": "Chyba"
+  },
+  "list": {
+    "title": "Dokumenty",
+    "searchPlaceholder": "Hľadať…",
+    "searchTitle": "Filtruje podľa názvu dokumentu alebo pôvodného názvu súboru",
+    "searchClear": "Vymazať vyhľadávanie",
+    "allEditors": "Všetci používatelia",
+    "mine": "Moje",
+    "users": "Používatelia",
+    "storage_one": "{{count}} súbor · {{size}}",
+    "storage_few": "{{count}} súbory · {{size}}",
+    "storage_other": "{{count}} súborov · {{size}}",
+    "loading": "Načítava sa...",
+    "emptySearch": "Pre „{{query}}“ sa nenašli žiadne dokumenty.",
+    "empty": "Pre tento výber nie sú žiadne dokumenty.",
+    "selectAll": "Vybrať všetko",
+    "filteredCount": "({{shown}} z {{total}})",
+    "selectGroup": "Vybrať všetky jazyky tohto súboru"
+  },
+  "sort": {
+    "date": "Dátum",
+    "size": "Veľkosť",
+    "name": "Názov"
+  },
+  "topics": {
+    "label": "Témy:",
+    "reset": "obnoviť",
+    "assign": "Priradiť témy:",
+    "none": "Zatiaľ nie sú vytvorené žiadne témy — Admin → Témy."
+  },
+  "selection": {
+    "count_one": "{{count}} vybraný",
+    "count_few": "{{count}} vybrané",
+    "count_other": "{{count}} vybraných",
+    "clear": "Zrušiť výber",
+    "delete_one": "Vymazať {{count}}",
+    "delete_few": "Vymazať {{count}}",
+    "delete_other": "Vymazať {{count}}"
+  },
+  "confirm": {
+    "deleteOne": "Naozaj vymazať dokument? Pôvodný súbor a segmenty budú odstránené.",
+    "deleteMany_one": "Naozaj vymazať {{count}} dokument? Pôvodný súbor a segmenty budú odstránené.",
+    "deleteMany_few": "Naozaj vymazať {{count}} dokumenty? Pôvodné súbory a segmenty budú odstránené.",
+    "deleteMany_other": "Naozaj vymazať {{count}} dokumentov? Pôvodné súbory a segmenty budú odstránené."
+  },
+  "project": {
+    "segments_one": "{{count}} segment",
+    "segments_few": "{{count}} segmenty",
+    "segments_other": "{{count}} segmentov",
+    "sizeTitle_one": "Aktuálna verzia: {{own}} · {{count}} verzia spolu: {{chain}}",
+    "sizeTitle_few": "Aktuálna verzia: {{own}} · Všetky {{count}} verzie spolu: {{chain}}",
+    "sizeTitle_other": "Aktuálna verzia: {{own}} · Všetkých {{count}} verzií spolu: {{chain}}",
+    "sizeTotal": "spolu {{size}}",
+    "editTopics": "upraviť",
+    "addTopic": "+ Téma"
+  },
+  "placeholder": {
+    "badge": "Zástupný text",
+    "tooltipLorem": "{{count}} z {{total}} segmentov obsahuje klasický Lorem Ipsum. Pred exportom skontrolujte zdrojový súbor — sadzač možno zabudol nahradiť zástupný text.",
+    "tooltipIndesign": "{{count}} z {{total}} segmentov obsahuje zástupný text InDesign (Adobe latinčina). Pred exportom skontrolujte zdrojový súbor — sadzač možno zabudol nahradiť zástupný text."
+  },
+  "actions": {
+    "review": "Skontrolovať",
+    "versions": "Verzie",
+    "versionsTitle": "Zobraziť históriu verzií",
+    "newVersion": "+ Verzia",
+    "newVersionTitle": "Nahrať novú verziu ako pokračovanie tohto dokumentu",
+    "delete": "Vymazať"
+  },
+  "upload": {
+    "title": "Nový preklad",
+    "titleNewVersion": "Nahrať novú verziu",
+    "parentInfo": "Vytvorí sa ako nová verzia dokumentu „{{name}}“.",
+    "parentHint": "Jazykový pár {{source}} → {{target}} sa prevezme, nezmenené segmenty pochádzajú z cache.",
+    "cancel": "Zrušiť",
+    "sourceLang": "Zdrojový jazyk",
+    "targetLangs": "Cieľové jazyky",
+    "parallelCount_one": "{{count}} preklad",
+    "parallelCount_few": "{{count}} paralelné preklady",
+    "parallelCount_other": "{{count}} paralelných prekladov",
+    "channel": {
+      "label": "Predajný kanál",
+      "neutralDisabled": "V neutrálnom režime vypnuté",
+      "specific": "Používajú sa výrazy špecifické pre kanál, inak štandard",
+      "standard": "Štandard ({{org}})",
+      "defaultOption": "{{org}} (štandard)"
+    },
+    "formality": {
+      "label": "Oslovenie",
+      "default": "Štandard",
+      "more": "Formálne",
+      "less": "Neformálne",
+      "titleDefault": "Ako doteraz — do DeepL sa neposiela žiadny parameter oslovenia",
+      "titleActive": "DeepL prekladá so zvoleným oslovením",
+      "titleUnsupported": "Pre zvolené cieľové jazyky DeepL neponúka úroveň oslovenia",
+      "partialNoEffect": "Bez účinku pre {{langs}} — DeepL tam neponúka úroveň oslovenia. Ostatné cieľové jazyky ju dostanú.",
+      "noneSupported": "Pre {{langs}} DeepL neponúka úroveň oslovenia.",
+      "channelWarning": "Projekty kanálov (produktové dáta) majú zostať neutrálne — konzistentnosť naprieč behmi je tam dôležitejšia ako voľnosť jednotlivého behu."
+    },
+    "neutral": {
+      "label": "Preložiť neutrálne (bez glosára)",
+      "title": "Prekladá výlučne cez DeepL bez výrazov z glosára alebo kanála — napr. na porovnávacie behy alebo voľné texty."
+    },
+    "formatProfile": {
+      "label": "Profil formátu",
+      "autoDetect": "Automatické rozpoznanie podľa hlavičky",
+      "manual": "Zvolené manuálne",
+      "title": "Profil určuje, ktoré stĺpce/polia sa preložia a ktoré zostanú nedotknuté (hlavička, technické hodnoty, konštanty Magento)",
+      "optAuto": "Auto (rozpoznať podľa hlavičky)",
+      "optCmsPage": "Export Magento CMS Page",
+      "optCmsBlock": "Export Magento CMS Block",
+      "optProduct": "Export Magento Product",
+      "optGeneric": "Všeobecný (všetky stĺpce okrem hlavičky)",
+      "help": "Profily Magento chránia pred prekladom stĺpce ako <c>page_layout</c>, <c>identifier</c>, ako aj konštanty ako <c>1column</c> a <c>inner</c>. HTML stĺpce ako <c>content</c> sa spracúvajú v HTML režime DeepL."
+    },
+    "storeView": {
+      "info": "Interné odkazy sa automaticky nastavia na store view cieľového jazyka.",
+      "detail": "— cesty k obrázkom, médiám a zdrojom (<c>src</c>, <c>srcset</c>, CSS/JS, PDF, súbory na stiahnutie) zostávajú nezmenené, rovnako externé odkazy a direktívy <c>{{directive}}</c>."
+    },
+    "optimize": {
+      "label": "Optimalizovať zdrojový text pred prekladom",
+      "title": "Skontroluje každú časť zdrojového textu pomocou LanguageTool a automaticky použije bezpečné opravy (preklepy, typografia, interpunkcia). Štylistické návrhy sa NEPOUŽIJÚ."
+    },
+    "drop": {
+      "prompt": "Presuňte súbor sem alebo ho <b>vyberte</b>",
+      "formats": "IDML, DOCX, XLSX, PDF, XML, HTML, TXT, CSV, MD (max. 100 MB)",
+      "remove": "Odstrániť súbor"
+    },
+    "topics": "Témy (voliteľné)",
+    "uploading": "Nahráva sa...",
+    "start": "Spustiť preklad",
+    "errors": {
+      "unsupportedFormat": "Nepodporovaný formát: {{ext}}. Povolené: {{allowed}}",
+      "noTarget": "Vyberte aspoň jeden cieľový jazyk",
+      "targetIsSource": "Cieľové jazyky nesmú obsahovať zdrojový jazyk",
+      "uploadFailed": "Nahrávanie zlyhalo",
+      "unknown": "Neznáma chyba",
+      "channelFassungNeedsChannel": "Pre nemčinu → nemčinu zvoľte kanál (nie v neutrálnom režime)"
+    },
+    "channelFassungChip": "Nemčina (verzia kanála)",
+    "channelFassungHint": "Nemčina → nemčina prepíše dokument do verzie zvoleného kanála (firemný pravopis) — DeepL sa na to nepoužíva."
+  },
+  "consistency": {
+    "title": "Kontrola konzistentnosti",
+    "subtitle": "Nájsť identické zdrojové texty s odlišnými prekladmi",
+    "sourceLang": "Zdrojový jazyk",
+    "targetLang": "Cieľový jazyk",
+    "checking": "Kontroluje sa...",
+    "run": "Skontrolovať konzistentnosť",
+    "help": "Zoskupuje podľa normalizovaných zdrojových textov (tolerantné voči medzerám a úvodzovkám). Zobrazuje len záznamy, pri ktorých má jeden a ten istý zdrojový text v cache viac ako jeden preklad — ukazovateľ nekonzistentných revízií alebo nejasných pravidiel glosára.",
+    "none": "Pre {{source}} → {{target}} sa nenašli žiadne nekonzistentnosti. 👍",
+    "found_one": "Nájdená {{count}} nekonzistentnosť",
+    "found_few": "Nájdené {{count}} nekonzistentnosti",
+    "found_other": "Nájdených {{count}} nekonzistentností",
+    "variants_one": "{{count}} variant",
+    "variants_few": "{{count}} varianty",
+    "variants_other": "{{count}} variantov",
+    "cacheHits_one": "{{count}} zásah v cache",
+    "cacheHits_few": "{{count}} zásahy v cache",
+    "cacheHits_other": "{{count}} zásahov v cache"
+  }
+}

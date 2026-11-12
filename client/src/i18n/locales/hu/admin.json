@@ -1,0 +1,184 @@
+{
+  "access": {
+    "adminOnly": "A beállításokhoz csak rendszergazdák férhetnek hozzá."
+  },
+  "page": {
+    "title": "Adminisztráció",
+    "subtitle": "Felhasználókezelés és rendszerbeállítások"
+  },
+  "system": {
+    "title": "Rendszerkonfiguráció",
+    "auth": "Hitelesítés",
+    "llmPrimary": "Elsődleges LLM",
+    "llmFallback": "Tartalék LLM",
+    "deeplValue": "API Pro (korlátlan)",
+    "condensingThreshold": "Rövidítési küszöb",
+    "condensingValue": "a forrásszöveg hosszának {{pct}}%-a",
+    "pdfExtraction": "PDF-kinyerés",
+    "maxFileSize": "Max. fájlméret",
+    "fileRetention": "Fájlok megőrzése",
+    "fileRetentionValue": "Kézi (nincs automatikus törlés)"
+  },
+  "formats": {
+    "title": "Támogatott formátumok",
+    "viaDocling": "Docling segítségével"
+  },
+  "prices": {
+    "title": "LLM tokenárak (1 millió tokenenként)",
+    "model": "Modell",
+    "input": "Bemenet",
+    "output": "Kimenet"
+  },
+  "errors": {
+    "generic": "Hiba"
+  },
+  "common": {
+    "name": "Név",
+    "email": "E-mail",
+    "status": "Állapot",
+    "save": "Mentés",
+    "saving": "Mentés...",
+    "cancel": "Mégse"
+  },
+  "roles": {
+    "admin": "Rendszergazda",
+    "user": "Felhasználó",
+    "viewer": "Csak olvasás"
+  },
+  "users": {
+    "loading": "Felhasználók betöltése...",
+    "title": "Felhasználókezelés",
+    "newButton": "+ Új felhasználó",
+    "colRole": "Szerepkör",
+    "colAuth": "Hitelesítés",
+    "colCreated": "Létrehozva",
+    "colActions": "Műveletek",
+    "active": "Aktív",
+    "deactivated": "Letiltva",
+    "authLocal": "Helyi",
+    "edit": "Szerkesztés",
+    "deactivate": "Letiltás",
+    "activate": "Aktiválás",
+    "confirmDeactivate": "Biztosan letiltja a következőt: {{email}}?",
+    "empty": "Nincsenek felhasználók",
+    "formEditTitle": "Felhasználó szerkesztése",
+    "formNewTitle": "Új felhasználó",
+    "passwordLabelEdit": "Jelszó (üres = változatlan)",
+    "passwordLabelNew": "Jelszó (üres = csak Microsoft)"
+  },
+  "speakers": {
+    "loading": "Anyanyelvi lektorok betöltése...",
+    "title": "Anyanyelvi lektorok",
+    "intro": "Anyanyelvi lektorok, akiket egy fordítás lektorálására lehet meghívni.",
+    "addButton": "+ Anyanyelvi lektor",
+    "empty": "Még nincs rögzített anyanyelvi lektor.",
+    "colLanguages": "Nyelvek",
+    "colAction": "Művelet",
+    "active": "aktív",
+    "inactive": "inaktív",
+    "edit": "szerkesztés",
+    "delete": "törlés",
+    "confirmDelete": "Biztosan törli a(z) „{{name}}” anyanyelvi lektort?",
+    "formEditTitle": "Anyanyelvi lektor szerkesztése",
+    "formNewTitle": "Új anyanyelvi lektor felvétele",
+    "namePlaceholder": "pl. Marco Rossi",
+    "languagesLabel": "Nyelvek (anyanyelv)",
+    "languagesHint": "Egy személy több nyelvet is lefedhet (pl. DE + EN).",
+    "activeCheckbox": "Aktív (megjelenik az ellenőrzési oldal legördülő listájában)",
+    "saving": "Mentés folyamatban...",
+    "create": "Létrehozás"
+  },
+  "languages": {
+    "DE": "Német",
+    "EN": "Angol",
+    "IT": "Olasz",
+    "FR": "Francia",
+    "ES": "Spanyol",
+    "HU": "Magyar",
+    "PL": "Lengyel",
+    "CS": "Cseh",
+    "SK": "Szlovák",
+    "SL": "Szlovén",
+    "NL": "Holland",
+    "PT": "Portugál"
+  },
+  "costs": {
+    "loading": "Az irányítópult adatainak betöltése…",
+    "title": "Költségek",
+    "subtitle": "LLM-használat és elszámolás",
+    "overview": {
+      "documents": "Dokumentumok",
+      "completed": "{{n}} befejezve",
+      "segmentsCache": "Szegmensek (gyorsítótár)",
+      "hitRate": "{{pct}}% találati arány",
+      "glossaries": "Glosszáriumok",
+      "entries_one": "{{n}} bejegyzés",
+      "entries_other": "{{n}} bejegyzés",
+      "llmTotal": "LLM összköltség",
+      "requests_one": "{{n}} kérés",
+      "requests_other": "{{n}} kérés"
+    },
+    "deeplDown": {
+      "title": "A DeepL jelenleg nem érhető el",
+      "hint": "Az új fordítási feladatok valószínűleg sikertelenek lesznek. Az állapot a következő kísérletnél automatikusan frissül.",
+      "recheck": "Újraellenőrzés",
+      "healthFailed": "Az állapotellenőrzés sikertelen"
+    },
+    "deepl": {
+      "title": "DeepL API-felhasználás",
+      "charsUsed": "Felhasznált karakterek (hónap)",
+      "plan": "Pay-as-you-go (4,99 € + 20 €/1 millió)",
+      "translatedSegments": "Lefordított szegmensek",
+      "sourceChars": "{{n}} forráskarakter",
+      "translatedChars": "Lefordított karakterek",
+      "estCost": "DeepL-költségek (becsült)",
+      "estCostHint": "4,99 € alapdíj + 20 €/1 millió karakter"
+    },
+    "llm": {
+      "title": "LLM API-felhasználás",
+      "inputTokens": "Bemeneti tokenek",
+      "outputTokens": "Kimeneti tokenek",
+      "modelsUsed": "Használt modellek",
+      "model": "Modell",
+      "requests": "Kérések",
+      "cost": "Költség"
+    },
+    "purpose": {
+      "title": "LLM-költségek cél szerint",
+      "purpose": "Cél"
+    },
+    "purposes": {
+      "condense": "Rövidítés",
+      "terminology": "Terminológia",
+      "analyze": "Elemzés",
+      "word-order": "Szórend",
+      "capitalization": "Kis- és nagybetűk"
+    },
+    "projects": {
+      "title": "Költségek dokumentumonként",
+      "document": "Dokumentum",
+      "languages": "Nyelvek",
+      "format": "Formátum",
+      "llmCalls": "LLM-hívások",
+      "inputTokens": "Bemeneti tokenek"
+    },
+    "cache": {
+      "title": "Szegmens-gyorsítótár",
+      "total": "Összes szegmens",
+      "withHits": "Gyorsítótár-találattal",
+      "totalHits": "Összes találat",
+      "stale": "Elavult szegmensek",
+      "top": "Leggyakrabban gyorsítótárazott szegmensek",
+      "segment": "Szegmens",
+      "hits": "Találatok",
+      "staleBadge": "Elavult",
+      "current": "Aktuális"
+    },
+    "daily": {
+      "title": "Napi LLM-költségek (utolsó 30 nap)",
+      "day": "Nap",
+      "inputTokens": "Bemeneti tokenek",
+      "outputTokens": "Kimeneti tokenek"
+    }
+  }
+}

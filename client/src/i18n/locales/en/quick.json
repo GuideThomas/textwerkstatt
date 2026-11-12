@@ -1,0 +1,138 @@
+{
+  "lang": {
+    "target": "Target language",
+    "swap": "Swap languages"
+  },
+  "channel": {
+    "label": "Sales channel",
+    "tooltip": "Channel overrides replace the standard glossary for selected terms",
+    "tooltipNeutral": "Disabled in neutral mode",
+    "default": "{{org}} (standard)"
+  },
+  "glossary": {
+    "label": "Glossary",
+    "tooltip": "When disabled, DeepL translates without glossary or channel terms — fully neutral.",
+    "use": "use",
+    "neutral": "neutral (none)"
+  },
+  "mode": {
+    "label": "Mode:",
+    "text": "Text",
+    "textTitle": "Plain-text translation",
+    "xmlTitle": "XML: tags and attributes stay 1:1, only text nodes are translated",
+    "htmlTitle": "HTML: tags + attributes are kept, script/style/code/pre are ignored",
+    "codeTagsKept": "Code tags remain untouched"
+  },
+  "formality": {
+    "label": "Form of address:",
+    "default": "Default",
+    "more": "Formal",
+    "less": "Informal",
+    "defaultTitle": "As before — no formality parameter is sent to DeepL",
+    "moreTitle": "DeepL translates using the formal form of address",
+    "lessTitle": "DeepL translates using the informal form of address",
+    "unsupportedTitle": "DeepL offers no formality setting for this target language",
+    "unsupportedFor": "DeepL offers no formality setting for {{lang}}",
+    "appliedMore": "formal applied",
+    "appliedLess": "informal applied",
+    "notApplied": "not applied – DeepL offers no formality setting for this target language"
+  },
+  "input": {
+    "placeholderCode": "Paste {{mode}} code — tags stay unchanged, only text is translated"
+  },
+  "speech": {
+    "stop": "Stop voice input",
+    "start": "Start voice input",
+    "startWithLocale": "Start voice input ({{locale}})",
+    "recording": "Recording…",
+    "speak": "Speak"
+  },
+  "alt": {
+    "forSelectionTitle": "Alternative translations for \"{{text}}\"",
+    "forSelection": "Alternative translations for <b>\"{{text}}\"</b>",
+    "markHintTitle": "First select a word or phrase above for targeted alternatives — otherwise sentence variants of the whole text are suggested.",
+    "markHint": "Select a word/phrase — suggest alternative translations"
+  },
+  "actions": {
+    "translating": "Translating...",
+    "translate": "Translate",
+    "rewrite": "Rewrite",
+    "rewriting": "Rewriting…"
+  },
+  "result": {
+    "newGlossaryEntry": "New glossary entry",
+    "newGlossaryEntryTitle": "Create a new glossary entry manually",
+    "copied": "Copied!",
+    "copy": "Copy",
+    "loading": "Translating...",
+    "placeholder": "The translation will appear here...",
+    "glossaryUsed": "Glossary applied:",
+    "plusChannel": "+ channel {{code}}",
+    "glossaryMarked": "Segments from the glossary are highlighted accordingly.",
+    "hits_one": "({{count}} match)",
+    "hits_other": "({{count}} matches)",
+    "hitsWithChannel_one": "({{count}} match, of which {{channel}} channel override)",
+    "hitsWithChannel_other": "({{count}} matches, of which {{channel}} channel override)"
+  },
+  "highlight": {
+    "channelTooltip": "Channel override ({{channel}}): {{source}} → {{target}}\nClick to edit",
+    "glossaryTooltip": "From glossary: {{source}} → {{target}}\nClick to edit",
+    "fassungTooltip": "Channel version ({{channel}}): {{source}} → {{target}}"
+  },
+  "altModal": {
+    "title": "Alternatives",
+    "close": "Close",
+    "forPhrase": "For selected phrase:",
+    "wholeText": "Whole text — tip: to get word alternatives, select a phrase in the source text before clicking \"Alternatives\".",
+    "loading": "Fetching alternatives…",
+    "onlyOneVariant": "DeepL returns only one variant for this phrase.",
+    "noVariants": "No additional variants – for long texts DeepL usually returns identical alternatives.",
+    "noVariantsTip": "Tip: select a single word or short phrase in the source text and click \"Alternatives\" again.",
+    "spanHint": "Clicking a variant copies it to the clipboard. \"📖+\" saves the variant as a glossary entry.",
+    "fullHint": "Clicking a variant makes it the new result. Differences are highlighted in <hl>yellow</hl>.",
+    "saveAsGlossary": "Save as glossary entry ({{source}} → {{target}}{{channel}})"
+  },
+  "wordOrder": {
+    "show": "Show word-order variants (LLM)",
+    "showTitle": "Only varies the word order (same terms). Uses approx. 80 tokens (cheap tier).",
+    "loading": "Fetching word-order variants…",
+    "none": "No additional word orders found.",
+    "headingSpan": "Word-order variants (LLM) — clicking copies to the clipboard. \"📖+\" saves the variant as a glossary entry.",
+    "headingFull": "Word-order variants (LLM) — clicking makes it the new result."
+  },
+  "editor": {
+    "title": "Edit glossary entry",
+    "source": "Source ({{lang}})",
+    "target": "Target ({{lang}})",
+    "sourcePlaceholder": "e.g. Schienen-Strahler",
+    "targetPlaceholder": "e.g. koľajnicový reflektor",
+    "channelOverrideHint": "Saves as a channel override for {{channel}} — the standard entry stays unchanged.",
+    "standardHint": "Saves/updates the standard entry in the {{org}} glossary.",
+    "cancel": "Cancel",
+    "saving": "Saving…",
+    "save": "Save",
+    "created": "New entry saved",
+    "updated": "Entry updated",
+    "unchanged": "No change",
+    "vorschlag": "Proposal submitted, an admin will approve it."
+  },
+  "errors": {
+    "phraseTooLong": "Phrase too long (max. 200 characters) — select a shorter span.",
+    "http": "Error {{status}}",
+    "wordOrderFailed": "Failed to fetch word-order variants",
+    "alternativesFailed": "Failed to fetch alternatives",
+    "fillBoth": "Please fill in source and target",
+    "saveFailed": "Saving failed",
+    "translateFailed": "Translation failed"
+  },
+  "channelFassung": {
+    "hint": "German → German: the text is rewritten into the selected channel’s version (house style).",
+    "needChannel": "German → German: please select a channel — the text will be rewritten into its version.",
+    "summary_one": "Channel version {{channel}}: {{count}} section rewritten — {{model}} by the language model, {{rule}} by rule.",
+    "summary_few": "Channel version {{channel}}: {{count}} sections rewritten — {{model}} by the language model, {{rule}} by rule.",
+    "summary_many": "Channel version {{channel}}: {{count}} sections rewritten — {{model}} by the language model, {{rule}} by rule.",
+    "summary_other": "Channel version {{channel}}: {{count}} sections rewritten — {{model}} by the language model, {{rule}} by rule.",
+    "unchanged": "Channel version {{channel}}: no house-style term found — the text stays unchanged.",
+    "noOwnTerms": "No terms of its own are stored for {{channel}} yet — only the {{org}} house style applies (Glossaries → DE → DE)."
+  }
+}

@@ -1,0 +1,453 @@
+{
+  "glossaries": {
+    "header": {
+      "title": "Glossaires",
+      "subtitle": "Gestion terminologique et intégration DeepL"
+    },
+    "list": {
+      "title": "Glossaires",
+      "empty": "Aucun glossaire disponible",
+      "entryCount_one": "{{count}} entrée",
+      "entryCount_few": "{{count}} entrées",
+      "entryCount_many": "{{count}} entrées",
+      "entryCount_other": "{{count}} entrées",
+      "csvExportTitle": "Export CSV",
+      "notSynced": "Modifications non synchronisées",
+      "syncedAt": "À jour chez DeepL (v{{version}})",
+      "syncing": "Synchro...",
+      "sync": "Synchro",
+      "houseTerms": "Orthographe maison",
+      "houseTermsHint": "allemand uniquement · sans DeepL",
+      "zuPflegen_one": "{{count}} sans traduction",
+      "zuPflegen_few": "{{count}} sans traduction",
+      "zuPflegen_many": "{{count}} sans traduction",
+      "zuPflegen_other": "{{count}} sans traduction",
+      "zuPflegenTitle_one": "Les lignes sans traduction n’ont aucun effet : DeepL y traduit librement jusqu’à ce qu’une traduction soit confirmée.",
+      "zuPflegenTitle_few": "Les lignes sans traduction n’ont aucun effet : DeepL y traduit librement jusqu’à ce qu’une traduction soit confirmée.",
+      "zuPflegenTitle_many": "Les lignes sans traduction n’ont aucun effet : DeepL y traduit librement jusqu’à ce qu’une traduction soit confirmée.",
+      "zuPflegenTitle_other": "Les lignes sans traduction n’ont aucun effet : DeepL y traduit librement jusqu’à ce qu’une traduction soit confirmée.",
+      "hinweise_one": "{{count}} avec remarque",
+      "hinweise_few": "{{count}} avec remarque",
+      "hinweise_many": "{{count}} avec remarque",
+      "hinweise_other": "{{count}} avec remarque",
+      "hinweiseSchreibung_one": "{{count}} graphie seulement",
+      "hinweiseSchreibung_few": "{{count}} graphie seulement",
+      "hinweiseSchreibung_many": "{{count}} graphie seulement",
+      "hinweiseSchreibung_other": "{{count}} graphie seulement",
+      "hinweiseTitle": "Lignes avec une remarque de contrôle. Une remarque n’agit jamais d’elle-même.",
+      "unnoetig_one": "{{count}} inutiles",
+      "unnoetig_few": "{{count}} inutiles",
+      "unnoetig_many": "{{count}} inutiles",
+      "unnoetig_other": "{{count}} inutiles",
+      "unnoetigTitle": "Lignes qui ne changent rien par rapport à DeepL sans glossaire. Superflues dans toutes les langues : {{ueberall}}."
+    },
+    "alerts": {
+      "syncError": "Erreur de synchronisation : {{error}}",
+      "syncFailed": "Échec de la synchronisation",
+      "bulkApproveConfirm_one": "Valider {{count}} entrée sur cette page ?",
+      "bulkApproveConfirm_few": "Valider {{count}} entrées sur cette page ?",
+      "bulkApproveConfirm_many": "Valider {{count}} entrées sur cette page ?",
+      "bulkApproveConfirm_other": "Valider {{count}} entrées sur cette page ?",
+      "speichernFehler": "Échec de l’enregistrement : {{error}}"
+    },
+    "entries": {
+      "count_one": "({{count}} entrée)",
+      "count_few": "({{count}} entrées)",
+      "count_many": "({{count}} entrées)",
+      "count_other": "({{count}} entrées)",
+      "searchPlaceholder": "Rechercher...",
+      "channelHint": "Colonne standard = {{org}}. Laisser les colonnes des canaux vides → repli sur le standard."
+    },
+    "filter": {
+      "all": "Toutes",
+      "pending": "En attente",
+      "approved": "Validées",
+      "zuPflegen": "Sans traduction",
+      "vorschlaege": "Propositions"
+    },
+    "bulk": {
+      "title": "Valider toutes les entrées en attente visibles sur cette page",
+      "busy": "Validation…",
+      "button": "✓ Valider la page ({{count}})"
+    },
+    "form": {
+      "sourcePlaceholder": "Terme source",
+      "targetPlaceholder": "Terme cible (standard)",
+      "quelleFehlt": "Veuillez saisir un terme source.",
+      "zielFehlt": "Veuillez saisir un terme cible ou le récupérer avec « Proposition DeepL ». Sans terme cible, DeepL décide ; aucune entrée n’est nécessaire.",
+      "angelegt": "« {{begriff}} » créé. La liste affiche maintenant ce terme ; vider la recherche pour tout revoir."
+    },
+    "table": {
+      "approvedHeaderTitle": "Validée ?"
+    },
+    "entry": {
+      "approvedTitle": "Validée ({{source}}). Cliquez pour annuler la validation.",
+      "pendingTitle": "En attente ({{source}}). Cliquez pour valider.",
+      "editStandardTitle": "Modifier le standard ({{org}}). Champ obligatoire — ne doit pas être vide.",
+      "overrideTitle": "Variante pour {{channel}} : {{value}}\nCliquez pour modifier, vider = repli sur le standard",
+      "noOverrideTitle": "Aucune variante pour {{channel}}. Cliquez pour en définir une.",
+      "historyTitle": "Afficher l’historique des modifications",
+      "deleteTitle": "Supprimer l’entrée",
+      "zuPflegenTitle": "Pas encore de traduction : cette ligne n’a aucun effet.",
+      "editTermTitle": "Renommer le terme allemand. S’applique à ce glossaire uniquement."
+    },
+    "pagination": {
+      "prev": "Précédent",
+      "next": "Suivant",
+      "page": "Page {{page}} sur {{total}}"
+    },
+    "empty": {
+      "selectGlossary": "Sélectionnez un glossaire dans la liste"
+    },
+    "history": {
+      "title": "Historique des modifications",
+      "loading": "Chargement...",
+      "empty": "Aucune modification enregistrée.",
+      "fieldStandard": "Standard ({{org}})",
+      "action": {
+        "created": "Créé",
+        "updated": "Modifié",
+        "deleted": "Supprimé",
+        "vorschlag": "Proposé",
+        "freigabe": "Validé",
+        "verworfen": "Rejeté"
+      },
+      "unknownUser": "Inconnu",
+      "fieldBegriff": "Terme",
+      "feld": {
+        "freigabe": "Validation",
+        "an_deepl": "vers DeepL",
+        "art": "Type",
+        "wortart": "Nature",
+        "genus": "Genre",
+        "formen": "Formes",
+        "ziel_name": "dans les noms",
+        "kontext": "Contexte",
+        "kategorie": "Catégorie",
+        "rueckfrage": "Question",
+        "merkmal": "Classe de caractéristique",
+        "gruppe": "Groupe {{nr}}",
+        "vorschlag": "Proposition"
+      },
+      "wert": {
+        "offen": "ouvert",
+        "freigegeben": "validé",
+        "ja": "oui",
+        "nein": "non",
+        "wort": "Mot",
+        "muster": "Modèle",
+        "wendung": "Locution",
+        "fest": "Série"
+      }
+    },
+    "pflege": {
+      "placeholder": "Saisir la traduction",
+      "deepl": "Proposition DeepL",
+      "deeplBusy": "Demande à DeepL…",
+      "deeplTitle": "Obtenir une proposition de DeepL. Elle n’est enregistrée qu’après votre confirmation.",
+      "bestaetigen": "Confirmer",
+      "bestaetigenTitle": "Enregistrer et valider la traduction",
+      "istVorschlag": "Proposition de DeepL, pas encore enregistrée",
+      "wertVerloren": "DeepL a perdu une valeur technique ({{werte}}). Veuillez la saisir à la main.",
+      "leer": "DeepL n’a fait aucune proposition.",
+      "fehler": "Échec : {{error}}",
+      "abbrechen": "Annuler",
+      "offen": "Saisir la traduction",
+      "offenTitle": "Pas encore de traduction, DeepL traduit librement ici. Un clic ouvre le champ."
+    },
+    "rueckfrage": {
+      "loeschenTitel": "Supprimer « {{begriff}} » de ce glossaire ?",
+      "umbenennenTitel": "Renommer « {{begriff}} » en « {{neu}} » ?",
+      "loeschenText": "La ligne sera supprimée dans ce glossaire uniquement, avec sa traduction et ses valeurs de canal. Les autres glossaires restent inchangés.",
+      "umbenennenText": "Le terme sera renommé dans ce glossaire uniquement. La traduction et les valeurs de canal restent et s’appliqueront au nouveau terme.",
+      "konfliktText": "Impossible : le nouveau terme a déjà une traduction dans ce glossaire. Supprimez d’abord l’une d’elles.",
+      "spalteBegriff": "Terme",
+      "spalteUebersetzung": "Traduction",
+      "spalteAlt": "Ancien terme",
+      "spalteNeu": "Nouveau terme",
+      "leer": "pas encore de traduction",
+      "abbrechen": "Annuler",
+      "loeschen": "Supprimer",
+      "umbenennen": "Renommer",
+      "schliessen": "Fermer"
+    },
+    "hinweis": {
+      "nurMit": "Seulement avec remarque",
+      "kategorieLabel": "Catégorie",
+      "gewissheitLabel": "Certitude",
+      "ohneSchreibung": "Toutes sans graphie automatique",
+      "alleKategorien": "Toutes les catégories",
+      "alleGewissheiten": "Toute certitude",
+      "spalteTitle": "Remarques de contrôle. Un clic affiche le motif et la proposition.",
+      "vorschlag": "Proposition",
+      "uebernehmen": "Appliquer",
+      "uebernehmenTitle": "Remplacer la traduction par la proposition",
+      "verwerfen": "Écarter",
+      "verwerfenTitle": "L’entrée est correcte telle quelle. La remarque disparaît, l’entrée reste inchangée.",
+      "kategorie": {
+        "falsch": "Erroné",
+        "sprachlich": "Langue",
+        "schreibung": "Graphie",
+        "zeichen": "Caractères",
+        "satz": "Phrase entière",
+        "wert": "Valeur",
+        "mehrdeutig": "Ambigu",
+        "dublette": "Doublon",
+        "eigenname": "Nom propre",
+        "unuebersetzt": "Non traduit",
+        "unnoetig_ueberall": "Inutile, partout",
+        "unnoetig_hier": "Inutile, ici seulement"
+      },
+      "gewissheit": {
+        "hoch": "Élevée",
+        "mittel": "Moyenne",
+        "niedrig": "Faible"
+      },
+      "quelle": {
+        "mechanisch": "trouvé automatiquement",
+        "fachlich": "évalué par un expert",
+        "satztest": "confirmé en contexte"
+      },
+      "nurUnnoetig": "Lignes inutiles",
+      "nurUnnoetigTitle": "Affiche les lignes que DeepL fournit de la même façon sans glossaire. Rien n’est supprimé ainsi.",
+      "entfernen": "Retirer l’entrée",
+      "entfernenTitle": "Supprime cette ligne : DeepL traduit alors librement ici. Les autres glossaires restent inchangés."
+    },
+    "neu": {
+      "knopf": "Nouveau glossaire",
+      "titel": "Créer un nouveau glossaire",
+      "text": "La langue source est l’allemand. Les termes présents dans au moins la moitié des glossaires sont ajoutés comme lignes sans traduction.",
+      "laden": "Demande des langues à DeepL…",
+      "sprache": "Langue cible",
+      "spracheWaehlen": "Choisir une langue",
+      "name": "Nom",
+      "anlegen": "Créer",
+      "abbrechen": "Annuler",
+      "keineSprache": "Chaque langue proposée ici par DeepL a déjà un glossaire.",
+      "angelegt": "Glossaire créé. Termes préremplis, encore sans traduction : {{anzahl}}"
+    },
+    "wortliste": {
+      "aufklappenTitle": "Liste de mots : type, formes, cibles par groupe de produits",
+      "kennzeichen": {
+        "muster": "Modèle",
+        "wendung": "Locution",
+        "fest": "Série",
+        "nurName": "autre dans les noms",
+        "nichtDeepl": "pas vers DeepL",
+        "rueckfrage": "Question"
+      },
+      "kennzeichenTitle": {
+        "muster": "Modèle avec # pour les nombres, uniquement dans les noms d’articles",
+        "wendung": "Locution de plusieurs mots, prioritaire sur les mots isolés dans les noms",
+        "fest": "Série ou nom propre, reste tel quel",
+        "nurName": "Dans les noms d’articles : {{wert}}",
+        "nichtDeepl": "N’est pas envoyé au glossaire DeepL, uniquement dans les noms d’articles",
+        "rueckfrage": "Question ouverte : {{text}}"
+      },
+      "art": "Type",
+      "artWerte": {
+        "wort": "Mot",
+        "muster": "Modèle",
+        "wendung": "Locution",
+        "fest": "Série"
+      },
+      "wortart": "Nature",
+      "wortartWerte": {
+        "hauptwort": "Nom",
+        "adjektiv": "Adjectif",
+        "sonstiges": "Autre"
+      },
+      "genus": "Genre",
+      "genusWerte": {
+        "m": "masculin",
+        "f": "féminin",
+        "n": "neutre"
+      },
+      "leer": "–",
+      "formen": "Formes (adjectif)",
+      "zielName": "Autre dans les noms",
+      "zielNamePlaceholder": "vide = comme la traduction",
+      "anDeepl": "vers DeepL (texte courant)",
+      "anDeeplTitle": "Désactivé : la ligne ne vaut que pour les noms d’articles, pas pour le texte traduit",
+      "anDeeplMuster": "Un modèle n’est jamais envoyé à DeepL",
+      "speichern": "Enregistrer",
+      "gespeichert": "Enregistré",
+      "gruppen": "Cible par groupe de produits (noms uniquement)",
+      "keineGruppen": "aucune",
+      "gruppeNr": "Groupe {{nr}}",
+      "gruppeNrPlaceholder": "Groupe",
+      "gruppeZiel": "Cible",
+      "gruppeNeu": "Ajouter",
+      "gruppeEntfernen": "Supprimer la cible du groupe",
+      "gruppeUngueltig": "Indiquer le groupe en chiffres et une cible",
+      "quelle": {
+        "pruefung": "Table de relecture",
+        "glossar": "Glossaire",
+        "markt": "Marché",
+        "deepl": "DeepL"
+      },
+      "artikel": "{{anzahl}} articles",
+      "beispiele": "Exemples",
+      "rueckfrage": "Question",
+      "rueckfragePlaceholder": "Qu’est-ce qui n’est pas clair ?",
+      "rueckfrageStellen": "Poser une question",
+      "rueckfrageAendern": "Modifier la question",
+      "rueckfrageLoesen": "Clore la question",
+      "rueckfrageVon": "par {{von}}",
+      "ablehnen": "Refuser",
+      "ablehnenConfirm": "Refuser « {{begriff}} » ? La ligne est supprimée et ne sera plus proposée.",
+      "anmerkungPlaceholder": "Remarque sur le refus (facultatif)",
+      "fehler": "Erreur : {{error}}",
+      "filterRueckfrage": "Question",
+      "filterNurName": "noms uniquement",
+      "filterNurNameTitle": "Lignes non envoyées à DeepL ou différentes dans les noms",
+      "filterAlleArten": "tous les types"
+    },
+    "vorschlaege": {
+      "filterTitle": "Soumis par des non-administrateurs. Ne s’applique qu’après validation par un administrateur.",
+      "leer": "Aucune proposition en attente.",
+      "eingereicht": "Proposition envoyée. Elle s’applique dès qu’un administrateur la valide ; d’ici là, l’entrée actuelle reste valable.",
+      "nurAdmin": "Seuls les administrateurs peuvent valider ou rejeter.",
+      "freigeben": "Valider",
+      "verwerfen": "Rejeter",
+      "verwerfenConfirm": "Rejeter la proposition pour « {{begriff}} » ?",
+      "fehler": "Impossible : {{error}}",
+      "ja": "oui",
+      "nein": "non",
+      "zeile": "Proposition ({{n}})",
+      "zeileTitle": "Une proposition est en attente pour cette ligne. Elle ne s’applique qu’après validation.",
+      "spalte": {
+        "begriff": "Terme",
+        "jetzt": "Actuel",
+        "neu": "Proposition",
+        "von": "Par"
+      },
+      "weg": {
+        "neu": "Nouveau terme",
+        "eintrag": "Traduction et détails",
+        "begriff": "Renommer",
+        "channel": "Canal {{code}}",
+        "wortliste": "Liste de mots",
+        "gruppe": "Groupe de produits {{nr}}"
+      },
+      "feld": {
+        "target_term": "Traduction",
+        "source_term": "Terme",
+        "context": "Contexte",
+        "category": "Catégorie",
+        "channel_code": "Canal",
+        "art": "Type",
+        "wortart": "Nature",
+        "genus": "Genre",
+        "formen": "Formes",
+        "ziel_name": "dans les noms",
+        "an_deepl": "vers DeepL"
+      },
+      "quelle": {
+        "glossar": "Page du glossaire",
+        "quickadd": "Ajout rapide",
+        "review": "Relecture",
+        "scan": "Analyse terminologique"
+      },
+      "inArbeit": "Validation en cours."
+    }
+  },
+  "houseTerms": {
+    "intro": "Termes que nous n’utilisons <b>pas</b> en allemand, et ce qu’il faut utiliser à la place. L’aide à la rédaction signale les occurrences dans les textes allemands. Laisser les colonnes des canaux vides → le standard ({{org}}) s’applique. Si le terme est correct pour {{org}} et que seul un canal doit le formuler autrement : laisser « À utiliser ({{org}}) » vide et ne remplir que la colonne du canal.",
+    "form": {
+      "avoidLabel": "À ne pas utiliser",
+      "preferredLabel": "À utiliser ({{org}})",
+      "noteLabel": "Remarque (facultative)",
+      "example": "p. ex. {{term}}",
+      "notePlaceholder": "Également affichée dans l’aide à la rédaction",
+      "saving": "Enregistrement…",
+      "add": "Ajouter",
+      "preferredPlaceholder": "vide = {{org}} garde le terme"
+    },
+    "list": {
+      "count_one": "{{count}} entrée",
+      "count_few": "{{count}} entrées",
+      "count_many": "{{count}} entrées",
+      "count_other": "{{count}} entrées",
+      "searchPlaceholder": "Rechercher…",
+      "loading": "Chargement…",
+      "empty": "Aucune entrée pour l’instant.",
+      "noMatches": "Aucun résultat."
+    },
+    "table": {
+      "avoid": "À ne pas utiliser",
+      "preferred": "À utiliser",
+      "note": "Remarque"
+    },
+    "cell": {
+      "editAvoid": "Modifier le terme à éviter (obligatoire)",
+      "editPreferred": "Modifier le standard ({{org}}) — vide = {{org}} garde le terme",
+      "channelSet": "{{channel}} : {{value}}\nCliquez pour modifier, vider = le standard s’applique",
+      "channelEmpty": "Aucun terme propre pour {{channel}} — « {{term}} » s’applique. Cliquez pour en définir un.",
+      "editNote": "Modifier la remarque",
+      "keeps": "inchangé"
+    },
+    "row": {
+      "historyTitle": "Historique des modifications",
+      "historyTitleLast": "Historique des modifications — dernière modification : {{name}}",
+      "deleteTitle": "Supprimer l’entrée"
+    },
+    "deleteConfirm": "Supprimer « {{term}} » de la charte rédactionnelle ?",
+    "errors": {
+      "status": "Erreur {{status}}"
+    },
+    "history": {
+      "title": "Historique : {{term}}",
+      "empty": "Aucun historique.",
+      "entry": "{{field}} : {{action}}",
+      "field": {
+        "avoid": "À ne pas utiliser",
+        "standard": "À utiliser ({{org}})",
+        "note": "Remarque",
+        "channel": "Canal {{code}}"
+      },
+      "action": {
+        "created": "créé",
+        "updated": "modifié",
+        "deleted": "supprimé"
+      },
+      "unknownUser": "inconnu"
+    }
+  },
+  "topics": {
+    "title": "Thèmes",
+    "intro": "Les thèmes permettent de regrouper des documents de différentes paires de langues et types de fichiers (p. ex. « Mode d’emploi », « Série Strip », « Marketing »). Un document peut avoir plusieurs thèmes.",
+    "form": {
+      "newLabel": "Nouveau thème",
+      "namePlaceholder": "p. ex. Mode d’emploi",
+      "color": "Couleur",
+      "create": "Créer"
+    },
+    "errors": {
+      "createFailed": "Erreur lors de la création",
+      "saveFailed": "Erreur lors de l’enregistrement",
+      "unknown": "Erreur inconnue"
+    },
+    "list": {
+      "loading": "Chargement...",
+      "empty": "Aucun thème créé pour l’instant."
+    },
+    "table": {
+      "name": "Nom",
+      "color": "Couleur",
+      "documents": "Documents",
+      "actions": "Actions"
+    },
+    "actions": {
+      "save": "Enregistrer",
+      "cancel": "Annuler",
+      "edit": "Modifier",
+      "delete": "Supprimer"
+    },
+    "deleteConfirm": "Supprimer le thème « {{name}} » ?",
+    "deleteConfirmWithDocs_one": "Supprimer le thème « {{name}} » ? Il est attribué à {{count}} document — le document est conservé, seul le lien est supprimé.",
+    "deleteConfirmWithDocs_few": "Supprimer le thème « {{name}} » ? Il est attribué à {{count}} documents — les documents sont conservés, seul le lien est supprimé.",
+    "deleteConfirmWithDocs_many": "Supprimer le thème « {{name}} » ? Il est attribué à {{count}} documents — les documents sont conservés, seul le lien est supprimé.",
+    "deleteConfirmWithDocs_other": "Supprimer le thème « {{name}} » ? Il est attribué à {{count}} documents — les documents sont conservés, seul le lien est supprimé."
+  }
+}

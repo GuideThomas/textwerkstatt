@@ -1,0 +1,184 @@
+{
+  "access": {
+    "adminOnly": "Nur Administratoren haben Zugriff auf die Einstellungen."
+  },
+  "page": {
+    "title": "Admin",
+    "subtitle": "Benutzerverwaltung und System-Einstellungen"
+  },
+  "system": {
+    "title": "System-Konfiguration",
+    "auth": "Auth",
+    "llmPrimary": "LLM Primär",
+    "llmFallback": "LLM Fallback",
+    "deeplValue": "API Pro (unbegrenzt)",
+    "condensingThreshold": "Condensing-Schwellwert",
+    "condensingValue": "{{pct}}% der Quelllänge",
+    "pdfExtraction": "PDF-Extraktion",
+    "maxFileSize": "Max. Dateigröße",
+    "fileRetention": "Datei-Aufbewahrung",
+    "fileRetentionValue": "Manuell (kein Auto-Delete)"
+  },
+  "formats": {
+    "title": "Unterstützte Formate",
+    "viaDocling": "via Docling"
+  },
+  "prices": {
+    "title": "LLM Token-Preise (pro 1M Token)",
+    "model": "Modell",
+    "input": "Input",
+    "output": "Output"
+  },
+  "errors": {
+    "generic": "Fehler"
+  },
+  "common": {
+    "name": "Name",
+    "email": "E-Mail",
+    "status": "Status",
+    "save": "Speichern",
+    "saving": "Speichern...",
+    "cancel": "Abbrechen"
+  },
+  "roles": {
+    "admin": "Administrator",
+    "user": "Benutzer",
+    "viewer": "Nur Lesen"
+  },
+  "users": {
+    "loading": "Lade Benutzer...",
+    "title": "Benutzerverwaltung",
+    "newButton": "+ Neuer Benutzer",
+    "colRole": "Rolle",
+    "colAuth": "Auth",
+    "colCreated": "Erstellt",
+    "colActions": "Aktionen",
+    "active": "Aktiv",
+    "deactivated": "Deaktiviert",
+    "authLocal": "Lokal",
+    "edit": "Bearbeiten",
+    "deactivate": "Deaktivieren",
+    "activate": "Aktivieren",
+    "confirmDeactivate": "{{email}} wirklich deaktivieren?",
+    "empty": "Keine Benutzer vorhanden",
+    "formEditTitle": "Benutzer bearbeiten",
+    "formNewTitle": "Neuer Benutzer",
+    "passwordLabelEdit": "Passwort (leer = unverändert)",
+    "passwordLabelNew": "Passwort (leer = nur Microsoft)"
+  },
+  "speakers": {
+    "loading": "Lade Native-Speaker...",
+    "title": "Native-Speaker",
+    "intro": "Muttersprachler:innen, die zur Review einer Übersetzung eingeladen werden können.",
+    "addButton": "+ Native-Speaker",
+    "empty": "Noch keine Native-Speaker eingetragen.",
+    "colLanguages": "Sprachen",
+    "colAction": "Aktion",
+    "active": "aktiv",
+    "inactive": "inaktiv",
+    "edit": "bearbeiten",
+    "delete": "löschen",
+    "confirmDelete": "Native-Speaker „{{name}}“ wirklich löschen?",
+    "formEditTitle": "Native-Speaker bearbeiten",
+    "formNewTitle": "Neuen Native-Speaker anlegen",
+    "namePlaceholder": "z.B. Marco Rossi",
+    "languagesLabel": "Sprachen (Muttersprache)",
+    "languagesHint": "Eine Person kann mehrere Sprachen abdecken (z.B. DE + EN).",
+    "activeCheckbox": "Aktiv (taucht im Dropdown der Prüfen-Seite auf)",
+    "saving": "Wird gespeichert...",
+    "create": "Anlegen"
+  },
+  "languages": {
+    "DE": "Deutsch",
+    "EN": "Englisch",
+    "IT": "Italienisch",
+    "FR": "Französisch",
+    "ES": "Spanisch",
+    "HU": "Ungarisch",
+    "PL": "Polnisch",
+    "CS": "Tschechisch",
+    "SK": "Slowakisch",
+    "SL": "Slowenisch",
+    "NL": "Niederländisch",
+    "PT": "Portugiesisch"
+  },
+  "costs": {
+    "loading": "Lade Dashboard-Daten…",
+    "title": "Kosten",
+    "subtitle": "LLM-Nutzung und Abrechnung",
+    "overview": {
+      "documents": "Dokumente",
+      "completed": "{{n}} abgeschlossen",
+      "segmentsCache": "Segmente (Cache)",
+      "hitRate": "{{pct}}% Hit-Rate",
+      "glossaries": "Glossare",
+      "entries_one": "{{n}} Eintrag",
+      "entries_other": "{{n}} Einträge",
+      "llmTotal": "LLM-Gesamtkosten",
+      "requests_one": "{{n}} Request",
+      "requests_other": "{{n}} Requests"
+    },
+    "deeplDown": {
+      "title": "DeepL aktuell nicht erreichbar",
+      "hint": "Neue Übersetzungs-Jobs schlagen voraussichtlich fehl. Status wird automatisch beim nächsten Versuch aktualisiert.",
+      "recheck": "Erneut prüfen",
+      "healthFailed": "Health-Check fehlgeschlagen"
+    },
+    "deepl": {
+      "title": "DeepL API Verbrauch",
+      "charsUsed": "Zeichen verbraucht (Monat)",
+      "plan": "Pay-as-you-go (4,99 € + 20 €/1 Mio.)",
+      "translatedSegments": "Übersetzte Segmente",
+      "sourceChars": "{{n}} Quellzeichen",
+      "translatedChars": "Übersetzte Zeichen",
+      "estCost": "DeepL Kosten (geschätzt)",
+      "estCostHint": "€4,99 Basis + €20/1M Zeichen"
+    },
+    "llm": {
+      "title": "LLM API Verbrauch",
+      "inputTokens": "Input Tokens",
+      "outputTokens": "Output Tokens",
+      "modelsUsed": "Modelle verwendet",
+      "model": "Modell",
+      "requests": "Requests",
+      "cost": "Kosten"
+    },
+    "purpose": {
+      "title": "LLM-Kosten nach Zweck",
+      "purpose": "Zweck"
+    },
+    "purposes": {
+      "condense": "Kürzung",
+      "terminology": "Terminologie",
+      "analyze": "Analyse",
+      "word-order": "Wortstellung",
+      "capitalization": "Groß-/Kleinschreibung"
+    },
+    "projects": {
+      "title": "Kosten pro Dokument",
+      "document": "Dokument",
+      "languages": "Sprachen",
+      "format": "Format",
+      "llmCalls": "LLM-Calls",
+      "inputTokens": "Input-Token"
+    },
+    "cache": {
+      "title": "Segment-Cache",
+      "total": "Segmente gesamt",
+      "withHits": "Mit Cache-Hits",
+      "totalHits": "Gesamt-Hits",
+      "stale": "Veraltete Segmente",
+      "top": "Top gecachte Segmente",
+      "segment": "Segment",
+      "hits": "Hits",
+      "staleBadge": "Veraltet",
+      "current": "Aktuell"
+    },
+    "daily": {
+      "title": "Tägliche LLM-Kosten (letzte 30 Tage)",
+      "day": "Tag",
+      "inputTokens": "Input-Token",
+      "outputTokens": "Output-Token"
+    }
+  }
+}

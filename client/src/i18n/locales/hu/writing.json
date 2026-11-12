@@ -1,0 +1,61 @@
+{
+  "tabs": {
+    "terms": "Házi írásmód kezelése"
+  },
+  "languages": {
+    "AUTO": "Automatikus",
+    "DE": "Német",
+    "EN": "Angol",
+    "IT": "Olasz",
+    "FR": "Francia",
+    "ES": "Spanyol",
+    "HU": "Magyar",
+    "PL": "Lengyel",
+    "CS": "Cseh",
+    "SK": "Szlovák",
+    "SL": "Szlovén"
+  },
+  "picky": "Szigorú mód (picky)",
+  "actions": {
+    "acceptSafe": "Biztonságos javítások alkalmazása",
+    "acceptSafeTitle": "Elírások/tipográfia/írásjelek automatikus javítása (egyértelmű javaslatok)",
+    "checking": "Ellenőrzés…",
+    "check": "Ellenőrzés"
+  },
+  "errors": {
+    "http": "Hiba: {{status}}",
+    "ltUnreachableHouseOnly": "A LanguageTool nem érhető el ({{error}}) — csak a házi írásmód ellenőrzése történt meg.",
+    "ltUnreachable": "A LanguageTool nem érhető el",
+    "fileTooLarge": "A fájl túl nagy (max. 5 MB).",
+    "fileType": "Csak .txt, .md, .markdown támogatott — más formátumokat előbb alakítson szöveggé."
+  },
+  "editor": {
+    "chars_one": "{{count}} karakter",
+    "chars_other": "{{count}} karakter",
+    "loadFile": "Fájl betöltése",
+    "placeholder": "Illessze be a szöveget, vagy húzzon ide egy .txt/.md fájlt…",
+    "dropHere": "Engedje el a fájlt az importáláshoz",
+    "dragDropHint": "Húzással .txt, .md fájl tölthető be (max. 5 MB)",
+    "copy": "Másolás"
+  },
+  "result": {
+    "title": "Kiemelve",
+    "hints_one": "{{count}} jelzés",
+    "hints_other": "{{count}} jelzés",
+    "houseTermsCount_one": "ebből {{count}} házi írásmód",
+    "houseTermsCount_other": "ebből {{count}} házi írásmód",
+    "clickHint": "A kiemelt szövegre kattintva javaslatok jelennek meg",
+    "empty": "Még nincs ellenőrzés…"
+  },
+  "match": {
+    "fallback": "Jelzés",
+    "dismissTitle": "Jelzés elvetése",
+    "ignore": "Figyelmen kívül",
+    "delete": "∅ (törlés)",
+    "noSuggestion": "Nincs elérhető automatikus javaslat."
+  },
+  "footer": {
+    "poweredBy": "Saját üzemeltetésű LanguageTool",
+    "legend": "<hl>türkiz</hl> = házi írásmód (lista a „Házi írásmód kezelése” fülön)"
+  }
+}

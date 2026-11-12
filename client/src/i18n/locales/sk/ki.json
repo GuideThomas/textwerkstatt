@@ -1,0 +1,79 @@
+{
+  "art": {
+    "lokal": "lokálne",
+    "cloud": "Cloud"
+  },
+  "budget": {
+    "eigen": "Denný rozpočet {{grenze}} $ je vyčerpaný, znova k dispozícii od {{zeit}}.",
+    "eigenOhneBetrag": "Denný rozpočet je vyčerpaný, znova k dispozícii od {{zeit}}.",
+    "global": "Celkový rozpočet všetkých aplikácií AI je na dnes vyčerpaný, cloudová AI znova od {{zeit}}.",
+    "lokalLaeuft": "Lokálna AI funguje ďalej."
+  },
+  "fehler": {
+    "WEG_UNBEKANNT": "Táto cesta AI neexistuje.",
+    "WEG_INAKTIV": "Táto cesta AI je vypnutá.",
+    "NICHT_FREIGESCHALTET": "Tento účet nemá povolenú cloudovú AI. Správca ju môže povoliť v správe používateľov.",
+    "KONFIGURATION": "Cesta AI je nesprávne nastavená (názov premennej prostredia).",
+    "SCHLUESSEL_FEHLT": "Pre túto cestu AI nie je nastavený kľúč.",
+    "ENDPUNKT_FEHLT": "Pre túto cestu AI nie je nastavený koncový bod.",
+    "BUDGET_EIGEN": "Denný rozpočet tejto cesty AI je vyčerpaný.",
+    "BUDGET_GLOBAL": "Celkový rozpočet všetkých aplikácií AI je na dnes vyčerpaný.",
+    "SCHLUESSEL_ABGELEHNT": "Kľúč bol odmietnutý alebo nesmie používať tento model.",
+    "ZEITLIMIT": "Model neodpovedal včas. Iný model sa namiesto neho nepoužil.",
+    "NICHT_ERREICHBAR": "Model nie je dostupný. Iný model sa namiesto neho nepoužil.",
+    "ANBIETER_FEHLER": "Poskytovateľ hlási chybu. Iný model sa namiesto neho nepoužil.",
+    "LEERE_ANTWORT": "Model vrátil prázdnu odpoveď."
+  },
+  "verwaltung": {
+    "titel": "Pripojenie AI",
+    "neu": "+ Nová cesta AI",
+    "hinweis": "Každá cesta AI volá presne jeden model a pri chybe nikdy neprejde na iný. Kľúče sú len v prostredí servera (.env); tu je uvedený len názov premennej. Skúška posiela pevnú vetu, nikdy text používateľa.",
+    "spalteWeg": "Cesta",
+    "spalteModell": "Model",
+    "spalteZeitlimit": "Časový limit",
+    "spalteSchluessel": "Kľúč / koncový bod",
+    "spalteBudget": "Rozpočet dnes",
+    "spalteAktionen": "Akcie",
+    "aus": "vypnutá",
+    "sekunden": "{{s}} s",
+    "gesetzt": "nastavený",
+    "fehlt": "chýba",
+    "budgetWert": "{{verbraucht}} $ z {{grenze}} $, reset o {{zeit}}",
+    "budgetAus": "nenačítané",
+    "sperreEigen": "zablokované (vlastný rozpočet) do {{zeit}}",
+    "sperreGlobal": "zablokované (celkový rozpočet) do {{zeit}}",
+    "bearbeiten": "Upraviť",
+    "probe": "Skúška",
+    "probeLaeuft": "prebieha …",
+    "probeOk": "{{ms}} ms · {{ein}}/{{aus}} tokenov · tokeny uvažovania {{denk}} · náklady {{kosten}}",
+    "leer": "Zatiaľ žiadna cesta AI."
+  },
+  "formular": {
+    "titelNeu": "Nová cesta AI",
+    "titel": "Upraviť cestu AI „{{name}}“",
+    "kennung": "Identifikátor (a–z, 0–9, -)",
+    "name": "Názov",
+    "art": "Typ",
+    "modell": "Model na koncovom bode",
+    "endpunkt": "Premenná koncového bodu (LLM_BASE_URL alebo KI_WEG_…_URL)",
+    "schluessel": "Premenná kľúča (KI_WEG_…_KEY)",
+    "zeitlimit": "Časový limit v sekundách",
+    "reihenfolge": "Poradie",
+    "zusatz": "Ďalšie parametre (JSON, doslovne v tele požiadavky)",
+    "zusatzHinweis": "model, messages a stream nastavuje vždy server.",
+    "zusatzKeinJson": "Ďalšie parametre nie sú platný objekt JSON.",
+    "aktiv": "aktívna",
+    "budgetLesen": "Načítať rozpočet cez /key/info (LiteLLM)",
+    "speichern": "Uložiť",
+    "abbrechen": "Zrušiť",
+    "hinweisNeu": "Lokálna cesta potrebuje premennú kľúča KI_WEG_LOKAL…_KEY, cloudová inú. Typ a premenné sa po vytvorení už nedajú zmeniť.",
+    "hinweisFest": "Typ, premenná kľúča a koncového bodu sú pevné. Pre iný kľúč cestu vypnite a vytvorte novú."
+  },
+  "freischaltung": {
+    "spalte": "Cloudová AI",
+    "vermerk": "naposledy zmenil(a) {{von}} dňa {{am}}",
+    "nie": "nikdy nepovolené",
+    "an": "povolené",
+    "aus": "zablokované"
+  }
+}

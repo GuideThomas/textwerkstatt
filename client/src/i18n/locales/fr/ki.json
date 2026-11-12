@@ -1,0 +1,79 @@
+{
+  "art": {
+    "lokal": "local",
+    "cloud": "Cloud"
+  },
+  "budget": {
+    "eigen": "Budget journalier de {{grenze}} $ atteint, de nouveau disponible à partir de {{zeit}}.",
+    "eigenOhneBetrag": "Budget journalier atteint, de nouveau disponible à partir de {{zeit}}.",
+    "global": "Le budget global de toutes les applications d'IA est épuisé pour aujourd'hui, IA cloud de nouveau disponible à partir de {{zeit}}.",
+    "lokalLaeuft": "L'IA locale continue de fonctionner."
+  },
+  "fehler": {
+    "WEG_UNBEKANNT": "Cette voie d'IA n'existe pas.",
+    "WEG_INAKTIV": "Cette voie d'IA est désactivée.",
+    "NICHT_FREIGESCHALTET": "Ce compte n'est pas autorisé pour l'IA cloud. Un administrateur peut l'autoriser dans la gestion des utilisateurs.",
+    "KONFIGURATION": "Cette voie d'IA est mal configurée (nom d'une variable d'environnement).",
+    "SCHLUESSEL_FEHLT": "Aucune clé n'est définie pour cette voie d'IA.",
+    "ENDPUNKT_FEHLT": "Aucun point de terminaison n'est défini pour cette voie d'IA.",
+    "BUDGET_EIGEN": "Le budget journalier de cette voie d'IA est épuisé.",
+    "BUDGET_GLOBAL": "Le budget global de toutes les applications d'IA est épuisé pour aujourd'hui.",
+    "SCHLUESSEL_ABGELEHNT": "La clé a été refusée ou n'a pas accès à ce modèle.",
+    "ZEITLIMIT": "Le modèle n'a pas répondu à temps. Aucun autre modèle n'a été utilisé à sa place.",
+    "NICHT_ERREICHBAR": "Le modèle est injoignable. Aucun autre modèle n'a été utilisé à sa place.",
+    "ANBIETER_FEHLER": "Le fournisseur signale une erreur. Aucun autre modèle n'a été utilisé à sa place.",
+    "LEERE_ANTWORT": "Le modèle a renvoyé une réponse vide."
+  },
+  "verwaltung": {
+    "titel": "Connexion IA",
+    "neu": "+ Nouvelle voie d'IA",
+    "hinweis": "Chaque voie d'IA appelle exactement un modèle et ne bascule jamais vers un autre en cas d'erreur. Les clés se trouvent uniquement dans l'environnement du serveur (.env) ; seul le nom de la variable figure ici. Le test envoie une phrase fixe, jamais un texte d'utilisateur.",
+    "spalteWeg": "Voie",
+    "spalteModell": "Modèle",
+    "spalteZeitlimit": "Délai",
+    "spalteSchluessel": "Clé / point de terminaison",
+    "spalteBudget": "Budget aujourd'hui",
+    "spalteAktionen": "Actions",
+    "aus": "désactivée",
+    "sekunden": "{{s}} s",
+    "gesetzt": "définie",
+    "fehlt": "manquante",
+    "budgetWert": "{{verbraucht}} $ sur {{grenze}} $, réinitialisation à {{zeit}}",
+    "budgetAus": "non lu",
+    "sperreEigen": "bloquée (budget propre) jusqu'à {{zeit}}",
+    "sperreGlobal": "bloquée (budget global) jusqu'à {{zeit}}",
+    "bearbeiten": "Modifier",
+    "probe": "Test",
+    "probeLaeuft": "en cours …",
+    "probeOk": "{{ms}} ms · {{ein}}/{{aus}} jetons · jetons de raisonnement {{denk}} · coût {{kosten}}",
+    "leer": "Aucune voie d'IA pour l'instant."
+  },
+  "formular": {
+    "titelNeu": "Nouvelle voie d'IA",
+    "titel": "Modifier la voie d'IA « {{name}} »",
+    "kennung": "Identifiant (a–z, 0–9, -)",
+    "name": "Nom",
+    "art": "Type",
+    "modell": "Modèle au point de terminaison",
+    "endpunkt": "Variable du point de terminaison (LLM_BASE_URL ou KI_WEG_…_URL)",
+    "schluessel": "Variable de la clé (KI_WEG_…_KEY)",
+    "zeitlimit": "Délai en secondes",
+    "reihenfolge": "Ordre",
+    "zusatz": "Paramètres supplémentaires (JSON, ajoutés tels quels au corps de la requête)",
+    "zusatzHinweis": "model, messages et stream sont toujours définis par le serveur.",
+    "zusatzKeinJson": "Les paramètres supplémentaires ne sont pas un objet JSON valide.",
+    "aktiv": "active",
+    "budgetLesen": "Lire le budget via /key/info (LiteLLM)",
+    "speichern": "Enregistrer",
+    "abbrechen": "Annuler",
+    "hinweisNeu": "Une voie locale exige une variable de clé KI_WEG_LOKAL…_KEY, une voie cloud une autre. Le type et les variables ne sont plus modifiables après la création.",
+    "hinweisFest": "Le type, la variable de clé et celle du point de terminaison sont fixes. Pour une autre clé, désactiver la voie et en créer une nouvelle."
+  },
+  "freischaltung": {
+    "spalte": "IA cloud",
+    "vermerk": "dernière modification par {{von}} le {{am}}",
+    "nie": "jamais autorisé",
+    "an": "autorisé",
+    "aus": "bloqué"
+  }
+}

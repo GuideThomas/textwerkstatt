@@ -1,0 +1,59 @@
+# Textwerkstatt mit Postgres und LanguageTool. Start: cp .env.example .env, Werte eintragen, dann docker compose up -d
+# Die Oberfläche liegt danach auf http://localhost:3006 — nur auf diesem Rechner. Nach außen gehört ein Reverse Proxy davor.
+services:
+  app:
+    build: .
+    ports:
+      # Port auf diesem Rechner: APP_PORT in .env (Vorgabe 3006), etwa wenn Windows 3006 reserviert hat
+      - "127.0.0.1:${APP_PORT:-3006}:3006"
+    env_file:
+      - .env
+    environment:
+      # Vorrang vor .env: im Container auf allen Schnittstellen lauschen (veröffentlicht wird nur auf 127.0.0.1)
+      BIND_ADDRESS: 0.0.0.0
+      # liefert die Oberfläche aus; Sitzungs-Cookie nur über https oder localhost
+      NODE_ENV: production
+      # Cookie secure nur bei https (ohne Proxy kommt sonst kein Sitzungs-Cookie an)
+      SESSION_COOKIE_SECURE: auto
+      DB_HOST: db
+      DB_PORT: "5432"
+      LANGUAGETOOL_URL: ${LANGUAGETOOL_URL:-http://languagetool:8010}
+    volumes:
+      - uploads:/app/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    mem_limit: 1g
+    cpus: 2
+    restart: unless-stopped
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${DB_NAME:-textwerkstatt}
+      POSTGRES_USER: ${DB_USER:-textwerkstatt}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD in .env setzen}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-textwerkstatt} -d ${DB_NAME:-textwerkstatt}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    mem_limit: 512m
+    cpus: 1
+    restart: unless-stopped
+
+  # Rechtschreibung und Grammatik (Schritt „Prüfen“). Ohne diesen Dienst LANGUAGETOOL_URL in .env leeren.
+  languagetool:
+    image: erikvl87/languagetool:6.5
+    environment:
+      Java_Xms: 256m
+      Java_Xmx: 1g
+    mem_limit: 1536m
+    cpus: 2
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  uploads:

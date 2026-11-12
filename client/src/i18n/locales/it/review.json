@@ -1,0 +1,209 @@
+{
+  "you": "Lei",
+  "loading": "Caricamento dei segmenti...",
+  "actions": {
+    "cancel": "Annulla",
+    "back": "Indietro"
+  },
+  "welcome": {
+    "title": "Benvenuto/a — grazie per la revisione di questa traduzione!",
+    "howTo": "Come funziona: a destra c'è la traduzione automatica, a sinistra il testo originale. Scorrere i segmenti e <b>spuntare la casella</b> se la traduzione è corretta — oppure fare clic sul testo per correggerlo direttamente. Con i filtri in alto è possibile concentrarsi sui segmenti abbreviati o su quelli da revisionare. Se tutto è corretto, fare clic in alto su <b>«Approva traduzione»</b>: solo così la revisione è conclusa.",
+    "glossaryHint": "Le parole con una linea tratteggiata azzurra sono <b>terminologia aziendale del glossario</b> — se possibile, non modificarle.",
+    "shortcuts": "<b>Scorciatoie da tastiera:</b> <k>J</k>/<k>K</k> segmento successivo/precedente · <k>Spazio</k> segna come verificato + avanti · <k>E</k> modifica · <k>?</k> fai una domanda",
+    "dismiss": "Ho capito"
+  },
+  "placeholder": {
+    "title": "Testo segnaposto rilevato — {{found}} segmenti su {{total}}",
+    "bodyLorem": "Il file di origine contiene il classico Lorem Ipsum. Il grafico potrebbe aver dimenticato di sostituire il segnaposto con il testo reale. Le traduzioni di questi segmenti non sono utilizzabili — controllare il file di origine prima dell'esportazione.",
+    "bodyIndesign": "Il file di origine contiene testo segnaposto di InDesign (latino Adobe). Il grafico potrebbe aver dimenticato di sostituire il segnaposto con il testo reale. Le traduzioni di questi segmenti non sono utilizzabili — controllare il file di origine prima dell'esportazione.",
+    "showSamples": "Mostra segmenti di esempio ({{count}})",
+    "dismiss": "Nascondi avviso"
+  },
+  "progress": {
+    "label": "Avanzamento: {{done}} di {{total}} verificati"
+  },
+  "segment": {
+    "maxChars": "max {{max}}",
+    "edited": "modificato",
+    "condensed": "abbreviato",
+    "clarification": "Domanda",
+    "noTranslation": "Nessuna traduzione",
+    "channelRewrite": "Versione del canale",
+    "channelRewriteCheck": "Verificare la versione del canale"
+  },
+  "tooltip": {
+    "checkedByAt": "Verificato da {{name}} il {{date}} — fare clic per annullare",
+    "checkedBy": "Verificato da {{name}} — fare clic per annullare",
+    "checkedAt": "Verificato il {{date}} — fare clic per annullare",
+    "checked": "Verificato — fare clic per annullare",
+    "markChecked": "Segna come verificato · Maiusc+clic per un intervallo",
+    "noTranslation": "Nessuna traduzione disponibile",
+    "showDiff": "Mostra le modifiche rispetto alla traduzione originale",
+    "edited": "Modificato",
+    "condensed": "Abbreviato automaticamente per rientrare nel riquadro del layout",
+    "glossaryTerms": "Contiene termini del glossario aziendale",
+    "clarificationBy": "Domanda – {{name}}, {{date}}",
+    "clarificationEdit": "Mostra / modifica la domanda",
+    "clarificationAsk": "Fai una domanda — se qualcosa non è chiaro",
+    "quickadd": "Aggiungi il testo selezionato al glossario"
+  },
+  "editor": {
+    "charCount": "{{len}}/{{max}} caratteri"
+  },
+  "clarificationNote": {
+    "header": "Domanda",
+    "headerBy": "Domanda – {{name}}"
+  },
+  "clarificationDialog": {
+    "title": "Fai una domanda",
+    "intro": "Il segmento #{{num}} viene contrassegnato con «❓ Domanda». La nota aiuta il richiedente a chiarire la traduzione in modo mirato — invece di tirare a indovinare.",
+    "sourceText": "Testo di origine",
+    "noteLabel": "Domanda / osservazione",
+    "notePlaceholder": "ad es. «Strip» qui significa striscia LED o semplicemente striscia?",
+    "remove": "Rimuovi domanda",
+    "save": "Salva domanda"
+  },
+  "downloadWarning": {
+    "title": "Traduzione non approvata",
+    "body": "Nessun madrelingua ha confermato questa traduzione — oppure un'approvazione precedente è stata annullata da una modifica successiva. Il file può contenere errori.",
+    "ack": "Sono consapevole che questa traduzione non è approvata.",
+    "confirm": "Scarica comunque"
+  },
+  "quickadd": {
+    "title": "Aggiungi termine al glossario",
+    "syncHint": "verrà sincronizzato automaticamente con DeepL alla prossima esecuzione",
+    "sourceLabel": "Termine di origine ({{lang}})",
+    "targetLabel": "Traduzione di destinazione ({{lang}})",
+    "sourcePlaceholder": "ad es. striscia LED",
+    "saving": "Salvataggio...",
+    "submit": "Aggiungi al glossario",
+    "errorGeneric": "Errore",
+    "errorUnknown": "sconosciuto",
+    "error": "Errore: {{message}}",
+    "result": {
+      "created": "Termine aggiunto al glossario.",
+      "updated": "Voce di glossario esistente aggiornata.",
+      "unchanged": "Il termine era già presente nel glossario in forma identica.",
+      "done": "Fatto.",
+      "vorschlag": "Proposta inviata, un amministratore la approverà."
+    }
+  },
+  "toast": {
+    "approvedRange_one": "{{count}} segmento segnato come verificato (intervallo)",
+    "approvedRange_few": "{{count}} segmenti segnati come verificati (intervallo)",
+    "approvedRange_many": "{{count}} segmenti segnati come verificati (intervallo)",
+    "approvedRange_other": "{{count}} segmenti segnati come verificati (intervallo)",
+    "approved_one": "{{count}} segmento segnato come verificato",
+    "approved_few": "{{count}} segmenti segnati come verificati",
+    "approved_many": "{{count}} segmenti segnati come verificati",
+    "approved_other": "{{count}} segmenti segnati come verificati",
+    "bulkApproveFailed": "Impossibile segnare i segmenti come verificati"
+  },
+  "confirm": {
+    "approveVisible_one": "Segnare {{count}} segmento visibile come verificato?",
+    "approveVisible_few": "Segnare {{count}} segmenti visibili come verificati?",
+    "approveVisible_many": "Segnare {{count}} segmenti visibili come verificati?",
+    "approveVisible_other": "Segnare {{count}} segmenti visibili come verificati?"
+  },
+  "release": {
+    "failed": "Approvazione non riuscita",
+    "mailFailures": "Approvata, ma la notifica a {{names}} non è stata inviata.",
+    "blockerOpen_one": "{{count}} segmento non ancora verificato",
+    "blockerOpen_few": "{{count}} segmenti non ancora verificati",
+    "blockerOpen_many": "{{count}} segmenti non ancora verificati",
+    "blockerOpen_other": "{{count}} segmenti non ancora verificati",
+    "blockerClarification_one": "{{count}} domanda aperta",
+    "blockerClarification_few": "{{count}} domande aperte",
+    "blockerClarification_many": "{{count}} domande aperte",
+    "blockerClarification_other": "{{count}} domande aperte",
+    "releasedBy": "<b>✓ Approvata</b> da {{name}} il {{date}}",
+    "notReleased": "Non ancora approvata",
+    "revoked": "Approvazione di {{name}} annullata il {{date}}",
+    "revokedReason": "({{reason}})",
+    "revokedReasonBy": "({{reason}}, {{by}})",
+    "revokeReason": {
+      "textChanged": "testo modificato dopo l'approvazione",
+      "unapproved": "spunta rimossa da un segmento",
+      "clarification": "domanda posta su un segmento"
+    },
+    "requested": "Richiesta a: {{names}}",
+    "buttonTitle": "Confermare che la traduzione è corretta",
+    "buttonTitleBlocked": "Prima verificare tutti i segmenti e chiarire tutte le domande",
+    "button": "Approva traduzione",
+    "confirmText_one": "Si conferma che il segmento è corretto.",
+    "confirmText_few": "Si conferma che tutti i {{count}} segmenti sono corretti.",
+    "confirmText_many": "Si conferma che tutti i {{count}} segmenti sono corretti.",
+    "confirmText_other": "Si conferma che tutti i {{count}} segmenti sono corretti.",
+    "releasing": "Approvazione in corso…",
+    "confirmYes": "Sì, approva"
+  },
+  "stats": {
+    "checked": "<n>{{done}}/{{total}}</n> verificati",
+    "condensed": "<n>{{count}}</n> abbreviati",
+    "needsReview": "<n>{{count}}</n> da revisionare",
+    "cacheHits": "Cache: <n>{{count}}</n> hit"
+  },
+  "shortcuts": {
+    "buttonTitle": "Mostra scorciatoie da tastiera",
+    "button": "Scorciatoie",
+    "title": "Scorciatoie da tastiera",
+    "next": "Segmento successivo",
+    "previous": "Segmento precedente",
+    "spaceKey": "Spazio",
+    "approveNext": "Segna come verificato + avanti (modalità flusso)",
+    "edit": "Modifica segmento",
+    "clarification": "Domanda sul segmento attivo",
+    "nextReview": "Vai al prossimo segmento da revisionare",
+    "cancelEdit": "Annulla modifica",
+    "bonus": "<b>Suggerimento:</b> Maiusc+clic su una casella segna l'intero intervallo dall'ultima casella cliccata."
+  },
+  "request": {
+    "title": "Chiedere una revisione ai madrelingua",
+    "button": "Richiedi revisione",
+    "intro": "Ogni persona selezionata riceve un'e-mail con il link alla pagina di revisione e accede con il proprio account Microsoft. Basta un'approvazione — gli altri vengono poi informati che è stata completata.",
+    "speakersLabel": "Madrelingua (lingua {{lang}}) — una o più persone",
+    "messageLabel": "Messaggio personale (facoltativo)",
+    "messagePlaceholder": "ad es. «Mi serve entro venerdì, grazie!»",
+    "sending": "Invio in corso...",
+    "sendToMany": "Invia richiesta a {{count}}",
+    "send": "Invia richiesta",
+    "failed": "Invio non riuscito",
+    "sent": "Richiesta inviata a {{names}}.",
+    "notDelivered": "Non recapitata: {{names}}."
+  },
+  "download": {
+    "button": "Scarica {{format}}",
+    "fileFallback": "file"
+  },
+  "filter": {
+    "all": "Tutti",
+    "condensed": "Abbreviati",
+    "review": "Da revisionare",
+    "clarification": "Non chiari",
+    "edited": "Modificati",
+    "approved": "Completati",
+    "bulkApproveTitle_one": "Segna come verificato il {{count}} segmento attualmente visibile",
+    "bulkApproveTitle_few": "Segna come verificati tutti i {{count}} segmenti attualmente visibili",
+    "bulkApproveTitle_many": "Segna come verificati tutti i {{count}} segmenti attualmente visibili",
+    "bulkApproveTitle_other": "Segna come verificati tutti i {{count}} segmenti attualmente visibili",
+    "bulkApprove_one": "Verifica {{count}} visibile",
+    "bulkApprove_few": "Verifica tutti i {{count}} visibili",
+    "bulkApprove_many": "Verifica tutti i {{count}} visibili",
+    "bulkApprove_other": "Verifica tutti i {{count}} visibili",
+    "saving": "Salvataggio..."
+  },
+  "diff": {
+    "title": "Correzione rispetto all'originale"
+  },
+  "highlight": {
+    "styleMarker": "Cambio di formato (marcatore interno, non fa parte del testo)",
+    "glossarySource": "Termine del glossario: \"{{source}}\" → \"{{target}}\"",
+    "glossaryTarget": "Termine del glossario (terminologia aziendale): \"{{source}}\" → \"{{target}}\""
+  },
+  "terminology": {
+    "title": "Proposta per il glossario",
+    "insteadOf": "invece di: {{term}}",
+    "accept": "Salva come voce di glossario",
+    "dismiss": "Scarta"
+  }
+}

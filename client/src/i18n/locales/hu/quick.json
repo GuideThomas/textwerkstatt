@@ -1,0 +1,138 @@
+{
+  "lang": {
+    "target": "Célnyelv",
+    "swap": "Nyelvek felcserélése"
+  },
+  "channel": {
+    "label": "Értékesítési csatorna",
+    "tooltip": "A csatorna-felülírások a kiválasztott kifejezéseknél felülírják az alapértelmezett glosszáriumot",
+    "tooltipNeutral": "Semleges módban kikapcsolva",
+    "default": "{{org}} (alapértelmezett)"
+  },
+  "glossary": {
+    "label": "Glosszárium",
+    "tooltip": "Kikapcsolva a DeepL glosszárium- és csatornakifejezések nélkül fordít — teljesen semlegesen.",
+    "use": "használat",
+    "neutral": "semleges (nélküle)"
+  },
+  "mode": {
+    "label": "Mód:",
+    "text": "Szöveg",
+    "textTitle": "Egyszerű szöveg fordítása",
+    "xmlTitle": "XML: a címkék és attribútumok 1:1 megmaradnak, csak a szövegcsomópontok fordulnak le",
+    "htmlTitle": "HTML: a címkék és attribútumok megmaradnak, a script/style/code/pre figyelmen kívül marad",
+    "codeTagsKept": "A kódcímkék érintetlenek maradnak"
+  },
+  "formality": {
+    "label": "Megszólítás:",
+    "default": "Alapértelmezett",
+    "more": "Formális",
+    "less": "Közvetlen",
+    "defaultTitle": "A korábbiak szerint — a DeepL nem kap megszólítási paramétert",
+    "moreTitle": "A DeepL formális megszólítással fordít",
+    "lessTitle": "A DeepL közvetlen (tegező) megszólítással fordít",
+    "unsupportedTitle": "Ehhez a célnyelvhez a DeepL nem kínál megszólítási szintet",
+    "unsupportedFor": "A DeepL nem kínál megszólítási szintet ehhez: {{lang}}",
+    "appliedMore": "formális alkalmazva",
+    "appliedLess": "közvetlen alkalmazva",
+    "notApplied": "nincs alkalmazva – ehhez a célnyelvhez a DeepL nem kínál megszólítási szintet"
+  },
+  "input": {
+    "placeholderCode": "{{mode}}-kód beillesztése — a címkék változatlanok maradnak, csak a szöveg fordul le"
+  },
+  "speech": {
+    "stop": "Hangbevitel leállítása",
+    "start": "Hangbevitel indítása",
+    "startWithLocale": "Hangbevitel indítása ({{locale}})",
+    "recording": "Felvétel…",
+    "speak": "Beszéd"
+  },
+  "alt": {
+    "forSelectionTitle": "Alternatív fordítások ehhez: „{{text}}”",
+    "forSelection": "Alternatív fordítások ehhez: <b>„{{text}}”</b>",
+    "markHintTitle": "Célzott alternatívákhoz előbb jelöljön ki fent egy szót vagy szókapcsolatot — különben a teljes szöveg mondatváltozatai jelennek meg.",
+    "markHint": "Szó/szókapcsolat kijelölése — alternatív fordítás javaslása"
+  },
+  "actions": {
+    "translating": "Fordítás...",
+    "translate": "Fordítás",
+    "rewrite": "Átírás",
+    "rewriting": "Átírás folyamatban…"
+  },
+  "result": {
+    "newGlossaryEntry": "Új glosszárium-bejegyzés",
+    "newGlossaryEntryTitle": "Új glosszárium-bejegyzés kézi létrehozása",
+    "copied": "Másolva!",
+    "copy": "Másolás",
+    "loading": "Fordítás folyamatban...",
+    "placeholder": "A fordítás itt jelenik meg...",
+    "glossaryUsed": "Alkalmazott glosszárium:",
+    "plusChannel": "+ {{code}} csatorna",
+    "glossaryMarked": "A glosszáriumból származó szegmensek ennek megfelelően jelölve vannak.",
+    "hits_one": "({{count}} találat)",
+    "hits_other": "({{count}} találat)",
+    "hitsWithChannel_one": "({{count}} találat, ebből {{channel}} csatorna-felülírás)",
+    "hitsWithChannel_other": "({{count}} találat, ebből {{channel}} csatorna-felülírás)"
+  },
+  "highlight": {
+    "channelTooltip": "Csatorna-felülírás ({{channel}}): {{source}} → {{target}}\nKattintson a szerkesztéshez",
+    "glossaryTooltip": "Glosszáriumból: {{source}} → {{target}}\nKattintson a szerkesztéshez",
+    "fassungTooltip": "Csatornaváltozat ({{channel}}): {{source}} → {{target}}"
+  },
+  "altModal": {
+    "title": "Alternatívák",
+    "close": "Bezárás",
+    "forPhrase": "A kijelölt kifejezéshez:",
+    "wholeText": "Teljes szöveg — tipp: szóalternatívákhoz jelöljön ki egy kifejezést a forrásszövegben, mielőtt az „Alternatívák” gombra kattint.",
+    "loading": "Alternatívák lekérése…",
+    "onlyOneVariant": "Ehhez a kifejezéshez a DeepL csak egy változatot ad.",
+    "noVariants": "Nincs további változat – hosszú szövegeknél a DeepL többnyire azonos alternatívákat ad.",
+    "noVariantsTip": "Tipp: jelöljön ki egyetlen szót vagy rövid kifejezést a forrásszövegben, és kattintson újra az „Alternatívák” gombra.",
+    "spanHint": "A változatra kattintva az a vágólapra kerül. A „📖+” glosszárium-bejegyzésként menti a változatot.",
+    "fullHint": "Kattintásra a változat lesz az új eredmény. Az eltérések <hl>sárgával</hl> kiemelve.",
+    "saveAsGlossary": "Mentés glosszárium-bejegyzésként ({{source}} → {{target}}{{channel}})"
+  },
+  "wordOrder": {
+    "show": "Szórendi változatok megjelenítése (LLM)",
+    "showTitle": "Csak a szórendet változtatja (azonos kifejezések). Kb. 80 tokent használ (olcsó szint).",
+    "loading": "Szórendi változatok lekérése…",
+    "none": "Nem található további szórend.",
+    "headingSpan": "Szórendi változatok (LLM) — kattintásra a vágólapra kerül. A „📖+” glosszárium-bejegyzésként menti a változatot.",
+    "headingFull": "Szórendi változatok (LLM) — kattintásra ez lesz az új eredmény."
+  },
+  "editor": {
+    "title": "Glosszárium-bejegyzés szerkesztése",
+    "source": "Forrás ({{lang}})",
+    "target": "Cél ({{lang}})",
+    "sourcePlaceholder": "pl. Schienen-Strahler",
+    "targetPlaceholder": "pl. koľajnicový reflektor",
+    "channelOverrideHint": "Csatorna-felülírásként menti ehhez: {{channel}} — az alapértelmezett bejegyzés változatlan marad.",
+    "standardHint": "Menti/frissíti az alapértelmezett bejegyzést az {{org}} glosszáriumban.",
+    "cancel": "Mégse",
+    "saving": "Mentés…",
+    "save": "Mentés",
+    "created": "Új bejegyzés mentve",
+    "updated": "Bejegyzés frissítve",
+    "unchanged": "Nincs változás",
+    "vorschlag": "Javaslat elküldve, egy adminisztrátor jóváhagyja."
+  },
+  "errors": {
+    "phraseTooLong": "Túl hosszú kifejezés (max. 200 karakter) — jelöljön ki rövidebb részt.",
+    "http": "Hiba: {{status}}",
+    "wordOrderFailed": "A szórendi változatok lekérése sikertelen",
+    "alternativesFailed": "Az alternatívák lekérése sikertelen",
+    "fillBoth": "Kérjük, töltse ki a forrást és a célt",
+    "saveFailed": "A mentés sikertelen",
+    "translateFailed": "A fordítás sikertelen"
+  },
+  "channelFassung": {
+    "hint": "Német → német: a szöveget a kiválasztott csatorna változatára írjuk át (vállalati írásmód).",
+    "needChannel": "Német → német: válasszon csatornát – a szöveget annak változatára írjuk át.",
+    "summary_one": "Csatornaváltozat – {{channel}}: {{count}} szakasz átírva – {{model}} a nyelvi modell, {{rule}} szabály szerint.",
+    "summary_few": "Csatornaváltozat – {{channel}}: {{count}} szakasz átírva – {{model}} a nyelvi modell, {{rule}} szabály szerint.",
+    "summary_many": "Csatornaváltozat – {{channel}}: {{count}} szakasz átírva – {{model}} a nyelvi modell, {{rule}} szabály szerint.",
+    "summary_other": "Csatornaváltozat – {{channel}}: {{count}} szakasz átírva – {{model}} a nyelvi modell, {{rule}} szabály szerint.",
+    "unchanged": "Csatornaváltozat – {{channel}}: nem található kifejezés a vállalati írásmódból – a szöveg változatlan marad.",
+    "noOwnTerms": "{{channel}} számára még nincsenek saját kifejezések – csak az {{org}} vállalati írásmód érvényes (Glosszáriumok → DE → DE)."
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "page": {
+    "title": "Terminologická analýza",
+    "subtitle": "Extrahovať kandidátov do glosára z existujúcich prekladov"
+  },
+  "languages": {
+    "DE": "Nemčina",
+    "EN": "Angličtina",
+    "IT": "Taliančina",
+    "FR": "Francúzština",
+    "ES": "Španielčina",
+    "HU": "Maďarčina",
+    "PL": "Poľština",
+    "CS": "Čeština",
+    "SK": "Slovenčina",
+    "SL": "Slovinčina"
+  },
+  "scanStatus": {
+    "pending": "Čaká",
+    "aligning": "Zarovnanie",
+    "translating": "Referencia DeepL",
+    "analyzing": "Analýza LLM",
+    "completed": "Hotovo",
+    "error": "Chyba"
+  },
+  "list": {
+    "title": "Predchádzajúce analýzy",
+    "empty": "Zatiaľ neprebehla žiadna terminologická analýza.",
+    "segments_one": "{{count}} segment",
+    "segments_few": "{{count}} segmenty",
+    "segments_other": "{{count}} segmentov",
+    "candidates_one": "{{count}} kandidát (odchýlky: {{diffs}})",
+    "candidates_few": "{{count}} kandidáti (odchýlky: {{diffs}})",
+    "candidates_other": "{{count}} kandidátov (odchýlky: {{diffs}})",
+    "review": "Skontrolovať",
+    "delete": "Vymazať"
+  },
+  "confirm": {
+    "deleteScan": "Naozaj vymazať analýzu?",
+    "approveTerminology_one": "Schváliť {{count}} terminologického kandidáta?",
+    "approveTerminology_few": "Schváliť {{count}} terminologických kandidátov?",
+    "approveTerminology_other": "Schváliť {{count}} terminologických kandidátov?"
+  },
+  "upload": {
+    "title": "Spustiť terminologickú analýzu",
+    "sourceFile": "Originál (zdroj)",
+    "translationFile": "Existujúci preklad",
+    "dropHint": "Kliknite alebo presuňte súbor sem",
+    "sourceLang": "Zdrojový jazyk",
+    "targetLang": "Cieľový jazyk",
+    "glossary": "Glosár",
+    "noGlossary": "Žiadny (štandard)",
+    "uploading": "Nahráva sa...",
+    "start": "Spustiť analýzu",
+    "formats": "Formáty: IDML, DOCX, XLSX, TXT. Oba súbory musia mať rovnaký formát.",
+    "errors": {
+      "unsupported": "Nepodporované. Povolené: {{allowed}}",
+      "uploadFailed": "Nahrávanie zlyhalo"
+    }
+  },
+  "progress": {
+    "phase": {
+      "connected": "Pripojené",
+      "aligning": "Zarovnanie segmentov",
+      "translating": "Referencia DeepL",
+      "analyzing": "Analýza LLM",
+      "completed": "Dokončené",
+      "error": "Chyba"
+    },
+    "cacheHits_one": "{{count}} zásah v cache",
+    "cacheHits_few": "{{count}} zásahy v cache",
+    "cacheHits_other": "{{count}} zásahov v cache",
+    "candidates_one": "{{count}} kandidát",
+    "candidates_few": "{{count}} kandidáti",
+    "candidates_other": "{{count}} kandidátov"
+  },
+  "category": {
+    "TERMINOLOGY": "Terminológia",
+    "STYLE": "Štýl",
+    "ERROR": "Chyba",
+    "CONTEXT": "Kontext"
+  },
+  "candidateStatus": {
+    "pending": "Otvorené",
+    "approved": "Schválené",
+    "rejected": "Zamietnuté",
+    "vorgeschlagen": "Navrhnuté"
+  },
+  "review": {
+    "back": "Späť",
+    "stats": {
+      "total": "Spolu: {{n}}",
+      "terminology": "Terminológia: {{n}}",
+      "style": "Štýl: {{n}}",
+      "error": "Chyby: {{n}}",
+      "context": "Kontext: {{n}}",
+      "approved": "Schválené: {{n}}",
+      "rejected": "Zamietnuté: {{n}}",
+      "vorgeschlagen": "{{n}} navrhnutých"
+    },
+    "filter": {
+      "allCategories": "Všetky kategórie",
+      "allStatus": "Všetky stavy"
+    },
+    "selectedCount_one": "{{count}} vybraný",
+    "selectedCount_few": "{{count}} vybrané",
+    "selectedCount_other": "{{count}} vybraných",
+    "approve": "Schváliť",
+    "reject": "Zamietnuť",
+    "approveAllTerminology": "Schváliť všetku terminológiu",
+    "loading": "Načítava sa...",
+    "empty": "Pre tieto filtre nie sú žiadni kandidáti.",
+    "table": {
+      "source": "Zdroj",
+      "existing": "Existujúci",
+      "deeplRef": "Ref. DeepL",
+      "term": "Termín",
+      "category": "Kategória",
+      "confidence": "Spoľ.",
+      "action": "Akcia"
+    },
+    "insteadOf": "namiesto: {{term}}",
+    "vorschlagMeldung": "{{n}} výrazov odoslaných ako návrhy. Správca ich schváli na stránke glosára."
+  }
+}

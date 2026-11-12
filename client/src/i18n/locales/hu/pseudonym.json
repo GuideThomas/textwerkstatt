@@ -1,0 +1,74 @@
+{
+  "klasse": {
+    "BANK": "Bankszámla-adatok",
+    "MAIL": "E-mail-címek",
+    "TELEFON": "Telefonszámok",
+    "PERSON": "Személyek",
+    "ANSCHRIFT": "Postacímek",
+    "URL": "Webcímek",
+    "FIRMA": "Cégek",
+    "PROJEKT": "Projektek",
+    "PREIS": "Árak és feltételek",
+    "ARTIKELNR": "Cikkszámok",
+    "BELEGNR": "Bizonylatszámok",
+    "EIGEN": "Saját takarás és védelmi lista"
+  },
+  "art": {
+    "PERSON": "Személy",
+    "FIRMA": "Cég",
+    "PROJEKT": "Projekt",
+    "BEGRIFF": "Kifejezés"
+  },
+  "vorschau": {
+    "titel": "Ezt látja a felhőmodell",
+    "erklaerung": "Pontosan ez a szöveg megy ki. A színes részeket helyőrző váltja fel. Kattintson egy helyőrzőre a felfedéshez; jelöljön ki egy szót a letakaráshoz.",
+    "laeuft": "Előnézet készül …",
+    "gueltigBis": "érvényes eddig: {{zeit}}",
+    "verdecken": "„{{wort}}” letakarása",
+    "auswahlUngueltig": "A letakaráshoz jelöljön ki 2–100 karaktert, helyőrző nélkül.",
+    "trefferAufdecken": "Kattintson a felfedéshez",
+    "trefferPflicht": "nem fedhető fel (kötelező vagy védelmi lista)",
+    "keineTreffer": "Nincs találat: a szöveg változatlanul megy ki.",
+    "verdeckt": "Saját takarás",
+    "aufgedeckt": "Felfedve",
+    "entfernen": "Visszavonás",
+    "nichtAufdeckbar": "A bankszámla-adatok, e-mail-címek, telefonszámok és a védelmi lista kifejezései mindig letakarva maradnak.",
+    "restOk": "A végső ellenőrzés sikeres: a szövegben nincs bankszámla-adat, e-mail-cím vagy telefonszám.",
+    "restFehler": "A szövegben még szerepel: {{funde}}. Így semmi sem megy ki. Takarja le a részt, vagy használja a helyi MI-t.",
+    "netzFehler": "A szerver nem érhető el. Semmi sem lett elküldve."
+  },
+  "hinweis": {
+    "rest": "A felismerés szabályokon alapul, és nem talál meg mindent. A körülírások („a Stephansplatz-i szálloda 240 szobával”) és maga a tartalom látható marad a modell számára. Bizalmas szövegekhez a helyi MI-t használja.",
+    "deepl": "A „Fordítás” lépés továbbra is nyílt szövegként küldi a szöveget a DeepL-nek.",
+    "lokal": "A helyi MI-hez vezető út is a Cloudflare-en át halad; a szöveg titkosítva hagyja el a céget."
+  },
+  "fehler": {
+    "EINGABE": "A bevitel érvénytelen.",
+    "VORSCHAU_UNBEKANNT": "Ez az előnézet már nem létezik. Kérjük, készítsen újat.",
+    "PFLICHT_UEBRIG": "A szövegben még bankszámla-adat, e-mail-cím vagy telefonszám szerepel. Semmi sem lett elküldve.",
+    "PROXY_GESCHWAERZT": "A proxy kitakarta: a kimenő szűrő a szöveg egy részét lecserélte. A válasz elvetve.",
+    "PLATZHALTER_UNBEKANNT": "A modell helyőrzőket talált ki. A válasz elvetve.",
+    "ERKENNUNG": "A szöveg nem pszeudonimizálható biztonságosan. Semmi sem megy ki.",
+    "EINSTELLUNGEN": "A védelmi szabályok most nem olvashatók. Nélkülük nincs előnézet.",
+    "NICHT_FREIGESCHALTET": "Ez a fiók nincs engedélyezve a felhő-MI-hez."
+  },
+  "verwaltung": {
+    "titel": "Védelmi szabályok",
+    "hinweis": "Mi kerül letakarásra, mielőtt a szöveg felhőmodellhez megy. A bankszámla-adat, az e-mail és a telefon kötelező, nem kapcsolható ki. A helyi MI mindig a nyílt szöveget látja.",
+    "klassen": "Osztályok",
+    "pflicht": "Kötelező",
+    "muster": "Kulcsszó nélküli cikkszám mintája (reguláris kifejezés; üresen: csak „Art.-Nr.”, „Artikel”, „EAN” után)",
+    "speichern": "Mentés",
+    "gespeichert": "Mentve.",
+    "liste": "Védelmi lista",
+    "listeHinweis": "Mindig letakart kifejezések, bármilyen írásmódban: ügyfelek, projektek, személyek.",
+    "begriff": "Kifejezés",
+    "art": "Típus",
+    "hinzufuegen": "Hozzáadás",
+    "loeschen": "Törlés",
+    "listeLeer": "Még nincs kifejezés.",
+    "probe": "Kipróbálás",
+    "probeHinweis": "Illesszen be egy szöveget, és nézze meg az előnézetet. Semmi sem megy modellhez.",
+    "probeZeigen": "Előnézet mutatása"
+  }
+}

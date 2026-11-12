@@ -1,0 +1,137 @@
+{
+  "language": {
+    "label": "Langue"
+  },
+  "app": {
+    "loading": "Chargement...",
+    "subtitle": "Traduction de documents fidèle à la mise en page",
+    "logout": "Se déconnecter"
+  },
+  "tabs": {
+    "textwerkstatt": "Atelier de texte",
+    "documents": "Documents",
+    "glossaries": "Glossaires",
+    "nameModules": "Éléments de noms",
+    "terminologyScan": "Analyse terminologique",
+    "consistency": "Cohérence",
+    "costs": "Coûts",
+    "admin": "Admin",
+    "manage": "Gestion"
+  },
+  "login": {
+    "microsoft": "Se connecter avec Microsoft",
+    "alternative": "Autres méthodes de connexion",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "submit": "Se connecter",
+    "submitting": "Connexion...",
+    "errorUnknown": "Erreur : {{code}}",
+    "errors": {
+      "microsoftDenied": "La connexion Microsoft a été refusée.",
+      "invalidState": "Échec du contrôle de sécurité. Veuillez réessayer.",
+      "noCode": "Aucune autorisation reçue.",
+      "tokenExchange": "Échec de l'échange de jeton.",
+      "noIdToken": "Aucun jeton d'identification reçu.",
+      "missingClaims": "Informations utilisateur manquantes de la part de Microsoft.",
+      "accountInactive": "Votre compte est désactivé. Contactez l'administrateur.",
+      "internalError": "Erreur interne. Veuillez réessayer plus tard."
+    }
+  },
+  "auth": {
+    "requestFailed": "Échec de la requête",
+    "loginFailed": "Échec de la connexion"
+  },
+  "errorBoundary": {
+    "title": "Cette vue a planté",
+    "titleWithContext": "Cette vue a planté ({{context}})",
+    "description": "Une erreur inattendue lors de l'affichage de la page a été interceptée. Le reste de l'application reste utilisable — vous pouvez choisir un autre onglet ou recharger la page.",
+    "errorMessage": "Message d'erreur",
+    "showStack": "Afficher la trace de pile",
+    "showComponentStack": "Afficher la pile des composants",
+    "retry": "Réessayer",
+    "reload": "Recharger la page"
+  },
+  "progress": {
+    "phases": {
+      "connected": "Connecté",
+      "parsing": "Analyse du fichier",
+      "translating": "Traduction en cours",
+      "finalizing": "Finalisation",
+      "completed": "Terminé",
+      "error": "Erreur"
+    },
+    "fromCache": "/ {{total}} depuis le cache"
+  },
+  "segments": {
+    "loading": "Chargement des segments...",
+    "avgLength": "~{{value}} caractères/segment",
+    "statusTranslated": "Traduit",
+    "statusPending": "En attente",
+    "showingOf": "Affichage de {{shown}} segments sur {{total}}",
+    "count_one": "{{count}} segment",
+    "count_few": "{{count}} segments",
+    "count_many": "{{count}} segments",
+    "count_other": "{{count}} segments",
+    "translated_one": "{{count}} traduit",
+    "translated_few": "{{count}} traduits",
+    "translated_many": "{{count}} traduits",
+    "translated_other": "{{count}} traduits",
+    "condensed_one": "{{count}} abrégé",
+    "condensed_few": "{{count}} abrégés",
+    "condensed_many": "{{count}} abrégés",
+    "condensed_other": "{{count}} abrégés",
+    "cacheHits_one": "{{count}} succès de cache",
+    "cacheHits_few": "{{count}} succès de cache",
+    "cacheHits_many": "{{count}} succès de cache",
+    "cacheHits_other": "{{count}} succès de cache",
+    "maxChars_one": "max {{count}} caractère",
+    "maxChars_few": "max {{count}} caractères",
+    "maxChars_many": "max {{count}} caractères",
+    "maxChars_other": "max {{count}} caractères"
+  },
+  "versions": {
+    "loading": "Chargement des versions...",
+    "back": "← Retour",
+    "title": "Historique des versions",
+    "subtitle": "Différences entre les générations du document",
+    "chain": "Chaîne de versions",
+    "empty": "Aucune donnée de version disponible.",
+    "compare": "comparer",
+    "computing": "Calcul...",
+    "showDiff": "Afficher les différences",
+    "compareHint": "Comparaison de la version actuelle avec la version sélectionnée",
+    "result": "Résultat de la comparaison",
+    "stats": {
+      "unchanged": "Inchangés",
+      "changed": "Modifiés",
+      "added": "Ajoutés",
+      "removed": "Supprimés"
+    },
+    "sections": {
+      "changed": "Segments modifiés ({{count}})",
+      "added": "Ajoutés ({{count}})",
+      "removed": "Supprimés ({{count}})"
+    },
+    "position": "Position n° {{position}}",
+    "moreHidden": "…{{count}} autres masqués",
+    "current": "Cette version",
+    "selected": "Sélectionnée",
+    "onlyOne": "Ce document n’a pas encore d’autre version. Chargez-en une nouvelle avec « + Version » dans la liste des documents – vous pourrez ensuite la comparer ici."
+  },
+  "demo": {
+    "titel": "Démo",
+    "vertraulich": "Merci de ne saisir aucun texte confidentiel",
+    "dienste": "Les textes sont envoyés à DeepL pour la traduction et à un modèle d'IA pour l'optimisation",
+    "reset": "Toutes les saisies seront supprimées le {{datum}}",
+    "resetOhneDatum": "Toutes les saisies sont supprimées régulièrement",
+    "torText": "Cette démo est protégée par un mot de passe. Votre nom apparaît dans l'historique et peut rester vide.",
+    "name": "Nom (facultatif)",
+    "passwort": "Mot de passe",
+    "hinein": "Ouvrir la démo"
+  },
+  "fuss": {
+    "navigation": "Autres pages de Thomas Winkler",
+    "impressum": "Mentions légales",
+    "datenschutz": "Confidentialité"
+  }
+}

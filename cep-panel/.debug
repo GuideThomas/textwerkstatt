@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Remote-Debugging: bei laufendem Illustrator http://localhost:8088 im Chrome öffnen -->
+<ExtensionList>
+  <Extension Id="art.thomaswinkler.textwerkstatt.panel">
+    <HostList>
+      <Host Name="ILST" Port="8088" />
+    </HostList>
+  </Extension>
+</ExtensionList>

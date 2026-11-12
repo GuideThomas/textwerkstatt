@@ -1,0 +1,43 @@
+{
+  "connect": {
+    "title": "Collega il pannello di Illustrator",
+    "intro": "Un pannello di Illustrator vuole collegarsi al tuo account. In seguito tradurrà a tuo nome e gli incarichi compariranno in «Documenti».",
+    "codeLabel": "Codice nel pannello",
+    "device": "Dispositivo",
+    "deviceUnknown": "dispositivo sconosciuto",
+    "expiresIn": "Valido ancora {{minutes}}:{{seconds}} min",
+    "warning": "Collega solo se hai appena cliccato tu stesso su «Mit Microsoft anmelden» in Illustrator e lì compare esattamente questo codice. Se qualcuno ti ha inviato questo link: annulla.",
+    "confirm": "Collega",
+    "cancel": "Annulla",
+    "doneTitle": "Collegato",
+    "doneText": "Puoi tornare a Illustrator: il pannello effettuerà l’accesso entro pochi secondi.",
+    "cancelledTitle": "Annullato",
+    "cancelledText": "Il pannello non è stato collegato.",
+    "expiredTitle": "Richiesta scaduta",
+    "expiredText": "Clicca di nuovo su «Mit Microsoft anmelden» nel pannello.",
+    "usedTitle": "Già utilizzata",
+    "usedText": "Questa richiesta è già stata utilizzata da un altro account.",
+    "confirmedOtherTitle": "Già confermata",
+    "confirmedOtherText": "Questa richiesta è già stata confermata da un altro account.",
+    "continue": "Continua"
+  },
+  "connections": {
+    "title": "Pannello di Illustrator",
+    "subtitle": "Computer su cui il tuo pannello ha effettuato l’accesso",
+    "adminTitle": "Collegamenti del pannello",
+    "menuTitle": "Collega il pannello di Illustrator",
+    "howto": "Per collegare un pannello: in Illustrator apri Finestra → Estensioni → {{org}} Translationtool, clicca su «Mit Microsoft anmelden» e conferma la richiesta qui. Un collegamento scade dopo 180 giorni di inutilizzo.",
+    "empty": "Nessun pannello ancora collegato.",
+    "colDevice": "Dispositivo",
+    "colUser": "Persona",
+    "colCreated": "Collegato il",
+    "colLastUsed": "Ultimo utilizzo",
+    "colExpires": "Scade se inutilizzato il",
+    "never": "mai",
+    "expired": "scaduto",
+    "revoke": "Scollega",
+    "confirmRevoke": "Scollegare «{{label}}»? Il pannello dovrà accedere di nuovo.",
+    "loading": "Caricamento …",
+    "error": "Richiesta non riuscita"
+  }
+}

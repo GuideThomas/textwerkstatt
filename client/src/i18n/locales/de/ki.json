@@ -1,0 +1,79 @@
+{
+  "art": {
+    "lokal": "lokal",
+    "cloud": "Cloud"
+  },
+  "budget": {
+    "eigen": "Tagesbudget {{grenze}} $ erreicht, wieder ab {{zeit}} Uhr.",
+    "eigenOhneBetrag": "Tagesbudget erreicht, wieder ab {{zeit}} Uhr.",
+    "global": "Das Gesamtbudget aller KI-Anwendungen ist für heute erreicht, Cloud-KI wieder ab {{zeit}} Uhr.",
+    "lokalLaeuft": "Die lokale KI läuft weiter."
+  },
+  "fehler": {
+    "WEG_UNBEKANNT": "Diesen KI-Weg gibt es nicht.",
+    "WEG_INAKTIV": "Dieser KI-Weg ist ausgeschaltet.",
+    "NICHT_FREIGESCHALTET": "Für die Cloud-KI ist dieser Zugang nicht freigeschaltet. Ein Admin kann ihn in der Benutzerverwaltung freischalten.",
+    "KONFIGURATION": "Der KI-Weg ist falsch eingerichtet (Name einer Umgebungsvariable).",
+    "SCHLUESSEL_FEHLT": "Für diesen KI-Weg ist kein Schlüssel hinterlegt.",
+    "ENDPUNKT_FEHLT": "Für diesen KI-Weg ist kein Endpunkt hinterlegt.",
+    "BUDGET_EIGEN": "Das Tagesbudget dieses KI-Wegs ist erreicht.",
+    "BUDGET_GLOBAL": "Das Gesamtbudget aller KI-Anwendungen ist für heute erreicht.",
+    "SCHLUESSEL_ABGELEHNT": "Der Schlüssel wurde abgelehnt oder darf dieses Modell nicht nutzen.",
+    "ZEITLIMIT": "Das Modell hat nicht rechtzeitig geantwortet. Es wurde nicht auf ein anderes Modell ausgewichen.",
+    "NICHT_ERREICHBAR": "Das Modell ist nicht erreichbar. Es wurde nicht auf ein anderes Modell ausgewichen.",
+    "ANBIETER_FEHLER": "Der Anbieter meldet einen Fehler. Es wurde nicht auf ein anderes Modell ausgewichen.",
+    "LEERE_ANTWORT": "Das Modell hat eine leere Antwort geliefert."
+  },
+  "verwaltung": {
+    "titel": "KI-Anbindung",
+    "neu": "+ Neuer KI-Weg",
+    "hinweis": "Jeder KI-Weg ruft genau ein Modell und weicht bei einem Fehler nie auf ein anderes aus. Schlüssel stehen nur in der Umgebung des Servers (.env); hier steht nur der Name der Variable. Die Probe schickt einen festen Satz, keinen Nutzertext.",
+    "spalteWeg": "Weg",
+    "spalteModell": "Modell",
+    "spalteZeitlimit": "Zeitlimit",
+    "spalteSchluessel": "Schlüssel / Endpunkt",
+    "spalteBudget": "Budget heute",
+    "spalteAktionen": "Aktionen",
+    "aus": "ausgeschaltet",
+    "sekunden": "{{s}} s",
+    "gesetzt": "gesetzt",
+    "fehlt": "fehlt",
+    "budgetWert": "{{verbraucht}} $ von {{grenze}} $, Reset {{zeit}} Uhr",
+    "budgetAus": "nicht gelesen",
+    "sperreEigen": "gesperrt (eigenes Budget) bis {{zeit}} Uhr",
+    "sperreGlobal": "gesperrt (Gesamtbudget) bis {{zeit}} Uhr",
+    "bearbeiten": "Bearbeiten",
+    "probe": "Probe",
+    "probeLaeuft": "läuft …",
+    "probeOk": "{{ms}} ms · {{ein}}/{{aus}} Token · Denk-Token {{denk}} · Kosten {{kosten}}",
+    "leer": "Noch kein KI-Weg angelegt."
+  },
+  "formular": {
+    "titelNeu": "Neuer KI-Weg",
+    "titel": "KI-Weg „{{name}}“ bearbeiten",
+    "kennung": "Kennung (a–z, 0–9, -)",
+    "name": "Name",
+    "art": "Art",
+    "modell": "Modell am Endpunkt",
+    "endpunkt": "Endpunkt-Variable (LLM_BASE_URL oder KI_WEG_…_URL)",
+    "schluessel": "Schlüssel-Variable (KI_WEG_…_KEY)",
+    "zeitlimit": "Zeitlimit in Sekunden",
+    "reihenfolge": "Reihenfolge",
+    "zusatz": "Zusatzparameter (JSON, wörtlich im Anfragekörper)",
+    "zusatzHinweis": "model, messages und stream setzt immer der Server.",
+    "zusatzKeinJson": "Zusatzparameter sind kein gültiges JSON-Objekt.",
+    "aktiv": "aktiv",
+    "budgetLesen": "Budget über /key/info lesen (LiteLLM)",
+    "speichern": "Speichern",
+    "abbrechen": "Abbrechen",
+    "hinweisNeu": "Ein lokaler Weg braucht eine Schlüssel-Variable KI_WEG_LOKAL…_KEY, ein Cloud-Weg eine andere. Art und Variablen lassen sich nach dem Anlegen nicht mehr ändern.",
+    "hinweisFest": "Art, Schlüssel- und Endpunkt-Variable sind fest. Für einen anderen Schlüssel den Weg ausschalten und neu anlegen."
+  },
+  "freischaltung": {
+    "spalte": "Cloud-KI",
+    "vermerk": "zuletzt geändert von {{von}} am {{am}}",
+    "nie": "nie freigeschaltet",
+    "an": "frei",
+    "aus": "gesperrt"
+  }
+}

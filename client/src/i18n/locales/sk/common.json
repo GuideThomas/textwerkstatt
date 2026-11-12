@@ -1,0 +1,137 @@
+{
+  "language": {
+    "label": "Jazyk"
+  },
+  "app": {
+    "loading": "Načítava sa...",
+    "subtitle": "Preklad dokumentov so zachovaním rozloženia",
+    "logout": "Odhlásiť sa"
+  },
+  "tabs": {
+    "textwerkstatt": "Textová dielňa",
+    "documents": "Dokumenty",
+    "glossaries": "Glosáre",
+    "nameModules": "Prvky názvov",
+    "terminologyScan": "Kontrola terminológie",
+    "consistency": "Konzistencia",
+    "costs": "Náklady",
+    "admin": "Admin",
+    "manage": "Správa"
+  },
+  "login": {
+    "microsoft": "Prihlásiť sa cez Microsoft",
+    "alternative": "Iné spôsoby prihlásenia",
+    "email": "E-mail",
+    "password": "Heslo",
+    "submit": "Prihlásiť sa",
+    "submitting": "Prihlasovanie...",
+    "errorUnknown": "Chyba: {{code}}",
+    "errors": {
+      "microsoftDenied": "Prihlásenie cez Microsoft bolo zamietnuté.",
+      "invalidState": "Bezpečnostná kontrola zlyhala. Skúste to znova.",
+      "noCode": "Nebola prijatá žiadna autorizácia.",
+      "tokenExchange": "Výmena tokenu zlyhala.",
+      "noIdToken": "Nebol prijatý žiadny ID token.",
+      "missingClaims": "Chýbajú údaje o používateľovi od Microsoftu.",
+      "accountInactive": "Váš účet je deaktivovaný. Kontaktujte administrátora.",
+      "internalError": "Interná chyba. Skúste to neskôr znova."
+    }
+  },
+  "auth": {
+    "requestFailed": "Požiadavka zlyhala",
+    "loginFailed": "Prihlásenie zlyhalo"
+  },
+  "errorBoundary": {
+    "title": "Toto zobrazenie zlyhalo",
+    "titleWithContext": "Toto zobrazenie zlyhalo ({{context}})",
+    "description": "Pri zobrazovaní stránky bola zachytená neočakávaná chyba. Zvyšok aplikácie zostáva použiteľný — môžete zvoliť inú kartu alebo stránku znova načítať.",
+    "errorMessage": "Chybové hlásenie",
+    "showStack": "Zobraziť výpis zásobníka",
+    "showComponentStack": "Zobraziť zásobník komponentov",
+    "retry": "Skúsiť znova",
+    "reload": "Znova načítať stránku"
+  },
+  "progress": {
+    "phases": {
+      "connected": "Pripojené",
+      "parsing": "Spracúva sa súbor",
+      "translating": "Prebieha preklad",
+      "finalizing": "Dokončuje sa",
+      "completed": "Hotovo",
+      "error": "Chyba"
+    },
+    "fromCache": "/ {{total}} z cache"
+  },
+  "segments": {
+    "loading": "Načítavajú sa segmenty...",
+    "avgLength": "~{{value}} znakov/segment",
+    "statusTranslated": "Preložené",
+    "statusPending": "Čaká",
+    "showingOf": "Zobrazených {{shown}} z {{total}} segmentov",
+    "count_one": "{{count}} segment",
+    "count_few": "{{count}} segmenty",
+    "count_many": "{{count}} segmentu",
+    "count_other": "{{count}} segmentov",
+    "translated_one": "{{count}} preložený",
+    "translated_few": "{{count}} preložené",
+    "translated_many": "{{count}} preloženého",
+    "translated_other": "{{count}} preložených",
+    "condensed_one": "{{count}} skrátený",
+    "condensed_few": "{{count}} skrátené",
+    "condensed_many": "{{count}} skráteného",
+    "condensed_other": "{{count}} skrátených",
+    "cacheHits_one": "{{count}} zásah z cache",
+    "cacheHits_few": "{{count}} zásahy z cache",
+    "cacheHits_many": "{{count}} zásahu z cache",
+    "cacheHits_other": "{{count}} zásahov z cache",
+    "maxChars_one": "max. {{count}} znak",
+    "maxChars_few": "max. {{count}} znaky",
+    "maxChars_many": "max. {{count}} znaku",
+    "maxChars_other": "max. {{count}} znakov"
+  },
+  "versions": {
+    "loading": "Načítavajú sa verzie...",
+    "back": "← Späť",
+    "title": "História verzií",
+    "subtitle": "Rozdiely medzi generáciami dokumentu",
+    "chain": "Reťazec verzií",
+    "empty": "Nie sú k dispozícii žiadne údaje o verziách.",
+    "compare": "porovnať",
+    "computing": "Počíta sa...",
+    "showDiff": "Zobraziť rozdiely",
+    "compareHint": "Porovnanie aktuálnej verzie s vybranou verziou",
+    "result": "Výsledok porovnania",
+    "stats": {
+      "unchanged": "Nezmenené",
+      "changed": "Zmenené",
+      "added": "Pridané",
+      "removed": "Odstránené"
+    },
+    "sections": {
+      "changed": "Zmenené segmenty ({{count}})",
+      "added": "Pridané ({{count}})",
+      "removed": "Odstránené ({{count}})"
+    },
+    "position": "Pozícia č. {{position}}",
+    "moreHidden": "…ďalších {{count}} skrytých",
+    "current": "Táto verzia",
+    "selected": "Vybraná",
+    "onlyOne": "Tento dokument zatiaľ nemá inú verziu. Novú nahráte cez „+ Verzia“ v zozname dokumentov – potom ju tu môžete porovnať."
+  },
+  "demo": {
+    "titel": "Demo",
+    "vertraulich": "Nezadávajte, prosím, dôverné texty",
+    "dienste": "Texty sa posielajú na preklad do DeepL a na optimalizáciu do modelu umelej inteligencie",
+    "reset": "Všetky zadané údaje budú vymazané {{datum}}",
+    "resetOhneDatum": "Všetky zadané údaje sa pravidelne mažú",
+    "torText": "Toto demo je chránené heslom. Vaše meno sa zobrazí v histórii zmien a môže zostať prázdne.",
+    "name": "Meno (nepovinné)",
+    "passwort": "Heslo",
+    "hinein": "Otvoriť demo"
+  },
+  "fuss": {
+    "navigation": "Ďalšie stránky Thomasa Winklera",
+    "impressum": "Impresum",
+    "datenschutz": "Ochrana údajov"
+  }
+}

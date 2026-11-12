@@ -1,0 +1,138 @@
+{
+  "lang": {
+    "target": "Zielsprache",
+    "swap": "Sprachen tauschen"
+  },
+  "channel": {
+    "label": "Verkaufschannel",
+    "tooltip": "Channel-Overrides überschreiben das Standard-Glossar für ausgewählte Begriffe",
+    "tooltipNeutral": "Im Neutral-Modus deaktiviert",
+    "default": "{{org}} (Standard)"
+  },
+  "glossary": {
+    "label": "Glossar",
+    "tooltip": "Wenn deaktiviert, übersetzt DeepL ohne Glossar- oder Channel-Begriffe — rein neutral.",
+    "use": "verwenden",
+    "neutral": "neutral (ohne)"
+  },
+  "mode": {
+    "label": "Modus:",
+    "text": "Text",
+    "textTitle": "Plain-Text-Übersetzung",
+    "xmlTitle": "XML: Tags und Attribute bleiben 1:1, nur Textknoten werden übersetzt",
+    "htmlTitle": "HTML: Tags + Attribute bleiben, script/style/code/pre werden ignoriert",
+    "codeTagsKept": "Code-Tags bleiben unangetastet"
+  },
+  "formality": {
+    "label": "Anrede:",
+    "default": "Standard",
+    "more": "Formell",
+    "less": "Informell",
+    "defaultTitle": "Wie bisher — es geht kein Anrede-Parameter an DeepL",
+    "moreTitle": "DeepL übersetzt in der formellen Anrede",
+    "lessTitle": "DeepL übersetzt in der informellen Anrede",
+    "unsupportedTitle": "Für diese Zielsprache bietet DeepL keine Anredestufe",
+    "unsupportedFor": "Für {{lang}} bietet DeepL keine Anredestufe",
+    "appliedMore": "formell angewandt",
+    "appliedLess": "informell angewandt",
+    "notApplied": "nicht angewandt – DeepL bietet für diese Zielsprache keine Anredestufe"
+  },
+  "input": {
+    "placeholderCode": "{{mode}}-Code einfügen — Tags bleiben unverändert, nur Texte werden übersetzt"
+  },
+  "speech": {
+    "stop": "Spracheingabe stoppen",
+    "start": "Spracheingabe starten",
+    "startWithLocale": "Spracheingabe starten ({{locale}})",
+    "recording": "Aufnahme…",
+    "speak": "Sprechen"
+  },
+  "alt": {
+    "forSelectionTitle": "Alternative Übersetzungen für „{{text}}\"",
+    "forSelection": "Alternative Übersetzungen für <b>„{{text}}\"</b>",
+    "markHintTitle": "Markiere zuerst ein Wort oder eine Wortfolge oben für gezielte Alternativen — sonst werden Satzvarianten des Gesamttextes vorgeschlagen.",
+    "markHint": "Wort/Wortfolge markieren — Alternative Übersetzung vorschlagen"
+  },
+  "actions": {
+    "translating": "Übersetze...",
+    "translate": "Übersetzen",
+    "rewrite": "Umschreiben",
+    "rewriting": "Schreibe um…"
+  },
+  "result": {
+    "newGlossaryEntry": "Neuer Glossareintrag",
+    "newGlossaryEntryTitle": "Neuen Glossar-Eintrag manuell anlegen",
+    "copied": "Kopiert!",
+    "copy": "Kopieren",
+    "loading": "Wird übersetzt...",
+    "placeholder": "Übersetzung erscheint hier...",
+    "glossaryUsed": "Berücksichtigtes Glossar:",
+    "plusChannel": "+ Channel {{code}}",
+    "glossaryMarked": "Segmente aus dem Glossar werden entsprechend gekennzeichnet.",
+    "hits_one": "({{count}} Treffer)",
+    "hits_other": "({{count}} Treffer)",
+    "hitsWithChannel_one": "({{count}} Treffer, davon {{channel}} Channel-Override)",
+    "hitsWithChannel_other": "({{count}} Treffer, davon {{channel}} Channel-Override)"
+  },
+  "highlight": {
+    "channelTooltip": "Channel-Override ({{channel}}): {{source}} → {{target}}\nKlicken zum Bearbeiten",
+    "glossaryTooltip": "Aus Glossar: {{source}} → {{target}}\nKlicken zum Bearbeiten",
+    "fassungTooltip": "Channel-Fassung ({{channel}}): {{source}} → {{target}}"
+  },
+  "altModal": {
+    "title": "Alternativen",
+    "close": "Schließen",
+    "forPhrase": "Für markierte Phrase:",
+    "wholeText": "Ganzer Text — Tipp: für Wort-Alternativen eine Phrase im Quelltext markieren, bevor „Alternativen\" geklickt wird.",
+    "loading": "Hole Alternativen…",
+    "onlyOneVariant": "DeepL liefert für diese Phrase nur eine Variante.",
+    "noVariants": "Keine zusätzlichen Varianten – bei langen Texten liefert DeepL meist identische Alternativen.",
+    "noVariantsTip": "Tipp: einzelnes Wort oder kurze Phrase im Quelltext markieren und nochmal „Alternativen\" klicken.",
+    "spanHint": "Klick auf die Variante kopiert in die Zwischenablage. „📖+\" legt die Variante als Glossareintrag an.",
+    "fullHint": "Klick übernimmt die Variante als neues Ergebnis. Abweichungen sind <hl>gelb</hl> hervorgehoben.",
+    "saveAsGlossary": "Als Glossareintrag speichern ({{source}} → {{target}}{{channel}})"
+  },
+  "wordOrder": {
+    "show": "Wortstellungs-Varianten anzeigen (LLM)",
+    "showTitle": "Variiert nur die Wortreihenfolge (gleiche Begriffe). Verbraucht ca. 80 Tokens (Cheap-Tier).",
+    "loading": "Hole Wortstellungs-Varianten…",
+    "none": "Keine zusätzlichen Wortstellungen gefunden.",
+    "headingSpan": "Wortstellungs-Varianten (LLM) — Klick kopiert in die Zwischenablage. „📖+\" legt die Variante als Glossareintrag an.",
+    "headingFull": "Wortstellungs-Varianten (LLM) — Klick übernimmt als neues Ergebnis."
+  },
+  "editor": {
+    "title": "Glossareintrag bearbeiten",
+    "source": "Quelle ({{lang}})",
+    "target": "Ziel ({{lang}})",
+    "sourcePlaceholder": "z. B. Schienen-Strahler",
+    "targetPlaceholder": "z. B. koľajnicový reflektor",
+    "channelOverrideHint": "Speichert als Channel-Override für {{channel}} — Standard bleibt unverändert.",
+    "standardHint": "Speichert/aktualisiert den Standard-Eintrag im {{org}}-Glossar.",
+    "cancel": "Abbrechen",
+    "saving": "Speichere…",
+    "save": "Speichern",
+    "created": "Neuer Eintrag gespeichert",
+    "updated": "Eintrag aktualisiert",
+    "unchanged": "Keine Änderung",
+    "vorschlag": "Vorschlag eingereicht, ein Admin gibt ihn frei."
+  },
+  "errors": {
+    "phraseTooLong": "Phrase zu lang (max. 200 Zeichen) — kürzeren Span markieren.",
+    "http": "Fehler {{status}}",
+    "wordOrderFailed": "Wortstellungs-Abruf fehlgeschlagen",
+    "alternativesFailed": "Alternativen-Abruf fehlgeschlagen",
+    "fillBoth": "Bitte Quelle und Ziel ausfüllen",
+    "saveFailed": "Speichern fehlgeschlagen",
+    "translateFailed": "Übersetzung fehlgeschlagen"
+  },
+  "channelFassung": {
+    "hint": "Deutsch → Deutsch: Der Text wird in die Fassung des gewählten Channels umgeschrieben (Hausschreibweise).",
+    "needChannel": "Deutsch → Deutsch: Bitte einen Channel wählen — der Text wird in dessen Fassung umgeschrieben.",
+    "summary_one": "Channel-Fassung {{channel}}: {{count}} Abschnitt umgeschrieben — {{model}} vom Sprachmodell, {{rule}} nach Regel.",
+    "summary_few": "Channel-Fassung {{channel}}: {{count}} Abschnitte umgeschrieben — {{model}} vom Sprachmodell, {{rule}} nach Regel.",
+    "summary_many": "Channel-Fassung {{channel}}: {{count}} Abschnitte umgeschrieben — {{model}} vom Sprachmodell, {{rule}} nach Regel.",
+    "summary_other": "Channel-Fassung {{channel}}: {{count}} Abschnitte umgeschrieben — {{model}} vom Sprachmodell, {{rule}} nach Regel.",
+    "unchanged": "Channel-Fassung {{channel}}: kein Begriff aus der Hausschreibweise gefunden — der Text bleibt unverändert.",
+    "noOwnTerms": "Für {{channel}} sind noch keine eigenen Begriffe hinterlegt — es gilt nur die {{org}}-Hausschreibweise (Glossare → DE → DE)."
+  }
+}
