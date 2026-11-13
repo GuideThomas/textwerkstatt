@@ -46,8 +46,8 @@ export default function ScanUpload({ onUploadComplete, disabled }: Props) {
 
   useEffect(() => {
     fetch('/api/glossaries')
-      .then(r => r.json())
-      .then(setGlossaries)
+      .then(r => (r.ok ? r.json() : []))
+      .then(liste => setGlossaries(Array.isArray(liste) ? liste : []))
       .catch(() => {});
   }, []);
 

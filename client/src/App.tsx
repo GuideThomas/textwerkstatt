@@ -15,6 +15,7 @@ import VersionDiffPage from './pages/VersionDiffPage';
 import PanelConnectPage from './pages/PanelConnectPage';
 import PanelConnectionsPage from './pages/PanelConnectionsPage';
 import ErrorBoundary from './components/ErrorBoundary';
+import { einstellungen } from './einstellungen';
 import AppHeader, { type Tab, ADMIN_TABS, resolveTab } from './components/AppHeader';
 
 /**
@@ -131,8 +132,11 @@ function App() {
 
   // Verwaltungsreiter über die Adresse nur für Admins. `shownTab` gilt schon beim Rendern,
   // damit ein Nicht-Admin die Verwaltung nicht einmal kurz eingehängt bekommt.
+  // In der Demo gibt es kein Illustrator-Panel (alle Panel-Wege sind dort 403): der Reiter führte auf eine Fehlermeldung.
   const shownTab: Tab =
-    user && user.role !== 'admin' && ADMIN_TABS.includes(activeTab) ? DEFAULT_TAB : activeTab;
+    user && user.role !== 'admin' && ADMIN_TABS.includes(activeTab) ? DEFAULT_TAB
+      : einstellungen().demo && activeTab === 'panel' ? DEFAULT_TAB
+        : activeTab;
   useEffect(() => {
     if (shownTab !== activeTab) setActiveTab(shownTab);
   }, [shownTab, activeTab]);

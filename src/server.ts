@@ -66,6 +66,9 @@ function cookieSecure(): boolean | 'auto' {
   return isProduction;
 }
 
+// Der Kopf `X-Powered-By: Express` nennt jedem Besucher das Framework; er nützt niemandem.
+app.disable('x-powered-by');
+
 // Trust proxy (behind nginx/Cloudflare)
 if (isProduction) {
   app.set('trust proxy', 1);
@@ -96,7 +99,9 @@ app.use(session({
   cookie: {
     secure: cookieSecure(),
     httpOnly: true,
-    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    // 24 Stunden. In der Demo zehn Tage, also bis zum nächsten Reset (der leert die Sitzungen mit allem anderen): Dokumente
+    // hängen dort an der Gastsitzung, und wer am nächsten Tag wiederkommt, soll seine eigenen noch sehen (Entscheid Thomas 13.11.2026).
+    maxAge: (config.demo.an ? 10 * 24 : 24) * 60 * 60 * 1000,
     sameSite: 'lax',
   },
 }));
@@ -172,6 +177,38 @@ app.use('/api/dashboard', dashboardRouter); // has its own requireAuth per route
 app.use('/api/users', usersRouter); // has its own requireAdmin per route
 app.use('/api/topics', topicsRouter); // has its own requireAuth/requireAdmin per route
 app.use('/api/native-speakers', nativeSpeakersRouter); // has its own requireAuth/requireAdmin per route
+
+// Ein unbekannter API-Weg ist 404 mit JSON. Bis 13.11.2026 fiel ein GET darauf in die Oberfläche unten und kam als
+// Startseite mit 200 zurück: Ein Aufrufer mit vertipptem Pfad bekam „Erfolg“ und HTML statt eines Fehlers.
+app.use('/api', (_req, res) => {
+  res.status(404).json({ error: 'Not found' });
+});
+
+// Fehler, die eine Route nicht selbst fängt — allen voran Multer (Datei zu groß, falscher Typ): JSON mit Grund statt der
+// HTML-Fehlerseite von Express, an der die Oberfläche beim Lesen der Antwort scheiterte („Unexpected token '<'“).
+app.use('/api', (err: unknown, _req: express.Request, res: express.Response, next: express.NextFunction) => {
+  if (res.headersSent) return next(err);
+  const e = err as { name?: string; code?: string; message?: string; status?: number; type?: string };
+  if (e?.name === 'MulterError') {
+    const zuGross = e.code === 'LIMIT_FILE_SIZE';
+    res.status(zuGross ? 413 : 400).json({
+      error: zuGross ? `Die Datei ist zu groß (höchstens ${config.upload.maxFileSizeMb} MB)` : `Upload abgelehnt: ${e.message ?? e.code}`,
+      code: zuGross ? 'datei_zu_gross' : 'upload_abgelehnt',
+    });
+    return;
+  }
+  if (typeof e?.message === 'string' && e.message.startsWith('Unsupported file type')) {
+    res.status(400).json({ error: e.message, code: 'upload_abgelehnt' });
+    return;
+  }
+  // body-parser: kaputtes JSON oder zu großer Rumpf
+  if (e?.type === 'entity.parse.failed' || e?.type === 'entity.too.large') {
+    res.status(e.status ?? 400).json({ error: e.type === 'entity.too.large' ? 'Anfrage zu groß' : 'Ungültiges JSON' });
+    return;
+  }
+  console.error('Unbehandelter Fehler in einer API-Route:', err);
+  res.status(500).json({ error: 'Internal server error' });
+});
 
 // Static Frontend (Production)
 if (isProduction) {

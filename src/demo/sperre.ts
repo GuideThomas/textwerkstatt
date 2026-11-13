@@ -40,11 +40,20 @@ const ZU: RegExp[] = [/^\/api\/glossaries\/deepl-usage$/];
 const passt = (m: Methoden, methode: string) =>
   m === 'alle' || (m === 'lesen' ? methode === 'GET' || methode === 'HEAD' : m.includes(methode));
 
+/**
+ * So, wie Express den Pfad einer Route zuordnet: ohne Rücksicht auf Groß- und Kleinschreibung und auf einen Schrägstrich am Ende.
+ * Die Ausnahmen in `ZU` müssen genauso lesen, sonst ist `/api/glossaries/DEEPL-USAGE` oder `…/deepl-usage/` für die Liste ein
+ * gewöhnlicher Glossar-Weg (offen) und für Express der gesperrte (Review 13.11.2026, live belegt: 401 statt 403).
+ */
+const wieExpress = (pfad: string) => pfad.toLowerCase().replace(/\/{2,}/g, '/').replace(/\/+$/, '');
+
 /** Steht dieser Aufruf auf der Liste? Für die Prüfskripte ausgelagert. */
 export function demoOffen(methode: string, pfad: string): boolean {
   // `/API/…` ist für Express ein API-Weg: der Vergleich hier ohne Rücksicht auf die Schreibweise, die Liste unten mit.
   if (!pfad.toLowerCase().startsWith('/api')) return true;
-  if (ZU.some((muster) => muster.test(pfad))) return false;
+  // Sperren lesen den Pfad wie Express (großzügig), Freigaben wörtlich (streng): Beides fällt im Zweifel nach zu.
+  const normal = wieExpress(pfad);
+  if (ZU.some((muster) => muster.test(normal))) return false;
   return OFFEN.some(([m, muster]) => passt(m, methode.toUpperCase()) && muster.test(pfad));
 }
 

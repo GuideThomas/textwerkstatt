@@ -46,6 +46,14 @@ router.post('/', upload.single('file'), async (req: Request, res: Response) => {
     res.status(400).json({ error: 'No file uploaded' });
     return;
   }
+  // Eine abgelehnte Anfrage lässt keine Datei liegen. Multer hat sie schon gespeichert, bevor die Felder geprüft sind; bis
+  // 13.11.2026 blieb sie bei jedem 400 (Sprache fehlt, Anrede ungültig, DE → DE ohne Channel) für immer im Upload-Ordner.
+  // Bei 4xx/5xx hat diese Route kein Projekt angelegt, das auf die Datei zeigt — außer beim Ersetzen (`project_id`), siehe unten.
+  const abgelegt = req.file.path;
+  let dateiVergeben = false;
+  res.on('finish', () => {
+    if (res.statusCode >= 400 && !dateiVergeben) fs.unlink(abgelegt, () => undefined);
+  });
   // Demo: ein PDF zur Zeit (E3). Liest Docling gerade eines, wird das zweite gleich abgewiesen statt minutenlang zu warten.
   if (pdfBelegt() && path.extname(req.file.originalname).toLowerCase() === '.pdf') {
     fs.unlink(req.file.path, () => undefined);
@@ -154,6 +162,7 @@ router.post('/', upload.single('file'), async (req: Request, res: Response) => {
          WHERE id = $9`,
         [fileType, req.file.originalname, req.file.filename, fileSize, channelCode, glossaryDisabled, optimizeSource, formatProfile, project_id]
       );
+      dateiVergeben = true; // das Projekt zeigt jetzt auf die Datei, auch wenn das Einreihen danach scheitert
       const jobId = await enqueueTranslation(project_id);
       res.status(201).json({
         project_id, job_id: jobId,
@@ -189,6 +198,7 @@ router.post('/', upload.single('file'), async (req: Request, res: Response) => {
          fileSize, userId, siblingGroupId, parent_project_id || null, versionNumber, channelCode, glossaryDisabled, optimizeSource, formatProfile, formality]
       );
       const projectId = result.rows[0].id;
+      dateiVergeben = true; // ab hier zeigt ein Projekt auf die Datei
 
       if (topicIds.length > 0) {
         await pool.query(

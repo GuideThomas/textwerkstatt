@@ -56,6 +56,7 @@
       "connected": "Csatlakozva",
       "parsing": "Fájl feldolgozása",
       "translating": "Fordítás folyamatban",
+      "condensing": "Szövegek rövidítése",
       "finalizing": "Befejezés",
       "completed": "Kész",
       "error": "Hiba"

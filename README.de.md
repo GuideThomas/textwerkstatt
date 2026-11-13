@@ -76,10 +76,11 @@ Meldet Docker `ports are not available` (Windows reserviert manche Ports), trag 
 einmal und nimm diesen Port in der Adresse unten. Ohne DeepL-Schlüssel startet die Werkstatt auch; Prüfen und Hausschreibweise
 gehen, Übersetzen nicht, und im Log steht `API key is invalid`, bis der Schlüssel eingetragen ist.
 
-Die Oberfläche läuft auf http://localhost:3006, nur auf diesem Rechner (anderer Port: `APP_PORT` in der `.env`). Beim ersten Start legt der Container das Datenbankschema
-an und spielt den Beispielinhalt aus `seeds/demo/` ein: einen kleinen Fahrradladen mit zwei Channels, Glossar DE→EN und DE→FR,
-Hausschreibweise und Stilprofilen. Mit `SEED=` in der `.env` startet es leer; eigener Inhalt gehört nach `seeds/<name>/`, dazu
-`SEED=<name>`.
+Die Oberfläche läuft auf http://localhost:3006, nur auf diesem Rechner (anderer Port: `APP_PORT` in der `.env`). Bei jedem Start gleicht der Container das Datenbankschema
+ab und spielt den Beispielinhalt aus `seeds/demo/` ein: einen kleinen Fahrradladen mit zwei Channels, Glossar DE→EN und DE→FR,
+Hausschreibweise und Stilprofilen. Was du aus dem Beispiel löschst, ist deshalb nach einem Neustart wieder da. Mit `SEED=` in der
+`.env` startet es leer; eigener Inhalt gehört nach `seeds/<name>/`, dazu `SEED=<name>` und einmal `docker compose up -d --build`
+(Seeds und Themen liegen im Image).
 
 Das erste Admin-Konto in einem eigenen Terminal anlegen (PowerShell, Terminal); der Befehl fragt nach dem Passwort (mindestens 12
 Zeichen), eine KI kann es also nicht für dich eintippen, und er geht nur, solange es noch keinen Admin gibt. Weitere Konten legt ein Admin unter Verwaltung › Benutzer an, oder sie entstehen bei der ersten Microsoft-Anmeldung
@@ -98,12 +99,12 @@ Alle Einstellungen stehen in der `.env`; [.env.example](.env.example) erklärt j
 | Dienst | Gebraucht für | Einstellungen |
 |---|---|---|
 | PostgreSQL 16 | alles | `DB_*` (Compose startet sie) |
-| DeepL API | Übersetzen, Glossare | `DEEPL_API_KEY`, `DEEPL_CHARACTER_LIMIT` |
+| DeepL API | Übersetzen, Glossare | `DEEPL_API_KEY` |
 | OpenAI-kompatibler Endpunkt (z. B. LiteLLM) | Optimieren, Kürzen, Namensfassung | `LLM_BASE_URL`, `LLM_API_KEY`, `LLM_*_MODEL`, je KI-Weg ein Schlüssel `KI_WEG_<NAME>_KEY` |
 | LanguageTool | Prüfen | `LANGUAGETOOL_URL` (Compose startet es) |
 | Docling | PDF | `DOCLING_URL` |
 | Microsoft Entra ID | Anmeldung mit Microsoft | `AZURE_*` |
-| Mailserver | Einladungen zur Prüfung | `MAIL_FROM` (SMTP auf 127.0.0.1:25) |
+| Mailserver | Einladungen zur Prüfung | `MAIL_FROM` (SMTP auf 127.0.0.1:25 des Rechners, auf dem der Server läuft; im Compose-Container gibt es dort keinen) |
 | Deine Organisation | Namen in der Oberfläche | `ORGANISATION_NAME`, `APP_NAME`, `GESCHUETZTE_WOERTER` |
 | Erscheinungsbild | Farben, Logo, Schrift | Build-Argument `THEMA`, Ordner `client/themes/<name>/` |
 
@@ -111,21 +112,24 @@ Alle Einstellungen stehen in der `.env`; [.env.example](.env.example) erklärt j
 
 - Schlüssel nur in der `.env`, nie im Code oder im Repository. Der Server lauscht auf 127.0.0.1, den Weg nach außen macht ein
   Reverse Proxy.
-- Maschinen-Wege (Stapelübersetzung, Kürzen, Übersetzungsprüfung, Chat-Zugang, Illustrator-Panel) sind zu, solange ihr Schlüssel
-  leer ist. Ein leerer Schlüssel heißt nie „offen“.
+- Maschinen-Wege (Stapelübersetzung, Kürzen, Übersetzungsprüfung, Chat-Zugang, Illustrator-Panel) sind von außen zu, solange ihr
+  Schlüssel leer ist. Ein leerer Schlüssel heißt nie „offen“: Ohne `TRANSLATION_SERVICE_KEY` nehmen Stapelübersetzung, Kürzen und
+  Übersetzungsprüfung nur Aufrufe direkt vom selben Rechner an, nicht über den Reverse Proxy.
 - Schalter schließen, wenn sie fehlen: ein unbekannter Wert für `GLOSSAR_FREIGABE` heißt „nur Admins“, `DEMO_MODUS=an` ohne
   Passwort verweigert den Start.
 - Freitext erreicht ein Cloud-Modell nur über die Pseudonymisierung und ihre Prüfung danach. Ihre Grenzen: Sie erkennt die
   Klassen oben und deine Schutzliste, nicht jede vertrauliche Tatsache in einem Satz. Bedeutungswörter um eine Zahl
   („mindestens“ → „bis zu“) werden nicht geprüft. Texte, die das Haus nicht verlassen dürfen, gehören auf keinen Cloud-Weg,
   sondern an ein lokales Modell.
-- Jeder KI-Weg hat einen eigenen Schlüssel, ein Budget kann ihn also allein sperren. Die Werkstatt weicht nie auf ein anderes
-  Modell aus.
+- Jeder KI-Weg hat einen eigenen Schlüssel, ein Budget kann ihn also allein sperren. Optimieren weicht nie auf ein anderes
+  Modell aus. Nur Kürzen und Namensfassung nehmen bei einem Ausfall `LLM_FALLBACK_MODEL`.
 
 ## Demo
 
-Eine öffentliche Demo mit Beispielinhalt entsteht unter textwerkstatt.thomaswinkler.art. Sie setzt sich alle zehn Tage selbst
-zurück. Bitte dort keine vertraulichen Texte eingeben.
+Eine öffentliche Demo mit Beispielinhalt läuft unter https://textwerkstatt.thomaswinkler.art. Sie ist mit einem Passwort
+geschützt (`DEMO_MODUS=an`, dieselbe Anwendung wie hier im Repository) und wird alle zehn Tage auf den Beispielinhalt
+zurückgesetzt; das Datum steht im Hinweisband über jeder Seite. Bitte dort keine vertraulichen Texte eingeben. Das Zurücksetzen
+selbst ist ein Betriebsskript des Servers und nicht Teil dieses Repositorys.
 
 ## Entwicklung
 

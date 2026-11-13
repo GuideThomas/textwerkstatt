@@ -20,6 +20,7 @@ const PHASE_KEYS: Record<string, string> = {
   connected: 'progress.phases.connected',
   parsing: 'progress.phases.parsing',
   translating: 'progress.phases.translating',
+  condensing: 'progress.phases.condensing',
   finalizing: 'progress.phases.finalizing',
   completed: 'progress.phases.completed',
   error: 'progress.phases.error',

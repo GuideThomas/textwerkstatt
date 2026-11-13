@@ -44,6 +44,7 @@ import { config } from '../config';
 import { detectDifferences, analyzeBatch, textSimilarity } from '../services/terminology-scan';
 import { LlmTerminalError } from '../services/llm';
 import type { AlignedSegment, DiffSegment } from '../types';
+import { requireServiceKeyOrLocal } from '../middleware/dienstzugang';
 
 const router = Router();
 
@@ -192,7 +193,11 @@ export function waehleFuerLlm(diffs: DiffSegment[], obergrenze: number): DiffSeg
 
 function requireServiceKey(req: Request, res: Response, next: NextFunction): void {
   const expected = config.serviceKey;
-  if (!expected) { next(); return; }
+  if (!expected) {
+    // Kein Schlüssel heißt zu, nicht offen (Grundsatz G4, Review 13.11.2026): dann nur direkt vom selben Rechner.
+    requireServiceKeyOrLocal(req, res, next);
+    return;
+  }
   const provided = req.header('X-Service-Key') || '';
   if (provided !== expected) {
     res.status(401).json({ error: 'Invalid or missing X-Service-Key' });

@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
 import fs from 'fs';
 import { pool } from '../db/connection';
+import { config } from '../config';
 import { getFilePath } from '../services/storage';
 import { Project, CreateProjectRequest } from '../types';
 import { AuthenticatedRequest, requireAdmin } from '../middleware/auth';
@@ -133,13 +134,17 @@ router.get('/', async (req: Request, res: Response) => {
 });
 
 // GET /api/projects/storage-stats — Aggregierte Speichernutzung
-router.get('/storage-stats', async (_req: Request, res: Response) => {
+router.get('/storage-stats', async (req: Request, res: Response) => {
   try {
+    // In der Demo nur die eigenen Dateien: Die Summe über alle verriete, was andere Gäste hochgeladen haben.
+    const nurVon = config.demo.an ? (req.session?.userId ?? '00000000-0000-0000-0000-000000000000') : null;
     const result = await pool.query(
       `SELECT COUNT(*)::int AS file_count,
               COALESCE(SUM(file_size_bytes), 0)::bigint AS total_bytes
          FROM projects
-        WHERE stored_filename IS NOT NULL`
+        WHERE stored_filename IS NOT NULL
+          AND ($1::uuid IS NULL OR created_by = $1::uuid)`,
+      [nurVon]
     );
     res.json(result.rows[0]);
   } catch (err) {

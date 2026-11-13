@@ -12,7 +12,8 @@ export default function DemoHinweis() {
   if (!demo) return null;
   const reset = demo.naechsterReset ? new Date(demo.naechsterReset) : null;
   const datum = reset && !Number.isNaN(reset.getTime())
-    ? reset.toLocaleDateString(currentLocale(), { day: 'numeric', month: 'long', year: 'numeric' })
+    // Der Reset läuft um 03:00 Wiener Zeit. Ohne `timeZone` läse ein Besucher westlich davon den Vortag.
+    ? reset.toLocaleDateString(currentLocale(), { timeZone: 'Europe/Vienna', day: 'numeric', month: 'long', year: 'numeric' })
     : null;
   return (
     <div role="note" className="w-full bg-amber-50 border-b border-amber-200 text-amber-900 text-xs px-4 py-2">

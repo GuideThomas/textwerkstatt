@@ -68,11 +68,12 @@ export default function SegmentList({ projectId, segmentCount }: Props) {
       {/* Stats */}
       {stats && (
         <div className="flex gap-4 mb-4 text-xs text-gray-500">
-          <span>{t('segments.count', { count: stats.total })}</span>
-          <span>{t('segments.translated', { count: stats.translated })}</span>
-          {stats.condensed > 0 && <span>{t('segments.condensed', { count: stats.condensed })}</span>}
-          {stats.total_cache_hits > 0 && <span>{t('segments.cacheHits', { count: stats.total_cache_hits })}</span>}
-          {stats.avg_source_length && <span>{t('segments.avgLength', { value: stats.avg_source_length })}</span>}
+          {/* Number(): Eine Zeichenkette als `count` überspringt in i18next die Mehrzahlform, dann steht roh „segments.count“ da. */}
+          <span>{t('segments.count', { count: Number(stats.total) || 0 })}</span>
+          <span>{t('segments.translated', { count: Number(stats.translated) || 0 })}</span>
+          {Number(stats.condensed) > 0 && <span>{t('segments.condensed', { count: Number(stats.condensed) })}</span>}
+          {Number(stats.total_cache_hits) > 0 && <span>{t('segments.cacheHits', { count: Number(stats.total_cache_hits) })}</span>}
+          {Number(stats.avg_source_length) > 0 && <span>{t('segments.avgLength', { value: stats.avg_source_length })}</span>}
         </div>
       )}
 

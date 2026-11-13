@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 import thema from '@thema';
+import { einstellungen } from '../einstellungen';
 
 /**
  * Kopfzeile. Farben, Logo und Reiterstil kommen aus dem Thema (`thema.kopf`, client/themes/<name>/index.tsx).
@@ -107,6 +108,7 @@ export default function AppHeader({ activeTab, onTabChange, user, onLogout }: Pr
   const navRef = useRef<HTMLElement>(null);
   const manageActive = MANAGE.some((m) => m.key === activeTab);
   const displayName = user.name || user.email;
+  const inDemo = !!einstellungen().demo;
 
   // Unter lg scrollt die Reiterzeile seitlich: Der aktive Reiter soll sichtbar sein, auch „Verwaltung“ ganz rechts.
   useEffect(() => {
@@ -231,13 +233,15 @@ export default function AppHeader({ activeTab, onTabChange, user, onLogout }: Pr
             {/* Personen-Kürzel führt zu den eigenen Illustrator-Panel-Verbindungen (28.10.2026). */}
             <button
               type="button"
-              onClick={() => onTabChange('panel')}
+              // In der Demo nur das Kürzel: Die Panel-Verbindungen gibt es dort nicht (alle Panel-Wege sind 403).
+              onClick={inDemo ? undefined : () => onTabChange('panel')}
+              disabled={inDemo}
               aria-current={activeTab === 'panel' ? 'page' : undefined}
               className={`w-7 h-7 rounded-full inline-flex items-center justify-center text-[11px] font-bold select-none transition-colors ${thema.kopf.kuerzel} ${
                 activeTab === 'panel' ? thema.kopf.kuerzelAktiv : ''
               }`}
-              title={`${user.name ? `${user.name} · ${user.email}` : user.email}\n${t('connections.menuTitle', { ns: 'panel' })}`}
-              aria-label={`${displayName} — ${t('connections.menuTitle', { ns: 'panel' })}`}
+              title={inDemo ? displayName : `${user.name ? `${user.name} · ${user.email}` : user.email}\n${t('connections.menuTitle', { ns: 'panel' })}`}
+              aria-label={inDemo ? displayName : `${displayName} — ${t('connections.menuTitle', { ns: 'panel' })}`}
             >
               {initialsOf(displayName)}
             </button>

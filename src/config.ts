@@ -8,6 +8,11 @@ function required(key: string): string {
   if (!value) {
     throw new Error(`Missing required environment variable: ${key}`);
   }
+  // Der Platzhalter aus `.env.example` ist nicht leer und wäre sonst ein gültiger Wert: ein Sitzungsgeheimnis oder
+  // Datenbankpasswort, das im öffentlichen Repo steht. Dann lieber nicht starten (Grundsatz G4).
+  if (/^YOUR_[A-Z_]+_HERE$/.test(value.trim())) {
+    throw new Error(`${key} trägt noch den Platzhalter aus .env.example — bitte einen eigenen Wert setzen`);
+  }
   return value;
 }
 
@@ -72,7 +77,10 @@ export function demoEinstellungen(env: NodeJS.ProcessEnv = process.env) {
     kiZeichenJeSitzung: zahl('DEMO_KI_ZEICHEN_JE_SITZUNG', 20000),
     uploadMb: zahl('DEMO_MAX_UPLOAD_MB', 5),
     aufrufeJeMinute: zahl('DEMO_AUFRUFE_JE_MINUTE', 120),
+    /** Fehlversuche am Tor je Adresse und Stunde. */
     torVersucheJeStunde: zahl('DEMO_TOR_VERSUCHE_JE_STUNDE', 10),
+    /** Richtige Anmeldungen (neue Gäste) je Adresse und Stunde — für einen Saal hinter einer Adresse bemessen. */
+    torAnmeldungenJeStunde: zahl('DEMO_TOR_ANMELDUNGEN_JE_STUNDE', 200),
   };
 }
 

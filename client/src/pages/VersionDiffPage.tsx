@@ -80,6 +80,8 @@ export default function VersionDiffPage({ projectId, onBack }: Props) {
     setDiffLoading(true);
     try {
       const res = await fetch(`/api/projects/${olderId}/diff/${newerId}`);
+      // Eine Fehlerantwort ist kein Vergleich: `{ error }` als Vergleich ließe die Ansicht beim Lesen von `counts` abstürzen.
+      if (!res.ok) throw new Error(`Vergleich: HTTP ${res.status}`);
       setDiff(await res.json());
     } catch (err) {
       console.error(err);

@@ -14,6 +14,9 @@ import { config } from '../config';
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
+/** Wege unter `/api/projects` ohne Projekt-ID im Pfad (`routes/projects.ts`). Ein neuer Sammelweg gehört hierher, sonst ist er 404. */
+const SAMMELWEGE = new Set(['storage-stats', 'bulk-delete', 'consistency-check']);
+
 /** Gehören alle diese Projekte der Person? Leere Liste: ja. Eine ID, die keine UUID ist: nein. */
 export async function gehoertGast(userId: string, ids: string[]): Promise<boolean> {
   if (ids.length === 0) return true;
@@ -38,14 +41,49 @@ export async function demoEigeneProjekte(req: Request, res: Response, next: Next
       (req.query as Record<string, unknown>).user = 'me';
       return next();
     }
-    const ids = teile.filter((t) => UUID.test(t));
-    if (teile[0] === 'bulk-delete') {
-      const body = (req.body ?? {}) as { ids?: unknown };
-      if (Array.isArray(body.ids)) ids.push(...(body.ids as string[]));
+    if (teile.length === 0) return next(); // POST /: ein neues Projekt gehört dem, der es anlegt
+    const ids: string[] = [];
+    // Express ordnet Routen ohne Rücksicht auf Groß- und Kleinschreibung zu, also hier genauso (`/Bulk-Delete`).
+    const erstes = teile[0].toLowerCase();
+    if (teile.length === 1 && SAMMELWEGE.has(erstes)) {
+      if (erstes === 'bulk-delete') {
+        const body = (req.body ?? {}) as { ids?: unknown };
+        if (Array.isArray(body.ids)) ids.push(...(body.ids as string[]));
+      }
+    } else {
+      // Alles andere ist `/:id/…`. Das erste Stück MUSS eine streng geschriebene UUID sein: Postgres nimmt eine UUID auch ohne
+      // Bindestriche oder in Klammern an, und Express dekodiert `%34…` erst für die Route. Bis 13.11.2026 wurden nur Stücke
+      // geprüft, die wie eine UUID aussahen; alles andere lief ungeprüft durch, und der Router fand das fremde Projekt.
+      if (!UUID.test(teile[0])) {
+        res.status(404).json({ error: 'Project not found' });
+        return;
+      }
+      ids.push(teile[0]);
+      // `/:id/diff/:otherId` nennt ein zweites Projekt. Weitere UUIDs im Pfad sind KEINE Projekte (`/:id/segments/:segmentId`):
+      // Sie als Projekt zu prüfen, hat bis 13.11.2026 jeden Schreibweg an einem eigenen Segment mit 404 „Projekt nicht gefunden“
+      // beantwortet — die richtige Wirkung aus dem falschen Grund. Die Sperre dafür steht unten, mit ihrem Grund.
+      if (teile[1]?.toLowerCase() === 'diff') {
+        if (!teile[2] || !UUID.test(teile[2])) {
+          res.status(404).json({ error: 'Project not found' });
+          return;
+        }
+        ids.push(teile[2]);
+      }
     }
-    // Ein erstes Pfadstück, das weder UUID noch ein bekannter Sammelweg ist, fällt an den Router (404 oder Admin-Weg).
     if (!(await gehoertGast(userId, ids))) {
       res.status(404).json({ error: 'Project not found' });
+      return;
+    }
+    // Segmente lesen ja, schreiben nein: Die Zeilen in `segments` sind der Übersetzungs-Cache, und der ist für alle Gäste
+    // gemeinsam (Schlüssel: Text, Sprachpaar, Channel …). Wer in SEINEM Projekt ein Segment bearbeitet oder freigibt, ändert
+    // dieselbe Zeile, auf die das Projekt eines anderen Gasts mit demselben Satz zeigt. In der Firma ist das gewollt, in einer
+    // öffentlichen Demo ein Schreibzugriff über die Projektgrenze. Offen erst, wenn der Cache der Demo je Gast getrennt ist.
+    const schreibt = req.method !== 'GET' && req.method !== 'HEAD';
+    if (schreibt && teile[1]?.toLowerCase() === 'segments') {
+      res.status(403).json({
+        error: 'In der Demo lassen sich Segmente nicht bearbeiten oder freigeben: Der Übersetzungs-Cache ist für alle Gäste gemeinsam.',
+        code: 'demo_gesperrt',
+      });
       return;
     }
     next();

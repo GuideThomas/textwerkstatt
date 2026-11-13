@@ -195,8 +195,9 @@ export default function FileUpload({ onUploadComplete, topics = [], parentProjec
       });
 
       if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || t('upload.errors.uploadFailed'));
+        // Nicht jede Fehlerantwort ist JSON (Proxy, zu große Datei): dann die allgemeine Meldung statt „Unexpected token '<'“.
+        const data = await res.json().catch(() => null);
+        throw new Error((data && data.error) || t('upload.errors.uploadFailed'));
       }
 
       const result: UploadResult = await res.json();
@@ -438,9 +439,9 @@ export default function FileUpload({ onUploadComplete, topics = [], parentProjec
             {t('upload.storeView.info')}
           </p>
           <p className="text-xs text-gray-500 mt-1">
-            <code className="text-gray-600">&lt;a href="/de/led-praxis"&gt;</code> →{' '}
+            <code className="text-gray-600">&lt;a href="/de/ratgeber"&gt;</code> →{' '}
             <code className="text-gray-600">
-              &lt;a href="/{targetLangs[0]?.toLowerCase() || 'fr'}/led-praxis"&gt;
+              &lt;a href="/{targetLangs[0]?.toLowerCase() || 'fr'}/ratgeber"&gt;
             </code>
             {' '}
             <Trans

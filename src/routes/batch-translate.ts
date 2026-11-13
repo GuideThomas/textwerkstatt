@@ -19,6 +19,7 @@ import { protectUnits, restoreUnits, fehlendeWerte, zahlenVollstaendig, PLATZHAL
 import { protectAcronymsWithGlossary, restoreAcronyms } from '../services/acronym-protection';
 import { anfangWieQuelle } from '../services/anfang-gross';
 import { blockWieGlossar, nurBlockEintraege } from '../services/block-woerter';
+import { requireServiceKeyOrLocal } from '../middleware/dienstzugang';
 
 const router = Router();
 
@@ -88,8 +89,8 @@ interface BatchTranslateResponse {
 function requireServiceKey(req: Request, res: Response, next: NextFunction): void {
   const expected = config.serviceKey;
   if (!expected) {
-    // Kein Key konfiguriert → Auth übersprungen (Localhost-Interne-Services)
-    next();
+    // Kein Schlüssel heißt zu, nicht offen (Grundsatz G4, Review 13.11.2026): dann nur direkt vom selben Rechner.
+    requireServiceKeyOrLocal(req, res, next);
     return;
   }
   const provided = req.header('X-Service-Key') || '';

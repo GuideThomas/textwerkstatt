@@ -44,7 +44,8 @@ services:
     cpus: 1
     restart: unless-stopped
 
-  # Rechtschreibung und Grammatik (Schritt „Prüfen“). Ohne diesen Dienst LANGUAGETOOL_URL in .env leeren.
+  # Rechtschreibung und Grammatik (Schritt „Prüfen“). Ohne diesen Dienst: den Abschnitt hier entfernen und oben bei `app`
+  # LANGUAGETOOL_URL: "" setzen. Ein leerer Wert in der .env genügt nicht, dann gilt die Vorgabe mit diesem Dienst.
   languagetool:
     image: erikvl87/languagetool:6.5
     environment:

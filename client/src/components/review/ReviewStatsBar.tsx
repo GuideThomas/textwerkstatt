@@ -54,13 +54,15 @@ export default function ReviewStatsBar({ projectId, projectName, fileType, targe
   const [sendResult, setSendResult] = useState<{ ok: boolean; msg: string } | null>(null);
 
   useEffect(() => {
+    // Nur eine gelungene Antwort übernehmen: `{ error }` als Statistik ergäbe leere Zahlen in der Kopfzeile.
+    const hole = (pfad: string) => fetch(pfad).then(r => (r.ok ? r.json() : null));
     Promise.all([
-      fetch(`/api/projects/${projectId}/segments/stats`).then(r => r.json()),
-      fetch(`/api/projects/${projectId}/token-usage`).then(r => r.json()),
+      hole(`/api/projects/${projectId}/segments/stats`),
+      hole(`/api/projects/${projectId}/token-usage`),
     ]).then(([s, t]) => {
-      setStats(s);
-      setTokenStats(t);
-    });
+      if (s) setStats(s);
+      if (t) setTokenStats(t);
+    }).catch(() => undefined);
   }, [projectId]);
 
   useEffect(() => {

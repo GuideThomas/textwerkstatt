@@ -46,7 +46,7 @@ Object.assign(process.env, {
   DEMO_MODUS: 'an', DEMO_PASSWORT: PASSWORT, GLOSSAR_FREIGABE: 'alle',
   DEMO_DEEPL_ZEICHEN_TAG: '100', DEMO_DEEPL_ZEICHEN_JE_SITZUNG: '60',
   DEMO_KI_ZEICHEN_TAG: '1000', DEMO_KI_ZEICHEN_JE_SITZUNG: '50',
-  DEMO_TOR_VERSUCHE_JE_STUNDE: '5', DEMO_AUFRUFE_JE_MINUTE: '80', DEMO_MAX_UPLOAD_MB: '2',
+  DEMO_TOR_VERSUCHE_JE_STUNDE: '5', DEMO_TOR_ANMELDUNGEN_JE_STUNDE: '12', DEMO_AUFRUFE_JE_MINUTE: '80', DEMO_MAX_UPLOAD_MB: '2',
   // Erkennbar unecht; DeepL wird damit nie erreicht (siehe Kopf), die KI zeigt auf einen geschlossenen Port.
   DEEPL_API_KEY: 'nur-fuer-den-test:fx', LLM_API_KEY: 'nur-fuer-den-test', LLM_BASE_URL: 'http://127.0.0.1:9/v1',
   MAIL_FROM: 'probe@example.invalid', TRANSLATION_SERVICE_KEY: '', UPLOAD_DIR: UPLOADS,
@@ -238,8 +238,29 @@ await pruefe('Tor: falsches und leeres Passwort 401 ohne Sitzung; richtiges öff
   assert.ok(!JSON.stringify(r.body).includes(PASSWORT), 'das Passwort steht in der Antwort');
 });
 
-await pruefe('Tor: nach 5 Versuchen je Adresse und Stunde 429, auch mit dem richtigen Passwort', async () => {
-  // Zwei Versuche (die drei falschen oben und der richtige zählen schon: 4) — der fünfte geht noch, der sechste nicht.
+await pruefe('Tor: gezählt werden nur Fehlversuche — richtige Anmeldungen sperren niemanden aus; nach 5 falschen 429, auch mit dem richtigen Passwort', async () => {
+  // Ein Saal hinter einer Adresse: mehr richtige Anmeldungen als die Grenze (5), alle kommen durch. Bis 13.11.2026 zählte jede mit.
+  for (let i = 1; i <= 7; i += 1) {
+    assert.equal((await api('POST', '/api/auth/demo', { passwort: PASSWORT })).status, 200, `richtige Anmeldung ${i}`);
+  }
+  // Wer schon Gast ist, bleibt derselbe Gast: kein zweiter Nutzer, kein frisches Kontingent je Sitzung.
+  const nutzer = async () => (await q(`SELECT count(*)::int AS n FROM users`)).rows[0].n;
+  const vorher = await nutzer();
+  const ich = (await api('GET', '/api/auth/me', null, GAST)).body.user.id;
+  const nochmal = await api('POST', '/api/auth/demo', { passwort: PASSWORT, name: 'Anderer Name' }, GAST);
+  assert.equal(nochmal.status, 200, JSON.stringify(nochmal.body));
+  assert.equal(nochmal.body.user.id, ich, 'eine zweite Anmeldung in derselben Sitzung hat einen neuen Gast angelegt');
+  assert.equal(await nutzer(), vorher);
+  // Auch richtige Anmeldungen sind begrenzt (hier 12 je Adresse und Stunde; 8 stehen schon): vier gehen noch, die 13. nicht.
+  for (let i = 9; i <= 12; i += 1) {
+    assert.equal((await api('POST', '/api/auth/demo', { passwort: PASSWORT })).status, 200, `richtige Anmeldung ${i}`);
+  }
+  const zuViele = await api('POST', '/api/auth/demo', { passwort: PASSWORT });
+  assert.equal(zuViele.status, 429, JSON.stringify(zuViele.body));
+  assert.match(zuViele.body.error, /sehr viele Gäste/);
+  assert.equal(await nutzer(), vorher + 4, 'eine abgewiesene Anmeldung hat einen Gast angelegt');
+  // Drei falsche stehen schon (oben); der vierte und fünfte gehen noch mit 401 durch, danach ist zu.
+  assert.equal((await api('POST', '/api/auth/demo', { passwort: 'falsch' })).status, 401);
   assert.equal((await api('POST', '/api/auth/demo', { passwort: 'falsch' })).status, 401);
   const r = await api('POST', '/api/auth/demo', { passwort: PASSWORT });
   assert.equal(r.status, 429, JSON.stringify(r.body));
@@ -259,6 +280,8 @@ await pruefe('Sperre: Verwaltung, Anmeldung, SSO, Panel, Maschinen-Routen, Refer
     ['POST', '/api/textwerkstatt/stilprofile/ableiten'], ['POST', '/api/native-speakers/request-review'], ['POST', '/api/native-speakers'],
     ['POST', '/api/topics'], ['GET', '/api/gibt-es-noch-nicht'], ['POST', '/API/cep/translate'], ['GET', '/Api/Users'],
     ['GET', '/api/glossaries/deepl-usage'],
+    // Express ordnet ohne Rücksicht auf Schreibweise und Schrägstrich am Ende zu: Die Ausnahme muss genauso lesen (13.11.2026).
+    ['GET', '/api/glossaries/DEEPL-USAGE'], ['GET', '/api/glossaries/deepl-usage/'], ['GET', '/api/glossaries//deepl-usage'],
   ]) {
     const r = await api(m, p, m === 'GET' ? null : {}, GAST);
     assert.equal(r.status, 403, `${m} ${p}: ${r.status} ${JSON.stringify(r.body)}`);
@@ -346,6 +369,8 @@ await pruefe('Eigene Projekte: Liste, Lesen, Löschen, Sammellöschen und neue F
   app3.use((req, _res, next) => { const wer = req.header('x-gast'); req.session = { userId: wer }; req.user = { id: wer, role: 'user' }; next(); });
   app3.use('/api/projects', demoEigeneProjekte);
   app3.use('/api/projects', await router('routes', 'projects.js'));
+  app3.use('/api/projects', await router('routes', 'segments.js'));
+  app3.use('/api/projects', await router('routes', 'review.js'));
   app3.use('/api/upload', await router('routes', 'upload.js'));
   const s3 = app3.listen(0, '127.0.0.1');
   await new Promise((ok) => s3.once('listening', ok));
@@ -366,6 +391,44 @@ await pruefe('Eigene Projekte: Liste, Lesen, Löschen, Sammellöschen und neue F
     assert.equal((await als(A, 'POST', '/api/projects/bulk-delete', { ids: [pa2, pb] })).status, 404);
     const zahl = async () => (await q(`SELECT count(*)::int AS n FROM projects WHERE id = ANY($1::uuid[])`, [[pa, pa2, pb]])).rows[0].n;
     assert.equal(await zahl(), 3, 'ein abgewiesenes Löschen hat gelöscht');
+    // Andere Schreibweisen derselben fremden ID (Review 13.11.2026): Postgres liest eine UUID auch ohne Bindestriche und in
+    // Klammern, Express dekodiert %-Zeichen erst für die Route und ordnet `/Bulk-Delete` ohne Rücksicht auf die Schreibweise zu.
+    // Positivkontrolle: dieselben Schreibweisen der EIGENEN ID wären ohne die Schranke lesbar, das fremde Projekt gibt es also.
+    for (const [was, pfad] of [
+      ['ohne Bindestriche', `/api/projects/${pb.replace(/-/g, '')}`],
+      ['in Klammern', `/api/projects/%7B${pb}%7D`],
+      ['erstes Zeichen kodiert', `/api/projects/%${pb.charCodeAt(0).toString(16)}${pb.slice(1)}`],
+      ['ohne Bindestriche, Unterweg', `/api/projects/${pb.replace(/-/g, '')}/versions`],
+    ]) {
+      const r = await als(A, 'GET', pfad);
+      assert.equal(r.status, 404, `${was}: ${r.status} ${JSON.stringify(r.body).slice(0, 200)}`);
+    }
+    assert.equal((await als(A, 'DELETE', `/api/projects/${pb.replace(/-/g, '')}`)).status, 404);
+    assert.equal((await als(A, 'POST', '/api/projects/Bulk-Delete', { ids: [pb] })).status, 404, 'Bulk-Delete in anderer Schreibweise');
+    assert.equal((await als(A, 'POST', '/api/projects/BULK-DELETE/', { ids: [pb] })).status, 404, 'BULK-DELETE/ mit Schrägstrich');
+    assert.equal(await zahl(), 3, 'eine andere Schreibweise hat gelöscht');
+    // Segmente des EIGENEN Projekts: lesen ja, schreiben nein — die Zeilen in `segments` sind der gemeinsame Cache aller Gäste.
+    // Die Segment-ID im Pfad ist kein Projekt (bis 13.11.2026 als eines geprüft: 404 „Projekt nicht gefunden“ statt des Grunds).
+    const seg = async (projekt) => (await q(
+      `INSERT INTO project_segments (project_id, format_segment_id, position) VALUES ($1, 'probe', 0) RETURNING id`, [projekt])).rows[0].id;
+    const [sa, sb] = [await seg(pa), await seg(pb)];
+    assert.equal((await als(A, 'GET', `/api/projects/${pa}/segments/stats`)).status, 200, 'eigene Segmente lesen');
+    assert.equal((await als(A, 'GET', `/api/projects/${pb}/segments/stats`)).status, 404, 'fremde Segmente lesen');
+    for (const [m, p] of [
+      ['POST', `/api/projects/${pa}/segments/${sa}/approve`], ['POST', `/api/projects/${pa}/segments/${sa}/unapprove`],
+      ['PUT', `/api/projects/${pa}/segments/${sa}`], ['POST', `/api/projects/${pa}/segments/bulk-approve`],
+      ['POST', `/api/projects/${pa}/segments/${sa}/clarification`], ['DELETE', `/api/projects/${pa}/SEGMENTS/${sa}/clarification`],
+    ]) {
+      const eigen = await als(A, m, p, m === 'DELETE' ? undefined : { translated_text: 'x', project_segment_ids: [sa], note: 'x' });
+      assert.equal(eigen.status, 403, `${m} ${p}: ${eigen.status} ${JSON.stringify(eigen.body)}`);
+      assert.equal(eigen.body.code, 'demo_gesperrt', `${m} ${p}`);
+      assert.match(eigen.body.error, /Übersetzungs-Cache/);
+    }
+    assert.equal((await als(A, 'POST', `/api/projects/${pb}/segments/${sb}/approve`, {})).status, 404, 'fremdes Segment');
+    // Das eigene Projekt mit dem Segment eines fremden: schon der Schreibweg ist zu (403), die Route wird nicht erreicht.
+    assert.equal((await als(A, 'POST', `/api/projects/${pa}/segments/${sb}/approve`, {})).status, 403, 'fremdes Segment unter eigenem Projekt');
+    // Gegenprobe: nichts davon hat geschrieben.
+    assert.equal((await q(`SELECT count(*)::int AS n FROM segments WHERE review_status = 'approved'`)).rows[0].n, 0, 'ein gesperrter Weg hat freigegeben');
     assert.equal((await als(A, 'POST', '/api/projects/bulk-delete', { ids: [pa2] })).status, 200);
     assert.equal(await zahl(), 2);
     // Neue Fassung zu einem fremden Projekt über den Upload: 404, und die Datei bleibt nicht liegen.

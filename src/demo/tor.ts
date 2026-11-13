@@ -17,16 +17,42 @@ const router = Router();
 
 const versuche = new Map<string, { stunde: number; n: number }>();
 
-function zuVieleVersuche(adresse: string): boolean {
-  const stunde = Math.floor(Date.now() / 3600000);
+/**
+ * Gezählt werden nur FEHLversuche. Bis 13.11.2026 zählte jeder Aufruf, auch der mit dem richtigen Passwort: Sitzen die Gäste
+ * hinter einer gemeinsamen Adresse (Vortragssaal, Firmennetz), war nach zehn Anmeldungen in der Stunde für alle weiteren zu.
+ * Gegen Durchprobieren schützt die Grenze unverändert, denn wer rät, liegt falsch.
+ */
+const stundeJetzt = () => Math.floor(Date.now() / 3600000);
+
+function zuVieleFehlversuche(adresse: string): boolean {
+  const v = versuche.get(adresse);
+  return !!v && v.stunde === stundeJetzt() && v.n >= config.demo.torVersucheJeStunde;
+}
+
+function zaehleFehlversuch(adresse: string): void {
+  const stunde = stundeJetzt();
   const v = versuche.get(adresse);
   if (!v || v.stunde !== stunde) {
     versuche.set(adresse, { stunde, n: 1 });
     if (versuche.size > 5000) for (const [k, w] of versuche) if (w.stunde !== stunde) versuche.delete(k);
+    return;
+  }
+  v.n += 1;
+}
+
+/** Richtige Anmeldungen je Adresse und Stunde (jede legt einen Gast an). Zählt beim Prüfen mit. */
+const anmeldungen = new Map<string, { stunde: number; n: number }>();
+
+function zuVieleAnmeldungen(adresse: string): boolean {
+  const stunde = stundeJetzt();
+  const v = anmeldungen.get(adresse);
+  if (!v || v.stunde !== stunde) {
+    anmeldungen.set(adresse, { stunde, n: 1 });
+    if (anmeldungen.size > 5000) for (const [k, w] of anmeldungen) if (w.stunde !== stunde) anmeldungen.delete(k);
     return false;
   }
   v.n += 1;
-  return v.n > config.demo.torVersucheJeStunde;
+  return v.n > config.demo.torAnmeldungenJeStunde;
 }
 
 const hash = (s: string) => createHash('sha256').update(s, 'utf8').digest();
@@ -42,16 +68,36 @@ router.post('/demo', async (req, res) => {
     res.status(404).json({ error: 'Not found' });
     return;
   }
-  if (zuVieleVersuche(req.ip ?? '')) {
+  const adresse = req.ip ?? '';
+  // Ist die Grenze erreicht, wird das Passwort nicht mehr geprüft — auch ein richtiges kommt dann nicht durch.
+  if (zuVieleFehlversuche(adresse)) {
     res.status(429).json({ error: 'Zu viele Versuche. Bitte in einer Stunde noch einmal.', code: 'demo_grenze' });
     return;
   }
   const passwort = typeof req.body?.passwort === 'string' ? req.body.passwort : '';
   if (!timingSafeEqual(hash(passwort), hash(config.demo.passwort))) {
+    zaehleFehlversuch(adresse);
     res.status(401).json({ error: 'Das Passwort stimmt nicht' });
     return;
   }
   try {
+    // Wer schon als Gast angemeldet ist, bleibt derselbe Gast: kein zweiter Nutzer, kein frisches Kontingent je Sitzung.
+    const schon = req.session?.userId;
+    if (schon) {
+      const b = await pool.query<{ id: string; email: string; role: string; display_name: string | null }>(
+        `SELECT id, email, role, display_name FROM users WHERE id = $1 AND active`, [schon]);
+      if (b.rows[0]) {
+        const g = b.rows[0];
+        res.json({ user: { id: g.id, email: g.email, name: g.display_name ?? 'Gast', role: g.role } });
+        return;
+      }
+    }
+    // Auch richtige Anmeldungen sind begrenzt, nur höher: Jede legt einen Gast mit eigenem Kontingent je Sitzung an. Die Grenze
+    // ist für einen Saal hinter einer Adresse bemessen, nicht für ein Skript, das Gäste in Serie anlegt (Review 13.11.2026).
+    if (zuVieleAnmeldungen(adresse)) {
+      res.status(429).json({ error: 'Von dieser Adresse haben sich in dieser Stunde sehr viele Gäste angemeldet. Bitte später noch einmal.', code: 'demo_grenze' });
+      return;
+    }
     const name = anzeigename(req.body?.name);
     const email = `gast-${randomBytes(6).toString('hex')}@demo.invalid`;
     const r = await pool.query<{ id: string; email: string; role: string }>(

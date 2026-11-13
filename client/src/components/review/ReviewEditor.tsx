@@ -104,6 +104,18 @@ export default function ReviewEditor({ projectId, projectName, fileType, onBack 
   // Bulk-Select via Shift-Click: speichert die letzte angeklickte Checkbox
   const lastCheckedIdxRef = useRef<number | null>(null);
   const [toast, setToast] = useState<string | null>(null);
+
+  // Abgelehnt ist nicht gespeichert. Bis 13.11.2026 prüfte kein Schreibweg hier den Status: Bei 404, 403 oder 429 erschien der
+  // Haken trotzdem, und nach dem Neuladen war alles wieder offen (so blieb unbemerkt, dass die Demo jedes Freigeben ablehnte).
+  const pruefeAntwort = async (res: Response): Promise<void> => {
+    if (res.ok) return;
+    const body = await res.json().catch(() => null);
+    throw new Error((body && typeof body.error === 'string' && body.error) || `HTTP ${res.status}`);
+  };
+  const meldeFehler = (err: unknown) => {
+    setToast(err instanceof Error && err.message ? err.message : String(err));
+    setTimeout(() => setToast(null), 4000);
+  };
   // Freigabe: nach jeder neuen Review-Anfrage neu laden; Download ohne Freigabe nur nach Bestätigung.
   const [requestCounter, setRequestCounter] = useState(0);
   const [downloadWarning, setDownloadWarning] = useState(false);
@@ -131,11 +143,13 @@ export default function ReviewEditor({ projectId, projectName, fileType, onBack 
   const loadSegments = useCallback(async () => {
     const filterParam = filter !== 'all' ? `&filter=${filter}` : '';
     const res = await fetch(`/api/projects/${projectId}/segments?limit=500${filterParam}`);
-    const data = await res.json();
-    setSegments(data.segments);
+    const data = await res.json().catch(() => null);
+    // Eine Fehlerantwort (429 an der Aufrufgrenze, 500) trägt keine Liste; `undefined` ließe die ganze Ansicht abstürzen.
+    setSegments(res.ok && Array.isArray(data?.segments) ? data.segments : []);
+    if (!res.ok) meldeFehler(new Error((data && data.error) || `HTTP ${res.status}`));
 
     const statsRes = await fetch(`/api/projects/${projectId}/segments/stats`);
-    setStats(await statsRes.json());
+    if (statsRes.ok) setStats(await statsRes.json());
     setLoading(false);
   }, [projectId, filter]);
 
@@ -273,6 +287,7 @@ export default function ReviewEditor({ projectId, projectName, fileType, onBack 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ translated_text: finalText }),
       });
+      await pruefeAntwort(res);
       const data = await res.json();
 
       // Segment lokal aktualisieren
@@ -289,6 +304,7 @@ export default function ReviewEditor({ projectId, projectName, fileType, onBack 
       }
     } catch (err) {
       console.error('Save failed:', err);
+      meldeFehler(err);
     }
 
     setEditingId(null);
@@ -296,7 +312,7 @@ export default function ReviewEditor({ projectId, projectName, fileType, onBack 
 
   const approveSegment = async (seg: Segment) => {
     try {
-      await fetch(`/api/projects/${projectId}/segments/${seg.id}/approve`, { method: 'POST' });
+      await pruefeAntwort(await fetch(`/api/projects/${projectId}/segments/${seg.id}/approve`, { method: 'POST' }));
       const now = new Date().toISOString();
       setSegments(prev => prev.map(s =>
         s.id === seg.id
@@ -305,12 +321,13 @@ export default function ReviewEditor({ projectId, projectName, fileType, onBack 
       ));
     } catch (err) {
       console.error('Approve failed:', err);
+      meldeFehler(err);
     }
   };
 
   const unapproveSegment = async (seg: Segment) => {
     try {
-      await fetch(`/api/projects/${projectId}/segments/${seg.id}/unapprove`, { method: 'POST' });
+      await pruefeAntwort(await fetch(`/api/projects/${projectId}/segments/${seg.id}/unapprove`, { method: 'POST' }));
       setSegments(prev => prev.map(s =>
         s.id === seg.id
           ? { ...s, review_status: s.edited_by_user ? 'edited' : 'pending', approved_at: null, approved_by_name: null }
@@ -318,6 +335,7 @@ export default function ReviewEditor({ projectId, projectName, fileType, onBack 
       ));
     } catch (err) {
       console.error('Unapprove failed:', err);
+      meldeFehler(err);
     }
   };
 
@@ -350,6 +368,7 @@ export default function ReviewEditor({ projectId, projectName, fileType, onBack 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ project_segment_ids: ids }),
       });
+      await pruefeAntwort(res);
       const data = await res.json();
       const now = new Date().toISOString();
       const idSet = new Set(ids);
@@ -378,11 +397,11 @@ export default function ReviewEditor({ projectId, projectName, fileType, onBack 
 
   const flagClarification = async (seg: Segment, note: string) => {
     try {
-      await fetch(`/api/projects/${projectId}/segments/${seg.id}/clarification`, {
+      await pruefeAntwort(await fetch(`/api/projects/${projectId}/segments/${seg.id}/clarification`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ note }),
-      });
+      }));
       const now = new Date().toISOString();
       setSegments(prev => prev.map(s =>
         s.id === seg.id
@@ -391,12 +410,13 @@ export default function ReviewEditor({ projectId, projectName, fileType, onBack 
       ));
     } catch (err) {
       console.error('Flag clarification failed:', err);
+      meldeFehler(err);
     }
   };
 
   const clearClarification = async (seg: Segment) => {
     try {
-      await fetch(`/api/projects/${projectId}/segments/${seg.id}/clarification`, { method: 'DELETE' });
+      await pruefeAntwort(await fetch(`/api/projects/${projectId}/segments/${seg.id}/clarification`, { method: 'DELETE' }));
       setSegments(prev => prev.map(s =>
         s.id === seg.id
           ? { ...s, review_status: s.edited_by_user ? 'edited' : 'pending', clarification_note: null, clarification_at: null, clarification_by_name: null }
@@ -404,6 +424,7 @@ export default function ReviewEditor({ projectId, projectName, fileType, onBack 
       ));
     } catch (err) {
       console.error('Clear clarification failed:', err);
+      meldeFehler(err);
     }
   };
 

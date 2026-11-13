@@ -194,15 +194,17 @@ router.get('/:projectId/segments/stats', async (req, res) => {
 
     const result = await pool.query(
       `SELECT
-        COUNT(*) as total,
-        COUNT(s.translated_text) as translated,
-        COUNT(s.condensed_text) as condensed,
-        COUNT(*) FILTER (WHERE s.is_stale = TRUE) as stale,
-        COUNT(*) FILTER (WHERE s.review_status = 'approved') as approved,
-        COUNT(*) FILTER (WHERE s.review_status = 'edited') as edited,
-        COUNT(*) FILTER (WHERE s.review_status = 'needs_clarification') as clarification,
-        COUNT(*) FILTER (WHERE ps.condense_status IN ('still_long','manual_review')) as needs_review,
-        SUM(s.hit_count) as total_cache_hits,
+        -- Alle Zähler mit ::int: node-postgres liefert bigint (COUNT, SUM) als Zeichenkette, und eine Zeichenkette als count
+        -- überspringt in i18next die Mehrzahlform — die Oberfläche zeigte roh „segments.count“ (Befund 13.11.2026).
+        COUNT(*)::int as total,
+        COUNT(s.translated_text)::int as translated,
+        COUNT(s.condensed_text)::int as condensed,
+        (COUNT(*) FILTER (WHERE s.is_stale = TRUE))::int as stale,
+        (COUNT(*) FILTER (WHERE s.review_status = 'approved'))::int as approved,
+        (COUNT(*) FILTER (WHERE s.review_status = 'edited'))::int as edited,
+        (COUNT(*) FILTER (WHERE s.review_status = 'needs_clarification'))::int as clarification,
+        (COUNT(*) FILTER (WHERE ps.condense_status IN ('still_long','manual_review')))::int as needs_review,
+        COALESCE(SUM(s.hit_count), 0)::int as total_cache_hits,
         AVG(LENGTH(s.source_text))::int as avg_source_length
       FROM project_segments ps
       LEFT JOIN segments s ON ps.segment_id = s.id

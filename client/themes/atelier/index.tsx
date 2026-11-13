@@ -36,6 +36,9 @@ function Fuss() {
           <a href="https://thomaswinkler.art/datenschutz.html" className={link}>{t('fuss.datenschutz')}</a>
           <span aria-hidden="true">·</span>
           <a href="https://www.linkedin.com/in/thomas-winkler/" target="_blank" rel="noopener noreferrer" className={link}>LinkedIn</a>
+          <span aria-hidden="true">·</span>
+          {/* Der Code zu dieser Oberfläche (Entscheid Thomas 13.11.2026): Demo und Repo verweisen aufeinander. */}
+          <a href="https://github.com/GuideThomas/textwerkstatt" target="_blank" rel="noopener noreferrer" className={link}>GitHub</a>
         </p>
       </div>
     </footer>

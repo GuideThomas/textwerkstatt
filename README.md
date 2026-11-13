@@ -75,9 +75,11 @@ If Docker reports `ports are not available` (Windows reserves some ports), add `
 and use that port in the address below. Without a DeepL key the tool starts as well; checking and house style work, translating
 does not, and the log shows `API key is invalid` until the key is set.
 
-The interface runs on http://localhost:3006, only on this machine (another port: `APP_PORT` in `.env`). On first start the container creates the database schema and
+The interface runs on http://localhost:3006, only on this machine (another port: `APP_PORT` in `.env`). On every start the container brings the database schema up to date and
 loads the example content from `seeds/demo/` (a small bicycle shop with two channels, a glossary DE→EN and DE→FR, house style
-and style profiles). Set `SEED=` in `.env` to start empty, or put your own content into `seeds/<name>/` and set `SEED=<name>`.
+and style profiles). Whatever you delete from the example is therefore back after a restart. Set `SEED=` in `.env` to start
+empty, or put your own content into `seeds/<name>/`, set `SEED=<name>` and run `docker compose up -d --build` once (seeds and
+themes live in the image).
 
 Create the first admin account in a terminal of your own (PowerShell, Terminal); the command asks for the password (at least 12
 characters), so an AI tool cannot type it for you, and it only works while there is no admin yet. Further accounts are created by an admin under Administration › Users, or on first Microsoft sign-in (`AZURE_*`).
@@ -95,31 +97,35 @@ All settings live in `.env`; [.env.example](.env.example) explains each one.
 | Service | Needed for | Settings |
 |---|---|---|
 | PostgreSQL 16 | everything | `DB_*` (Compose starts it) |
-| DeepL API | translating, glossaries | `DEEPL_API_KEY`, `DEEPL_CHARACTER_LIMIT` |
+| DeepL API | translating, glossaries | `DEEPL_API_KEY` |
 | OpenAI-compatible endpoint (e.g. LiteLLM) | Optimise, shortening, name forms | `LLM_BASE_URL`, `LLM_API_KEY`, `LLM_*_MODEL`, one key per AI route `KI_WEG_<NAME>_KEY` |
 | LanguageTool | Check | `LANGUAGETOOL_URL` (Compose starts it) |
 | Docling | PDF | `DOCLING_URL` |
 | Microsoft Entra ID | single sign-on | `AZURE_*` |
-| Mail server | review invitations | `MAIL_FROM` (SMTP on 127.0.0.1:25) |
+| Mail server | review invitations | `MAIL_FROM` (SMTP on 127.0.0.1:25 of the machine the server runs on; the Compose container has none there) |
 | Your organisation | names in the interface | `ORGANISATION_NAME`, `APP_NAME`, `GESCHUETZTE_WOERTER` |
 | Appearance | colours, logo, font | build argument `THEMA`, folder `client/themes/<name>/` |
 
 ## Security model
 
 - Keys only in `.env`, never in the code or the repository. The server listens on 127.0.0.1; the way out is a reverse proxy.
-- Machine routes (batch translation, shortening, translation check, chat access, Illustrator panel) are closed while their key
-  is empty. An empty key never means "open".
+- Machine routes (batch translation, shortening, translation check, chat access, Illustrator panel) are closed to the outside
+  while their key is empty. An empty key never means "open": without `TRANSLATION_SERVICE_KEY`, batch translation, shortening
+  and the translation check accept calls made directly on the same machine only, not through the reverse proxy.
 - Switches close when they are missing: an unknown `GLOSSAR_FREIGABE` means "admins only", `DEMO_MODUS=an` without a password
   refuses to start.
 - Free text reaches a cloud model only through the pseudonymisation and its check afterwards. Its limits: it recognises the
   classes above and your protected list, not every confidential fact in a sentence. Meaning words around a number ("at least"
   → "up to") are not checked. Do not send texts that must not leave the house to a cloud route at all; use a local model.
-- Each AI route has its own key, so a budget can stop it alone. The workbench never falls back to another model.
+- Each AI route has its own key, so a budget can stop it alone. Optimise never falls back to another model. Only shortening
+  and name forms use `LLM_FALLBACK_MODEL` when the primary model fails.
 
 ## Demo
 
-A public demo with example content is being prepared at textwerkstatt.thomaswinkler.art. It will reset itself every ten
-days. Please do not enter confidential texts there.
+A public demo with example content runs at https://textwerkstatt.thomaswinkler.art. It is protected by a password
+(`DEMO_MODUS=an`, the same application as in this repository) and is reset to the example content every ten days; the date is
+shown in the notice above every page. Please do not enter confidential texts there. The reset itself is an operations script
+on the server and not part of this repository.
 
 ## Development
 
