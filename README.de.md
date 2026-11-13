@@ -149,4 +149,15 @@ Wie man diese Datenbank mit Docker startet, steht im Kopf von [scripts/oeffentli
 
 ## Lizenz
 
-Vorerst alle Rechte vorbehalten. Eine Lizenz folgt. Issues sind willkommen.
+Copyright © 2026 Thomas Winkler.
+
+Lizenziert unter der [Open-Source-Lizenz für die Europäische Union, Version 1.2](LICENSE) (EUPL-1.2). Kurz gesagt, und ohne
+den Lizenztext zu ersetzen: Du darfst die Werkstatt nutzen, verändern und weitergeben, auch in einer Firma. Gibst du sie weiter
+oder bietest du sie anderen als Dienst an, verändert oder nicht, bleibt sie unter der EUPL, und du legst den Quelltext bei oder
+nennst, wo er frei zugänglich ist. Die Lizenz gilt in jeder Amtssprache der EU gleichermaßen; den deutschen Text gibt es unter
+https://eupl.eu/1.2/de/.
+
+Die Schrift Jost im Atelier-Thema hat ihre eigene Lizenz, siehe [NOTICE](NOTICE). Der Name Thomas Winkler und die Links im
+Footer des Atelier-Themas gehören nicht zur Lizenz: Nimm für deine Installation ein eigenes Thema.
+
+Issues sind willkommen.

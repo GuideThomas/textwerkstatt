@@ -57,6 +57,9 @@ If you changed colours: `node scripts/oeffentlich/thema.test.mjs` (every `--pal-
    refuses to start. Keep that behaviour when you add a switch.
 6. **Costs.** DeepL and cloud models cost money. Tell the person before a bulk translation, and suggest a budget on their model
    key.
+7. **Licence.** The code is under the EUPL-1.2 (`LICENSE`, `NOTICE`). Keep both files and the copyright notice, and say in a
+   changed version that it was changed and when. If the person passes the workbench on or offers it to others as a service, it
+   stays under the EUPL and its source must be available; tell them before you set up an installation that others can reach.
 
 ## Installing for someone
 

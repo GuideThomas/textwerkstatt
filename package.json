@@ -2,6 +2,7 @@
   "name": "translationtool",
   "version": "0.1.0",
   "private": true,
+  "license": "EUPL-1.2",
   "description": "SmartDoc AI-Translator — Layout-treue Dokumentenübersetzung",
   "scripts": {
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",

@@ -1,0 +1,39 @@
+Textwerkstatt
+Copyright (c) 2026 Thomas Winkler
+
+Licensed under the European Union Public Licence, version 1.2 (EUPL-1.2).
+The full text is in the file LICENSE. The licence is equally valid in every
+official language of the European Union:
+
+  English  https://eupl.eu/1.2/en/
+  Deutsch  https://eupl.eu/1.2/de/
+
+Unless required by applicable law or agreed to in writing, the work is provided
+"as is", without warranties or conditions of any kind (LICENSE, Articles 7 and 8).
+
+
+Third-party material
+--------------------
+
+The following material is included in this repository and stays under its own
+licence:
+
+- Jost, variable font (client/themes/atelier/public/fonts/*.woff2)
+  Copyright 2020 The Jost Project Authors
+  (https://github.com/indestructible-type/Jost)
+  SIL Open Font License, Version 1.1
+  Licence text: client/themes/atelier/public/fonts/Jost-OFL.txt
+
+The packages listed in package.json and client/package.json are not part of
+this repository. They are installed from the npm registry and carry their own
+licences.
+
+
+Names
+-----
+
+The licence does not grant permission to use the name of the licensor
+(LICENSE, Article 5, "Legal Protection"). The "Atelier" appearance under
+client/themes/atelier/ carries the name Thomas Winkler and links to his own
+pages in its footer. For an installation of your own, use your own theme
+(client/themes/<name>/) or replace name and links.

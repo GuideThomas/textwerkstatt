@@ -145,4 +145,14 @@ The header of [scripts/oeffentlich/pruefen.mjs](scripts/oeffentlich/pruefen.mjs)
 
 ## Licence
 
-All rights reserved for now. A licence will follow. Issues are welcome.
+Copyright © 2026 Thomas Winkler.
+
+Licensed under the [European Union Public Licence, version 1.2](LICENSE) (EUPL-1.2). In short, and without replacing the
+licence text: you may use, change and pass on the workbench, also inside a company. If you pass it on or offer it to others as
+a service, changed or not, it stays under the EUPL and you provide its source or point to where it is freely available. The
+licence is equally valid in every official language of the EU; the German text is at https://eupl.eu/1.2/de/.
+
+The font Jost in the Atelier theme has its own licence, see [NOTICE](NOTICE). The name Thomas Winkler and the links in the
+footer of the Atelier theme are not part of the grant: use your own theme for your own installation.
+
+Issues are welcome.
