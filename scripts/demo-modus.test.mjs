@@ -407,28 +407,81 @@ await pruefe('Eigene Projekte: Liste, Lesen, Löschen, Sammellöschen und neue F
     assert.equal((await als(A, 'POST', '/api/projects/Bulk-Delete', { ids: [pb] })).status, 404, 'Bulk-Delete in anderer Schreibweise');
     assert.equal((await als(A, 'POST', '/api/projects/BULK-DELETE/', { ids: [pb] })).status, 404, 'BULK-DELETE/ mit Schrägstrich');
     assert.equal(await zahl(), 3, 'eine andere Schreibweise hat gelöscht');
-    // Segmente des EIGENEN Projekts: lesen ja, schreiben nein — die Zeilen in `segments` sind der gemeinsame Cache aller Gäste.
-    // Die Segment-ID im Pfad ist kein Projekt (bis 13.11.2026 als eines geprüft: 404 „Projekt nicht gefunden“ statt des Grunds).
-    const seg = async (projekt) => (await q(
-      `INSERT INTO project_segments (project_id, format_segment_id, position) VALUES ($1, 'probe', 0) RETURNING id`, [projekt])).rows[0].id;
-    const [sa, sb] = [await seg(pa), await seg(pb)];
+    // ── Segment-Cache je Gast (Migration 051) ──────────────────────────────────────────────────────────────────────────────────
+    // Zwei Gäste mit demselben Satz haben getrennte Cache-Zeilen; erst das macht den Review-Editor in der Demo bearbeitbar.
+    // Die Segment-ID im Pfad ist kein Projekt (bis 13.11.2026 als eines geprüft: 404 „Projekt nicht gefunden“ für jeden Schreibweg).
+    const { upsertSegment, segmentKeyOf, besitzerVon } = await laden('services', 'queue.js');
+    const { hashText, normalizedHash } = await laden('services', 'text-normalize.js');
+    const satz = 'Die Werkstatt prüft das Rad vor der Probefahrt.';
+    const projektVon = (wer) => ({ source_lang: 'DE', target_lang: 'EN', created_by: wer });
+    const zA = await upsertSegment({ text: satz }, segmentKeyOf(projektVon(A)));
+    const zB = await upsertSegment({ text: satz }, segmentKeyOf(projektVon(B)));
+    assert.notEqual(zA.id, zB.id, 'zwei Gäste teilen sich eine Cache-Zeile');
+    assert.equal((await upsertSegment({ text: satz }, segmentKeyOf(projektVon(A)))).id, zA.id, 'derselbe Gast trifft seine eigene Zeile nicht');
+    const besitzer = async (id) => (await q(`SELECT besitzer FROM segments WHERE id = $1`, [id])).rows[0].besitzer;
+    assert.deepEqual([await besitzer(zA.id), await besitzer(zB.id)], [A, B]);
+    // Fehlt der Besitzer in der Demo, bricht der Lauf ab, statt still in den gemeinsamen Cache zu schreiben; ohne Demo immer null.
+    assert.throws(() => besitzerVon({}, true), /ohne Besitzer/);
+    assert.throws(() => segmentKeyOf({ source_lang: 'DE', target_lang: 'EN' }), /ohne Besitzer/);
+    assert.equal(besitzerVon({ created_by: A }, false), null);
+    // Eine Zeile ohne Besitzer (hochgeladen vor der Trennung, oder Terminologie-Scan) ist eine dritte, gemeinsame.
+    const zGemeinsam = await upsertSegment({ text: satz }, { ...segmentKeyOf(projektVon(A)), besitzer: null });
+    assert.ok(![zA.id, zB.id].includes(zGemeinsam.id));
+    // Zweite Stufe (normalisierter Hash): B hat eine Übersetzung, A fragt nach einer Schreibvariante desselben Satzes und darf
+    // sie NICHT bekommen. Positivkontrolle: B selbst bekommt sie über genau diese Stufe.
+    await q(`UPDATE segments SET translated_text = 'von B übersetzt' WHERE id = $1`, [zB.id]);
+    const variante = [satz + ' ', '  ' + satz, satz.replace(' ', '  '), satz.toUpperCase()]
+      .find((v) => hashText(v) !== hashText(satz) && normalizedHash(v) === normalizedHash(satz));
+    assert.ok(variante, 'keine Schreibvariante mit gleichem normalisierten Hash gefunden — die Probe der zweiten Stufe wäre leer');
+    assert.equal((await upsertSegment({ text: variante }, segmentKeyOf(projektVon(B)))).hasTranslation, true, 'Positivkontrolle: B trifft seine eigene Übersetzung');
+    assert.equal((await upsertSegment({ text: variante }, segmentKeyOf(projektVon(A)))).hasTranslation, false, 'A hat die Übersetzung von B bekommen');
+
+    const seg = async (projekt, segment) => (await q(
+      `INSERT INTO project_segments (project_id, segment_id, format_segment_id, position) VALUES ($1, $2, 'probe', 0) RETURNING id`, [projekt, segment])).rows[0].id;
+    const [sa, sb] = [await seg(pa, zA.id), await seg(pb, zB.id)];
+    const zeile = async (id) => (await q(`SELECT translated_text, review_status FROM segments WHERE id = $1`, [id])).rows[0];
+    const vorherB = await zeile(zB.id);
     assert.equal((await als(A, 'GET', `/api/projects/${pa}/segments/stats`)).status, 200, 'eigene Segmente lesen');
     assert.equal((await als(A, 'GET', `/api/projects/${pb}/segments/stats`)).status, 404, 'fremde Segmente lesen');
-    for (const [m, p] of [
-      ['POST', `/api/projects/${pa}/segments/${sa}/approve`], ['POST', `/api/projects/${pa}/segments/${sa}/unapprove`],
-      ['PUT', `/api/projects/${pa}/segments/${sa}`], ['POST', `/api/projects/${pa}/segments/bulk-approve`],
-      ['POST', `/api/projects/${pa}/segments/${sa}/clarification`], ['DELETE', `/api/projects/${pa}/SEGMENTS/${sa}/clarification`],
+    // A bearbeitet und gibt frei, in SEINEM Projekt — und bei B ändert sich nichts, obwohl es derselbe Satz ist.
+    const bearbeitet = await als(A, 'PUT', `/api/projects/${pa}/segments/${sa}`, { translated_text: 'von A bearbeitet' });
+    assert.equal(bearbeitet.status, 200, `eigenes Segment bearbeiten: ${JSON.stringify(bearbeitet.body)}`);
+    for (const [m, p, body] of [
+      ['POST', `/api/projects/${pa}/segments/${sa}/approve`, {}], ['POST', `/api/projects/${pa}/segments/${sa}/unapprove`, {}],
+      ['POST', `/api/projects/${pa}/segments/bulk-approve`, { project_segment_ids: [sa] }],
+      ['POST', `/api/projects/${pa}/segments/${sa}/clarification`, { note: 'bitte prüfen' }],
+      ['DELETE', `/api/projects/${pa}/SEGMENTS/${sa}/clarification`], ['POST', `/api/projects/${pa}/segments/${sa}/approve`, {}],
     ]) {
-      const eigen = await als(A, m, p, m === 'DELETE' ? undefined : { translated_text: 'x', project_segment_ids: [sa], note: 'x' });
-      assert.equal(eigen.status, 403, `${m} ${p}: ${eigen.status} ${JSON.stringify(eigen.body)}`);
-      assert.equal(eigen.body.code, 'demo_gesperrt', `${m} ${p}`);
-      assert.match(eigen.body.error, /Übersetzungs-Cache/);
+      const r = await als(A, m, p, body);
+      assert.equal(r.status, 200, `${m} ${p}: ${r.status} ${JSON.stringify(r.body)}`);
     }
+    assert.deepEqual(await zeile(zA.id), { translated_text: 'von A bearbeitet', review_status: 'approved' });
+    assert.deepEqual(await zeile(zB.id), vorherB, 'ein Schreibweg von A hat die Zeile von B geändert');
+    // Fremdes Projekt: 404. Eigenes Projekt mit dem Segment eines fremden: die Route filtert auf project_id.
     assert.equal((await als(A, 'POST', `/api/projects/${pb}/segments/${sb}/approve`, {})).status, 404, 'fremdes Segment');
-    // Das eigene Projekt mit dem Segment eines fremden: schon der Schreibweg ist zu (403), die Route wird nicht erreicht.
-    assert.equal((await als(A, 'POST', `/api/projects/${pa}/segments/${sb}/approve`, {})).status, 403, 'fremdes Segment unter eigenem Projekt');
-    // Gegenprobe: nichts davon hat geschrieben.
-    assert.equal((await q(`SELECT count(*)::int AS n FROM segments WHERE review_status = 'approved'`)).rows[0].n, 0, 'ein gesperrter Weg hat freigegeben');
+    assert.equal((await als(A, 'POST', `/api/projects/${pa}/segments/${sb}/approve`, {})).status, 404, 'fremdes Segment unter eigenem Projekt');
+    assert.deepEqual(await zeile(zB.id), vorherB);
+    // Ein eigenes Projekt, das auf eine gemeinsame Zeile zeigt (Altbestand): Schreiben bleibt zu, mit Grund — und schreibt nichts.
+    const sAlt = await seg(pa2, zGemeinsam.id);
+    for (const [m, p] of [
+      ['POST', `/api/projects/${pa2}/segments/${sAlt}/approve`], ['PUT', `/api/projects/${pa2}/segments/${sAlt}`],
+      ['POST', `/api/projects/${pa2}/segments/bulk-approve`], ['DELETE', `/api/projects/${pa2}/segments/${sAlt}/clarification`],
+    ]) {
+      const r = await als(A, m, p, m === 'DELETE' ? undefined : { translated_text: 'x', project_segment_ids: [sAlt] });
+      assert.equal(r.status, 403, `${m} ${p}: ${r.status} ${JSON.stringify(r.body)}`);
+      assert.equal(r.body.code, 'demo_gesperrt', `${m} ${p}`);
+      assert.match(r.body.error, /teilt sich Übersetzungen/);
+    }
+    assert.deepEqual(await zeile(zGemeinsam.id), { translated_text: null, review_status: (await zeile(zGemeinsam.id)).review_status });
+    assert.equal((await q(`SELECT count(*)::int AS n FROM segments WHERE id = $1 AND (review_status = 'approved' OR edited_by_user)`, [zGemeinsam.id])).rows[0].n, 0, 'ein gesperrter Weg hat die gemeinsame Zeile geändert');
+    assert.equal((await als(A, 'GET', `/api/projects/${pa2}/segments/stats`)).status, 200, 'Altprojekt lesen');
+    // Alle Migrationen laufen bei jedem Start neu. Mit zwei Zeilen, die sich nur im Besitzer unterscheiden, dürfen 010, 012 und
+    // 021 ihre engeren Indizes nicht wieder anlegen — sonst startet die Demo nach dem ersten doppelten Satz nicht mehr.
+    for (const f of readdirSync(join(WURZEL, 'migrations')).filter((n) => n.endsWith('.sql')).sort()) {
+      await q(readFileSync(join(WURZEL, 'migrations', f), 'utf-8'));
+    }
+    const indizes = (await q(`SELECT indexname FROM pg_indexes WHERE tablename = 'segments' AND indexname LIKE 'uniq_%' ORDER BY 1`)).rows.map((r) => r.indexname);
+    assert.deepEqual(indizes, ['uniq_segments_hash_lang_channel_v4']);
     assert.equal((await als(A, 'POST', '/api/projects/bulk-delete', { ids: [pa2] })).status, 200);
     assert.equal(await zahl(), 2);
     // Neue Fassung zu einem fremden Projekt über den Upload: 404, und die Datei bleibt nicht liegen.

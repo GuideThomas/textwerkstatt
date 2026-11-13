@@ -34,15 +34,21 @@ ALTER TABLE segments
 -- `formality` als Schlüsselbestandteil.
 DROP INDEX IF EXISTS uniq_segments_hash_lang_channel_v2;
 
-CREATE UNIQUE INDEX IF NOT EXISTS uniq_segments_hash_lang_channel_v3
-  ON segments (
-    segment_hash,
-    source_lang,
-    target_lang,
-    COALESCE(channel_code, '__std__'),
-    glossary_disabled,
-    formality
-  );
+-- ⚠️ Nur anlegen, solange kein weiterer Schlüssel existiert (051 v4) — Begründung in 010_sales_channels.sql.
+DO $$
+BEGIN
+  IF to_regclass('uniq_segments_hash_lang_channel_v4') IS NULL THEN
+    CREATE UNIQUE INDEX IF NOT EXISTS uniq_segments_hash_lang_channel_v3
+      ON segments (
+        segment_hash,
+        source_lang,
+        target_lang,
+        COALESCE(channel_code, '__std__'),
+        glossary_disabled,
+        formality
+      );
+  END IF;
+END $$;
 
 -- Wertebereich absichern. Ohne diese Schranke könnte ein künftiger Schreibweg
 -- eine vierte Ausprägung einschleusen und damit lautlos eine weitere

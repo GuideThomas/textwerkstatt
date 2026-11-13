@@ -74,17 +74,27 @@ export async function demoEigeneProjekte(req: Request, res: Response, next: Next
       res.status(404).json({ error: 'Project not found' });
       return;
     }
-    // Segmente lesen ja, schreiben nein: Die Zeilen in `segments` sind der Übersetzungs-Cache, und der ist für alle Gäste
-    // gemeinsam (Schlüssel: Text, Sprachpaar, Channel …). Wer in SEINEM Projekt ein Segment bearbeitet oder freigibt, ändert
-    // dieselbe Zeile, auf die das Projekt eines anderen Gasts mit demselben Satz zeigt. In der Firma ist das gewollt, in einer
-    // öffentlichen Demo ein Schreibzugriff über die Projektgrenze. Offen erst, wenn der Cache der Demo je Gast getrennt ist.
+    // Segmente schreiben nur, wenn JEDE Cache-Zeile dieses Projekts dem Gast selbst gehört. Die Zeilen in `segments` sind der
+    // Übersetzungs-Cache; seit Migration 051 trägt in der Demo jede den Gast als Besitzer, und zwei Gäste mit demselben Satz
+    // haben getrennte Zeilen. Zeigt ein Projekt trotzdem auf eine Zeile ohne Besitzer oder mit einem anderen (hochgeladen vor
+    // der Trennung, oder ein Weg, der den Besitzer nicht setzt), bleibt Schreiben zu: Es wäre ein Schreibzugriff in das
+    // Dokument eines anderen Gasts. Geprüft wird das ganze Projekt, nicht das eine Segment — `bulk-approve` nennt seine
+    // Segmente erst im Rumpf, und eine Regel für alle Wege kann keinen vergessen.
     const schreibt = req.method !== 'GET' && req.method !== 'HEAD';
     if (schreibt && teile[1]?.toLowerCase() === 'segments') {
-      res.status(403).json({
-        error: 'In der Demo lassen sich Segmente nicht bearbeiten oder freigeben: Der Übersetzungs-Cache ist für alle Gäste gemeinsam.',
-        code: 'demo_gesperrt',
-      });
-      return;
+      const fremd = await pool.query<{ n: number }>(
+        `SELECT count(*)::int AS n
+           FROM project_segments ps JOIN segments s ON s.id = ps.segment_id
+          WHERE ps.project_id = $1::uuid AND s.besitzer IS DISTINCT FROM $2::uuid`,
+        [teile[0], userId],
+      );
+      if (fremd.rows[0].n > 0) {
+        res.status(403).json({
+          error: 'Dieses Dokument teilt sich Übersetzungen mit anderen Gästen der Demo und lässt sich deshalb nicht bearbeiten. Bitte lade es neu hoch, dann gehört es dir allein.',
+          code: 'demo_gesperrt',
+        });
+        return;
+      }
     }
     next();
   } catch (err) {

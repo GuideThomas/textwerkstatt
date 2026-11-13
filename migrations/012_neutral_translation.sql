@@ -18,14 +18,21 @@ ALTER TABLE segments
 -- als Schlüsselbestandteil, sonst kollidieren Neutral- und Standard-Einträge.
 DROP INDEX IF EXISTS uniq_segments_hash_lang_channel;
 
-CREATE UNIQUE INDEX IF NOT EXISTS uniq_segments_hash_lang_channel_v2
-  ON segments (
-    segment_hash,
-    source_lang,
-    target_lang,
-    COALESCE(channel_code, '__std__'),
-    glossary_disabled
-  );
+-- ⚠️ Nur anlegen, solange kein weiterer Schlüssel existiert (021 v3, 051 v4) — Begründung in 010_sales_channels.sql.
+DO $$
+BEGIN
+  IF to_regclass('uniq_segments_hash_lang_channel_v3') IS NULL
+     AND to_regclass('uniq_segments_hash_lang_channel_v4') IS NULL THEN
+    CREATE UNIQUE INDEX IF NOT EXISTS uniq_segments_hash_lang_channel_v2
+      ON segments (
+        segment_hash,
+        source_lang,
+        target_lang,
+        COALESCE(channel_code, '__std__'),
+        glossary_disabled
+      );
+  END IF;
+END $$;
 
 CREATE INDEX IF NOT EXISTS idx_segments_neutral
   ON segments(segment_hash, source_lang, target_lang)

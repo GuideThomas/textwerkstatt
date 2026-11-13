@@ -367,6 +367,21 @@ export interface SegmentKey {
   glossaryDisabled: boolean;
   /** Anredestufe: 'default' | 'more' | 'less'. Siehe migrations/021_formality.sql. */
   formality: string;
+  /**
+   * Wem die Cache-Zeile gehört: `null` = gemeinsamer Cache (jede Installation ohne Demo), in der Demo der Gast, dem das
+   * Projekt gehört. Siehe migrations/051_segment_besitzer.sql.
+   */
+  besitzer: string | null;
+}
+
+/**
+ * Besitzer der Cache-Zeilen eines Projekts. Ohne Demo immer `null`. In der Demo der Gast — und fehlt er, wird NICHT still der
+ * gemeinsame Cache genommen (das wäre die Lücke, die der Besitzer schließt), sondern der Lauf bricht ab.
+ */
+export function besitzerVon(project: { created_by?: string | null }, demoAn: boolean = config.demo.an): string | null {
+  if (!demoAn) return null;
+  if (!project.created_by) throw new Error('Demo: Projekt ohne Besitzer (created_by) — kein Zugriff auf den Segment-Cache');
+  return String(project.created_by);
 }
 
 /**
@@ -379,6 +394,7 @@ export function segmentKeyOf(project: {
   channel_code?: string | null;
   glossary_disabled?: boolean | null;
   formality?: string | null;
+  created_by?: string | null;
 }): SegmentKey {
   return {
     sourceLang: project.source_lang,
@@ -386,6 +402,7 @@ export function segmentKeyOf(project: {
     channelCode: project.channel_code ?? null,
     glossaryDisabled: project.glossary_disabled ?? false,
     formality: project.formality ?? 'default',
+    besitzer: besitzerVon(project),
   };
 }
 
@@ -393,7 +410,7 @@ export async function upsertSegment(
   seg: { text: string },
   key: SegmentKey,
 ): Promise<SegmentRecord> {
-  const { sourceLang, targetLang, channelCode, glossaryDisabled, formality } = key;
+  const { sourceLang, targetLang, channelCode, glossaryDisabled, formality, besitzer } = key;
   const { hashText, normalizedHash } = await import('./text-normalize');
   const hash = hashText(seg.text);
   const normHash = normalizedHash(seg.text);
@@ -410,14 +427,18 @@ export async function upsertSegment(
   // `formality` ist seit 021 Teil des Schluessels: derselbe Text unter `more`
   // und `less` ergibt verschiedene Uebersetzungen. Fehlte die Bedingung, gaebe
   // der Cache die formelle Fassung als Treffer fuer eine informelle Anfrage.
+  // `besitzer` ist seit 051 Teil des Schluessels: ohne Demo immer NULL (ein gemeinsamer Cache), in der Demo der Gast.
+  // `IS NOT DISTINCT FROM` trifft NULL mit NULL; fehlte die Bedingung, bekaeme ein Gast die Zeile eines anderen als Treffer
+  // und schriebe beim Bearbeiten in dessen Dokument.
   const glossaryClause =
-    ` AND glossary_disabled = $${glossaryParamIdx} AND formality = $${glossaryParamIdx + 1}`;
+    ` AND glossary_disabled = $${glossaryParamIdx} AND formality = $${glossaryParamIdx + 1}` +
+    ` AND besitzer IS NOT DISTINCT FROM $${glossaryParamIdx + 2}::uuid`;
 
   // 1) Exakter Hash-Treffer (channel-aware + neutral-aware)
   const existing = await pool.query(
     `SELECT id, translated_text, is_stale, normalized_hash FROM segments
      WHERE segment_hash = $1 AND source_lang = $2 AND target_lang = $3 AND ${channelMatch}${glossaryClause}`,
-    [hash, sourceLang, targetLang, ...channelParams, glossaryDisabled, formality]
+    [hash, sourceLang, targetLang, ...channelParams, glossaryDisabled, formality, besitzer]
   );
 
   if (existing.rows.length > 0) {
@@ -447,7 +468,7 @@ export async function upsertSegment(
        AND translated_text IS NOT NULL
      ORDER BY is_stale ASC, glossary_version DESC
      LIMIT 1`,
-    [normHash, sourceLang, targetLang, ...channelParams, glossaryDisabled, formality]
+    [normHash, sourceLang, targetLang, ...channelParams, glossaryDisabled, formality, besitzer]
   );
 
   if (fuzzy.rows.length > 0) {
@@ -465,10 +486,10 @@ export async function upsertSegment(
     const inserted = await pool.query(
       `INSERT INTO segments
          (segment_hash, normalized_hash, source_lang, target_lang, channel_code, glossary_disabled, formality,
-          source_text, translated_text, glossary_version, is_stale, hit_count)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, 1)
+          source_text, translated_text, glossary_version, is_stale, hit_count, besitzer)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, 1, $12)
        RETURNING id`,
-      [hash, normHash, sourceLang, targetLang, channelCode, glossaryDisabled, formality, seg.text, row.translated_text, row.glossary_version ?? 0, row.is_stale]
+      [hash, normHash, sourceLang, targetLang, channelCode, glossaryDisabled, formality, seg.text, row.translated_text, row.glossary_version ?? 0, row.is_stale, besitzer]
     );
     return {
       id: inserted.rows[0].id,
@@ -480,9 +501,9 @@ export async function upsertSegment(
 
   // 3) Cache-Miss: Neuen Eintrag anlegen
   const result = await pool.query(
-    `INSERT INTO segments (segment_hash, normalized_hash, source_lang, target_lang, channel_code, glossary_disabled, formality, source_text)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id`,
-    [hash, normHash, sourceLang, targetLang, channelCode, glossaryDisabled, formality, seg.text]
+    `INSERT INTO segments (segment_hash, normalized_hash, source_lang, target_lang, channel_code, glossary_disabled, formality, source_text, besitzer)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id`,
+    [hash, normHash, sourceLang, targetLang, channelCode, glossaryDisabled, formality, seg.text, besitzer]
   );
 
   return {

@@ -314,7 +314,7 @@ async function upsertSegmentCache(
     `SELECT id, translated_text, is_stale FROM segments
      WHERE segment_hash = $1 AND source_lang = $2 AND target_lang = $3
        AND channel_code IS NULL AND glossary_disabled = FALSE
-       AND formality = 'default'`,
+       AND formality = 'default' AND besitzer IS NULL`,
     [hash, sourceLang, targetLang],
   );
 
@@ -331,8 +331,10 @@ async function upsertSegmentCache(
   }
 
   const result = await pool.query(
-    `INSERT INTO segments (segment_hash, source_lang, target_lang, channel_code, glossary_disabled, formality, source_text)
-     VALUES ($1, $2, $3, NULL, FALSE, 'default', $4) RETURNING id`,
+    // `besitzer` NULL (051): Ein Scan gehört niemandem (`terminology_scans` kennt keinen Besitzer), seine Zeilen liegen im
+    // gemeinsamen Cache. Projekte der Demo treffen sie nie, denn die suchen mit dem Gast als Besitzer.
+    `INSERT INTO segments (segment_hash, source_lang, target_lang, channel_code, glossary_disabled, formality, source_text, besitzer)
+     VALUES ($1, $2, $3, NULL, FALSE, 'default', $4, NULL) RETURNING id`,
     [hash, sourceLang, targetLang, text],
   );
 

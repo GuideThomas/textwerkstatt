@@ -45,8 +45,19 @@ ALTER TABLE segments
 -- Verwendet COALESCE-Ausdruck damit NULL als '__std__' behandelt wird (Postgres-NULL-Eigenheit).
 ALTER TABLE segments DROP CONSTRAINT IF EXISTS segments_segment_hash_source_lang_target_lang_key;
 
-CREATE UNIQUE INDEX IF NOT EXISTS uniq_segments_hash_lang_channel
-  ON segments (segment_hash, source_lang, target_lang, COALESCE(channel_code, '__std__'));
+-- ⚠️ Nur anlegen, solange kein WEITERER Schlüssel existiert (012 v2, 021 v3, 051 v4). Alle Migrationen laufen bei jedem Start
+-- neu: Ohne diese Bedingung entstand dieser engste Index bei jedem Deploy wieder, und sobald zwei Zeilen sich nur in einer
+-- späteren Dimension unterscheiden (neutral, Anrede, Besitzer), scheitert er an ihnen — der Migrationslauf bricht ab und der
+-- Dienst startet nicht (gefunden 13.11.2026; in der Produktion gab es bis dahin zufällig keine solche Zeile).
+DO $$
+BEGIN
+  IF to_regclass('uniq_segments_hash_lang_channel_v2') IS NULL
+     AND to_regclass('uniq_segments_hash_lang_channel_v3') IS NULL
+     AND to_regclass('uniq_segments_hash_lang_channel_v4') IS NULL THEN
+    CREATE UNIQUE INDEX IF NOT EXISTS uniq_segments_hash_lang_channel
+      ON segments (segment_hash, source_lang, target_lang, COALESCE(channel_code, '__std__'));
+  END IF;
+END $$;
 
 -- Bestehender exakt-Hash Index ergaenzt um channel_code (alter Index bleibt fuer Abwaerts-Lookup)
 CREATE INDEX IF NOT EXISTS idx_segments_hash_channel

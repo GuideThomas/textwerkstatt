@@ -205,7 +205,8 @@ router.post('/', requireServiceKey, async (req: Request, res: Response) => {
              AND target_lang = $3
              AND channel_code IS NULL
              AND glossary_disabled = FALSE
-             AND formality = 'default'`,
+             AND formality = 'default'
+             AND besitzer IS NULL`,
           [uniqueHashes, sourceLang, targetLang],
         );
         const cached = new Map<string, { text: string | null; stale: boolean; edited: boolean }>();
@@ -330,7 +331,7 @@ router.post('/', requireServiceKey, async (req: Request, res: Response) => {
           `SELECT id FROM segments
             WHERE segment_hash = $1 AND source_lang = $2 AND target_lang = $3
               AND channel_code IS NULL AND glossary_disabled = FALSE
-              AND formality = 'default'`,
+              AND formality = 'default' AND besitzer IS NULL`,
           [h, sourceLang, targetLang],
         );
         if (existing.rows.length > 0) {
@@ -345,9 +346,10 @@ router.post('/', requireServiceKey, async (req: Request, res: Response) => {
             // channel_code/glossary_disabled/formality ausdruecklich neutral —
             // die Spalten-Defaults leisten dasselbe, aber ausgeschrieben faellt
             // beim naechsten Lesen auf, dass diese Route eine Dimension hat.
+            // `besitzer` NULL (051): Maschinen-Routen schreiben in den gemeinsamen Cache; in der Demo sind sie gesperrt.
             `INSERT INTO segments (segment_hash, source_lang, target_lang, channel_code, glossary_disabled, formality,
-                                   source_text, translated_text, glossary_version, is_stale)
-             VALUES ($1, $2, $3, NULL, FALSE, 'default', $4, $5, $6, FALSE)
+                                   source_text, translated_text, glossary_version, is_stale, besitzer)
+             VALUES ($1, $2, $3, NULL, FALSE, 'default', $4, $5, $6, FALSE, NULL)
              ON CONFLICT DO NOTHING`,
             [h, sourceLang, targetLang, text, translated, currentGlossaryVersion],
           );
