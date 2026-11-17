@@ -7,7 +7,7 @@ import HouseTermManager from '../components/HouseTermManager';
 import PruefenErgebnis, { isSafeMatch, type LtMatch, type PruefStatistik } from '../components/textwerkstatt/PruefenErgebnis';
 import AlternativenDialog from '../components/textwerkstatt/AlternativenDialog';
 import GlossarEintragDialog, { type GlossarEntwurf } from '../components/textwerkstatt/GlossarEintragDialog';
-import PseudonymVorschau, { type Masken, type Vorschau } from '../components/textwerkstatt/PseudonymVorschau';
+import PseudonymVorschau, { StufenWahl, STUFE_VORGABE, type Masken, type PseudonymStufe, type Vorschau } from '../components/textwerkstatt/PseudonymVorschau';
 import OptimierenErgebnis, { type OptimierAntwort } from '../components/textwerkstatt/OptimierenErgebnis';
 import { wortSucher } from '../components/textwerkstatt/wortDiff';
 import KiBudgetHinweis from '../components/KiBudgetHinweis';
@@ -181,6 +181,7 @@ export default function TextwerkstattPage() {
   const { t } = useTranslation('textwerkstatt');
   const { t: tq } = useTranslation('quick');
   const { t: tw } = useTranslation('writing');
+  const { t: tp } = useTranslation('pseudonym');
   // Sprachnamen stehen in `writing` (dort auch „Automatisch“)
   const langName = (code: string) =>
     code === AUTO || (SPRACHEN as readonly string[]).includes(code) ? tw(`languages.${code}`) : code;
@@ -237,6 +238,9 @@ export default function TextwerkstattPage() {
   // Vorgabe ist immer ein lokaler Weg; die Cloud nur auf ausdrückliche Wahl, nie gemerkt (Plan §0, „ein vergessener
   // Schalter darf nicht in die Cloud führen“).
   const [optWeg, setOptWeg] = useState('');
+  // Pseudonymisierung für die Cloud: Vorgabe streng, nicht gemerkt — eine lockerere Wahl gilt nur, solange die Seite offen
+  // ist (Entscheid Thomas 17.11.2026). Der Umschalter steht neben dem KI-Weg und erscheint nur bei einem Cloud-Weg.
+  const [pseudoStufe, setPseudoStufe] = useState<PseudonymStufe>(STUFE_VORGABE);
   const [zielzeichen, setZielzeichen] = useState('');
   const [vorschau, setVorschau] = useState<Vorschau | null>(null);
   // Masken der Vorschau leben hier, nicht in der Komponente: Sonst gingen verdeckte Wörter bei jeder Textänderung verloren,
@@ -1075,6 +1079,12 @@ export default function TextwerkstattPage() {
                     {kiWege.length === 0 && <span className="text-xs text-gray-400 px-2 py-1">{t('optimieren.keinWeg')}</span>}
                   </div>
                 </div>
+                {istCloud && (
+                  <div className="min-w-0">
+                    <span className="block text-xs font-medium text-gray-500 mb-1">{tp('vorschau.stufe')}</span>
+                    <StufenWahl stufe={pseudoStufe} onStufe={setPseudoStufe} />
+                  </div>
+                )}
                 {artInfo?.zielzeichen && (
                   <div>
                     <label className="block text-xs font-medium text-gray-500 mb-1" htmlFor="tw-opt-ziel">{t('optimieren.zielzeichen')}</label>
@@ -1511,7 +1521,7 @@ export default function TextwerkstattPage() {
                   {t('optimieren.maskenWeg', { liste: maskenWeg.join(', ') })}
                 </p>
               )}
-              <PseudonymVorschau text={text} onVorschau={setVorschau} masken={masken} onMasken={setMasken} />
+              <PseudonymVorschau text={text} onVorschau={setVorschau} masken={masken} onMasken={setMasken} stufe={pseudoStufe} />
               {stilInfo && (
                 // Was außer dem Text an das Modell geht: das Stilprofil, ohne Platzhalter (Review M4). Der Nutzer soll sehen, was
                 // die Cloud liest, nicht nur den eigenen Text.

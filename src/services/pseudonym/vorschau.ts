@@ -234,7 +234,7 @@ export async function vorschauErstellen(
   if (e.stufe !== undefined && e.stufe !== null && !(STUFEN as readonly unknown[]).includes(e.stufe)) {
     throw new PseudonymFehler('EINGABE', 'stufe: soft oder streng');
   }
-  const stufe: PseudonymStufe = (e.stufe as PseudonymStufe | null | undefined) ?? 'soft';
+  const stufe: PseudonymStufe = (e.stufe as PseudonymStufe | null | undefined) ?? 'streng'; // ohne Angabe die gründlichere Stufe (Entscheid Thomas 17.11.2026)
 
   let einst: SchutzEinstellungen;
   try {

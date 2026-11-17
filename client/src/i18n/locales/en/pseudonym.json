@@ -39,7 +39,7 @@
     "restOk": "Final check passed: no bank details, email address or phone number in the text.",
     "restFehler": "The text still contains: {{funde}}. Nothing will be sent like this. Mask the passage or use the local AI.",
     "netzFehler": "The server cannot be reached. Nothing was sent.",
-    "stufe": "Thoroughness",
+    "stufe": "Pseudonymisation",
     "stufeName": {
       "soft": "Soft",
       "streng": "Strict"

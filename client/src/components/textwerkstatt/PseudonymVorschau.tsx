@@ -19,15 +19,40 @@ export type Schutzklasse =
   | 'BANK' | 'MAIL' | 'TELEFON' | 'PERSON' | 'ANSCHRIFT' | 'URL' | 'FIRMA' | 'PROJEKT' | 'PREIS' | 'ARTIKELNR' | 'BELEGNR'
   | 'DATUM' | 'MENGE' | 'EIGENNAME' | 'EIGEN';
 
-/** `soft`: Vor- und Nachname, ein Vorname allein. `streng`: dazu jedes Eigenname-Wort (Entscheid Thomas 17.11.2026). */
+/**
+ * `soft`: Vor- und Nachname, ein Vorname allein. `streng`: dazu jedes Eigenname-Wort (Entscheid Thomas 17.11.2026).
+ * Vorgabe ist `streng` und wird nicht gemerkt: Wie die Cloud selbst gilt eine lockerere Wahl nur, solange die Seite offen ist.
+ */
 export type PseudonymStufe = 'soft' | 'streng';
-const STUFE_SPEICHER = 'textwerkstatt.pseudonymStufe';
-function stufeLesen(): PseudonymStufe {
-  try {
-    return localStorage.getItem(STUFE_SPEICHER) === 'streng' ? 'streng' : 'soft';
-  } catch {
-    return 'soft';
-  }
+export const STUFE_VORGABE: PseudonymStufe = 'streng';
+
+/** Der Umschalter Soft/Streng. Auf der Textwerkstatt steht er neben dem KI-Weg, sichtbar nur bei der Cloud. */
+export function StufenWahl({ stufe, onStufe, mitHinweis = true }: {
+  stufe: PseudonymStufe;
+  onStufe: (s: PseudonymStufe) => void;
+  mitHinweis?: boolean;
+}) {
+  const { t } = useTranslation('pseudonym');
+  return (
+    <div className="inline-flex flex-wrap max-w-full rounded-[5px] border border-gray-300 bg-white p-0.5 gap-0.5" role="radiogroup" aria-label={t('vorschau.stufe')}>
+      {(['soft', 'streng'] as const).map((s) => (
+        <button
+          key={s}
+          type="button"
+          role="radio"
+          aria-checked={stufe === s}
+          onClick={() => onStufe(s)}
+          title={t(`vorschau.stufeHinweis.${s}`)}
+          className={`text-xs px-3 py-1 rounded-[4px] transition-colors ${
+            stufe === s ? 'bg-primary-600 text-white font-semibold' : 'text-gray-700 hover:bg-gray-100'
+          }`}
+        >
+          {t(`vorschau.stufeName.${s}`)}
+        </button>
+      ))}
+      {mitHinweis && <span className="sr-only">{t(`vorschau.stufeHinweis.${stufe}`)}</span>}
+    </div>
+  );
 }
 
 export interface VorschauTreffer {
@@ -79,11 +104,13 @@ export interface Masken {
   aufdecken: string[];
 }
 
-export default function PseudonymVorschau({ text, onVorschau, masken, onMasken }: {
+export default function PseudonymVorschau({ text, onVorschau, masken, onMasken, stufe: stufeAussen }: {
   text: string;
   onVorschau?: (v: Vorschau | null) => void;
   masken?: Masken;
   onMasken?: (m: Masken) => void;
+  /** Hält die Seite die Stufe (Umschalter neben dem KI-Weg), zeigt die Vorschau keinen eigenen. */
+  stufe?: PseudonymStufe;
 }) {
   const { t } = useTranslation('pseudonym');
   const [eigeneVerdecken, setEigeneVerdecken] = useState<string[]>([]);
@@ -95,11 +122,8 @@ export default function PseudonymVorschau({ text, onVorschau, masken, onMasken }
     gesteuert ? onMasken!({ verdecken: f(masken!.verdecken), aufdecken: masken!.aufdecken }) : setEigeneVerdecken(f);
   const setAufdecken = (f: (v: string[]) => string[]) =>
     gesteuert ? onMasken!({ verdecken: masken!.verdecken, aufdecken: f(masken!.aufdecken) }) : setEigeneAufdecken(f);
-  const [stufe, setStufe] = useState<PseudonymStufe>(stufeLesen);
-  const stufeWaehlen = (s: PseudonymStufe) => {
-    setStufe(s);
-    try { localStorage.setItem(STUFE_SPEICHER, s); } catch { /* nur Bequemlichkeit */ }
-  };
+  const [eigeneStufe, setEigeneStufe] = useState<PseudonymStufe>(STUFE_VORGABE);
+  const stufe = stufeAussen ?? eigeneStufe;
   const [vorschau, setVorschau] = useState<Vorschau | null>(null);
   const [fehler, setFehler] = useState<string | null>(null);
   const [laeuft, setLaeuft] = useState(false);
@@ -184,25 +208,17 @@ export default function PseudonymVorschau({ text, onVorschau, masken, onMasken }
       </div>
       <p className="text-xs text-gray-500">{t('vorschau.erklaerung')}</p>
 
-      <div className="flex flex-wrap items-center gap-2 text-xs" role="radiogroup" aria-label={t('vorschau.stufe')}>
-        <span className="text-gray-600">{t('vorschau.stufe')}:</span>
-        {(['soft', 'streng'] as const).map((s) => (
-          <button
-            key={s}
-            type="button"
-            role="radio"
-            aria-checked={stufe === s}
-            onClick={() => stufeWaehlen(s)}
-            title={t(`vorschau.stufeHinweis.${s}`)}
-            className={`px-2.5 py-1 rounded-md border ${
-              stufe === s ? 'bg-primary-600 text-white border-primary-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
-            }`}
-          >
-            {t(`vorschau.stufeName.${s}`)}
-          </button>
-        ))}
-        <span className="text-gray-500">{t(`vorschau.stufeHinweis.${stufe}`)}</span>
-      </div>
+      {stufeAussen === undefined ? (
+        <div className="flex flex-wrap items-center gap-2 text-xs">
+          <span className="text-gray-600">{t('vorschau.stufe')}:</span>
+          <StufenWahl stufe={stufe} onStufe={setEigeneStufe} mitHinweis={false} />
+          <span className="text-gray-500">{t(`vorschau.stufeHinweis.${stufe}`)}</span>
+        </div>
+      ) : (
+        <p className="text-xs text-gray-500">
+          {t('vorschau.stufe')}: {t(`vorschau.stufeName.${stufe}`)} · {t(`vorschau.stufeHinweis.${stufe}`)}
+        </p>
+      )}
 
       {fehler && <div role="alert" className="text-sm text-red-700 bg-red-50 border border-red-200 p-3 rounded-md">{fehler}</div>}
 

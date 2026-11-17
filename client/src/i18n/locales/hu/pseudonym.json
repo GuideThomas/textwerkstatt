@@ -39,7 +39,7 @@
     "restOk": "A végső ellenőrzés sikeres: a szövegben nincs bankszámla-adat, e-mail-cím vagy telefonszám.",
     "restFehler": "A szövegben még szerepel: {{funde}}. Így semmi sem megy ki. Takarja le a részt, vagy használja a helyi MI-t.",
     "netzFehler": "A szerver nem érhető el. Semmi sem lett elküldve.",
-    "stufe": "Alaposság",
+    "stufe": "Álnevesítés",
     "stufeName": {
       "soft": "Enyhe",
       "streng": "Szigorú"

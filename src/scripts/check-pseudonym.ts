@@ -791,9 +791,13 @@ describe('S Namen allein und Stufe streng', () => {
     expect(v.ausgehend).toBe('Laut [NAME_1] kommen [MENGE_1] Stück.');
     expect(v.zaehler.EIGENNAME).toBe(1);
     expect(v.zaehler.MENGE).toBe(1);
-    const soft = await vorschauErstellen({ nutzerId: 'nutzer-s', text: 'Laut Wieser kommen 240 Stück.' }, q);
+    const soft = await vorschauErstellen({ nutzerId: 'nutzer-s', text: 'Laut Wieser kommen 240 Stück.', stufe: 'soft' }, q);
     expect(soft.stufe).toBe('soft');
     expect(soft.ausgehend).toContain('Wieser');
+    // Ohne Angabe gilt streng: Ein Aufrufer, der die Stufe vergisst, landet bei der gründlicheren (Entscheid 17.11.2026).
+    const ohne = await vorschauErstellen({ nutzerId: 'nutzer-s', text: 'Laut Wieser kommen 240 Stück.' }, q);
+    expect(ohne.stufe).toBe('streng');
+    expect(ohne.ausgehend).not.toContain('Wieser');
     let code = '';
     try { await vorschauErstellen({ nutzerId: 'nutzer-s', text: 'x', stufe: 'hart' }, q); } catch (err) { code = (err as PseudonymFehler).code; }
     expect(code).toBe('EINGABE');
@@ -941,8 +945,8 @@ describe('C Vorschau und Senden', () => {
   });
 
   it('selbst verdeckt und aufgedeckt erzeugen eine neue Vorschau mit anderem Text', async () => {
-    const a = await vorschauErstellen({ nutzerId: 'nutzer-frei', text: 'Das Hotel Seeblick bestellt bei Mayrhofer Licht.' }, quelle);
-    const b = await vorschauErstellen({ nutzerId: 'nutzer-frei', text: 'Das Hotel Seeblick bestellt bei Mayrhofer Licht.', verdecken: ['Mayrhofer'], aufdecken: ['Hotel Seeblick'] }, quelle);
+    const a = await vorschauErstellen({ nutzerId: 'nutzer-frei', text: 'Das Hotel Seeblick bestellt bei Mayrhofer Licht.', stufe: 'soft' }, quelle);
+    const b = await vorschauErstellen({ nutzerId: 'nutzer-frei', text: 'Das Hotel Seeblick bestellt bei Mayrhofer Licht.', verdecken: ['Mayrhofer'], aufdecken: ['Hotel Seeblick'], stufe: 'soft' }, quelle);
     expect(a.vorschauId).not.toBe(b.vorschauId);
     expect(a.ausgehend).toContain('Mayrhofer');
     expect(b.ausgehend).not.toContain('Mayrhofer');

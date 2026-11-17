@@ -39,7 +39,7 @@
     "restOk": "Controllo finale superato: nel testo non ci sono coordinate bancarie, indirizzi e-mail o numeri di telefono.",
     "restFehler": "Nel testo è ancora presente: {{funde}}. Così non viene inviato nulla. Oscura il passaggio o usa l’IA locale.",
     "netzFehler": "Il server non è raggiungibile. Non è stato inviato nulla.",
-    "stufe": "Accuratezza",
+    "stufe": "Pseudonimizzazione",
     "stufeName": {
       "soft": "Morbido",
       "streng": "Rigoroso"

@@ -39,7 +39,7 @@
     "restOk": "Restprüfung bestanden: keine Bankverbindung, Mailadresse oder Telefonnummer im Text.",
     "restFehler": "Im Text steht noch: {{funde}}. So geht nichts hinaus. Bitte die Stelle verdecken oder die lokale KI nehmen.",
     "netzFehler": "Der Server ist nicht erreichbar. Es wurde nichts gesendet.",
-    "stufe": "Gründlichkeit",
+    "stufe": "Pseudonymisierung",
     "stufeName": {
       "soft": "Soft",
       "streng": "Streng"

@@ -39,7 +39,7 @@
     "restOk": "Contrôle final réussi : aucune coordonnée bancaire, adresse e-mail ou numéro de téléphone dans le texte.",
     "restFehler": "Le texte contient encore : {{funde}}. Rien ne sera envoyé ainsi. Masquez le passage ou utilisez l’IA locale.",
     "netzFehler": "Le serveur est injoignable. Rien n’a été envoyé.",
-    "stufe": "Rigueur",
+    "stufe": "Pseudonymisation",
     "stufeName": {
       "soft": "Souple",
       "streng": "Strict"
