@@ -45,7 +45,11 @@
     "start": "Hangbevitel indítása",
     "startWithLocale": "Hangbevitel indítása ({{locale}})",
     "recording": "Felvétel…",
-    "speak": "Beszéd"
+    "speak": "Beszéd",
+    "notAllowed": "A mikrofon nincs engedélyezve ehhez az oldalhoz. Engedélyezze a böngészőben.",
+    "noMic": "Nem található mikrofon.",
+    "network": "A beszédfelismeréshez kapcsolat kell a böngésző szolgáltatásához.",
+    "failed": "A hangbevitel nem indult el ({{fehler}})."
   },
   "alt": {
     "forSelectionTitle": "Alternatív fordítások ehhez: „{{text}}”",

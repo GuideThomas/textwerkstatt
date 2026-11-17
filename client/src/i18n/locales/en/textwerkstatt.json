@@ -51,6 +51,7 @@
     "laeuft": "Improving …",
     "keineArten": "No type of improvement is set up. An admin creates them under Administration › Admin › Improvement types.",
     "keinWeg": "No AI route set up.",
+    "wegWaehlen": "Please choose an AI route.",
     "wegGesperrt": "not available: {{grund}}",
     "lokalHinweis": "Local: the text goes in plain text to the in-house AI station. The route there passes through Cloudflare.",
     "cloudHinweis": "Cloud: only the text from this preview goes out, with placeholders instead of names, prices and numbers. The result comes back with the real values.",

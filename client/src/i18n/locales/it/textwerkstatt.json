@@ -51,6 +51,7 @@
     "laeuft": "Miglioramento in corso …",
     "keineArten": "Non è configurato alcun tipo di miglioramento. Un amministratore li crea in Amministrazione › Admin › Tipi di miglioramento.",
     "keinWeg": "Nessun percorso IA configurato.",
+    "wegWaehlen": "Scegli un percorso IA.",
     "wegGesperrt": "non disponibile: {{grund}}",
     "lokalHinweis": "Locale: il testo va in chiaro alla stazione IA interna. Il percorso passa per Cloudflare.",
     "cloudHinweis": "Cloud: esce solo il testo di questa anteprima, con segnaposto al posto di nomi, prezzi e numeri. Il risultato torna con i valori reali.",

@@ -15,7 +15,9 @@
     "SK": "Slowakisch",
     "SL": "Slowenisch"
   },
-  "picky": "Strenger Modus (Picky)",
+  "picky": "Auch Stil und Typografie prüfen",
+  "pickyLabel": "Prüfumfang",
+  "pickyTitle": "Prüft zusätzlich Stil, Füllwörter, Wortwiederholungen, lange Sätze und Typografie (Anführungszeichen, Gedankenstriche, Leerzeichen). Meldet dafür mehr Stellen.",
   "actions": {
     "acceptSafe": "Sichere Korrekturen anwenden",
     "acceptSafeTitle": "Tippfehler/Typografie/Interpunktion automatisch anwenden (eindeutige Vorschläge)",

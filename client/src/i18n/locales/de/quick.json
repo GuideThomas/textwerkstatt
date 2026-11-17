@@ -45,7 +45,11 @@
     "start": "Spracheingabe starten",
     "startWithLocale": "Spracheingabe starten ({{locale}})",
     "recording": "Aufnahme…",
-    "speak": "Sprechen"
+    "speak": "Sprechen",
+    "notAllowed": "Das Mikrofon ist für diese Seite nicht freigegeben. Bitte im Browser erlauben.",
+    "noMic": "Kein Mikrofon gefunden.",
+    "network": "Die Spracherkennung braucht eine Internetverbindung zum Dienst des Browsers.",
+    "failed": "Die Spracheingabe ließ sich nicht starten ({{fehler}})."
   },
   "alt": {
     "forSelectionTitle": "Alternative Übersetzungen für „{{text}}\"",

@@ -15,7 +15,9 @@
     "SK": "Slovak",
     "SL": "Slovenian"
   },
-  "picky": "Strict mode (picky)",
+  "picky": "Also check style and typography",
+  "pickyLabel": "Scope",
+  "pickyTitle": "Also checks style, filler words, repeated words, long sentences and typography (quotation marks, dashes, spaces). Reports more passages as a result.",
   "actions": {
     "acceptSafe": "Apply safe corrections",
     "acceptSafeTitle": "Automatically apply typos/typography/punctuation fixes (unambiguous suggestions)",

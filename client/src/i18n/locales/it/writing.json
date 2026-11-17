@@ -15,7 +15,9 @@
     "SK": "Slovacco",
     "SL": "Sloveno"
   },
-  "picky": "Modalità rigorosa (picky)",
+  "picky": "Controlla anche stile e tipografia",
+  "pickyLabel": "Ambito",
+  "pickyTitle": "Controlla in più stile, parole riempitive, ripetizioni, frasi lunghe e tipografia (virgolette, trattini, spazi). Segnala quindi più passaggi.",
   "actions": {
     "acceptSafe": "Applica correzioni sicure",
     "acceptSafeTitle": "Applicare automaticamente refusi/tipografia/punteggiatura (suggerimenti univoci)",

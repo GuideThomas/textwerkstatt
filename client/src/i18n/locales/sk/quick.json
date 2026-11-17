@@ -47,7 +47,11 @@
     "start": "Spustiť hlasový vstup",
     "startWithLocale": "Spustiť hlasový vstup ({{locale}})",
     "recording": "Nahrávanie…",
-    "speak": "Hovoriť"
+    "speak": "Hovoriť",
+    "notAllowed": "Mikrofón nie je pre túto stránku povolený. Povoľte ho v prehliadači.",
+    "noMic": "Nenašiel sa žiadny mikrofón.",
+    "network": "Rozpoznávanie reči potrebuje pripojenie k službe prehliadača.",
+    "failed": "Hlasový vstup sa nepodarilo spustiť ({{fehler}})."
   },
   "alt": {
     "forSelectionTitle": "Alternatívne preklady pre „{{text}}“",

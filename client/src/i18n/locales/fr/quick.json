@@ -46,7 +46,11 @@
     "start": "Démarrer la saisie vocale",
     "startWithLocale": "Démarrer la saisie vocale ({{locale}})",
     "recording": "Enregistrement…",
-    "speak": "Parler"
+    "speak": "Parler",
+    "notAllowed": "Le micro n'est pas autorisé pour cette page. Veuillez l'autoriser dans le navigateur.",
+    "noMic": "Aucun micro trouvé.",
+    "network": "La reconnaissance vocale a besoin d'une connexion au service du navigateur.",
+    "failed": "La saisie vocale n'a pas pu démarrer ({{fehler}})."
   },
   "alt": {
     "forSelectionTitle": "Traductions alternatives pour « {{text}} »",

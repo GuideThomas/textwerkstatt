@@ -45,7 +45,11 @@
     "start": "Start voice input",
     "startWithLocale": "Start voice input ({{locale}})",
     "recording": "Recording…",
-    "speak": "Speak"
+    "speak": "Speak",
+    "notAllowed": "The microphone is not allowed for this page. Please allow it in the browser.",
+    "noMic": "No microphone found.",
+    "network": "Speech recognition needs a connection to the browser's service.",
+    "failed": "Voice input could not start ({{fehler}})."
   },
   "alt": {
     "forSelectionTitle": "Alternative translations for \"{{text}}\"",

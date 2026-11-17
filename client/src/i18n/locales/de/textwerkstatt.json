@@ -51,6 +51,7 @@
     "laeuft": "Optimiere …",
     "keineArten": "Es ist keine Art der Optimierung eingerichtet. Ein Admin legt sie unter Verwaltung › Admin › Optimierungsarten an.",
     "keinWeg": "Kein KI-Weg eingerichtet.",
+    "wegWaehlen": "Bitte einen KI-Weg wählen.",
     "wegGesperrt": "nicht verfügbar: {{grund}}",
     "lokalHinweis": "Lokal: Der Text geht im Klartext an die KI-Station im Haus. Der Weg dorthin führt über Cloudflare.",
     "cloudHinweis": "Cloud: Es geht nur der Text aus dieser Vorschau hinaus, mit Platzhaltern statt Namen, Preisen und Nummern. Das Ergebnis kommt mit den echten Werten zurück.",

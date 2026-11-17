@@ -51,6 +51,7 @@
     "laeuft": "Javítás folyamatban …",
     "keineArten": "Nincs beállítva javítási mód. Egy adminisztrátor hozza létre: Adminisztráció › Admin › Javítási módok.",
     "keinWeg": "Nincs beállított MI-útvonal.",
+    "wegWaehlen": "Válasszon MI-útvonalat.",
     "wegGesperrt": "nem érhető el: {{grund}}",
     "lokalHinweis": "Helyi: a szöveg nyílt szövegként megy a házon belüli MI-állomásra. Az útvonal a Cloudflare-en keresztül vezet.",
     "cloudHinweis": "Felhő: csak ennek az előnézetnek a szövege megy ki, nevek, árak és számok helyett helyőrzőkkel. Az eredmény a valódi értékekkel érkezik vissza.",

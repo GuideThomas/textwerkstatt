@@ -269,6 +269,9 @@ export default function TextwerkstattPage() {
   const [dragOver, setDragOver] = useState(false);
   const [fileError, setFileError] = useState<string | null>(null);
   const [isRecording, setIsRecording] = useState(false);
+  // Warum die Spracheingabe nicht lief, sichtbar statt nur in der Konsole: Am Handy sah man sonst gar nichts (Meldung Thomas
+  // 17.11.2026; Ursache war ein Server-Header, der das Mikrofon für die Seite sperrte).
+  const [aufnahmeFehler, setAufnahmeFehler] = useState<string | null>(null);
   const [speechSupported] = useState<boolean>(isSpeechRecognitionSupported);
   const recognitionRef = useRef<any>(null);
   // Die Spracheingabe schreibt in den AKTUELLEN Text, nicht in eine Kopie vom Start —
@@ -320,11 +323,13 @@ export default function TextwerkstattPage() {
       .catch(() => setStilprofile([]));
   }, []);
 
-  // KI-Wege: Vorgabe ist der erste verfügbare lokale Weg. Einen Cloud-Weg wählt nur der Nutzer selbst.
+  // KI-Wege: Vorgabe ist der erste verfügbare lokale Weg. Einen Cloud-Weg wählt nur der Nutzer selbst. Ein gesperrter Weg
+  // wird nie vorgewählt: In der Demo (Lokal ohne Schlüssel) stand Lokal gewählt und gesperrt da, und wer auf Cloud wechselte,
+  // kam scheinbar nicht mehr zurück (Meldung Thomas 17.11.2026). Ohne verfügbaren lokalen Weg ist nichts gewählt.
   useEffect(() => {
     const wege = kiStatus?.wege ?? [];
     if (optWeg && wege.some((w) => w.id === optWeg)) return;
-    const lokal = wege.find((w) => w.art === 'lokal' && w.verfuegbar) ?? wege.find((w) => w.art === 'lokal');
+    const lokal = wege.find((w) => w.art === 'lokal' && w.verfuegbar);
     if (lokal) setOptWeg(lokal.id);
   }, [kiStatus, optWeg]);
   const kiWege = kiStatus?.wege ?? [];
@@ -668,7 +673,7 @@ export default function TextwerkstattPage() {
     !text.trim() ? null
       : text.length > 10_000 ? t('optimieren.zuLang')
       : arten && arten.length === 0 ? t('optimieren.keineArten')
-      : !gewaehlterWeg ? t('optimieren.keinWeg')
+      : !gewaehlterWeg ? (kiWege.length > 0 ? t('optimieren.wegWaehlen') : t('optimieren.keinWeg'))
       : !gewaehlterWeg.verfuegbar ? fehlerText({ code: gewaehlterWeg.grund ?? undefined }, 0)
       : zielzeichenUngueltig ? t('optimieren.zielzeichenTitle')
       : istCloud && stilInfo && !stilInfo.cloud ? t('optimieren.stilNichtCloud')
@@ -819,17 +824,25 @@ export default function TextwerkstattPage() {
     rec.onerror = (e: any) => {
       if (e.error !== 'aborted' && e.error !== 'no-speech') {
         console.error('SpeechRecognition error:', e.error);
+        setAufnahmeFehler(
+          e.error === 'not-allowed' || e.error === 'service-not-allowed' ? tq('speech.notAllowed')
+            : e.error === 'audio-capture' ? tq('speech.noMic')
+            : e.error === 'network' ? tq('speech.network')
+            : tq('speech.failed', { fehler: String(e.error) }),
+        );
       }
       setIsRecording(false);
     };
     rec.onend = () => setIsRecording(false);
 
     recognitionRef.current = rec;
+    setAufnahmeFehler(null);
     try {
       rec.start();
       setIsRecording(true);
     } catch (err) {
       console.error('Konnte Spracherkennung nicht starten:', err);
+      setAufnahmeFehler(tq('speech.failed', { fehler: err instanceof Error ? err.message : String(err) }));
       setIsRecording(false);
     }
   };
@@ -935,9 +948,9 @@ export default function TextwerkstattPage() {
             {t(`steps.${schritt}Hinweis`)}
           </p>
 
-          {/* Sprache und Channel gelten für alle Schritte; dahinter, was nur der gewählte Schritt kennt. Jede Beschriftung steht über
-              ihrem Feld (bis 11.11.2026 standen Modus und Anrede links daneben in eigenen Zeilen). Am Handy zwei Spalten. */}
-          <div className="grid grid-cols-2 gap-x-3 gap-y-3 mb-4 sm:flex sm:flex-wrap sm:items-end sm:gap-x-4">
+          {/* Zwei feste Zeilen (Entscheid Thomas 17.11.2026): Zeile 1 ist in jedem Schritt gleich (Sprache, Zielsprache, Channel),
+              Zeile 2 trägt nur, was der gewählte Schritt kennt. Jede Beschriftung steht über ihrem Feld. Am Handy zwei Spalten. */}
+          <div className="grid grid-cols-2 gap-x-3 gap-y-3 mb-3 sm:flex sm:flex-wrap sm:items-end sm:gap-x-4">
             {/* Ausgangs- und Zielsprache bleiben am Handy in einer Zeile zusammen; ab sm löst sich die Klammer auf (`contents`). */}
             <div className={schritt === 'uebersetzen' ? 'col-span-2 flex items-end gap-2 sm:contents' : 'contents'}>
               <div className="min-w-0 flex-1 sm:flex-none">
@@ -998,17 +1011,26 @@ export default function TextwerkstattPage() {
               </select>
             </div>
 
+          </div>
+
+          <div className="grid grid-cols-2 gap-x-3 gap-y-3 mb-4 sm:flex sm:flex-wrap sm:items-end sm:gap-x-4">
             {schritt === 'pruefen' && (
               <>
-                <label className="self-end inline-flex items-center gap-2 text-sm text-gray-700 cursor-pointer pb-1.5">
-                  <input
-                    type="checkbox"
-                    checked={picky}
-                    onChange={(e) => setPicky(e.target.checked)}
-                    className="accent-primary-600"
-                  />
-                  {tw('picky')}
-                </label>
+                <div className="col-span-2 sm:col-span-1 min-w-0">
+                  <span className="block text-xs font-medium text-gray-500 mb-1">{tw('pickyLabel')}</span>
+                  <label
+                    className="inline-flex items-center gap-2 text-sm text-gray-700 cursor-pointer px-3 py-1.5 border border-gray-300 rounded select-none"
+                    title={tw('pickyTitle')}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={picky}
+                      onChange={(e) => setPicky(e.target.checked)}
+                      className="accent-primary-600"
+                    />
+                    {tw('picky')}
+                  </label>
+                </div>
                 {matches.length > 0 && (
                   <button
                     type="button"
@@ -1040,6 +1062,23 @@ export default function TextwerkstattPage() {
                     ))}
                   </select>
                 </div>
+                {artInfo?.zielzeichen && (
+                  <div>
+                    <label className="block text-xs font-medium text-gray-500 mb-1" htmlFor="tw-opt-ziel">{t('optimieren.zielzeichen')}</label>
+                    <input
+                      id="tw-opt-ziel"
+                      type="number"
+                      min={20}
+                      max={10000}
+                      step={10}
+                      value={zielzeichen}
+                      onChange={(e) => setZielzeichen(e.target.value)}
+                      placeholder={text.trim() ? String(Math.round(text.trim().length / 2)) : ''}
+                      title={t('optimieren.zielzeichenTitle')}
+                      className={`w-28 text-sm border rounded px-3 py-1.5 ${zielzeichenUngueltig ? 'border-red-400' : 'border-gray-300'}`}
+                    />
+                  </div>
+                )}
                 {stilprofile.length > 0 && (
                   <div className="min-w-0">
                     <label className="block text-xs font-medium text-gray-500 mb-1" htmlFor="tw-opt-stil">{t('optimieren.stil')}</label>
@@ -1059,7 +1098,9 @@ export default function TextwerkstattPage() {
                     </select>
                   </div>
                 )}
-                <div className="col-span-2 sm:col-span-1 min-w-0">
+                {/* KI und Pseudonymisierung als ein Block: Die Stufe gehört zur Cloud-Wahl und darf nicht in eine andere Zeile rutschen. */}
+                <div className="col-span-2 sm:col-span-1 min-w-0 flex flex-wrap items-end gap-x-4 gap-y-3">
+                  <div className="min-w-0">
                   <span className="block text-xs font-medium text-gray-500 mb-1">{t('optimieren.weg')}</span>
                   <div className="inline-flex flex-wrap max-w-full rounded-[5px] border border-gray-300 bg-white p-0.5 gap-0.5" role="radiogroup" aria-label={t('optimieren.weg')}>
                     {kiWege.map((w) => (
@@ -1085,23 +1126,7 @@ export default function TextwerkstattPage() {
                     <StufenWahl stufe={pseudoStufe} onStufe={setPseudoStufe} />
                   </div>
                 )}
-                {artInfo?.zielzeichen && (
-                  <div>
-                    <label className="block text-xs font-medium text-gray-500 mb-1" htmlFor="tw-opt-ziel">{t('optimieren.zielzeichen')}</label>
-                    <input
-                      id="tw-opt-ziel"
-                      type="number"
-                      min={20}
-                      max={10000}
-                      step={10}
-                      value={zielzeichen}
-                      onChange={(e) => setZielzeichen(e.target.value)}
-                      placeholder={text.trim() ? String(Math.round(text.trim().length / 2)) : ''}
-                      title={t('optimieren.zielzeichenTitle')}
-                      className={`w-28 text-sm border rounded px-3 py-1.5 ${zielzeichenUngueltig ? 'border-red-400' : 'border-gray-300'}`}
-                    />
-                  </div>
-                )}
+                </div>
               </>
             )}
 
@@ -1194,6 +1219,7 @@ export default function TextwerkstattPage() {
           )}
 
           {fileError && <div className="mb-3 text-sm text-red-600">{fileError}</div>}
+          {aufnahmeFehler && <div role="alert" className="mb-3 text-sm text-red-600">🎤 {aufnahmeFehler}</div>}
           {schritt === 'pruefen' && checkError && <div className="mb-3 text-sm text-red-600">{checkError}</div>}
           {schritt === 'pruefen' && ltWarning && <div className="mb-3 text-sm text-amber-700">{ltWarning}</div>}
           {schritt === 'pruefen' && mode !== 'text' && (

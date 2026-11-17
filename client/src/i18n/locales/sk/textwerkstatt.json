@@ -51,6 +51,7 @@
     "laeuft": "Vylepšuje sa …",
     "keineArten": "Nie je nastavený žiadny spôsob vylepšenia. Administrátor ich vytvorí v časti Správa › Admin › Spôsoby vylepšenia.",
     "keinWeg": "Nie je nastavená žiadna cesta AI.",
+    "wegWaehlen": "Vyberte cestu AI.",
     "wegGesperrt": "nedostupné: {{grund}}",
     "lokalHinweis": "Lokálne: text ide ako čistý text na internú stanicu AI. Cesta tam vedie cez Cloudflare.",
     "cloudHinweis": "Cloud: von ide len text z tohto náhľadu, so zástupnými symbolmi namiesto mien, cien a čísel. Výsledok sa vráti so skutočnými hodnotami.",

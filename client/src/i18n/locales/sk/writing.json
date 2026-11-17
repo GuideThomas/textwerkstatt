@@ -15,7 +15,9 @@
     "SK": "Slovenčina",
     "SL": "Slovinčina"
   },
-  "picky": "Prísny režim (picky)",
+  "picky": "Kontrolovať aj štýl a typografiu",
+  "pickyLabel": "Rozsah kontroly",
+  "pickyTitle": "Navyše kontroluje štýl, výplňové slová, opakovanie slov, dlhé vety a typografiu (úvodzovky, pomlčky, medzery). Preto hlási viac miest.",
   "actions": {
     "acceptSafe": "Použiť bezpečné opravy",
     "acceptSafeTitle": "Automaticky použiť opravy preklepov/typografie/interpunkcie (jednoznačné návrhy)",

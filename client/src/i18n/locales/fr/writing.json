@@ -15,7 +15,9 @@
     "SK": "Slovaque",
     "SL": "Slovène"
   },
-  "picky": "Mode strict (picky)",
+  "picky": "Vérifier aussi le style et la typographie",
+  "pickyLabel": "Étendue",
+  "pickyTitle": "Vérifie en plus le style, les mots de remplissage, les répétitions, les phrases longues et la typographie (guillemets, tirets, espaces). Signale donc davantage de passages.",
   "actions": {
     "acceptSafe": "Appliquer les corrections sûres",
     "acceptSafeTitle": "Appliquer automatiquement fautes de frappe/typographie/ponctuation (suggestions univoques)",

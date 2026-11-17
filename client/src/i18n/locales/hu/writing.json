@@ -15,7 +15,9 @@
     "SK": "Szlovák",
     "SL": "Szlovén"
   },
-  "picky": "Szigorú mód (picky)",
+  "picky": "Stílus és tipográfia ellenőrzése is",
+  "pickyLabel": "Ellenőrzés köre",
+  "pickyTitle": "Ezen felül ellenőrzi a stílust, a töltelékszavakat, a szóismétléseket, a hosszú mondatokat és a tipográfiát (idézőjelek, gondolatjelek, szóközök). Ezért több helyet jelez.",
   "actions": {
     "acceptSafe": "Biztonságos javítások alkalmazása",
     "acceptSafeTitle": "Elírások/tipográfia/írásjelek automatikus javítása (egyértelmű javaslatok)",

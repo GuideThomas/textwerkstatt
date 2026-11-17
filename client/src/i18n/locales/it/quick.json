@@ -46,7 +46,11 @@
     "start": "Avvia dettatura",
     "startWithLocale": "Avvia dettatura ({{locale}})",
     "recording": "Registrazione…",
-    "speak": "Parla"
+    "speak": "Parla",
+    "notAllowed": "Il microfono non è consentito per questa pagina. Consentilo nel browser.",
+    "noMic": "Nessun microfono trovato.",
+    "network": "Il riconoscimento vocale richiede una connessione al servizio del browser.",
+    "failed": "Impossibile avviare l'input vocale ({{fehler}})."
   },
   "alt": {
     "forSelectionTitle": "Traduzioni alternative per «{{text}}»",
