@@ -11,6 +11,9 @@
     "PREIS": "Prix et conditions",
     "ARTIKELNR": "Références article",
     "BELEGNR": "Numéros de document",
+    "DATUM": "Dates et heures",
+    "MENGE": "Quantités",
+    "EIGENNAME": "Noms propres (strict)",
     "EIGEN": "Masqués par vous et liste de protection"
   },
   "art": {
@@ -35,7 +38,16 @@
     "nichtAufdeckbar": "Les coordonnées bancaires, adresses e-mail, numéros de téléphone et termes de la liste de protection restent toujours masqués.",
     "restOk": "Contrôle final réussi : aucune coordonnée bancaire, adresse e-mail ou numéro de téléphone dans le texte.",
     "restFehler": "Le texte contient encore : {{funde}}. Rien ne sera envoyé ainsi. Masquez le passage ou utilisez l’IA locale.",
-    "netzFehler": "Le serveur est injoignable. Rien n’a été envoyé."
+    "netzFehler": "Le serveur est injoignable. Rien n’a été envoyé.",
+    "stufe": "Rigueur",
+    "stufeName": {
+      "soft": "Souple",
+      "streng": "Strict"
+    },
+    "stufeHinweis": {
+      "soft": "Prénoms et noms, même un prénom seul.",
+      "streng": "En plus, chaque mot employé comme un nom propre : lieux, marques et noms de produits compris."
+    }
   },
   "hinweis": {
     "rest": "La détection repose sur des règles et ne trouve pas tout. Les périphrases (« l’hôtel de la Stephansplatz aux 240 chambres ») et le contenu lui-même restent visibles pour le modèle. Pour les textes confidentiels, utilisez l’IA locale.",

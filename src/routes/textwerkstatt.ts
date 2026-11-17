@@ -721,7 +721,7 @@ export function textwerkstattRouter(opts: {
         return;
       }
       const b = req.body ?? {};
-      res.json(await vorschauErstellen({ nutzerId: user.id, text: b.text, verdecken: b.verdecken, aufdecken: b.aufdecken }, schutz));
+      res.json(await vorschauErstellen({ nutzerId: user.id, text: b.text, verdecken: b.verdecken, aufdecken: b.aufdecken, stufe: b.stufe }, schutz));
     } catch (err) {
       fehlerAntwort(res, err);
     }

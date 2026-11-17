@@ -17,7 +17,18 @@ import { kiFetch, uhrzeit } from '../../hooks/useKiStatus';
 
 export type Schutzklasse =
   | 'BANK' | 'MAIL' | 'TELEFON' | 'PERSON' | 'ANSCHRIFT' | 'URL' | 'FIRMA' | 'PROJEKT' | 'PREIS' | 'ARTIKELNR' | 'BELEGNR'
-  | 'EIGEN';
+  | 'DATUM' | 'MENGE' | 'EIGENNAME' | 'EIGEN';
+
+/** `soft`: Vor- und Nachname, ein Vorname allein. `streng`: dazu jedes Eigenname-Wort (Entscheid Thomas 17.11.2026). */
+export type PseudonymStufe = 'soft' | 'streng';
+const STUFE_SPEICHER = 'textwerkstatt.pseudonymStufe';
+function stufeLesen(): PseudonymStufe {
+  try {
+    return localStorage.getItem(STUFE_SPEICHER) === 'streng' ? 'streng' : 'soft';
+  } catch {
+    return 'soft';
+  }
+}
 
 export interface VorschauTreffer {
   platzhalter: string;
@@ -39,6 +50,7 @@ export interface Vorschau {
   nichtAufdeckbar: string[];
   klassenAus: Schutzklasse[];
   restpruefung: { ok: boolean; funde: { klasse: Schutzklasse; art: string; anzahl: number }[] };
+  stufe: PseudonymStufe;
 }
 
 /** Feste Farbe je Klasse; Pflichtklassen in Rottönen. */
@@ -54,6 +66,9 @@ export const KLASSEN_FARBE: Record<Schutzklasse, string> = {
   PREIS: 'bg-amber-100 text-amber-800 border-amber-300',
   ARTIKELNR: 'bg-lime-100 text-lime-800 border-lime-300',
   BELEGNR: 'bg-teal-100 text-teal-800 border-teal-300',
+  DATUM: 'bg-emerald-100 text-emerald-800 border-emerald-300',
+  MENGE: 'bg-sky-100 text-sky-800 border-sky-300',
+  EIGENNAME: 'bg-fuchsia-100 text-fuchsia-800 border-fuchsia-300',
   EIGEN: 'bg-gray-200 text-gray-800 border-gray-400',
 };
 
@@ -80,6 +95,11 @@ export default function PseudonymVorschau({ text, onVorschau, masken, onMasken }
     gesteuert ? onMasken!({ verdecken: f(masken!.verdecken), aufdecken: masken!.aufdecken }) : setEigeneVerdecken(f);
   const setAufdecken = (f: (v: string[]) => string[]) =>
     gesteuert ? onMasken!({ verdecken: masken!.verdecken, aufdecken: f(masken!.aufdecken) }) : setEigeneAufdecken(f);
+  const [stufe, setStufe] = useState<PseudonymStufe>(stufeLesen);
+  const stufeWaehlen = (s: PseudonymStufe) => {
+    setStufe(s);
+    try { localStorage.setItem(STUFE_SPEICHER, s); } catch { /* nur Bequemlichkeit */ }
+  };
   const [vorschau, setVorschau] = useState<Vorschau | null>(null);
   const [fehler, setFehler] = useState<string | null>(null);
   const [laeuft, setLaeuft] = useState(false);
@@ -110,7 +130,7 @@ export default function PseudonymVorschau({ text, onVorschau, masken, onMasken }
     const warte = setTimeout(async () => {
       let r: Awaited<ReturnType<typeof kiFetch<Vorschau>>>;
       try {
-        r = await kiFetch<Vorschau>('/vorschau', { method: 'POST', body: JSON.stringify({ text, verdecken, aufdecken }) });
+        r = await kiFetch<Vorschau>('/vorschau', { method: 'POST', body: JSON.stringify({ text, verdecken, aufdecken, stufe }) });
       } catch {
         if (nr !== anfrage.current) return;
         setLaeuft(false);
@@ -131,7 +151,7 @@ export default function PseudonymVorschau({ text, onVorschau, masken, onMasken }
       }
     }, 300);
     return () => clearTimeout(warte);
-  }, [text, verdecken, aufdecken, t]);
+  }, [text, verdecken, aufdecken, stufe, t]);
 
   const auswahlLesen = () => {
     const s = window.getSelection();
@@ -163,6 +183,26 @@ export default function PseudonymVorschau({ text, onVorschau, masken, onMasken }
         )}
       </div>
       <p className="text-xs text-gray-500">{t('vorschau.erklaerung')}</p>
+
+      <div className="flex flex-wrap items-center gap-2 text-xs" role="radiogroup" aria-label={t('vorschau.stufe')}>
+        <span className="text-gray-600">{t('vorschau.stufe')}:</span>
+        {(['soft', 'streng'] as const).map((s) => (
+          <button
+            key={s}
+            type="button"
+            role="radio"
+            aria-checked={stufe === s}
+            onClick={() => stufeWaehlen(s)}
+            title={t(`vorschau.stufeHinweis.${s}`)}
+            className={`px-2.5 py-1 rounded-md border ${
+              stufe === s ? 'bg-primary-600 text-white border-primary-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+            }`}
+          >
+            {t(`vorschau.stufeName.${s}`)}
+          </button>
+        ))}
+        <span className="text-gray-500">{t(`vorschau.stufeHinweis.${stufe}`)}</span>
+      </div>
 
       {fehler && <div role="alert" className="text-sm text-red-700 bg-red-50 border border-red-200 p-3 rounded-md">{fehler}</div>}
 

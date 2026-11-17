@@ -11,6 +11,9 @@
     "PREIS": "Prices and terms",
     "ARTIKELNR": "Item numbers",
     "BELEGNR": "Document numbers",
+    "DATUM": "Dates and times",
+    "MENGE": "Quantities",
+    "EIGENNAME": "Proper names (strict)",
     "EIGEN": "Masked by you and protection list"
   },
   "art": {
@@ -35,7 +38,16 @@
     "nichtAufdeckbar": "Bank details, email addresses, phone numbers and terms on the protection list always stay masked.",
     "restOk": "Final check passed: no bank details, email address or phone number in the text.",
     "restFehler": "The text still contains: {{funde}}. Nothing will be sent like this. Mask the passage or use the local AI.",
-    "netzFehler": "The server cannot be reached. Nothing was sent."
+    "netzFehler": "The server cannot be reached. Nothing was sent.",
+    "stufe": "Thoroughness",
+    "stufeName": {
+      "soft": "Soft",
+      "streng": "Strict"
+    },
+    "stufeHinweis": {
+      "soft": "First and last names, also a first name on its own.",
+      "streng": "Also every word that stands like a proper name: places, brands and product names too."
+    }
   },
   "hinweis": {
     "rest": "Detection is rule-based and does not find everything. Paraphrases (“the hotel on Stephansplatz with 240 rooms”) and the content itself remain visible to the model. Use the local AI for confidential texts.",

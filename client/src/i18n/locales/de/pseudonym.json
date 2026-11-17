@@ -11,6 +11,9 @@
     "PREIS": "Preise und Konditionen",
     "ARTIKELNR": "Artikelnummern",
     "BELEGNR": "Belegnummern",
+    "DATUM": "Datum und Uhrzeit",
+    "MENGE": "Mengen und Stückzahlen",
+    "EIGENNAME": "Eigennamen (streng)",
     "EIGEN": "Selbst verdeckt und Schutzliste"
   },
   "art": {
@@ -35,7 +38,16 @@
     "nichtAufdeckbar": "Bankverbindungen, Mailadressen, Telefonnummern und Begriffe der Schutzliste bleiben immer verdeckt.",
     "restOk": "Restprüfung bestanden: keine Bankverbindung, Mailadresse oder Telefonnummer im Text.",
     "restFehler": "Im Text steht noch: {{funde}}. So geht nichts hinaus. Bitte die Stelle verdecken oder die lokale KI nehmen.",
-    "netzFehler": "Der Server ist nicht erreichbar. Es wurde nichts gesendet."
+    "netzFehler": "Der Server ist nicht erreichbar. Es wurde nichts gesendet.",
+    "stufe": "Gründlichkeit",
+    "stufeName": {
+      "soft": "Soft",
+      "streng": "Streng"
+    },
+    "stufeHinweis": {
+      "soft": "Vor- und Nachnamen, auch ein Vorname allein.",
+      "streng": "Dazu jedes Wort, das wie ein Eigenname steht: auch Orte, Marken und Produktnamen."
+    }
   },
   "hinweis": {
     "rest": "Die Erkennung arbeitet mit Regeln und findet nicht alles. Umschreibungen („das Hotel am Stephansplatz mit 240 Zimmern“) und der Inhalt selbst bleiben für das Modell sichtbar. Für Vertrauliches die lokale KI nehmen.",

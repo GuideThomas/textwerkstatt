@@ -568,6 +568,37 @@ describe('B Dienst Cloud', () => {
     expect(z.maskenVerdeckt).toBe(0);
     for (const w of ['Moser', 'Seeblick', 'bekommt']) expect(JSON.stringify(z)).not.toContain(w);
   });
+  it('streng mit Datum und Menge (17.11.2026): nichts davon geht hinaus, das Modell stellt um, die harte Prüfung hält', async () => {
+    vorschauenLeeren();
+    const text = 'Laut Wieser liefern wir am 4. Dezember 240 Stück nach Kufstein. Unterberger und Egger prüfen die Muster.';
+    const v = await vorschauErstellen({ nutzerId: 'nutzer-frei', text, stufe: 'streng' }, quelle);
+    for (const w of ['Wieser', '4. Dezember', '240', 'Kufstein', 'Unterberger', 'Egger']) expect(v.ausgehend).not.toContain(w);
+    // Das Modell stellt Platzhalter um und schreibt einen in anderer Form.
+    naechsteAntwort = (body) => {
+      const t: string = body.messages[1].content;
+      const m = /^Laut (\[NAME_\d\]) liefern wir am (\[DATUM_1\]) (\[MENGE_1\]) Stück nach (\[NAME_\d\])\. (\[NAME_\d\]) und (\[NAME_\d\]) prüfen die Muster\.$/.exec(t);
+      if (!m) return t;
+      return `${m[6]} und ${m[5]} prüfen die Muster. Laut ${m[1]!.replace('_', ' ')} liefern wir ${m[3]} Stück am ${m[2]} nach ${m[4]}.`;
+    };
+    const r = await optimieren({ nutzerId: 'nutzer-frei', artId: 'verstaendlicher', wegId: 'cloud', vorschauId: v.vorschauId }, dienst);
+    const koerper = JSON.stringify(aufrufe[aufrufe.length - 1]!.body);
+    for (const w of ['Wieser', 'Dezember', '240', 'Kufstein', 'Unterberger', 'Egger']) expect(koerper).not.toContain(w);
+    expect(r.text).toBe('Egger und Unterberger prüfen die Muster. Laut Wieser liefern wir 240 Stück am 4. Dezember nach Kufstein.');
+    expect(r.befund.ergebnis).not.toBe('verworfen');
+    expect(r.befund.punkte.find((p) => p.pruefung === 'zahlen')!.stufe).toBe('ok');
+    expect(r.befund.punkte.find((p) => p.pruefung === 'platzhalter')!.stufe).toBe('ok');
+    expect(laeufe[laeufe.length - 1]!.platzhalter!.EIGENNAME).toBe(4);
+  });
+  it('streng verdeckt kein Wort der eigenen Anweisung: ohne Wortschatz WERT_IN_ANWEISUNG, mit Wortschatz läuft es', async () => {
+    const text = 'Laut Lichtleiste hat Wieser recht.';
+    const ohne = await vorschauErstellen({ nutzerId: 'nutzer-frei', text, stufe: 'streng' }, quelle);
+    expect(await fehlerCode(() => optimieren({ nutzerId: 'nutzer-frei', artId: 'leck', wegId: 'cloud', vorschauId: ohne.vorschauId }, dienst))).toBe('WERT_IN_ANWEISUNG');
+    const mit = await vorschauErstellen({ nutzerId: 'nutzer-frei', text, stufe: 'streng' }, { laden: async () => ({ ...schutz, wortschatz: LECK.anweisung }) });
+    expect(mit.ausgehend).toContain('Lichtleiste');
+    expect(mit.ausgehend).not.toContain('Wieser');
+    naechsteAntwort = (body) => body.messages[1].content;
+    expect(await fehlerCode(() => optimieren({ nutzerId: 'nutzer-frei', artId: 'leck', wegId: 'cloud', vorschauId: mit.vorschauId }, dienst))).toBe('KEIN_FEHLER');
+  });
   it('Negativtest über den Dienst: fehlender Platzhalter verwirft bei Korrigieren, ist ein Hinweis beim Kürzen', async () => {
     const v = await vorschauErstellen({ nutzerId: 'nutzer-frei', text: MAIL }, quelle);
     naechsteAntwort = (body) => body.messages[1].content.replace(/ für \[PREIS_1\]/, '');

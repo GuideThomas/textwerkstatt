@@ -23,6 +23,8 @@ import {
   PSEUDONYM_HINT,
   PseudonymKind,
   PseudonymSession,
+  PseudonymStufe,
+  STUFEN,
   PseudonymizationError,
   RestFund,
   SCHUTZKLASSEN,
@@ -79,6 +81,12 @@ export interface SchutzEinstellungen {
   aus: Schutzklasse[];
   liste: SchutzBegriff[];
   artikelnummer: string | null;
+  /**
+   * Was die Installation selbst in ihre Anweisungen schreibt (Anweisungen der Arten, für die Cloud freigegebene
+   * Stilprofile). Die Stufe „streng“ verdeckt diese Wörter nicht, wenn sie dort als ganzes Wort stehen; sonst verwürfe die
+   * Schranke unten fast jeden Lauf mit `WERT_IN_ANWEISUNG`. Fehlt die Angabe (Prüfskripte), gilt ein leerer Wortschatz.
+   */
+  wortschatz?: string;
 }
 
 export interface SchutzQuelle {
@@ -91,7 +99,15 @@ export const standardSchutzQuelle: SchutzQuelle = {
     const l = await pool.query('SELECT begriff, art FROM textwerkstatt_schutzliste ORDER BY id');
     const aus = k.rows.filter((r) => r.aktiv === false).map((r) => r.klasse as Schutzklasse);
     const artikel = k.rows.find((r) => r.klasse === 'ARTIKELNR')?.muster ?? null;
-    return { aus, liste: l.rows.map((r) => ({ begriff: r.begriff, art: r.art })), artikelnummer: artikel };
+    const a = await pool.query('SELECT anweisung FROM textwerkstatt_arten');
+    // Nur Profile, die in die Cloud dürfen: Ein anderes geht nie hinaus, seine Wörter sind kein Grund, etwas offen zu lassen.
+    const s = await pool.query(
+      'SELECT beschreibung, beispiele FROM textwerkstatt_stilprofile WHERE cloud_freigabe_fassung IS NOT NULL AND cloud_freigabe_fassung = fassung',
+    );
+    const wortschatz = [...a.rows.map((r) => r.anweisung), ...s.rows.flatMap((r) => [r.beschreibung, r.beispiele])]
+      .filter((t): t is string => typeof t === 'string' && t.trim() !== '')
+      .join('\n');
+    return { aus, liste: l.rows.map((r) => ({ begriff: r.begriff, art: r.art })), artikelnummer: artikel, wortschatz };
   },
 };
 
@@ -156,6 +172,7 @@ export interface VorschauAntwort {
   nichtAufdeckbar: string[];
   klassenAus: Schutzklasse[];
   restpruefung: { ok: boolean; funde: RestFund[] };
+  stufe: PseudonymStufe;
 }
 
 export interface VorschauEingabe {
@@ -163,6 +180,8 @@ export interface VorschauEingabe {
   text: unknown;
   verdecken?: unknown;
   aufdecken?: unknown;
+  /** `soft` (Vorgabe) oder `streng`, der Umschalter der Vorschau. */
+  stufe?: unknown;
 }
 
 function liste(wert: unknown, feld: string, max: number, maxZeichen: number, minZeichen: number): string[] {
@@ -212,6 +231,10 @@ export async function vorschauErstellen(
   }
   const verdecken = liste(e.verdecken, 'verdecken', GRENZEN.verdecken, GRENZEN.verdeckenZeichen, 2);
   const aufdecken = liste(e.aufdecken, 'aufdecken', GRENZEN.aufdecken, GRENZEN.aufdeckenZeichen, 1);
+  if (e.stufe !== undefined && e.stufe !== null && !(STUFEN as readonly unknown[]).includes(e.stufe)) {
+    throw new PseudonymFehler('EINGABE', 'stufe: soft oder streng');
+  }
+  const stufe: PseudonymStufe = (e.stufe as PseudonymStufe | null | undefined) ?? 'soft';
 
   let einst: SchutzEinstellungen;
   try {
@@ -231,6 +254,8 @@ export async function vorschauErstellen(
       aus,
       aufdecken,
       artikelnummer: einst.artikelnummer,
+      stufe,
+      wortschatz: einst.wortschatz,
     });
   } catch (err) {
     // Etwa ein Muster in der Tabelle, das am Code vorbei gesetzt wurde: zu statt mit Vorgaben (G4).
@@ -281,6 +306,7 @@ export async function vorschauErstellen(
     nichtAufdeckbar: befund.nichtAufdeckbar,
     klassenAus: aus,
     restpruefung: restpruefung(ausgehend),
+    stufe,
   };
 }
 

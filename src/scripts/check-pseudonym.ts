@@ -100,15 +100,19 @@ describe('A Erkennung ohne Wörterbuch', () => {
     expect(out).toMatch(/\[[A-Z]+_\d+(\.\d+)?\]/);
   });
 
+  it.each(['Guten Morgen und vielen Dank', 'Sehr geehrte Damen und Herren'])('bleibt stehen: %s', (text: string) => {
+    expect(neu().text(text)).toBe(text);
+  });
+  // Im Mail-Agent bleiben Datum und Menge für Triage und Fristen stehen. In der Textwerkstatt fallen sie seit 17.11.2026
+  // (Entscheid Thomas); der alte Stand gilt mit abgeschalteten Klassen weiter.
   it.each([
     'Bitte bis Freitag, 15.11.2026 um 10:30 Uhr',
     'Im Jahr 2026 Rechnung prüfen',
-    'Guten Morgen und vielen Dank',
     'Am 02.11.2026 sind 1000 Stück da',
-    'Sehr geehrte Damen und Herren',
     'Termin 02/11/2026 passt',
-  ])('bleibt stehen, Triage und Fristen brauchen es: %s', (text: string) => {
-    expect(neu().text(text)).toBe(text);
+  ])('geändert: Datum und Menge nur ohne die Klassen DATUM und MENGE im Klartext: %s', (text: string) => {
+    expect(neu({ aus: ['DATUM', 'MENGE'] }).text(text)).toBe(text);
+    expect(neu().text(text)).toContain('[DATUM_1]');
   });
 
   it('geändert: ein Betrag mit Währung bleibt nur ohne die Klasse PREIS stehen', () => {
@@ -208,10 +212,19 @@ describe('A Namen ohne eigene Liste', () => {
     const out = neu().text(text);
     for (const wort of geheim) expect(out).not.toContain(wort);
   });
-  it.each(['Max Länge 5 m bei 24 Volt', 'Nur Montag und August Termin', 'Peter Bitte nicht vergessen', 'Claude Code läuft', 'Karl hat angerufen'])(
+  it.each(['Max Länge 5 m bei 24 Volt', 'Nur Montag und August Termin', 'Claude Code läuft', 'Ernst nehmen wir das Angebot', 'Roman lesen'])(
     'bleibt lesbar: %s',
     (text: string) => { expect(neu().text(text)).toBe(text); },
   );
+  // Im Mail-Agent blieb ein Vorname allein stehen, dort fängt ihn das Wörterbuch aus dem Postfach. Die Textwerkstatt hat
+  // keines, deshalb zählt er seit 17.11.2026 allein (Messung: 71 von 399 Namensteilen gingen sonst durch).
+  it.each([
+    ['Peter Bitte nicht vergessen', '[PERSON_1] Bitte nicht vergessen'],
+    ['Karl hat angerufen', '[PERSON_1] hat angerufen'],
+  ])('geändert: ein Vorname allein ist ein Name: %s', (text: string, soll: string) => {
+    expect(neu().text(text)).toBe(soll);
+    expect(neu({ aus: ['PERSON'] }).text(text)).toBe(text);
+  });
   it('ein Nachname mit unbekanntem Vornamen bleibt ohne Adressbuch stehen: bekannte Grenze', () => {
     expect(neu().text('Das sagte Zorbas Kowalczyk gestern')).toContain('Zorbas Kowalczyk');
   });
@@ -362,7 +375,10 @@ describe('B Artikelnummern', () => {
   });
   it('mit Muster: vor einer Einheit, einem Mengenwort oder einem Hauptwort ist es eine Menge', () => {
     const text = 'Mit 100000 Schaltzyklen, 50000 h, 12000 lm und 15000 Mitarbeitern; Lieferung 24500 Stück.';
-    expect(neu({ artikelnummer: ARTIKEL_SEED }).text(text)).toBe(text);
+    expect(neu({ artikelnummer: ARTIKEL_SEED, aus: ['MENGE'] }).text(text)).toBe(text);
+    // Mit der Klasse MENGE (seit 17.11.2026) fallen die Mengen, Messwerte bleiben, und keine wird zur Artikelnummer.
+    expect(neu({ artikelnummer: ARTIKEL_SEED }).text(text))
+      .toBe('Mit 100000 Schaltzyklen, 50000 h, 12000 lm und [MENGE_1] Mitarbeitern; Lieferung [MENGE_2] Stück.');
   });
   it('EAN mit gültiger Prüfziffer auch ohne Kennwort, mit falscher nicht', () => {
     expect(ean13Gueltig('4006381333931')).toBe(true);
@@ -391,8 +407,12 @@ describe('B Belegnummern', () => {
   ])('%s', (_n: string, text: string, geheim: string) => {
     expect(neu().text(text)).not.toContain(geheim);
   });
-  it.each(['ab 120 m Länge', 'die bestellten 3000 K Bänder', 'Bestellung von 120 Stück'])('bleibt: %s', (text: string) => {
+  it.each(['ab 120 m Länge', 'die bestellten 3000 K Bänder'])('bleibt: %s', (text: string) => {
     expect(neu().text(text)).toBe(text);
+  });
+  it('keine Belegnummer, aber seit 17.11.2026 eine Menge: Bestellung von 120 Stück', () => {
+    expect(neu({ aus: ['MENGE'] }).text('Bestellung von 120 Stück')).toBe('Bestellung von 120 Stück');
+    expect(neu().text('Bestellung von 120 Stück')).toBe('Bestellung von [MENGE_1] Stück');
   });
 });
 
@@ -510,11 +530,14 @@ describe('B Nachgezogen nach den fremden Korpora', () => {
   it.each([
     'Konform nach EN 60598 und EN 62471',
     'Linearleuchte LL-1500 Slim, 1500 mm, 28 W',
-    'Projektbericht KW 44: Montage läuft',
     'spart bis zu 60 % Energie gegenüber Halogen',
     'Die Anlage: Datenblatt liegt bei',
   ])('bleibt: %s', (text: string) => {
     expect(neu({ artikelnummer: ARTIKEL_SEED }).text(text)).toBe(text);
+  });
+  it('kein Projekt, aber seit 17.11.2026 ein Datum: Projektbericht KW 44', () => {
+    expect(neu({ artikelnummer: ARTIKEL_SEED, aus: ['DATUM'] }).text('Projektbericht KW 44: Montage läuft')).toBe('Projektbericht KW 44: Montage läuft');
+    expect(neu({ artikelnummer: ARTIKEL_SEED }).text('Projektbericht KW 44: Montage läuft')).toBe('Projektbericht [DATUM_1]: Montage läuft');
   });
   it('Restprüfung fängt eine Durchwahl und eine Handynummer im Kontaktsatz', () => {
     expect(restpruefung('bitte Durchwahl -214 verlangen').ok).toBe(false);
@@ -668,6 +691,112 @@ describe('R Review', () => {
     const gesendet = s.text('Karl Moser ruft an');
     expect(s.zuruecksetzen('[KUNDE_1] und [NAME] und [PERSON１]', gesendet).unbekannt.length).toBe(3);
     expect(s.zuruecksetzen('Herr [PERSON_1] und [REDACTED]', gesendet).unbekannt).toEqual([]);
+  });
+});
+
+// ═══ S. Datum, Menge, Vorname allein, Stufe „streng“ (17.11.2026) ═══════════════════════════════════════════════════
+// Anlass: Thomas sah Namen und Zahlen an die Cloud gehen. Gemessen an erfundenen Texten: Die Regeln waren dieselben wie im
+// Mail-Agent (dort 71, hier 71 von 399 Namensteilen durchgelassen), Datum und Mengen kannte keiner. Jeder Fall hier war vor
+// dem Umbau rot (Lauf gegen den Stand `c7a20db`, siehe PLAN-textwerkstatt.md §4 Phase 3, Nachtrag 17.11.2026).
+describe('S Datum und Menge', () => {
+  it.each([
+    ['Er braucht 240 Stück bis 12.12.2026.', ['240', '12.12.2026'], ['Stück']],
+    ['Der Termin am 4. Dezember 2026 steht.', ['4. Dezember 2026'], []],
+    ['Abnahme am 3.3., Lieferung in KW 47 um 14:30 Uhr', ['3.3.', 'KW 47', '14:30'], []],
+    ['Bestellung über 1.250 Meter, dazu 35 weitere Rollen', ['1.250', '35'], ['Meter', 'Rollen']],
+    ['Seit 2019 betreuen wir 120 Filialen, Stückzahl: 4000', ['2019', '120', '4000'], ['Filialen']],
+    ['Delivery on December 4, 2026, 500 pcs', ['December 4, 2026', '500'], ['pcs']],
+  ])('fällt: %s', (text: string, geheim: string[], bleibt: string[]) => {
+    const out = neu().text(text);
+    for (const g of geheim) expect(out).not.toContain(g);
+    for (const b of bleibt) expect(out).toContain(b);
+  });
+  it.each([
+    'Das Profil eignet sich für LED-Streifen bis 12 mm Breite bei 24 V.',
+    'Farbtemperatur 3000 K, 1200 lm, CRI über 90, spart 60 % Energie.',
+    'Das Modell 2000 hat eine Lebensdauer von 50000 Stunden.',
+    'Schutzart IP67, Version 1.2.0',
+  ])('Maße und Messwerte bleiben lesbar: %s', (text: string) => {
+    expect(neu().text(text)).toBe(text);
+  });
+  it('die Zahl fällt, das Wort danach bleibt, und die Rücksetzung stimmt auch umgestellt', () => {
+    const s = neu();
+    const gesendet = s.text('Am 12.12.2026 kommen 240 Stück, am 3.3. weitere 35 Stück.');
+    expect(gesendet).toBe('Am [DATUM_1] kommen [MENGE_1] Stück, am [DATUM_2] weitere [MENGE_2] Stück.');
+    const z = s.zuruecksetzen('Weitere [Menge 2] Stück kommen am [DATUM_2], [MENGE_1] Stück am [Datum_1].', gesendet);
+    expect(z.text).toBe('Weitere 35 Stück kommen am 3.3., 240 Stück am 12.12.2026.');
+    expect(z.unbekannt.length).toBe(0);
+    expect(z.fehlend.length).toBe(0);
+  });
+});
+
+describe('S Namen allein und Stufe streng', () => {
+  it.each([
+    ['Julia hat die Muster gestern verschickt.', ['Julia']],
+    ['Bei Fragen hilft Andreas gerne weiter.', ['Andreas']],
+  ])('soft: ein Vorname allein fällt: %s', (text: string, geheim: string[]) => {
+    const out = neu().text(text);
+    for (const g of geheim) expect(out).not.toContain(g);
+  });
+  it('soft: ein Nachname allein ohne vollen Namen im Text bleibt stehen (bekannte Grenze, dafür gibt es „streng“)', () => {
+    expect(neu().text('Laut Wieser ist das Profil ab Lager lieferbar.')).toContain('Wieser');
+  });
+  it.each([
+    ['Laut Wieser ist das Profil ab Lager lieferbar.', ['Wieser']],
+    ['Unterberger und Egger haben das Projekt betreut.', ['Unterberger', 'Egger']],
+    ['Gestern haben Bence Kovács und Siobhan O\'Neill das Muster abgenommen.', ['Kovács', 'Siobhan', 'O\'Neill']],
+    ['Unser Kunde Herbert Kofler aus Kufstein bestellt bei Lichtwerk Brenner.', ['Kofler', 'Kufstein', 'Lichtwerk', 'Brenner']],
+    ['Huber, Wieser und Egger sind dabei.', ['Huber', 'Wieser', 'Egger']],
+  ])('streng: jedes Eigenname-Wort fällt: %s', (text: string, geheim: string[]) => {
+    const out = neu({ stufe: 'streng' }).text(text);
+    for (const g of geheim) expect(out).not.toContain(g);
+    expect(out).toMatch(/\[(?:NAME|PERSON)_\d+(?:\.\d+)?\]/);
+  });
+  it('streng: ein Wort fällt überall gleich, auch am Satzanfang', () => {
+    const s = neu({ stufe: 'streng' });
+    const out = s.text('Laut Wieser passt es. Wieser meldet sich morgen.');
+    expect(out).toBe('Laut [NAME_1] passt es. [NAME_1] meldet sich morgen.');
+    expect(s.zuruecksetzen('[NAME_1] meldet sich morgen; laut [Name 1] passt es.', out).text).toBe('Wieser meldet sich morgen; laut Wieser passt es.');
+  });
+  it.each([
+    'Das Profil eignet sich für LED-Streifen bis 12 mm Breite.',
+    'Die Abdeckung aus opalem Kunststoff sorgt für ein gleichmäßiges Lichtbild.',
+    'Konform nach DIN EN 12464-1, Farbe Schwarz oder Silber.',
+    'Montage und Lieferung übernehmen wir gerne.',
+  ])('streng: Hauptwörter mit Begleiter, Abkürzungen, Farben bleiben: %s', (text: string) => {
+    expect(neu({ stufe: 'streng' }).text(text)).toBe(text);
+  });
+  it('streng: aufgedeckt bleibt stehen, auch als Teil eines aufgedeckten Namens', () => {
+    expect(neu({ stufe: 'streng', aufdecken: ['Wieser'] }).text('Laut Wieser passt es.')).toBe('Laut Wieser passt es.');
+    expect(neu({ aufdecken: ['Karl Moser'] }).text('Karl Moser ruft an, Karl bestätigt.')).toBe('Karl Moser ruft an, Karl bestätigt.');
+  });
+  it('streng: Wörter der eigenen Anweisungen bleiben stehen (sonst WERT_IN_ANWEISUNG)', () => {
+    expect(neu({ stufe: 'streng' }).text('Laut Lichtleiste hat Wieser recht.')).not.toContain('Lichtleiste');
+    const out = neu({ stufe: 'streng', wortschatz: 'Erwähne die Lichtleiste nie mit Namen.' }).text('Laut Lichtleiste hat Wieser recht.');
+    expect(out).toContain('Lichtleiste');
+    expect(out).not.toContain('Wieser');
+  });
+  it('streng: ein Nachname, der nur als Wortteil in der Anweisung steht, fällt trotzdem (Sicherheitsprüfung 17.11.2026)', () => {
+    const out = neu({ stufe: 'streng', wortschatz: 'Stelle die Kernaussage an den Anfang.' }).text('Laut Kern passt es.');
+    expect(out).toBe('Laut [NAME_1] passt es.');
+  });
+  it('streng hängt an der Klasse PERSON; eine unbekannte Stufe wirft', () => {
+    expect(neu({ stufe: 'streng', aus: ['PERSON'] }).text('Laut Wieser passt es.')).toBe('Laut Wieser passt es.');
+    expect(() => neu({ stufe: 'hart' as 'streng' })).toThrow(PseudonymizationError);
+  });
+  it('Vorschau: Stufe streng kommt an und wird gezählt, eine falsche Stufe ist EINGABE', async () => {
+    const q = { laden: async () => ({ aus: [], liste: [], artikelnummer: null }) };
+    const v = await vorschauErstellen({ nutzerId: 'nutzer-s', text: 'Laut Wieser kommen 240 Stück.', stufe: 'streng' }, q);
+    expect(v.stufe).toBe('streng');
+    expect(v.ausgehend).toBe('Laut [NAME_1] kommen [MENGE_1] Stück.');
+    expect(v.zaehler.EIGENNAME).toBe(1);
+    expect(v.zaehler.MENGE).toBe(1);
+    const soft = await vorschauErstellen({ nutzerId: 'nutzer-s', text: 'Laut Wieser kommen 240 Stück.' }, q);
+    expect(soft.stufe).toBe('soft');
+    expect(soft.ausgehend).toContain('Wieser');
+    let code = '';
+    try { await vorschauErstellen({ nutzerId: 'nutzer-s', text: 'x', stufe: 'hart' }, q); } catch (err) { code = (err as PseudonymFehler).code; }
+    expect(code).toBe('EINGABE');
   });
 });
 
@@ -903,7 +1032,8 @@ describe('C Routen', () => {
     expect((await rufe('GET', '/schutz', 'nutzer-frei')).status).toBe(403);
     const g = await rufe('GET', '/schutz', 'admin-1');
     expect(g.status).toBe(200);
-    expect(g.body.klassen.length).toBe(11);
+    // 11 bis 17.11.2026, seither mit DATUM und MENGE.
+    expect(g.body.klassen.length).toBe(13);
     expect((await rufe('PUT', '/schutz/klassen/MAIL', 'admin-1', { aktiv: false })).status).toBe(400);
     expect((await rufe('PUT', '/schutz/klassen/BANK', 'admin-1', { aktiv: false })).status).toBe(400);
     expect((await rufe('PUT', '/schutz/klassen/PREIS', 'admin-1', { aktiv: false })).status).toBe(200);

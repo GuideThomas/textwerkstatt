@@ -11,6 +11,9 @@
     "PREIS": "Árak és feltételek",
     "ARTIKELNR": "Cikkszámok",
     "BELEGNR": "Bizonylatszámok",
+    "DATUM": "Dátum és időpont",
+    "MENGE": "Mennyiségek",
+    "EIGENNAME": "Tulajdonnevek (szigorú)",
     "EIGEN": "Saját takarás és védelmi lista"
   },
   "art": {
@@ -35,7 +38,16 @@
     "nichtAufdeckbar": "A bankszámla-adatok, e-mail-címek, telefonszámok és a védelmi lista kifejezései mindig letakarva maradnak.",
     "restOk": "A végső ellenőrzés sikeres: a szövegben nincs bankszámla-adat, e-mail-cím vagy telefonszám.",
     "restFehler": "A szövegben még szerepel: {{funde}}. Így semmi sem megy ki. Takarja le a részt, vagy használja a helyi MI-t.",
-    "netzFehler": "A szerver nem érhető el. Semmi sem lett elküldve."
+    "netzFehler": "A szerver nem érhető el. Semmi sem lett elküldve.",
+    "stufe": "Alaposság",
+    "stufeName": {
+      "soft": "Enyhe",
+      "streng": "Szigorú"
+    },
+    "stufeHinweis": {
+      "soft": "Vezeték- és keresztnevek, egy keresztnév önmagában is.",
+      "streng": "Ezen felül minden tulajdonnévként álló szó: helyek, márkák és terméknevek is."
+    }
   },
   "hinweis": {
     "rest": "A felismerés szabályokon alapul, és nem talál meg mindent. A körülírások („a Stephansplatz-i szálloda 240 szobával”) és maga a tartalom látható marad a modell számára. Bizalmas szövegekhez a helyi MI-t használja.",

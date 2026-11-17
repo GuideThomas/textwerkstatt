@@ -11,6 +11,9 @@
     "PREIS": "Prezzi e condizioni",
     "ARTIKELNR": "Codici articolo",
     "BELEGNR": "Numeri di documento",
+    "DATUM": "Date e orari",
+    "MENGE": "Quantità",
+    "EIGENNAME": "Nomi propri (rigoroso)",
     "EIGEN": "Oscurati da te e lista di protezione"
   },
   "art": {
@@ -35,7 +38,16 @@
     "nichtAufdeckbar": "Coordinate bancarie, indirizzi e-mail, numeri di telefono e termini della lista di protezione restano sempre oscurati.",
     "restOk": "Controllo finale superato: nel testo non ci sono coordinate bancarie, indirizzi e-mail o numeri di telefono.",
     "restFehler": "Nel testo è ancora presente: {{funde}}. Così non viene inviato nulla. Oscura il passaggio o usa l’IA locale.",
-    "netzFehler": "Il server non è raggiungibile. Non è stato inviato nulla."
+    "netzFehler": "Il server non è raggiungibile. Non è stato inviato nulla.",
+    "stufe": "Accuratezza",
+    "stufeName": {
+      "soft": "Morbido",
+      "streng": "Rigoroso"
+    },
+    "stufeHinweis": {
+      "soft": "Nomi e cognomi, anche un nome da solo.",
+      "streng": "In più ogni parola usata come nome proprio: anche luoghi, marchi e nomi di prodotti."
+    }
   },
   "hinweis": {
     "rest": "Il riconoscimento si basa su regole e non trova tutto. Le perifrasi («l’hotel in Stephansplatz con 240 camere») e il contenuto stesso restano visibili al modello. Per i testi riservati usa l’IA locale.",

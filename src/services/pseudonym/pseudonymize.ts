@@ -32,6 +32,12 @@
  *    nimmt nur gesendete Platzhalter an; Schutzliste in jeder Schreibung, spät nummeriert, nie aufdeckbar; Kontonummer und
  *    BLZ als BANK; das Muster der Artikelnummer nur in einer engen Grammatik.
  *
+ *  - 17.11.2026 (Entscheid Thomas, gemessen an erfundenen Texten, Plan §4 Phase 3 Nachtrag): Klassen DATUM und MENGE
+ *    (nur die Zahl, „[MENGE_1] Stück“; Maße wie 12 mm, 24 V bleiben), ein Vorname allein zählt als Name, und die Stufe
+ *    `streng` verdeckt zusätzlich jedes Wort, das wie ein Eigenname steht (Art NAME, Klasse EIGENNAME). Anlass: Die
+ *    Regeln ließen hier wie im Mail-Agent 71 von 399 Namensteilen durch; der Mail-Agent fängt sie über das Wörterbuch aus
+ *    dem Postfach, das die Textwerkstatt nicht hat.
+ *
  * Die Erkennung arbeitet mit Regeln und Wörterbuch, ohne Modell. Sie bleibt lückenhaft (Quote je Klasse im Plan, §4
  * Phase 3). Deshalb sieht der Nutzer vor dem Senden genau den Text, der hinausgeht, und kann weitere Wörter verdecken.
  * Hier steht nichts, was einer Installation gehört (Plan G5): Die Schutzliste und das Muster der Artikelnummer kommen aus
@@ -39,24 +45,34 @@
  */
 
 import { FIRST_NAMES } from './first-names';
+// Ganzwort-Vergleich für die Wörter der eigenen Anweisungen, die „streng“ nicht verdeckt.
+import { wertKommtVor } from '../optimieren/werte';
 
 export type PseudonymKind =
   | 'PERSON' | 'EMAIL' | 'TELEFON' | 'IBAN' | 'KARTE' | 'BIC' | 'BANK' | 'URL' | 'ADRESSE' | 'FIRMA' | 'PROJEKT'
-  | 'PREIS' | 'ARTIKELNR' | 'BELEGNR' | 'BEGRIFF';
+  | 'PREIS' | 'ARTIKELNR' | 'BELEGNR' | 'DATUM' | 'MENGE' | 'NAME' | 'BEGRIFF';
 
 export const ARTEN: readonly PseudonymKind[] = [
   'PERSON', 'EMAIL', 'TELEFON', 'IBAN', 'KARTE', 'BIC', 'BANK', 'URL', 'ADRESSE', 'FIRMA', 'PROJEKT', 'PREIS', 'ARTIKELNR',
-  'BELEGNR', 'BEGRIFF',
+  'BELEGNR', 'DATUM', 'MENGE', 'NAME', 'BEGRIFF',
 ];
 
 /** Was der Nutzer an- und abschaltet. EIGEN sind Schutzliste und selbst verdeckte Wörter: immer an. */
 export type Schutzklasse =
   | 'BANK' | 'MAIL' | 'TELEFON' | 'PERSON' | 'ANSCHRIFT' | 'URL' | 'FIRMA' | 'PROJEKT' | 'PREIS' | 'ARTIKELNR' | 'BELEGNR'
-  | 'EIGEN';
+  | 'DATUM' | 'MENGE' | 'EIGENNAME' | 'EIGEN';
 
-export const SCHUTZKLASSEN: readonly Exclude<Schutzklasse, 'EIGEN'>[] = [
-  'BANK', 'MAIL', 'TELEFON', 'PERSON', 'ANSCHRIFT', 'URL', 'FIRMA', 'PROJEKT', 'PREIS', 'ARTIKELNR', 'BELEGNR',
+/**
+ * In der Verwaltung schaltbar. Nicht darunter: EIGEN (immer an) und EIGENNAME, das die Stufe „streng“ der Vorschau steuert,
+ * nicht die Verwaltung (Entscheid Thomas 17.11.2026).
+ */
+export const SCHUTZKLASSEN: readonly Exclude<Schutzklasse, 'EIGEN' | 'EIGENNAME'>[] = [
+  'BANK', 'MAIL', 'TELEFON', 'PERSON', 'ANSCHRIFT', 'URL', 'FIRMA', 'PROJEKT', 'PREIS', 'ARTIKELNR', 'BELEGNR', 'DATUM', 'MENGE',
 ];
+
+/** Wie gründlich nach Namen gesucht wird. `soft`: Vor- und Nachname, ein Vorname allein. `streng`: dazu jedes Eigenname-Wort. */
+export type PseudonymStufe = 'soft' | 'streng';
+export const STUFEN: readonly PseudonymStufe[] = ['soft', 'streng'];
 
 /** Nie abschaltbar, nie aufdeckbar (Entscheid Thomas 10.11.2026, Plan §4 Phase 3). Bleibt davon etwas stehen, geht nichts hinaus. */
 export const PFLICHTKLASSEN: ReadonlySet<Schutzklasse> = new Set(['BANK', 'MAIL', 'TELEFON']);
@@ -76,6 +92,9 @@ export const KLASSE_JE_ART: Readonly<Record<PseudonymKind, Schutzklasse>> = {
   PREIS: 'PREIS',
   ARTIKELNR: 'ARTIKELNR',
   BELEGNR: 'BELEGNR',
+  DATUM: 'DATUM',
+  MENGE: 'MENGE',
+  NAME: 'EIGENNAME',
   BEGRIFF: 'EIGEN',
 };
 
@@ -108,6 +127,14 @@ export interface PseudonymSeed {
    * auch Messwerte; deshalb bleibt eine Zahl vor einer Einheit oder einem Hauptwort stehen (`50000 Stunden`).
    */
   artikelnummer?: string | null;
+  /** `streng` sucht zusätzlich jedes Eigenname-Wort (Art NAME). Ohne Angabe `soft`. */
+  stufe?: PseudonymStufe;
+  /**
+   * Wörter, die die Installation selbst in ihre Anweisungen schreibt (Arten, Stilprofile). Die Stufe `streng` verdeckt sie
+   * nicht: Was in der Anweisung steht, ist kein Geheimnis, und die Schranke in `pseudonymSenden` verwürfe sonst jeden Lauf,
+   * dessen Anweisung ein verdecktes Wort enthält.
+   */
+  wortschatz?: string;
 }
 
 export const FIRST_NAME_COUNT = FIRST_NAMES.size;
@@ -127,7 +154,7 @@ export class PseudonymizationError extends Error {
 }
 
 export const PSEUDONYM_HINT =
-  'Hinweis: Platzhalter in eckigen Klammern wie [PERSON_1], [FIRMA_2] oder [PREIS_3] stehen für echte Angaben. Übernimm jeden unverändert in deine Antwort, erfinde keine neuen und rate nicht, wofür sie stehen.';
+  'Hinweis: Platzhalter in eckigen Klammern wie [PERSON_1], [FIRMA_2], [DATUM_3] oder [MENGE_4] stehen für echte Angaben. Übernimm jeden unverändert in deine Antwort, erfinde keine neuen und rate nicht, wofür sie stehen. Ein Wort direkt hinter einem Platzhalter (etwa „[MENGE_4] Stück“) gehört nicht zum Platzhalter und bleibt stehen.';
 
 const WORD = "\\p{Lu}[\\p{Ll}'’]+(?:-\\p{Lu}[\\p{Ll}'’]+)?";
 /** Ein Name endet an der Zeile: Unter einer Grußformel steht darunter oft die Abteilung („Innendienst“). */
@@ -240,6 +267,108 @@ const istMengenwort = (wort: string): boolean => {
 const EINHEIT =
   "(?:K|V|W|A|mA|Hz|kHz|lm|lx|cd|h|min|s|ms|mm|cm|dm|m|km|m²|m2|qm|m³|kg|g|t|°C|°|%|‰|€|EUR|CHF|USD|Stk\\.?|x|×|VA|kW|kWh|Wh|Ah|mAh|bar|Pa|dB|Bit|GB|MB|Mbit|lm/W|W/m|lm/m|LED|LEDs|V\\s?DC|V\\s?AC)";
 const EINHEIT_DANACH_RE = new RegExp(`^[ \\t]?${EINHEIT}(?![\\p{L}\\p{N}])`, 'u');
+
+// ── Datum und Menge (Entscheid Thomas 17.11.2026: „Namen, Firmenbezeichnungen, Adressen, Datum und Mengen“) ─────────────
+// Beides kannte auch der Mail-Agent nicht. Maße und technische Werte (12 mm, 24 V, 3000 K, 12 %) bleiben lesbar: Ohne sie
+// lässt sich ein Produkttext nicht verbessern, und sie verraten nichts über Kunden oder Aufträge.
+
+/** Kein Ziffernrand, kein Platzhalter davor (`[PERSON_1.2]`), keine Dezimalstelle. */
+const ZRAND_VORN = '(?<![\\p{L}\\p{N}_.,:/\\[-])';
+const ZRAND_HINTEN = '(?![\\p{N}_\\]]|[.,:/-]\\p{N})';
+const MONAT_DE =
+  'Jänner|Januar|Feber|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember|Jän\\.|Jan\\.|Feb\\.|Mär\\.|Apr\\.|Jun\\.|Jul\\.|Aug\\.|Sept?\\.|Okt\\.|Nov\\.|Dez\\.';
+const MONAT_EN = 'January|February|March|May|June|July|October|December';
+const MONAT = `(?:${MONAT_DE}|${MONAT_EN})`;
+const JAHR = '(?:19|20)\\d{2}';
+const DATUM_REGELN: readonly RegExp[] = [
+  // 2026-11-17
+  new RegExp(`${ZRAND_VORN}${JAHR}-[01]\\d-[0-3]\\d${ZRAND_HINTEN}`, 'gu'),
+  // 17.11.2026, 17. 11. 26, 3.3.
+  new RegExp(`${ZRAND_VORN}[0-3]?\\d\\.[ \\t]?[01]?\\d\\.(?:[ \\t]?(?:${JAHR}|\\d{2}))?${ZRAND_HINTEN}`, 'gu'),
+  // 17/11/2026, 11/2026
+  new RegExp(`${ZRAND_VORN}(?:[0-3]?\\d/)?[01]?\\d/${JAHR}${ZRAND_HINTEN}`, 'gu'),
+  // 4. Dezember 2026, 4 December
+  new RegExp(`${ZRAND_VORN}[0-3]?\\d\\.?[ \\t]+${MONAT}(?:[ \\t]+${JAHR})?(?![\\p{L}\\p{N}])`, 'gu'),
+  // Dezember 2026, December 4, 2026
+  new RegExp(`(?<![\\p{L}])${MONAT}[ \\t]+(?:[0-3]?\\d(?:st|nd|rd|th)?,?[ \\t]+)?${JAHR}${ZRAND_HINTEN}`, 'gu'),
+  // December 4
+  new RegExp(`(?<![\\p{L}])(?:${MONAT_EN})[ \\t]+[0-3]?\\d(?:st|nd|rd|th)?(?![\\p{L}\\p{N}])`, 'gu'),
+  // KW 47
+  /(?<![\p{L}])KW[ \t]?\d{1,2}(?![\p{N}])/gu,
+  // 14:30 Uhr, 9.15 h
+  new RegExp(`${ZRAND_VORN}[0-2]?\\d[:.][0-5]\\d(?:[ \\t]?Uhr|[ \\t]?h(?![\\p{L}]))`, 'gu'),
+];
+/** Ein Jahr allein nur hinter einem Wort der Zeit: „seit 2019“, „im Jahr 2024“, nicht „Modell 2000“. */
+const JAHR_NACH_RE = new RegExp(
+  `((?<![\\p{L}])(?:seit|bis|ab|im|in|um|von|vor|Jahr|Jahres|Anfang|Ende|Mitte|Frühjahr|Frühling|Sommer|Herbst|Winter|since|until|from)[ \\t]+)(${JAHR})(?![\\p{N}_\\]]|[.,]\\p{N})`,
+  'giu',
+);
+
+const MENGE_ZAHL = "\\d{1,3}(?:[.'’]\\d{3})+(?:,\\d+)?|\\d+(?:,\\d+)?";
+/** Was gezählt oder bestellt wird. Kein `m` allein: „2 m lang“ ist ein Maß; bestellt wird in „Meter“ oder „lfm“. */
+const MENGEN_EINHEIT =
+  'Stück|Stk\\.?|Stck\\.?|St\\.|Meter|Metern|lfm|Laufmetern?|Rollen?|Paletten?|Kartons?|Pakete?|Paketen|Packungen?|Sets?|VE|Einheiten|Teile|Teilen|Kisten?|kg|Kilo(?:gramm)?|Tonnen|Litern?|Exemplaren?|Leuchten|Profilen?|Streifen|Netzteilen?|Spots|Lampen|Modulen?|Artikeln?|Positionen|Bestellungen|Aufträgen?|Mustern?|Mitarbeiter(?:innen|n)?|Mitarbeitenden?|Beschäftigten?|Kunden|Filialen|Standorten?|Zimmern?|Betten|Plätzen?|Wohnungen|Gästen?|Besuchern?|pcs|pieces|units|rolls|meters|boxes|pallets|weitere[nm]?|zusätzliche[nm]?';
+/** Nur die Zahl wird verdeckt, das Wort danach bleibt: „[MENGE_1] Stück“ liest sich für das Modell richtig. */
+const MENGE_RE = new RegExp(`${ZRAND_VORN}(?:${MENGE_ZAHL})(?=[ \\t]?(?:${MENGEN_EINHEIT})(?![\\p{L}]))`, 'gu');
+const MENGE_KENNWORT_RE = new RegExp(
+  `((?<![\\p{L}])(?:Menge|Stückzahl|Anzahl|Bestellmenge|Abnahmemenge|Mindestmenge|Liefermenge|Auflage|MOQ|Quantity|Qty\\.?)[ \\t]*[:=]?[ \\t]*(?:von[ \\t]+|ca\\.[ \\t]*|rund[ \\t]+|etwa[ \\t]+)?)(${MENGE_ZAHL})${ZRAND_HINTEN}`,
+  'gu',
+);
+
+// ── Namen allein (Stufe soft) und Eigennamen (Stufe streng) ───────────────────────────────────────────────────────────
+
+/**
+ * Ein Vorname allein („Julia hat die Muster verschickt“) ging im Mail-Agent wie hier durch; dort fängt ihn meist das
+ * Wörterbuch aus dem Postfach, das die Textwerkstatt nicht hat (Messung 17.11.2026). Nicht als Name zählen Vornamen, die
+ * auch ein gewöhnliches Wort oder eine Abkürzung sind.
+ */
+const VORNAME_MEHRDEUTIG = new Set(
+  'mark max kai otto iris jan ernst frank roman august april juni juli mai rosa heide will rose grace hope page art fern rich long ali ben tim tom flo'
+    .split(' '),
+);
+const EINZELWORT_RE = /(?<![\p{L}\p{N}_[])\p{Lu}\p{Ll}+(?:-\p{Lu}\p{Ll}+)?(?![\p{L}\p{N}_\]]|-\p{L}|\.\p{L})/gu;
+
+/** Ein großes Wort, auch mit Bindestrich und Apostroph: „O'Neill“, „Müller-Lüdenscheidt“, „ACME“. */
+const KANDIDAT_RE = /(?<![\p{L}\p{N}_[])\p{Lu}[\p{L}'’]*(?:-\p{L}[\p{L}'’]*)*(?![\p{L}\p{N}_\]])/gu;
+/** Davor steht ein Hauptwort, kein Name: Artikel, Pronomen, Zahlwort, Präposition mit Artikel. */
+const BEGLEITER = new Set(
+  [
+    'der die das den dem des ein eine einen einem einer eines kein keine keinen keinem keiner keines',
+    'mein meine meinen meinem meiner meines dein deine deinen deinem deiner sein seine seinen seinem seiner seines',
+    'ihr ihre ihren ihrem ihrer ihres unser unsere unseren unserem unserer euer eure euren eurem',
+    'dieser diese dieses diesem diesen jener jene jenes jenem jenen jeder jede jedes jedem jeden welcher welche welches welchem welchen',
+    'alle allen aller viele vielen vieler einige einigen mehrere mehreren manche manchen beide beiden solche solchen andere anderen',
+    'im am zum zur vom beim ins ans aufs ums übers unters hinters',
+    'zwei drei vier fünf sechs sieben acht neun zehn elf zwölf zwanzig hundert tausend',
+    'the a an this that these those our your their its his her my',
+  ]
+    .join(' ')
+    .split(' '),
+);
+/** Vor einem Namen typisch, obwohl manche davon auf -en oder -er enden. */
+const NAME_DAVOR = new Set('laut und oder sowie von mit bei für gegen über unter hinter neben zwischen nach durch ohne an aus in ab bis'.split(' '));
+/** Endungen von Hauptwörtern, die kaum ein Nachname trägt. */
+const HAUPTWORT_ENDUNG_RE = /(?:ung|ungen|heit|heiten|keit|keiten|schaft|schaften|tion|tionen|sion|sionen|tät|täten|nis|nisse|ismus|ment|ments|ik|enz|anz|ität|tur|turen|ling|linge|tum|ei|chen|lein)$/;
+/** Hauptwörter, die oft ohne Begleiter stehen („bei Fragen“, „ab Lager“, „auf Anfrage“). */
+const OHNE_BEGLEITER = new Set(
+  [
+    'fragen frage grüßen grüße gruß lager bedarf wunsch anfrage verfügung hause haus beispiel zeit licht strom aluminium',
+    'kunststoff glas stahl edelstahl holz metall messing kupfer silikon wasser luft staub feuchtigkeit wärme kälte sonne',
+    'vertrieb technik montage service support marketing einkauf lieferung versand rückfragen informationen ausnahme',
+    'ende anfang mitte rücksprache absprache vereinbarung auftrag angebot rechnung bestellung termin',
+    'innen außen inneneinsatz außeneinsatz deutsch englisch',
+    'schwarz weiß silber grau anthrazit gold chrom messing transparent opal satiniert',
+  ]
+    .join(' ')
+    .split(' '),
+);
+/** Abkürzungen, die kein Eigenname sind. Ein Wort, das mit einer beginnt („LED-Streifen“), ebenso wenig. */
+const ABKUERZUNG = new Set(
+  'LED LEDS RGB RGBW RGBWW CCT DMX DALI USB PDF CRI UGR IP IK DC AC SMD COB PWM CE ROHS ETIM EAN UV IR PVC PC PMMA EU EUR CHF USA UK DE AT CH KW MWST UST DIN EN ISO IEC ÖNORM VDE ÖVE OVE'
+    .split(' '),
+);
+const EINHEIT_WORT = new Set('mm cm dm m km kg g t w v a k lm lx h min s ms hz kw kwh wh ah bar pa db mb gb'.split(' '));
+const MAX_EIGENNAMEN = 2_000;
 
 /** Rechtsformen aus dem deutschen Sprachraum und den Nachbarländern; „& Partner“ wirkt wie eine. */
 const RECHTSFORM =
@@ -623,8 +752,13 @@ export class PseudonymSession {
   private readonly fest = new Set<string>();
   /** Personen der Schutzliste, die im Text stehen: Fläche klein geschrieben → Platzhalter. */
   private readonly listenFlaechen = new Map<string, string>();
+  private readonly stufe: PseudonymStufe;
+  private readonly wortschatz: string;
 
   constructor(seed: PseudonymSeed = {}) {
+    if (seed.stufe !== undefined && !STUFEN.includes(seed.stufe)) throw new PseudonymizationError('Stufe: soft oder streng');
+    this.stufe = seed.stufe ?? 'soft';
+    this.wortschatz = seed.wortschatz ?? '';
     this.knownNames = seed.knownNames ?? new Set();
     const aus = new Set(seed.aus ?? []);
     for (const k of aus) {
@@ -879,6 +1013,126 @@ export class PseudonymSession {
     return out;
   }
 
+  /** Datumsangaben und Uhrzeiten als Ganzes; ein Jahr allein nur hinter einem Wort der Zeit. */
+  private daten(text: string): string {
+    let out = text;
+    for (const re of DATUM_REGELN) out = out.replace(re, (m) => this.verdecke('DATUM', m));
+    return out.replace(JAHR_NACH_RE, (_m, davor: string, jahr: string) => davor + this.verdecke('DATUM', jahr));
+  }
+
+  /** Stückzahlen und bestellte Mengen: nur die Zahl, das Wort danach bleibt lesbar. */
+  private mengen(text: string): string {
+    const out = text.replace(MENGE_KENNWORT_RE, (_m, davor: string, zahl: string) => davor + this.verdecke('MENGE', zahl));
+    return out.replace(MENGE_RE, (m) => this.verdecke('MENGE', m));
+  }
+
+  /**
+   * Hat der Nutzer „Karl Moser“ aufgedeckt, bleiben auch „Karl“ und „Moser“ allein stehen. Sonst verdeckte die Regel für den
+   * Vornamen allein oder die Stufe „streng“ den Teil wieder, den der Nutzer eben sichtbar haben wollte.
+   */
+  private teilVonAufgedecktem(wort: string): boolean {
+    const k = schluessel(wort);
+    for (const a of this.aufdecken) if (a === k || a.split(/[ ,]+/).includes(k)) return true;
+    return false;
+  }
+
+  /** Ein Vorname aus der Liste zählt auch allein: „Julia hat …“, „hilft Andreas gerne weiter“. */
+  private vornamenAllein(text: string): void {
+    for (const m of text.matchAll(EINZELWORT_RE)) {
+      const wort = m[0];
+      const erster = wort.split('-')[0]!.toLowerCase();
+      if (!FIRST_NAMES.has(erster) || VORNAME_MEHRDEUTIG.has(erster) || NOT_A_NAME.has(erster)) continue;
+      if (this.teilVonAufgedecktem(wort)) continue;
+      if (!this.persons.has(wort)) this.addPerson(wort);
+    }
+    this.assertWithinLimit();
+  }
+
+  /**
+   * Stufe „streng“: jedes Wort, das wie ein Eigenname steht. Ein großes Wort gilt als Eigenname, wenn davor kein Begleiter
+   * eines Hauptworts steht (Artikel, Pronomen, Zahl, Einheit, Adjektiv auf -e/-en/-er/-es/-em), sondern etwa „laut“, „und“,
+   * „von“ oder ein Verb („hilft Andreas“). Am Satzanfang nur, wenn „und“, „oder“ oder ein Komma zu einem Eigennamen führt
+   * („Unterberger und Egger haben …“). Hauptwortendungen (-ung, -heit …), Abkürzungen (LED) und die Wörter der eigenen
+   * Anweisungen bleiben stehen. Das verdeckt bewusst auch Orte, Marken und Produktnamen: Die Stufe tauscht Lesbarkeit
+   * gegen Gründlichkeit, und in der Vorschau lässt sich jedes Wort aufdecken.
+   */
+  private eigennamen(text: string): string {
+    const treffer = [...text.matchAll(KANDIDAT_RE)];
+    const status = new Map<number, boolean>();
+    const istKandidat = (i: number): boolean => {
+      const m = treffer[i]!;
+      const wort = m[0];
+      const klein = wort.toLowerCase();
+      if (wort.length < 3) return false;
+      if (NOT_A_NAME.has(klein) || NOT_A_SURNAME.has(klein) || OHNE_BEGLEITER.has(klein) || istMengenwort(klein)) return false;
+      const kopf = wort.split('-')[0]!;
+      if (ABKUERZUNG.has(kopf.toUpperCase()) && kopf === kopf.toUpperCase()) return false;
+      if (wort.includes('-') && /^\p{Lu}{2,}$/u.test(kopf)) return false;
+      if (HAUPTWORT_ENDUNG_RE.test(klein)) return false;
+      // Mehrzahl auf -en („Endkappen“, „Schrauben“) trägt hier kaum ein Nachname; -sen schon (Jansen, Petersen).
+      if (klein.length > 4 && /(?<!s)en$/u.test(klein)) return false;
+      // Nur als ganzes Wort: Als Zeichenfolge bliebe ein Nachname „Kern“ stehen, weil eine Anweisung „Kernaussage“ sagt
+      // (Sicherheitsprüfung 17.11.2026). Trifft die strengere Schranke in `pseudonymSenden` danach eine Zeichenfolge, geht
+      // nichts hinaus (`WERT_IN_ANWEISUNG`): Der Fehler fällt nach zu, nicht nach offen.
+      if (this.wortschatz && wertKommtVor(this.wortschatz, wort)) return false;
+      if (this.teilVonAufgedecktem(wort)) return false;
+      return true;
+    };
+    /** Das Wort davor in derselben Zeile, oder null am Satz- oder Zeilenanfang. */
+    const davor = (i: number): { wort: string; index: number | null } | null => {
+      const m = treffer[i]!;
+      const links = text.slice(Math.max(0, m.index! - 60), m.index!);
+      const z = /(\S+)[ \t]+$/u.exec(links);
+      if (!z || /[.!?:;\n•–—"„“»«(]$/u.test(links.replace(/[ \t]+$/u, '')) || links.trim() === '') return null;
+      const wort = z[1]!;
+      if (/[.!?:;]$/u.test(wort)) return null;
+      // Ist das Wort davor selbst ein großes Wort (Treffer i-1 an genau dieser Stelle), entscheidet dessen Stellung mit.
+      const start = m.index! - links.length + z.index!;
+      const v = treffer[i - 1];
+      return { wort, index: v && v.index === start && v[0] === wort ? i - 1 : null };
+    };
+    const nachStellung = (i: number): boolean => {
+      const d = davor(i);
+      if (!d) return false;
+      const w = d.wort.replace(/[,]+$/u, '');
+      if (d.wort.endsWith(',')) return false;
+      const k = w.toLowerCase();
+      if (/\p{N}/u.test(w) || /^\[/.test(w) || EINHEIT_WORT.has(k)) return false;
+      if (BEGLEITER.has(k)) return false;
+      // Auch am Satzanfang groß geschrieben: „Laut Wieser …“, „Von Egger …“.
+      if (NAME_DAVOR.has(k)) return true;
+      if (/^\p{Lu}/u.test(w)) return d.index !== null && entscheide(d.index);
+      // Ein Adjektiv vor dem Hauptwort: „die neuen Leuchten“, „großes Interesse“.
+      if (/(?:e|en|er|es|em)$/u.test(k) && k.length > 3) return false;
+      return true;
+    };
+    const entscheide = (i: number): boolean => {
+      if (status.has(i)) return status.get(i)!;
+      status.set(i, false);
+      const ergebnis = istKandidat(i) && nachStellung(i);
+      status.set(i, ergebnis);
+      return ergebnis;
+    };
+    for (let i = 0; i < treffer.length; i += 1) entscheide(i);
+    // „Unterberger und Egger“, „Huber, Wieser und Egger“: Was über „und“ oder ein Komma an einen Eigennamen anschließt, ist
+    // auch einer, auch am Satzanfang. Von hinten nach vorn, damit eine Aufzählung ganz fällt.
+    for (let i = treffer.length - 2; i >= 0; i -= 1) {
+      if (status.get(i) || !istKandidat(i)) continue;
+      const m = treffer[i]!;
+      const n = treffer[i + 1]!;
+      const zwischen = text.slice(m.index! + m[0].length, n.index!);
+      if (status.get(i + 1) && /^(?:,[ \t]*|[ \t]+(?:und|oder|sowie|&)[ \t]+)$/u.test(zwischen)) status.set(i, true);
+    }
+    const woerter = new Set(treffer.filter((_t, i) => status.get(i)).map((t) => t[0]));
+    if (woerter.size === 0) return text;
+    if (woerter.size > MAX_EIGENNAMEN) {
+      throw new PseudonymizationError(`Mehr als ${MAX_EIGENNAMEN} Eigennamen in einem Lauf, es wird nichts gesendet`);
+    }
+    const alle = [...woerter].sort((a, b) => b.length - a.length).map(escapeRe);
+    const re = new RegExp(`(?<![\\p{L}\\p{N}_\\[])(?:${alle.join('|')})(?![\\p{L}\\p{N}_\\]])`, 'gu');
+    return text.replace(re, (w) => this.verdecke('NAME', w));
+  }
+
   /** Hinter einem Kennwort jede Nummer einer Aufzählung: „den Artikeln 112455, 112456 und 31540“. */
   private artikelMitKennwort(text: string): string {
     return text.replace(ARTIKEL_LISTE_RE, (_m, kennwort: string, liste: string) =>
@@ -1007,6 +1261,9 @@ export class PseudonymSession {
         return this.verdecke('ADRESSE', m);
       });
     }
+    // Vor der Artikelnummer ohne Kennwort: „17.11.2026“ und „240 Stück“ sind kein Muster einer Artikelnummer.
+    if (this.an('DATUM')) out = this.daten(out);
+    if (this.an('MENGE')) out = this.mengen(out);
     if (this.an('ARTIKELNR')) out = this.artikelOhneKennwort(out);
     if (this.an('FIRMA')) replace(COMPANY_RE, 'FIRMA');
     if (this.an('PROJEKT')) out = this.projekte(out);
@@ -1020,8 +1277,11 @@ export class PseudonymSession {
         if (FIRST_NAMES.has(match[1]!.toLowerCase())) this.addPerson(match[1]!);
       }
       this.learnNames(out);
+      this.vornamenAllein(out);
     }
     out = this.replacePersons(out);
+    // Nach den Personen: Was als Teil eines Namens schon fiel, bleibt [PERSON_1.2]; „streng“ fängt den Rest.
+    if (this.an('PERSON') && this.stufe === 'streng') out = this.eigennamen(out);
     if (new RegExp(EMAIL_RE.source, 'u').test(out)) {
       throw new PseudonymizationError('Eine Mailadresse wäre unverändert hinausgegangen');
     }
