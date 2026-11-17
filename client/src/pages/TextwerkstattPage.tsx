@@ -323,14 +323,16 @@ export default function TextwerkstattPage() {
       .catch(() => setStilprofile([]));
   }, []);
 
-  // KI-Wege: Vorgabe ist der erste verfügbare lokale Weg. Einen Cloud-Weg wählt nur der Nutzer selbst. Ein gesperrter Weg
-  // wird nie vorgewählt: In der Demo (Lokal ohne Schlüssel) stand Lokal gewählt und gesperrt da, und wer auf Cloud wechselte,
-  // kam scheinbar nicht mehr zurück (Meldung Thomas 17.11.2026). Ohne verfügbaren lokalen Weg ist nichts gewählt.
+  // KI-Wege: Vorgabe ist der erste verfügbare lokale Weg; außerhalb der Demo wählt einen Cloud-Weg nur der Nutzer selbst, auch
+  // wenn Lokal gerade ausfällt. In der Demo gibt es kein Lokal, dort ist der erste verfügbare Cloud-Weg vorgewählt (Wunsch Thomas
+  // 17.11.2026). Ein gesperrter Weg wird nie vorgewählt: In der Demo stand Lokal gewählt und gesperrt da, und wer auf Cloud
+  // wechselte, kam scheinbar nicht mehr zurück (Meldung Thomas 17.11.2026).
   useEffect(() => {
     const wege = kiStatus?.wege ?? [];
     if (optWeg && wege.some((w) => w.id === optWeg)) return;
-    const lokal = wege.find((w) => w.art === 'lokal' && w.verfuegbar);
-    if (lokal) setOptWeg(lokal.id);
+    const art = einstellungen().demo ? 'cloud' : 'lokal';
+    const vorgabe = wege.find((w) => w.art === art && w.verfuegbar);
+    if (vorgabe) setOptWeg(vorgabe.id);
   }, [kiStatus, optWeg]);
   const kiWege = kiStatus?.wege ?? [];
   const gewaehlterWeg = kiWege.find((w) => w.id === optWeg) ?? null;
@@ -949,8 +951,11 @@ export default function TextwerkstattPage() {
           </p>
 
           {/* Zwei feste Zeilen (Entscheid Thomas 17.11.2026): Zeile 1 ist in jedem Schritt gleich (Sprache, Zielsprache, Channel),
-              Zeile 2 trägt nur, was der gewählte Schritt kennt. Jede Beschriftung steht über ihrem Feld. Am Handy zwei Spalten. */}
-          <div className="grid grid-cols-2 gap-x-3 gap-y-3 mb-3 sm:flex sm:flex-wrap sm:items-end sm:gap-x-4">
+              Zeile 2 trägt nur, was der gewählte Schritt kennt. Jede Beschriftung steht über ihrem Feld. Am Handy zwei Spalten.
+              Ausnahme Prüfen: Zeile 2 hat dort nur den Prüfumfang, ab md stehen beide Zeilen deshalb in einer (Wunsch Thomas
+              17.11.2026). Die Klammer ist ein Flex-Behälter, die Zeilen lösen sich darin auf (`md:contents`). */}
+          <div className={schritt === 'pruefen' ? 'md:flex md:flex-wrap md:items-end md:gap-x-4 md:gap-y-3 md:mb-4' : ''}>
+          <div className={`grid grid-cols-2 gap-x-3 gap-y-3 mb-3 sm:flex sm:flex-wrap sm:items-end sm:gap-x-4${schritt === 'pruefen' ? ' md:contents' : ''}`}>
             {/* Ausgangs- und Zielsprache bleiben am Handy in einer Zeile zusammen; ab sm löst sich die Klammer auf (`contents`). */}
             <div className={schritt === 'uebersetzen' ? 'col-span-2 flex items-end gap-2 sm:contents' : 'contents'}>
               <div className="min-w-0 flex-1 sm:flex-none">
@@ -1013,7 +1018,7 @@ export default function TextwerkstattPage() {
 
           </div>
 
-          <div className="grid grid-cols-2 gap-x-3 gap-y-3 mb-4 sm:flex sm:flex-wrap sm:items-end sm:gap-x-4">
+          <div className={`grid grid-cols-2 gap-x-3 gap-y-3 mb-4 sm:flex sm:flex-wrap sm:items-end sm:gap-x-4${schritt === 'pruefen' ? ' md:contents' : ''}`}>
             {schritt === 'pruefen' && (
               <>
                 <div className="col-span-2 sm:col-span-1 min-w-0">
@@ -1206,6 +1211,7 @@ export default function TextwerkstattPage() {
                 </div>
               </>
             )}
+          </div>
           </div>
 
           {/* Hinweise zu Modus und Anrede unter der Zeile: daneben hätten sie die Felder aus der Flucht geschoben. */}
