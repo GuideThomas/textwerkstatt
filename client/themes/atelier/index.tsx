@@ -2,7 +2,7 @@
  * Atelier-Thema nach dem TW-CD-Guide (Projekte/TW-CD-Guide/TW_CD_GUIDE.md, Stand 12.11.2026): warmes Papier, Tusche,
  * Graphit und ein einziger Lichtakzent in Messing. Rahmenlos, linksbündig, Jost für Überschriften, keine fremden Anfragen.
  *
- * Farben als Tailwind-Tokens (`paper`, `ink`, `graphite`, `hairline`, `brass`, `sage`, `rust`) in `tailwind.json`, die
+ * Farben als Tailwind-Tokens (`paper`, `ink`, `graphite`, `hairline`, `terra`, `sage`, `rust`) in `tailwind.json`, die
  * Variablen der gemeinsamen Bausteine in `thema.css`. Vorgabe des öffentlichen Repos (client/thema.config.js).
  */
 import { useTranslation } from 'react-i18next';
@@ -57,22 +57,22 @@ const thema: Thema = {
 
   // Dachzeile über dem Titel (§3): Jost 500, leicht gesperrt, Messing 700, normale Schreibung
   AnmeldeLogo: () => (
-    <p className="font-display text-sm font-medium tracking-[0.04em] text-brass-700">Thomas Winkler</p>
+    <p className="font-display text-sm font-medium tracking-[0.04em] text-terra-700">Thomas Winkler</p>
   ),
 
   // Helle Kopfzeile auf Papier, aktiver Reiter mit Messing-Marker unten (Farbe nie allein: dazu Tusche statt Graphit)
   kopf: {
-    stil: { background: 'rgba(251, 249, 245, 0.95)', borderBottom: '1px solid #dfd9cd' },
-    reiterAktiv: 'text-ink-950 shadow-[inset_0_-2px_0_#b88228]',
+    stil: { background: 'rgba(251, 247, 243, 0.95)', borderBottom: '1px solid #e5d8cd' },
+    reiterAktiv: 'text-ink-950 shadow-[inset_0_-2px_0_#c8704e]',
     reiterInaktiv: 'text-graphite-700 hover:bg-paper-100 hover:text-ink-950',
     trenner: 'bg-hairline-200',
     menue: 'border border-hairline-200',
-    menueStil: { background: '#fbf9f5' },
-    menueTitel: 'font-display text-xs font-medium tracking-[0.04em] text-brass-700',
-    menueEintragAktiv: 'text-ink-950 bg-brass-100',
+    menueStil: { background: '#fbf7f3' },
+    menueTitel: 'font-display text-xs font-medium tracking-[0.04em] text-terra-700',
+    menueEintragAktiv: 'text-ink-950 bg-terra-100',
     menueEintragInaktiv: 'text-graphite-700 hover:bg-paper-100 hover:text-ink-950',
     kuerzel: 'text-ink-950 bg-paper-200 hover:bg-hairline-200',
-    kuerzelAktiv: 'ring-2 ring-brass-500',
+    kuerzelAktiv: 'ring-2 ring-terra-500',
     abmelden: 'text-graphite-600 hover:text-ink-950 hover:bg-paper-100',
     rechts: 'lg:border-hairline-200',
     sprachwahl: 'light',
@@ -80,8 +80,8 @@ const thema: Thema = {
 
   // Rahmenlos auf dem Papiergrund, linksbündig
   anmeldung: {
-    karte: { backgroundColor: 'rgba(251, 249, 245, 0.95)' },
-    feld: 'text-ink-950 bg-paper-50 border border-hairline-300 focus:border-brass-500',
+    karte: { backgroundColor: 'rgba(251, 247, 243, 0.95)' },
+    feld: 'text-ink-950 bg-paper-50 border border-hairline-300 focus:border-terra-500',
     kopf: 'text-left',
     titel: 'font-display text-ink-950',
     titelStil: { fontWeight: 400, fontSize: 32, letterSpacing: '-0.01em', lineHeight: 1.1 },
@@ -97,11 +97,11 @@ const thema: Thema = {
     </div>
   ),
 
-  unterreiterAktiv: 'border-brass-500',
+  unterreiterAktiv: 'border-terra-500',
   Fuss,
   // Ohne Skizzen-Hintergrund (TW-CD-Guide §6): Entscheid Thomas 13.11.2026, der Papiergrund bleibt
   Hintergrund: null,
-  kategorieFarbe: '#b88228',
+  kategorieFarbe: '#c8704e',
 };
 
 export default thema;

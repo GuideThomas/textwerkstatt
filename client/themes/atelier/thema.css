@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Atelier-Thema — nach Projekte/TW-CD-Guide/TW_CD_GUIDE.md (Stand 12.11.2026)
+   Atelier-Thema — nach Projekte/TW-CD-Guide/TW_CD_GUIDE.md (Stand 19.11.2026: Terrakotta §2a, Bewegung §2b)
    Werte aus TW-CD-Guide/assets/tw-ci.css; Jost liegt selbst ausgeliefert unter public/fonts/.
 
    Diese Datei steht vor `@tailwind` (Schrift-Imports müssen vorn stehen). Wo das Atelier eine gemeinsame
@@ -29,69 +29,69 @@
   --schrift-text: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --schrift-titel: "Jost Variable", Futura, "Century Gothic", "Avenir Next", system-ui, sans-serif;
 
-  /* Messing: Fokus, Marker, Fortschritt — nie als Text */
-  --pal-primary:        #b88228;
-  --pal-primary-hover:  #8a5b10;
-  --pal-primary-soft:   #f9f1e1;
-  --pal-primary-border: #e2be78;
-  /* Primärknopf in Tusche, die stärkste Fläche der Seite (§5) */
-  --pal-primary-btn:       #141311;
-  --pal-primary-btn-hover: #33302b;
-  --pal-akzent-text:       #8a5b10;
+  /* Terrakotta: Fokus, Marker, Fortschritt — nie als Text */
+  --pal-primary:        #c8704e;
+  --pal-primary-hover:  #9a3f22;
+  --pal-primary-soft:   #f7e8e0;
+  --pal-primary-border: #e2a98f;
+  /* Primärknopf in Akzentfarbe (Entscheid Thomas 19.11.2026), die stärkste Fläche der Seite */
+  --pal-primary-btn:       #9a3f22;
+  --pal-primary-btn-hover: #7c3019;
+  --pal-akzent-text:       #9a3f22;
 
   /* Sekundärknopf: Umriss in Tusche auf Papier */
-  --pal-btn2-grund:        #fbf9f5;
-  --pal-btn2-grund-hover:  #f4f0e8;
-  --pal-btn2-text:         #141311;
-  --pal-btn2-rand:         #33302b;
+  --pal-btn2-grund:        #fbf7f3;
+  --pal-btn2-grund-hover:  #f3e9e1;
+  --pal-btn2-text:         #1a1310;
+  --pal-btn2-rand:         #3a2e27;
   --pal-gefahr-rand:       #dcaba3;
 
-  --pal-feld-rand:         #cbc3b4;
-  --pal-feld-fokus-grund:  #fbf9f5;
+  --pal-feld-rand:         #d2c1b3;
+  --pal-feld-fokus-grund:  #fbf7f3;
 
-  --pal-badge-primaer-grund: #f9f1e1;
-  --pal-badge-primaer-text:  #8a5b10;
-  --pal-badge-magenta-grund: #f4f0e8;
-  --pal-badge-magenta-text:  #47433d;
+  --pal-badge-primaer-grund: #f7e8e0;
+  --pal-badge-primaer-text:  #9a3f22;
+  --pal-badge-magenta-grund: #f3e9e1;
+  --pal-badge-magenta-text:  #4a3d36;
 
-  --pal-treffer-glossar-grund: #f9f1e1;
-  --pal-treffer-glossar-text:  #6e470b;
+  --pal-treffer-glossar-grund: #f7e8e0;
+  --pal-treffer-glossar-text:  #7c3019;
   --pal-treffer-channel-grund: #eef3ef;
   --pal-treffer-channel-text:  #2c4c3a;
 
-  --pal-scroll:       #cbc3b4;
-  --pal-scroll-hover: #b2a896;
+  --pal-scroll:       #d2c1b3;
+  --pal-scroll-hover: #c4ad9d;
 
   /* Anmeldung: rahmenlos auf Papier */
-  --login-text-hell:          #47433d;
-  --login-text-leise:         #5e5951;
+  --login-text-hell:          #4a3d36;
+  --login-text-leise:         #64554c;
   --login-fehler-grund:       #faf1ef;
   --login-fehler-rand:        #faf1ef;
   --login-fehler-text:        #6e2218;
-  --login-zweitknopf-grund:   #fbf9f5;
-  --login-zweitknopf-rand:    1px solid #33302b;
-  --login-zweitknopf-text:    #141311;
+  --login-zweitknopf-grund:   #fbf7f3;
+  --login-zweitknopf-rand:    1px solid #3a2e27;
+  --login-zweitknopf-text:    #1a1310;
 
   /* Papiergrund ohne Skizzen (Entscheid Thomas 13.11.2026: „Hintergrund farbig, Skizzen weg“) */
-  --pal-main-bg:      #fbf9f5;
-  --pal-card-bg:      rgba(251, 249, 245, 0.95);
-  --pal-card-border:  #dfd9cd;
-  --pal-card-divider: #dfd9cd;
+  --pal-main-bg:      #fbf7f3;
+  --pal-card-bg:      rgba(251, 247, 243, 0.95);
+  --pal-card-border:  #e5d8cd;
+  --pal-card-divider: #e5d8cd;
 
-  --pal-text-primary:   #141311;
-  --pal-text-secondary: #47433d;
-  --pal-text-muted:     #5e5951;
-  --pal-text-label:     #1f1d1a;
+  --pal-text-primary:   #1a1310;
+  --pal-text-secondary: #4a3d36;
+  --pal-text-muted:     #64554c;
+  --pal-text-label:     #2a201b;
 }
 
-html, html body { background-color: #fbf9f5; color: #47433d; }
+html, html body { background-color: #fbf7f3; color: #4a3d36; }
 
 /* Überschriften und Namen in Jost (§3) */
 html h1, html h2, html h3, html .card-header-title { font-family: var(--schrift-titel); }
 html h1 { font-weight: 400; letter-spacing: -0.01em; }
-html h2, html h3, html .card-header-title { font-weight: 500; color: #1f1d1a; }
+html h2, html h3, html .card-header-title { font-weight: 500; color: #2a201b; }
 
-/* Links: Messing 700 mit Abstand der Unterstreichung, Hover Tusche (§5) */
+/* Links: Terrakotta 700 mit Abstand der Unterstreichung, Hover Tusche (§5) */
 html a { text-underline-offset: 3px; }
 
 /* --------------------------------------------------------------------------
@@ -100,11 +100,11 @@ html a { text-underline-offset: 3px; }
 
 /* Keine Schatten; wo ein Schatten Ebenen trennte (Menüs, Dialoge), bleibt eine Haarlinie */
 html .shadow-sm, html .shadow { box-shadow: none; }
-html .shadow-md, html .shadow-lg, html .shadow-xl, html .shadow-2xl { box-shadow: 0 0 0 1px #dfd9cd; }
+html .shadow-md, html .shadow-lg, html .shadow-xl, html .shadow-2xl { box-shadow: 0 0 0 1px #e5d8cd; }
 
 /* Karten: eine Haarlinie, keine Kästen in Kästen */
 html .card { box-shadow: none; border-radius: 6px; }
-html .card .card { border: 0; border-top: 1px solid #dfd9cd; border-radius: 0; background-color: transparent; }
+html .card .card { border: 0; border-top: 1px solid #e5d8cd; border-radius: 0; background-color: transparent; }
 
 /* Ecken klein (6 px, §4) */
 html .rounded-lg, html .rounded-xl, html .rounded-2xl { border-radius: 6px; }
@@ -114,15 +114,30 @@ html .uppercase, html .badge { text-transform: none; }
 html .tracking-wide, html .tracking-wider, html .tracking-widest, html .badge { letter-spacing: 0.02em; }
 html .badge { font-size: 11px; font-weight: 500; }
 
-/* Knöpfe (§5): Tusche, Schrift 500, Ecken 6 px; Hover einheitlich Tusche 800 */
+/* Knöpfe (§5): Akzent, Schrift 500, Ecken 6 px; Hover einheitlich Terrakotta 800 */
 html .btn-primary, html .btn-primary-sm, html .btn-secondary, html .btn-danger { font-weight: 500; border-radius: 6px; }
-html .hover\:bg-primary-700:hover { background-color: #33302b; }
+html .hover\:bg-primary-700:hover { background-color: #7c3019; }
 
-/* Felder: Papier mit Haarlinie, Fokus in Messing */
-html .input { background-color: #fbf9f5; }
+/* Felder: Papier mit Haarlinie, Fokus in Terrakotta */
+html .input { background-color: #fbf7f3; }
 
 /* Platzhalter und Deaktiviertes: lesbarer als Haarlinie 300 */
-html .text-gray-300, html .disabled\:text-gray-300:disabled, html .input::placeholder { color: #b2a896; }
+html .text-gray-300, html .disabled\:text-gray-300:disabled, html .input::placeholder { color: #c4ad9d; }
+
+/* --------------------------------------------------------------------------
+   Bewegung (TW-CD-Guide §2b, 19.11.2026). Die Textwerkstatt ist ein Werkzeug, darum nur „Dezent“:
+   Knöpfe geben beim Drücken nach, Übergänge an Knöpfen und Links, Karten blenden beim Erscheinen ein.
+   Kein Aufsteigen, kein Zoom — das bleibt der Startseite vorbehalten.
+   -------------------------------------------------------------------------- */
+html .btn-primary, html .btn-primary-sm, html .btn-secondary, html .btn-danger, html button {
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .12s ease;
+}
+html .btn-primary:active:not(:disabled), html .btn-primary-sm:active:not(:disabled),
+html .btn-secondary:active:not(:disabled), html .btn-danger:active:not(:disabled) { transform: scale(.98); }
+html .btn-secondary:hover:not(:disabled) { box-shadow: inset 0 0 0 1px currentColor; }
+html a { transition: color .2s ease, text-decoration-color .2s ease; }
+@keyframes twEinblenden { from { opacity: 0; } to { opacity: 1; } }
+html .card { animation: twEinblenden .35s ease both; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
